@@ -5,6 +5,29 @@
   color: #425f83;
   font-size: 24px;
 }
+.main {
+  position: relative;
+  width: 390px;
+  height: 844px;
+  margin-top: unset;
+}
+.container {
+  position: relative;
+}
+#bg1 {
+  position: absolute;
+  left: 0px;
+}
+#bg2 {
+  position: absolute;
+  left: 0px;
+  bottom: 0px;
+}
+#cloud {
+  position: absolute;
+  left: 19px;
+  top: 154px;
+}
 .button {
   width: 243.8px;
   height: 46px;
@@ -14,12 +37,35 @@
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
+.allChuose {
+  display: flex;
+  justify-content: center;
+  padding-top: 10vh;
+  margin-top: unset;
+}
 .chuose {
   font-family: 'Quicksand', sans-serif;
   font-size: 60px;
   letter-spacing: -2px;
 }
+.center {
+  display: flex;
+  justify-content: center;
+  /* margin-left: auto;
+  margin-right: auto;
+  width: 50%; */
+}
 
+.paragraph {
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 16px;
+  margin-top: unset;
+  color: white;
+  padding-bottom: 42px;
+}
 .App {
   text-align: center;
 }
