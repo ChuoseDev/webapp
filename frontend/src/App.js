@@ -12,6 +12,8 @@ const App = () => {
       <BrowserRouter>
         <Switch>
           <Route exact path="/" element={<Info />}></Route>
+          <Route exact path="/signup" element={<Signup />}></Route>
+          <Route exact path="/loading" element={<Loading />}></Route>
         </Switch>
       </BrowserRouter>
     </div>

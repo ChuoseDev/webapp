@@ -186,6 +186,13 @@ input[type='number'] {
   display: flex;
   justify-content: center;
   padding-top: 10vh;
+  margin-top: unset;
+  
+}
+.allChuose-info {
+  display: flex;
+  justify-content: center;
+  padding-top: 10vh;
   margin-top: -140px;
 }
 .chuose {
