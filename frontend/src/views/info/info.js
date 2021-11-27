@@ -3,9 +3,9 @@ import '../../App.css'
 
 const Info = () => {
   return (
-    <div class="main">
+    <div class="main-info">
       <img id="bg-03" src={'images/BG_03.svg'} alt="background" />
-      <div class="container">
+      <div class="container-info">
         <h1 class="header">Before start, we would like to know you more...</h1>
         <input clsssname="button-info" type="text" placeholder="USERNAME" />
       </div>
