@@ -5,6 +5,58 @@
   color: #425f83;
   font-size: 24px;
 }
+.button {
+  width: 243.8px;
+  height: 46px;
+  border-radius: 100vh;
+  border: none;
+  background-color: white;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  margin-top: 50px;
+}
+
+.button-info {
+  width: 243.8px;
+  height: 46px;
+  border-radius: 100vh;
+  border: none;
+  background-color: white;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+input[type='text'] {
+  width: 243.8px;
+  height: 46px;
+  border-radius: 100vh;
+  border: none;
+  background-color: white;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 21px;
+  text-align: center;
+  margin-top: 30px;
+}
+
+input[type='number'] {
+  width: 243.8px;
+  height: 46px;
+  border-radius: 100vh;
+  border: none;
+  background-color: white;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 21px;
+  text-align: center;
+  margin-top: 9px;
+}
+
+.chuose {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 60px;
+  letter-spacing: -2px;
+}
+
+
 .main {
   position: relative;
   width: 390px;
@@ -28,26 +80,7 @@
   left: 19px;
   top: 154px;
 }
-.button {
-  width: 243.8px;
-  height: 46px;
-  border-radius: 100vh;
-  border: none;
-  background-color: white;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-}
 
-.allChuose {
-  display: flex;
-  justify-content: center;
-  padding-top: 10vh;
-  margin-top: unset;
-}
-.chuose {
-  font-family: 'Quicksand', sans-serif;
-  font-size: 60px;
-  letter-spacing: -2px;
-}
 .center {
   display: flex;
   justify-content: center;
@@ -87,12 +120,6 @@
   pointer-events: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -108,11 +135,70 @@
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.header {
+  font-weight: 500;
+  font-size: 18px;
+  width: 289px;
+  height: 26px;
+  text-align: left;
+  margin-top: 87px;
+  color: white;
+}
+
+.container-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#gender {
+  width: 243.8px;
+  height: 46px;
+  border-radius: 100vh;
+  border: none;
+  background-color: white;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 21px;
+  text-align: center;
+  margin-top: 9px;
+  color: #425f839e;
+}
+
+#clouds {
+  position: absolute;
+  left: 261px;
+  top: 526px;
+}
+
+#charactor {
+  margin-top: 99px;
+}
+
+#bg-03 {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  z-index: -1;
+}
+
+.allChuose {
+  display: flex;
+  justify-content: center;
+  padding-top: 10vh;
+  margin-top: -140px;
+}
+.chuose {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 60px;
+  letter-spacing: -2px;
+}
+
+.main-info {
+  position: relative;
+}
+
+::placeholder {
+  color: #425f839e;
+  opacity: 1;
 }
