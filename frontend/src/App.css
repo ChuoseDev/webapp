@@ -66,6 +66,18 @@
   color: white;
   padding-bottom: 42px;
 }
+
+#imgChar01{
+  display: flex;
+  justify-content: center;
+  margin-top:120px;
+}
+#bg0 {
+  position: absolute;
+  left: 0px;
+  bottom: 0px;
+}
+
 .App {
   text-align: center;
 }
