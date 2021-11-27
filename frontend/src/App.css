@@ -66,16 +66,6 @@ input[type='number'] {
 .container {
   position: relative;
 }
-#imgChar01{
-  display: flex;
-  justify-content: center;
-  margin-top:120px;
-}
-#bg0 {
-  position: absolute;
-  left: 0px;
-  bottom: 0px;
-}
 #bg1 {
   position: absolute;
   left: 0px;
@@ -90,8 +80,6 @@ input[type='number'] {
   left: 19px;
   top: 154px;
 }
-
-
 
 .center {
   display: flex;
@@ -111,6 +99,18 @@ input[type='number'] {
   color: white;
   padding-bottom: 42px;
 }
+
+#imgChar01{
+  display: flex;
+  justify-content: center;
+  margin-top:120px;
+}
+#bg0 {
+  position: absolute;
+  left: 0px;
+  bottom: 0px;
+}
+
 .App {
   text-align: center;
 }
