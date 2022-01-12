@@ -9,15 +9,14 @@ const Info = () => {
   const [age, setAge] = useState()
   const [gender, setGender] = useState()
 
-  const onClickSignUp = async() => {
-    try{
+  const onClickSignUp = async () => {
+    try {
       const response = await signUp(username, age, gender)
       console.log('success')
-    }
-    catch(err){
+    } catch (err) {
       console.log(err)
     }
-    }
+  }
 
   return (
     <div class="main-info">
@@ -31,15 +30,33 @@ const Info = () => {
           value={username}
           onChange={(e) => {
             setUsername(e.target.value)
+            console.log(username)
           }}
         />
       </div>
       <div class="username-container">
         <div class="age-container">
-          <input clsssname="age" type="number" placeholder="AGE" />
+          <input
+            clsssname="age"
+            type="number"
+            placeholder="AGE"
+            value={age}
+            onChange={(e) => {
+              setAge(e.target.value)
+              console.log(age)
+            }}
+          />
         </div>
         <div class="gender-container">
-          <select id="gender" name="gender" placeholder="AGE">
+          <select
+            id="gender"
+            name="gender"
+            value={gender}
+            onChange={(e) => {
+              setGender(e.target.value)
+              console.log(e.target.value)
+            }}
+          >
             <option value="" disabled selected hidden>
               GENDER
             </option>
@@ -49,7 +66,9 @@ const Info = () => {
           </select>
         </div>
 
-        <button class="button" onClick={() => onClickSignUp()}>Let's go</button>
+        <button class="button" onClick={() => onClickSignUp()}>
+          Let's go
+        </button>
         <div>
           <img id="charactor" src={'images/Charactor.svg'} alt="charactor" />
         </div>

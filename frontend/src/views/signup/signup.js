@@ -41,7 +41,9 @@ const Signup = () => {
             </p>
           </div>
           <div>
-            <button class="button">START</button>
+            <button class="button" onClick={() => (window.location.href = '/')}>
+              START
+            </button>
           </div>
         </div>
       </div>
