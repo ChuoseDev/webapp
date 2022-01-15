@@ -5,6 +5,7 @@ import { BrowserRouter, Routes as Switch, Route } from 'react-router-dom'
 import Info from './views/info/info'
 import Signup from './views/signup/signup'
 import Loading from './views/signup/loading'
+import Feeling from './views/questionnaire/feeling'
 
 const App = () => {
   return (
@@ -14,6 +15,7 @@ const App = () => {
           <Route exact path="/" element={<Info />}></Route>
           <Route exact path="/signup" element={<Signup />}></Route>
           <Route exact path="/loading" element={<Loading />}></Route>
+          <Route exact path="/feeling" element={<Feeling />}></Route>
         </Switch>
       </BrowserRouter>
     </div>
