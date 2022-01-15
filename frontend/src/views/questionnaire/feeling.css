@@ -9,8 +9,8 @@
 }
 .question{
     position: absolute;
-    left: 32px;
-    top: 363px;
+    left: 8%;
+    top: 43%;
 
     font-family: 'Comfortaa';
     font-style: normal;
@@ -23,23 +23,25 @@
 }
 .textbox{
     position: absolute;
-    width: 317px;
-    height: 110px;
-    left: 39px;
-    top: 462px;
+    width: 72%;
+    height: 9%;
+    left: 50%;
+    top: 55%;
+    transform: translate(-50%);
     background: rgba(255, 255, 255, 0.9);
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 textarea {
+    padding: 5%;
     -webkit-border-radius: 50px;
     -moz-border-radius: 50px;
-}
-textarea::placeholder {
-    position:absolute;
-    left:25px;
-    top:10px;
-    text-align:center;
+    
+    font-family: 'Comfortaa';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    color: #425F83;
 }
 
 .button {
@@ -60,7 +62,7 @@ textarea::placeholder {
 
 .bottom{
     position: absolute;
-    bottom:42px;
+    bottom:5%;
 }
 
 .center{
@@ -70,8 +72,8 @@ textarea::placeholder {
 
 .container{
     position: absolute;
-    width:390px;
-    height: 844px;
+    width: 100%;
+    height: 100%;
 }
 
 .charactor{
@@ -86,6 +88,8 @@ textarea::placeholder {
 }
 .charactor-size{
     -webkit-box-reflect: left;
-    width:437.24px;
-    height: 455.37px;
+    height: 100%;
+}
+.bg4{
+    width: 100%;
 }
