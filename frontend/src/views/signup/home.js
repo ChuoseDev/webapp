@@ -14,10 +14,9 @@ const Home = () => {
             class="allChuose"
             style={{
               position: 'absolute',
-              top: '0%',
-              marginTop: '40vh',
+              top: '50%',
               left: '50%',
-              transform: 'translate(-50%,0%)',
+              transform: 'translate(-50%,-50%)',
             }}
           >
             <div class="chuose" style={{ color: COLORS.RED, fontSize: '70px' }}>
