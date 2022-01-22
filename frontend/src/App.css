@@ -56,7 +56,6 @@ input[type='number'] {
   letter-spacing: -2px;
 }
 
-
 .main {
   position: relative;
   width: 390px;
@@ -100,11 +99,22 @@ input[type='number'] {
   padding-bottom: 42px;
 }
 
-#imgChar01{
+#imgChar01 {
   display: flex;
   justify-content: center;
-  margin-top:120px;
+  margin-top: 120px;
 }
+#sky {
+  position: absolute;
+  top: -15px;
+  left: 0%;
+  border: none;
+}
+#jumboLogo {
+  position: absolute;
+  bottom: 0%;
+}
+
 #bg0 {
   position: absolute;
   left: 0px;
@@ -185,9 +195,8 @@ input[type='number'] {
 .allChuose {
   display: flex;
   justify-content: center;
-  padding-top: 10vh;
+  /* padding-top: 10vh; */
   margin-top: unset;
-  
 }
 .allChuose-info {
   display: flex;
