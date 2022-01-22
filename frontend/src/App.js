@@ -6,6 +6,7 @@ import Home from './views/signup/home'
 import Info from './views/info/info'
 import Signup from './views/signup/signup'
 import Loading from './views/signup/loading'
+import Feeling from './views/questionnaire/feeling'
 
 const App = () => {
   return (
@@ -15,6 +16,7 @@ const App = () => {
           <Route exact path="/" element={<Info />}></Route>
           <Route exact path="/signup" element={<Signup />}></Route>
           <Route exact path="/loading" element={<Loading />}></Route>
+          <Route exact path="/feeling" element={<Feeling />}></Route>
           <Route exact path="/home" element={<Home />}></Route>
         </Switch>
       </BrowserRouter>
