@@ -182,7 +182,8 @@ input[type='number'] {
 }
 
 #charactor {
-  margin-top: 99px;
+  margin-top: 140px;
+  margin-left: 0px;
 }
 
 #bg-03 {
@@ -217,4 +218,11 @@ input[type='number'] {
 ::placeholder {
   color: #425f839e;
   opacity: 1;
+}
+
+#sky-info {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  z-index: -1;
 }
