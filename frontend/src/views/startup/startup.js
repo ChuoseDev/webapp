@@ -7,7 +7,9 @@ const Startup = () => {
   const scaleHeight = window.innerHeight / 844
   const scaleWidth = window.innerWidth / 390
   const [scene, setScene] = useState(0)
+  const [opacity, setOpacity] = useState(0.3)
   useEffect(() => {
+    setOpacity(1)
     setTimeout(() => {
       setScene(1)
     }, 300)
@@ -21,6 +23,11 @@ const Startup = () => {
       setScene(4)
     }, 5500)
   }, [])
+
+  const stageProps = {
+    width: window.innerWidth,
+    height: window.innerHeight,
+  }
 
   const chuoseLogoProps = {
     image: 'images/logo.svg',
@@ -98,6 +105,7 @@ const Startup = () => {
     animation: {
       2: { y: 602 * scaleHeight, duration: 0.4 },
       3: { y: 413 * scaleHeight, duration: 1 },
+      5: { y: 602 * scaleHeight, duration: 1 },
     },
   }
 
@@ -112,80 +120,85 @@ const Startup = () => {
   }
 
   const onClickStart = () => {
-    if (scene >= 4) {
-      window.location.href = '/'
+    if (scene === 4) {
+      setScene(5)
+      setOpacity(0)
+      setTimeout(() => {
+        window.location.href = '/information'
+      }, 1500)
     }
   }
 
   return (
-    <Stage width={window.innerWidth} height={window.innerHeight}>
-      <Layer>
-        <AnimateImage {...backgroundProps} />
-        <AnimateImage {...chuoseLogoProps} />
-        <AnimateImage {...floatChuoseProps} />
-        <AnimateImage {...jumboChuoseProps} />
-        <AnimateImage {...topBannerProps} />
-        <AnimateImage {...bottomBannerProps} />
-        <Group {...welcomeTextProps}>
-          <Html>
-            <div
-              style={{
-                opacity: scene >= 4 ? 1 : 0,
-                transition: 'ease-in-out 0.5s',
-              }}
-            >
-              <p
-                className="header"
+    <div style={{ opacity, transition: 'opacity ease-in-out 1.5s' }}>
+      <Stage {...stageProps}>
+        <Layer>
+          <AnimateImage {...backgroundProps} />
+          <AnimateImage {...chuoseLogoProps} />
+          <AnimateImage {...floatChuoseProps} />
+          <AnimateImage {...jumboChuoseProps} />
+          <AnimateImage {...topBannerProps} />
+          <AnimateImage {...bottomBannerProps} />
+          <Group {...welcomeTextProps}>
+            <Html>
+              <div
                 style={{
-                  fontSize: 18 * scaleWidth,
-                  fontWeight: 'bold',
-                  color: '#ffffff',
-                  margin: 0,
+                  opacity: scene === 4 ? 1 : 0,
+                  transition: 'ease-in-out 0.5s',
                 }}
               >
-                สวัสดีจ้า!!
-              </p>
-              <p
-                style={{
-                  fontSize: 16 * scaleWidth,
-                  color: '#ffffff',
-                  textAlign: 'left',
-                  margin: 0,
-                }}
-              >
-                เราชื่อ “ชูโอส”
-                <br />
-                เราจะเป็นเพื่อนคอยรับฟังเธอ/คุณเอง
-              </p>
-            </div>
-          </Html>
-        </Group>
-        <Group {...startButtonProps}>
-          <Html>
-            <WhiteButton
-              onClick={onClickStart}
-              style={{
-                width: 243 * scaleWidth,
-                height: 46 * scaleWidth,
-                opacity: scene >= 4 ? 1 : 0,
-                transition: 'ease-in-out 0.5s',
-              }}
-              children={
                 <p
+                  className="header"
                   style={{
-                    margin: 0,
-                    fontSize: 24 * scaleWidth,
+                    fontSize: 18 * scaleWidth,
                     fontWeight: 'bold',
+                    color: '#ffffff',
+                    margin: 0,
                   }}
                 >
-                  เริ่มเลย
+                  สวัสดีจ้า!!
                 </p>
-              }
-            />
-          </Html>
-        </Group>
-      </Layer>
-    </Stage>
+                <p
+                  style={{
+                    fontSize: 16 * scaleWidth,
+                    color: '#ffffff',
+                    textAlign: 'left',
+                  }}
+                >
+                  เราชื่อ “ชูโอส”
+                  <br />
+                  เราจะเป็นเพื่อนคอยรับฟังเธอ/คุณเอง
+                </p>
+              </div>
+            </Html>
+          </Group>
+          <Group {...startButtonProps}>
+            <Html>
+              <WhiteButton
+                onClick={onClickStart}
+                style={{
+                  width: 243 * scaleWidth,
+                  height: 46 * scaleWidth,
+                  opacity: scene === 4 ? 1 : 0,
+                  transition: 'ease-in-out 0.5s',
+                }}
+                children={
+                  <p
+                    style={{
+                      margin: 0,
+                      fontSize: 24 * scaleWidth,
+                      fontWeight: 'bold',
+                    }}
+                  >
+                    เริ่มเลย
+                  </p>
+                }
+              />
+            </Html>
+          </Group>
+        </Layer>
+      </Stage>
+    </div>
   )
 }
 
