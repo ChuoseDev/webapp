@@ -18,7 +18,7 @@ const Startup = () => {
     }, 1500)
     setTimeout(() => {
       setScene(3)
-    }, 5000)
+    }, 4000)
     setTimeout(() => {
       setScene(4)
     }, 5500)
@@ -83,6 +83,23 @@ const Startup = () => {
 
   const floatChuoseProps = {
     image: 'images/Charactor.svg',
+    x: (window.innerWidth - 280 * scaleHeight) / 2,
+    y: -0.5 * window.innerHeight,
+    rotation: -7,
+    width: 314.62 * scaleWidth,
+    height: 361 * scaleWidth,
+    scene,
+    animation: {
+      2: { y: 80 * scaleHeight, duration: 1.5 },
+      3: { y: 50 * scaleHeight, rotation: 14, duration: 1 },
+      4: {
+        width: 278.07 * scaleWidth,
+        height: 319.06 * scaleWidth,
+        y: 200 * scaleHeight,
+        rotation: -14,
+        duration: 0.5,
+      },
+    },
   }
 
   const topBannerProps = {
