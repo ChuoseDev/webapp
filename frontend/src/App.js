@@ -1,12 +1,13 @@
 import logo from './logo.svg'
 import './App.css'
 import { BrowserRouter, Routes as Switch, Route } from 'react-router-dom'
-//import Signup from './views/signup/signup'
 import Home from './views/signup/home'
 import Info from './views/info/info'
 import Signup from './views/signup/signup'
 import Loading from './views/signup/loading'
 import Feeling from './views/questionnaire/feeling'
+import Startup from 'views/startup/startup'
+import Information from 'views/information/information'
 
 const App = () => {
   return (
@@ -18,6 +19,8 @@ const App = () => {
           <Route exact path="/loading" element={<Loading />}></Route>
           <Route exact path="/feeling" element={<Feeling />}></Route>
           <Route exact path="/home" element={<Home />}></Route>
+          <Route exact path="/startup" element={<Startup />}></Route>
+          <Route exact path="/information" element={<Information />}></Route>
         </Switch>
       </BrowserRouter>
     </div>
