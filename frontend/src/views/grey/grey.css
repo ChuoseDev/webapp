@@ -1,0 +1,245 @@
+#star {
+  position: absolute;
+  left: 25px;
+  top: 62px;
+  animation-name: starAni;
+  animation-duration: 7s;
+}
+
+#bgColor {
+  position: absolute;
+  width: 390px;
+  height: 844px;
+  background-color: black;
+  animation-name: gradColor;
+  animation-duration: 7s;
+}
+
+#btmCloud {
+  opacity: 0.35;
+  left: -893px;
+  top: 422px;
+  position: inherit;
+  animation-name: btmCloudAni;
+  animation-duration: 7s;
+}
+#greyText {
+  position: absolute;
+  opacity: 0%;
+  font-size: 18px;
+  animation-name: greyTextAni;
+  animation-duration: 7s;
+}
+
+#topCloud {
+  left: -315px;
+  top: -10px;
+  transform: rotate(180deg);
+  opacity: 0.3;
+  position: inherit;
+  animation-name: topCloudAni;
+  animation-duration: 7s;
+}
+
+#greyChar00 {
+  opacity: 0%;
+  position: absolute;
+  animation-name: greyChar00Ani;
+  animation-duration: 7s;
+}
+
+#greyChar01 {
+  opacity: 0%;
+  position: absolute;
+  animation-name: greyChar01Ani;
+  animation-duration: 7s;
+}
+
+@keyframes greyTextAni {
+  0% {
+    color: black;
+    top: 179px;
+    width: 390px;
+  }
+  66.7% {
+    top: 187px;
+    width: 390px;
+  }
+  83.3% {
+    color: white;
+    top: 377px;
+    width: 390px;
+    opacity: 100%;
+  }
+  100% {
+    top: 377px;
+    width: 390px;
+    opacity: 0%;
+  }
+}
+
+@keyframes greyChar00Ani {
+  0% {
+    left: 93px;
+    top: 341px;
+  }
+  16.7% {
+    left: 93px;
+    top: 341px;
+    transform: scale(1.36, 1.36);
+    opacity: 100%;
+  }
+  16.8% {
+    opacity: 0%;
+  }
+  100% {
+    opacity: 0%;
+  }
+}
+
+@keyframes greyChar01Ani {
+  0% {
+    left: 7.24px;
+    top: 322px;
+    opacity: 0%;
+  }
+  16.6% {
+    left: 7.24px;
+    top: 260px;
+    opacity: 0%;
+    transform: scale(0.82, 0.82);
+  }
+  16.7% {
+    left: 7.24px;
+    top: 260px;
+    opacity: 100%;
+    transform: scale(0.82, 0.82);
+  }
+  33.3% {
+    left: 7.24px;
+    top: 300px;
+  }
+  50% {
+    left: 7.24px;
+    top: 322px;
+    transform: scale(1.35, 1.35);
+  }
+  66.7% {
+    left: 7.24px;
+    top: 450px;
+    transform: scale(1.6, 1.6);
+    opacity: 100%;
+  }
+  66.8% {
+    opacity: 0%;
+  }
+  100% {
+    opacity: 0%;
+  }
+}
+
+@keyframes gradColor {
+  0% {
+    background-color: white;
+    left: 0px;
+    top: 0px;
+  }
+  100% {
+    background-color: black;
+    left: 0px;
+    top: 0px;
+  }
+}
+
+@keyframes topCloudAni {
+  0% {
+    left: -84px;
+    top: -140px;
+  }
+  16.7% {
+    left: -178px;
+    top: -108px;
+  }
+  33.3% {
+    left: -277px;
+    top: -96px;
+  }
+  50% {
+    left: -595px;
+    top: -53px;
+  }
+  66.7% {
+    left: -515px;
+    top: -14px;
+  }
+  83.3% {
+    left: -315px;
+    top: -20px;
+  }
+  100% {
+    left: -315px;
+    top: -10px;
+  }
+}
+
+@keyframes starAni {
+  0% {
+    left: 3px;
+    top: 12px;
+  }
+  16.7% {
+    left: 20px;
+    top: 14px;
+  }
+  33.3% {
+    left: 18px;
+    top: -6px;
+  }
+  50% {
+    left: 18px;
+    top: 29px;
+  }
+  66.7% {
+    left: 30px;
+    top: 21px;
+  }
+  83.3% {
+    left: 35px;
+    top: 16px;
+  }
+  100% {
+    left: 25px;
+    top: 62px;
+  }
+}
+
+@keyframes btmCloudAni {
+  0% {
+    left: -569px;
+    top: 480px;
+  }
+  16.7% {
+    left: -454px;
+    top: 473px;
+  }
+  33.3% {
+    left: -407px;
+    top: 475px;
+  }
+  50% {
+    left: -397px;
+    top: 539px;
+  }
+  66.7% {
+    left: -744px;
+    top: 624px;
+  }
+  83.3% {
+    left: -465px;
+    top: 495px;
+  }
+  100% {
+    left: -893px;
+    top: 422px;
+  }
+}
