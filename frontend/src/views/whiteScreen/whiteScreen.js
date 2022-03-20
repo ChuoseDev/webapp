@@ -349,6 +349,76 @@ const WhiteScreen = () => {
     },
   }
 
+  const cloudText07 = {
+    image: 'images/CloudText01.svg',
+    width: 101.01 * scaleWidth,
+    height: 64 * scaleWidth,
+    y: 277 * scaleHeight,
+    x: 219 * scaleWidth,
+    scene,
+    opacity: 0,
+    animation: {
+      2: { opacity: 1, duration: 0 },
+      3: { opacity: 0, duration: 0 },
+    },
+  }
+
+  const cloudText08 = {
+    image: 'images/CloudText07_08.svg',
+    width: 323.05 * scaleWidth,
+    height: 219.04 * scaleWidth,
+    y: 252 * scaleHeight,
+    x: 34 * scaleWidth,
+    scene,
+    opacity: 0,
+    animation: {
+      3: { opacity: 1, duration: 0 },
+      4: { opacity: 0, duration: 0 },
+    },
+  }
+
+  const cloudText09 = {
+    image: 'images/CloudText07_09.svg',
+    width: 350.31 * scaleWidth,
+    height: 273.76 * scaleWidth,
+    y: 275 * scaleHeight,
+    x: 17 * scaleWidth,
+    scene,
+    opacity: 0,
+    animation: {
+      4: { opacity: 1, duration: 0 },
+      5: { opacity: 0, duration: 0 },
+    },
+  }
+
+  const cloudText10 = {
+    image: 'images/CloudText07_10.svg',
+    width: 350.78 * scaleWidth,
+    height: 225.76 * scaleWidth,
+    y: 352 * scaleHeight,
+    x: 21 * scaleWidth,
+    scene,
+    opacity: 0,
+    animation: {
+      6: { opacity: 1, duration: 0 },
+      7: { opacity: 0, duration: 0 },
+    },
+  }
+
+  const cloudText11 = {
+    image: 'images/CloudText07_11.svg',
+    width: 401.78 * scaleWidth,
+    height: 219.76 * scaleWidth,
+    y: 348 * scaleHeight,
+    x: 6 * scaleWidth,
+    scene,
+    opacity: 0,
+    animation: {
+      7: { opacity: 1, duration: 0 },
+      8: { opacity: 0, duration: 0 },
+    },
+  }
+
   const onClickStart = () => {
     if (scene === 4) {
       setScene(5)
@@ -364,6 +434,11 @@ const WhiteScreen = () => {
       <Stage {...stageProps}>
         <Layer>
           <AnimateImage {...backgroundProps} />
+          <AnimateImage {...cloudText07} />
+          <AnimateImage {...cloudText08} />
+          <AnimateImage {...cloudText09} />
+          <AnimateImage {...cloudText10} />
+          <AnimateImage {...cloudText11} />
           {/* <AnimateImage {...chuoseLogoProps} /> */}
           <AnimateImage {...blackFriendChuoseProps} />
           <AnimateImage {...greyFriendChuoseProps} />
