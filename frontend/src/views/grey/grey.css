@@ -3,7 +3,7 @@
   left: 25px;
   top: 62px;
   animation-name: starAni;
-  animation-duration: 7s;
+  animation-duration: 9s;
 }
 
 #bgColor {
@@ -12,7 +12,7 @@
   height: 844px;
   background-color: black;
   animation-name: gradColor;
-  animation-duration: 7s;
+  animation-duration: 9s;
 }
 
 #btmCloud {
@@ -21,14 +21,14 @@
   top: 422px;
   position: inherit;
   animation-name: btmCloudAni;
-  animation-duration: 7s;
+  animation-duration: 9s;
 }
 #greyText {
   position: absolute;
   opacity: 0%;
   font-size: 18px;
   animation-name: greyTextAni;
-  animation-duration: 7s;
+  animation-duration: 9s;
 }
 
 #topCloud {
@@ -38,21 +38,21 @@
   opacity: 0.3;
   position: inherit;
   animation-name: topCloudAni;
-  animation-duration: 7s;
+  animation-duration: 9s;
 }
 
 #greyChar00 {
   opacity: 0%;
   position: absolute;
   animation-name: greyChar00Ani;
-  animation-duration: 7s;
+  animation-duration: 9s;
 }
 
 #greyChar01 {
   opacity: 0%;
   position: absolute;
   animation-name: greyChar01Ani;
-  animation-duration: 7s;
+  animation-duration: 9s;
 }
 
 @keyframes greyTextAni {
@@ -141,6 +141,11 @@
 @keyframes gradColor {
   0% {
     background-color: white;
+    left: 0px;
+    top: 0px;
+  }
+  66.7% {
+    background-color: black;
     left: 0px;
     top: 0px;
   }
