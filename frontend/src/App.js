@@ -9,6 +9,7 @@ import Feeling from './views/questionnaire/feeling'
 import Startup from 'views/startup/startup'
 import Information from 'views/information/information'
 import { Scene03_01 } from 'views/scene03/scene03_01'
+import { Scene04_05 } from 'views/scene03/scene04_05'
 
 const App = () => {
   return (
@@ -22,7 +23,8 @@ const App = () => {
           <Route exact path="/home" element={<Home />}></Route>
           <Route exact path="/startup" element={<Startup />}></Route>
           <Route exact path="/information" element={<Information />}></Route>
-          <Route exact path="/scene03_01" element={<Scene03_01 />}></Route>
+          <Route exact path="/scene03" element={<Scene03_01 />}></Route>
+          <Route exact path="/scene04" element={<Scene04_05 />}></Route>
         </Switch>
       </BrowserRouter>
     </div>

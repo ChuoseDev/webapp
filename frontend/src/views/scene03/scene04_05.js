@@ -1,6 +1,6 @@
 import './purple.css'
 
-export const Scene03_01 = () => {
+export const Scene04_05 = () => {
   return (
     <div class="container">
       <img class="bg_purple" src={'images/BG_Purple.svg'} alt="background" />
