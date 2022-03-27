@@ -1,0 +1,33 @@
+.star {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.clouds {
+  position: absolute;
+  left: -90px;
+  top: 120px;
+}
+
+.bg_purple {
+  position: relative;
+  left: 0;
+  top: 0;
+}
+
+.container {
+  position: relative;
+  left: 0;
+  top: 0;
+  text-align: center;
+  margin: 0;
+}
+
+.text {
+  position: absolute;
+  color: white;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
