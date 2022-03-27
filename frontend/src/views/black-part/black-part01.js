@@ -9,6 +9,7 @@ const BlackPart = () => {
   const [message, setMessage] = useState('')
   const [scene, setScene] = useState(-2)
   const [opacity, setOpacity] = useState(1.0)
+  const [avocado, setAvocado] = useState('')
   useEffect(() => {
     setOpacity(1)
     setTimeout(() => {
@@ -30,37 +31,41 @@ const BlackPart = () => {
     }, 5000)
     setTimeout(() => {
       setScene(4)
-    }, 8000)
+    }, 7000)
     setTimeout(() => {
       setScene(5)
-      setMessage('หรือฉัน...')
-    }, 9000)
+      setMessage('')
+    }, 8000)
     setTimeout(() => {
       setScene(6)
-    }, 12000)
+      setMessage('หรือฉัน...')
+    }, 10000)
     setTimeout(() => {
       setScene(7)
+    }, 12000)
+    setTimeout(() => {
+      setScene(8)
       setMessage('ไม่ควรอยู่ตรงนี้')
     }, 13000)
     setTimeout(() => {
-      setScene(8)
+      setScene(9)
     }, 16000)
     setTimeout(() => {
-      setScene(9)
+      setScene(10)
       setMessage('มีแค่ฉันหรือป่าว')
     }, 17000)
     setTimeout(() => {
-      setScene(10)
+      setScene(11)
     }, 20000)
     setTimeout(() => {
-      setScene(11)
+      setScene(12)
       setMessage('ที่ต้องจมอยู่แบบนี้')
     }, 21000)
     setTimeout(() => {
-      setScene(12)
+      setScene(13)
     }, 24000)
     setTimeout(() => {
-      setScene(13)
+      setScene(14)
       setMessage('ไม่มีความสุขเลย')
     }, 25000)
   }, [])
@@ -78,26 +83,33 @@ const BlackPart = () => {
     animation: {},
   }
 
+  const avocadoMapper = {
+    6: 'images/avocado/avocado01.svg',
+    7: 'images/avocado/avocado02.svg',
+    8: 'images/avocado/avocado03.svg',
+    9: 'images/avocado/avocado03.svg',
+    10: 'images/avocado/avocado04.svg',
+    11: 'images/avocado/avocado05.svg',
+    12: 'images/avocado/avocado03.svg',
+    13: 'images/avocado/avocado06.svg',
+    14: 'images/avocado/avocado03.svg',
+  }
+
   return (
     <div style={{ opacity, transition: 'opacity ease-in-out 1.5s' }}>
       <Stage {...stageProps}>
         <Layer>
           <AnimateImage {...backgroundProps} />
-          <Group
-            {...{
-              x: 140 * scaleWidth,
-              y: 422 * scaleHeight,
-            }}
-          >
+          <Group>
             <Html>
               <div
                 style={{
-                  // opacity: scene % 2 === 1 && scene < 4 ? 1 : 0,
-                  opacity: 1,
+                  opacity: scene > 4 ? 0 : 1,
                   transition: 'ease-in-out 1s',
                   display: 'flex',
-                  justifyContent: 'center',
-                  alignItems: 'center',
+                  top: '-25%',
+                  marginLeft: 195 * scaleWidth,
+                  marginTop: 422 * scaleHeight,
                 }}
               >
                 <p
@@ -106,6 +118,7 @@ const BlackPart = () => {
                     color: '#ffffff',
                     margin: 0,
                     left: '50%',
+                    transform: 'translate(-50%,0%)',
                   }}
                 >
                   {message}
@@ -113,32 +126,42 @@ const BlackPart = () => {
               </div>
             </Html>
           </Group>
-          {/* <Group
-            {...{
-              x: 120 * scaleWidth,
-              y: 600 * scaleHeight,
-            }}
-          >
+          <Group>
             <Html>
               <div
                 style={{
-                  opacity: scene % 2 === 1 && scene > 4 ? 1 : 0,
+                  opacity: scene > 4 ? 1 : 0,
                   transition: 'ease-in-out 1s',
+                  display: 'flex',
+                  top: '-25%',
+                  marginLeft: 195 * scaleWidth,
+                  marginTop: 212 * scaleHeight,
                 }}
               >
                 <p
-                  className="header"
                   style={{
                     fontSize: 18 * scaleMean,
                     color: '#ffffff',
                     margin: 0,
+                    left: '50%',
+                    transform: 'translate(-50%,0%)',
                   }}
                 >
                   {message}
                 </p>
               </div>
+              <div
+                style={{
+                  position: 'absolute',
+                  bottom: '0px',
+                  position: 'bottom',
+                  marginTop: 221 * scaleHeight,
+                }}
+              >
+                <img src={avocadoMapper[scene]}></img>
+              </div>
             </Html>
-          </Group> */}
+          </Group>
         </Layer>
       </Stage>
     </div>
