@@ -1,123 +1,46 @@
+import { Scene03_01 } from './scene03_01'
+import { Scene03_02 } from './scene03_02'
+import { Scene03_03 } from './scene03_03'
+import './purple.css'
 import { useState, useEffect } from 'react'
-import { Stage, Layer, AnimateImage, Group } from 'konvas'
-import { Html } from 'react-konva-utils'
+import { Scene03_04 } from './scene03_04'
+import { Scene03_05 } from './scene03_05'
 
-const Scene03 = () => {
-  const scaleHeight = window.innerHeight / 844
-  const scaleWidth = window.innerWidth / 390
-  const scaleMean = (scaleHeight + scaleWidth) / 2
-  const [message, setMessage] = useState('')
-  const [scene, setScene] = useState(-2)
-  const [opacity, setOpacity] = useState(1.0)
+export const Scene03 = () => {
+  const [scene, setScene] = useState(1)
+
   useEffect(() => {
-    setOpacity(1)
-    setTimeout(() => {
-      setScene(-1)
-    }, 100)
-    setTimeout(() => {
-      setScene(0)
-    }, 500)
-    setTimeout(() => {
-      setScene(1)
-      setMessage('กุ๊งกิ๊ง กุ๊งกิ๊ง')
-    }, 1000)
     setTimeout(() => {
       setScene(2)
-    }, 4000)
+    }, 500)
     setTimeout(() => {
       setScene(3)
-      setMessage('เสียงอะไรน่ะ')
-    }, 5000)
+    }, 1000)
     setTimeout(() => {
       setScene(4)
-    }, 8000)
+    }, 1500)
     setTimeout(() => {
       setScene(5)
-      setMessage('สวัสดี เราชูโอสนะ')
-    }, 9000)
-    setTimeout(() => {
-      setScene(6)
-    }, 12000)
-    setTimeout(() => {
-      setScene(7)
-      setMessage('เราอยากช่วยเธอ')
-    }, 13000)
+    }, 2000)
   }, [])
 
-  const stageProps = {
-    width: window.innerWidth,
-    height: window.innerHeight,
-  }
-
-  const backgroundProps = {
-    image: 'images/BG_Dark.svg',
-    width: window.innerWidth,
-    height: window.innerHeight,
-    opacity: 1,
-    animation: {},
-  }
-
   return (
-    <div style={{ opacity, transition: 'opacity ease-in-out 1.5s' }}>
-      <Stage {...stageProps}>
-        <Layer>
-          <AnimateImage {...backgroundProps} />
-          <Group
-            {...{
-              x: 140 * scaleWidth,
-              y: 422 * scaleHeight,
-            }}
-          >
-            <Html>
-              <div
-                style={{
-                  opacity: scene % 2 === 1 && scene < 4 ? 1 : 0,
-                  transition: 'ease-in-out 1s',
-                }}
-              >
-                <p
-                  className="header"
-                  style={{
-                    fontSize: 18 * scaleMean,
-                    color: '#ffffff',
-                    margin: 0,
-                  }}
-                >
-                  {message}
-                </p>
-              </div>
-            </Html>
-          </Group>
-          <Group
-            {...{
-              x: 120 * scaleWidth,
-              y: 600 * scaleHeight,
-            }}
-          >
-            <Html>
-              <div
-                style={{
-                  opacity: scene % 2 === 1 && scene > 4 ? 1 : 0,
-                  transition: 'ease-in-out 1s',
-                }}
-              >
-                <p
-                  className="header"
-                  style={{
-                    fontSize: 18 * scaleMean,
-                    color: '#ffffff',
-                    margin: 0,
-                  }}
-                >
-                  {message}
-                </p>
-              </div>
-            </Html>
-          </Group>
-        </Layer>
-      </Stage>
+    <div className="container">
+      <div className="scene" style={{ opacity: scene === 1 ? 1 : 0 }}>
+        <Scene03_01 />
+      </div>
+      <div className="scene" style={{ opacity: scene === 2 ? 1 : 0 }}>
+        <Scene03_02 />
+      </div>
+      <div className="scene" style={{ opacity: scene === 3 ? 1 : 0 }}>
+        <Scene03_03 />
+      </div>
+      <div className="scene" style={{ opacity: scene === 4 ? 1 : 0 }}>
+        <Scene03_04 />
+      </div>
+      <div className="scene" style={{ opacity: scene === 5 ? 1 : 0 }}>
+        <Scene03_05 />
+      </div>
     </div>
   )
 }
-
-export default Scene03
