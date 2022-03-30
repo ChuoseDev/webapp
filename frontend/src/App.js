@@ -8,7 +8,7 @@ import Loading from './views/signup/loading'
 import Feeling from './views/questionnaire/feeling'
 import Startup from 'views/startup/startup'
 import Information from 'views/information/information'
-import { Scene04_05 } from 'views/scene03/scene04_05'
+import { Scene04 } from 'views/scene04/scene04'
 import { Scene03 } from 'views/scene03/scene03'
 
 const App = () => {
@@ -24,7 +24,7 @@ const App = () => {
           <Route exact path="/startup" element={<Startup />}></Route>
           <Route exact path="/information" element={<Information />}></Route>
           <Route exact path="/scene03" element={<Scene03 />}></Route>
-          <Route exact path="/scene04" element={<Scene04_05 />}></Route>
+          <Route exact path="/scene04" element={<Scene04 />}></Route>
         </Switch>
       </BrowserRouter>
     </div>
