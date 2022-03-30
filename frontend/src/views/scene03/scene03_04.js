@@ -1,6 +1,6 @@
 import './purple.css'
 
-export const Scene03_01 = () => {
+export const Scene03_04 = () => {
   return (
     <div class="container">
       <img class="bg_purple" src={'images/BG_Purple.svg'} alt="background" />
@@ -9,27 +9,39 @@ export const Scene03_01 = () => {
         class="cloud02"
         src={'images/WhiteCloud02.svg'}
         alt="background"
-        style={{ top: '60.19%', left: '47.95%' }}
+        style={{ top: '7.7%', left: '52.82%' }}
       />
       <img
         class="cloud01"
         src={'images/WhiteCloud01.svg'}
         alt="background"
-        style={{ top: '32.94%', left: '-23.59%' }}
+        style={{ top: '30.21%', left: '-7.44%' }}
       />
       <img
         class="cloud01"
         src={'images/WhiteCloud01.svg'}
         alt="background"
-        style={{ top: '12.8%', left: '47.95%' }}
+        style={{ top: '62.09%', left: '43.08%' }}
       />
+
       <img
         class="cloud03"
         src={'images/WhiteCloud03.svg'}
         alt="background"
-        style={{ top: '87.68%', left: '1.79%' }}
+        style={{ top: '84.12%', left: '-2.05%' }}
       />
-      <div class="text_center">กุ๊งกิ๊ง กุ๊งกิ๊ง</div>
+      <img
+        class="charactor"
+        src={'images/Charactor.svg'}
+        alt="charactor"
+        style={{
+          top: '-18.5%',
+          left: '-3.85%',
+          transform: 'rotate(-22deg)',
+          width: '185px',
+        }}
+      />
+      <div class="text_center">เสียงอะไรน่ะ</div>
     </div>
   )
 }
