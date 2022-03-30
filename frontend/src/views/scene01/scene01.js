@@ -8,7 +8,7 @@ const Scene01 = () => {
   useEffect(() => {
     const time = 250
     let acc = 0
-    for (let i = 2; i < 30; i = i + 1) {
+    for (let i = 2; i < 25; i = i + 1) {
       acc += time
       setTimeout(() => {
         setScene(i)
@@ -54,17 +54,17 @@ const Scene01 = () => {
   const topCloudStyle = (scene) => {
     return {
       position: 'absolute',
-      left: `-${10 + scene * 30}px`,
+      left: `-${10 + scene * 10}px`,
       top: '-110px',
       transform: 'rotate(180deg)',
       opacity: '0.3',
     }
   }
 
-  const bottomCloudStyle = () => {
+  const bottomCloudStyle = (scene) => {
     return {
       position: 'absolute',
-      left: `-${150 + scene * 30}px`,
+      left: `-${630 + scene * 10}px`,
       top: '500px',
       opacity: '0.3',
     }
@@ -82,11 +82,13 @@ const Scene01 = () => {
     const colorNumber = (255 * scene) / 8
     return {
       position: 'absolute',
-      top: `${180 * scaleHeight}px`,
+      top: `${(scene >= 12 ? 190 : 0) + 180 * scaleHeight}px`,
+      opacity: `${scene >= 15 ? 0 : 1}`,
       color: `rgba(${colorNumber}, ${colorNumber}, ${colorNumber}, 1)`,
       fontSize: `${18 * scaleWidth}px`,
       width: `${window.screen.width}px`,
       textAlign: 'center',
+      transition: '1s',
     }
   }
 
