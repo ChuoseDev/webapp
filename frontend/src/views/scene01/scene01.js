@@ -1,9 +1,11 @@
 import { useState, useEffect } from 'react'
+import { useNavigate } from 'react-router'
 
 const Scene01 = () => {
   const [scene, setScene] = useState(1)
   const scaleWidth = window.screen.width / 390
   const scaleHeight = window.screen.height / 844
+  const navigate = useNavigate()
 
   useEffect(() => {
     const time = 250
@@ -12,6 +14,11 @@ const Scene01 = () => {
       acc += time
       setTimeout(() => {
         setScene(i)
+        if (i === 24) {
+          setTimeout(() => {
+            navigate('/scene02')
+          })
+        }
       }, acc)
     }
   }, [])
@@ -22,6 +29,8 @@ const Scene01 = () => {
       height: window.innerHeight,
       backgroundColor: `rgba(0, 0, 0, ${0.1 * scene})`,
       position: 'absolute',
+      opacity: scene < 24 ? 1 : 0,
+      transition: 'opacity ease-in-out 1s',
     }
   }
 

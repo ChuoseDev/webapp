@@ -3,12 +3,12 @@ import { Stage, Layer, AnimateImage, Group } from 'konvas'
 import { Html } from 'react-konva-utils'
 
 const BlackPart = () => {
-  const scaleHeight = window.innerHeight / 844
-  const scaleWidth = window.innerWidth / 390
+  const scaleHeight = window.screen.height / 844
+  const scaleWidth = window.screen.width / 390
   const scaleMean = (scaleHeight + scaleWidth) / 2
   const [message, setMessage] = useState('')
   const [scene, setScene] = useState(-2)
-  const [opacity, setOpacity] = useState(1.0)
+  const [opacity, setOpacity] = useState(0)
   const [avocado, setAvocado] = useState('')
   useEffect(() => {
     setOpacity(1)
