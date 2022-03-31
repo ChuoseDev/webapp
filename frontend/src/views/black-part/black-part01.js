@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { useNavigate } from 'react-router'
 import { Stage, Layer, AnimateImage, Group } from 'konvas'
 import { Html } from 'react-konva-utils'
 
@@ -10,6 +11,7 @@ const BlackPart = () => {
   const [scene, setScene] = useState(-2)
   const [opacity, setOpacity] = useState(0)
   const [avocado, setAvocado] = useState('')
+  const navigate = useNavigate()
   useEffect(() => {
     setOpacity(1)
     setTimeout(() => {
@@ -68,6 +70,9 @@ const BlackPart = () => {
       setScene(14)
       setMessage('ไม่มีความสุขเลย')
     }, 25000)
+    setTimeout(() => {
+      navigate('/scene03')
+    }, 26000)
   }, [])
 
   const stageProps = {
@@ -158,7 +163,13 @@ const BlackPart = () => {
                   marginTop: 221 * scaleHeight,
                 }}
               >
-                <img src={avocadoMapper[scene]}></img>
+                <img
+                  src={avocadoMapper[scene]}
+                  style={{
+                    opacity: scene < 6 ? 0 : 1,
+                    transition: 'ease-in-out 1s',
+                  }}
+                ></img>
               </div>
             </Html>
           </Group>
