@@ -18,63 +18,63 @@ const WhiteScreen = () => {
     }, 300)
     setTimeout(() => {
       setScene(2)
-    }, 1300)
+    }, 1500)
     setTimeout(() => {
       setScene(3)
-    }, 2300)
+    }, 2700)
     setTimeout(() => {
       setScene(4)
-    }, 3300)
+    }, 3900)
     setTimeout(() => {
       setScene(5)
-    }, 4300)
+      setMessage('ทุกคนเข้ามา...')
+    }, 5100)
     setTimeout(() => {
       setScene(6)
-      setMessage('ทุกคนเข้ามา...')
-    }, 5300)
-    setTimeout(() => {
-      setScene(7)
     }, 6300)
     setTimeout(() => {
+      setScene(7)
+      setMessage('และก็จากเราไปมากมายเช่นกัน')
+    }, 7500)
+    setTimeout(() => {
       setScene(8)
-    }, 7300)
+    }, 8700)
     setTimeout(() => {
       setScene(9)
-      setMessage('และก็จากเราไปมากมายเช่นกัน')
-    }, 8300)
+      setMessage('ทุกคนต่างเดินไปข้างหน้า')
+    }, 9900)
     setTimeout(() => {
       setScene(10)
-    }, 9300)
+    }, 11100)
     setTimeout(() => {
       setScene(11)
-    }, 10300)
-    setTimeout(() => {
-      setScene(12)
-      setMessage('ทุกคนต่างเดินไปข้างหน้า')
-    }, 11300)
-    setTimeout(() => {
-      setScene(13)
     }, 12300)
     setTimeout(() => {
-      setScene(14)
-    }, 13300)
+      setScene(12)
+    }, 13500)
     setTimeout(() => {
+      setScene(13)
+      setMessage('แต่ฉัน...')
+    }, 14700)
+    setTimeout(() => {
+      setScene(14)
+      setMessage('ยังอยู่ที่เดิม')
+    }, 15900)
+    /*setTimeout(() => {
       setScene(15)
-    }, 14300)
+    }, 17100)
     setTimeout(() => {
       setScene(16)
-    }, 15300)
+    }, 18300)
     setTimeout(() => {
       setScene(17)
-      setMessage('แต่ฉัน...')
-    }, 16300)
+    }, 19500)
     setTimeout(() => {
       setScene(18)
-    }, 17300)
+    }, 20700)
     setTimeout(() => {
       setScene(19)
-      setMessage('ยังอยู่ที่เดิม')
-    }, 18300)
+    }, 21900)*/
   }, [])
 
   const stageProps = {
@@ -82,27 +82,10 @@ const WhiteScreen = () => {
     height: window.innerHeight,
   }
 
-  const chuoseLogoProps = {
-    image: 'images/logo.svg',
-    x: (window.innerWidth - 308 * scaleHeight) / 2,
-    y: 370 * scaleHeight,
-    height: 72 * scaleHeight,
-    width: 308 * scaleHeight,
-    opacity: 0,
-    scene,
-    animation: {
-      1: { opacity: 1, duration: 0.5 },
-      2: { y: 523 * scaleHeight, duration: 0.4 },
-      3: { opacity: 0, duration: 0.5 },
-    },
-  }
-
   const backgroundProps = {
     image: 'images/whiteScreen.svg',
     height: 891 * scaleHeight,
     width: 1404 * scaleHeight,
-    // x: -62 * scaleHeight,
-    // y: -86 * scaleHeight,
   }
   const yellowChuoseProps_01 = {
     image: 'images/YellowChuose_01.svg',
@@ -126,29 +109,29 @@ const WhiteScreen = () => {
         x: 109 * scaleWidth,
         duration: 0,
       },
-      6: {
+      5: {
         width: 142.41 * scaleWidth,
         height: 145.03 * scaleWidth,
         y: 473 * scaleHeight,
         x: 104 * scaleWidth,
         duration: 0,
       },
-      7: {
+      6: {
         width: 135.54 * scaleWidth,
         height: 138.03 * scaleWidth,
         y: 448 * scaleHeight,
         x: 128 * scaleWidth,
         duration: 0,
       },
-      9: {
+      7: {
         width: 142.41 * scaleWidth,
         height: 145.03 * scaleWidth,
         y: 491 * scaleHeight,
         x: 103 * scaleWidth,
         duration: 0,
       },
-      10: { opacity: 0, duration: 0 },
-      12: {
+      8: { opacity: 0, duration: 0 },
+      9: {
         width: 137.23 * scaleWidth,
         height: 139.76 * scaleWidth,
         y: 475 * scaleHeight,
@@ -156,24 +139,24 @@ const WhiteScreen = () => {
         duration: 0,
         opacity: 1,
       },
-      13: {
+      10: {
         width: 147.05 * scaleWidth,
         height: 149.76 * scaleWidth,
         y: 382 * scaleHeight,
         x: 121.9 * scaleWidth,
         duration: 0,
       },
-      14: {
+      11: {
         y: 379 * scaleHeight,
         x: 128 * scaleWidth,
         duration: 0,
       },
-      15: {
+      12: {
         y: 386 * scaleHeight,
         x: 121 * scaleWidth,
         duration: 0,
       },
-      17: { opacity: 0, duration: 0 },
+      13: { opacity: 0, duration: 0 },
     },
   }
 
@@ -186,11 +169,11 @@ const WhiteScreen = () => {
     opacity: 0,
     scene,
     animation: {
-      10: {
+      8: {
         opacity: 1,
         duration: 0,
       },
-      12: { opacity: 0, duration: 0 },
+      9: { opacity: 0, duration: 0 },
     },
   }
   const yellowChuoseProps_03 = {
@@ -202,8 +185,8 @@ const WhiteScreen = () => {
     opacity: 0,
     scene,
     animation: {
-      17: { opacity: 1, duration: 0 },
-      19: { opacity: 0, duration: 0 },
+      13: { opacity: 1, duration: 0 },
+      14: { opacity: 0, duration: 0 },
     },
   }
 
@@ -216,7 +199,7 @@ const WhiteScreen = () => {
     scene,
     opacity: 0,
     animation: {
-      19: {
+      14: {
         opacity: 1,
         duration: 0,
       },
@@ -232,8 +215,8 @@ const WhiteScreen = () => {
     scene,
     opacity: 0,
     animation: {
-      9: { opacity: 1, duration: 0 },
-      10: { opacity: 0, duration: 0 },
+      7: { opacity: 1, duration: 0 },
+      8: { opacity: 0, duration: 0 },
     },
   }
 
@@ -246,8 +229,8 @@ const WhiteScreen = () => {
     scene,
     opacity: 0,
     animation: {
-      10: { opacity: 1, duration: 0 },
-      12: { opacity: 0, duration: 0 },
+      8: { opacity: 1, duration: 0 },
+      9: { opacity: 0, duration: 0 },
     },
   }
 
@@ -260,8 +243,8 @@ const WhiteScreen = () => {
     scene,
     opacity: 0,
     animation: {
-      13: { opacity: 1, duration: 0 },
-      14: { opacity: 0, duration: 0 },
+      10: { opacity: 1, duration: 0 },
+      11: { opacity: 0, duration: 0 },
     },
   }
 
@@ -274,9 +257,9 @@ const WhiteScreen = () => {
     scene,
     opacity: 0,
     animation: {
-      12: { opacity: 1, duration: 0 },
-      13: { opacity: 0, duration: 0 },
-      14: {
+      9: { opacity: 1, duration: 0 },
+      10: { opacity: 0, duration: 0 },
+      11: {
         width: 146.07 * scaleWidth,
         height: 148.76 * scaleWidth,
         y: 692 * scaleHeight,
@@ -284,12 +267,12 @@ const WhiteScreen = () => {
         opacity: 1,
         duration: 0,
       },
-      15: {
+      12: {
         y: 734 * scaleHeight,
         x: 219 * scaleWidth,
         duration: 0,
       },
-      17: { opacity: 0, duration: 0 },
+      13: { opacity: 0, duration: 0 },
     },
   }
 
@@ -302,9 +285,9 @@ const WhiteScreen = () => {
     scene,
     opacity: 0,
     animation: {
-      12: { opacity: 1, duration: 0 },
-      13: { opacity: 0, duration: 0 },
-      14: {
+      9: { opacity: 1, duration: 0 },
+      10: { opacity: 0, duration: 0 },
+      11: {
         width: 159 * scaleWidth,
         height: 161.92 * scaleWidth,
         y: 540 * scaleHeight,
@@ -312,12 +295,12 @@ const WhiteScreen = () => {
         opacity: 1,
         duration: 0,
       },
-      15: {
+      12: {
         y: 659 * scaleHeight,
         x: 109 * scaleWidth,
         duration: 0,
       },
-      17: { opacity: 0, duration: 0 },
+      13: { opacity: 0, duration: 0 },
     },
   }
 
@@ -330,9 +313,9 @@ const WhiteScreen = () => {
     scene,
     opacity: 0,
     animation: {
-      12: { opacity: 1, duration: 0 },
-      13: { opacity: 0, duration: 0 },
-      14: {
+      9: { opacity: 1, duration: 0 },
+      10: { opacity: 0, duration: 0 },
+      11: {
         width: 152 * scaleWidth,
         height: 154.79 * scaleWidth,
         y: 698 * scaleHeight,
@@ -340,12 +323,12 @@ const WhiteScreen = () => {
         opacity: 1,
         duration: 0,
       },
-      15: {
+      12: {
         y: 740 * scaleHeight,
         x: 15 * scaleWidth,
         duration: 0,
       },
-      17: { opacity: 0, duration: 0 },
+      13: { opacity: 0, duration: 0 },
     },
   }
 
@@ -400,8 +383,8 @@ const WhiteScreen = () => {
     scene,
     opacity: 0,
     animation: {
-      6: { opacity: 1, duration: 0 },
-      7: { opacity: 0, duration: 0 },
+      5: { opacity: 1, duration: 0 },
+      6: { opacity: 0, duration: 0 },
     },
   }
 
@@ -414,8 +397,8 @@ const WhiteScreen = () => {
     scene,
     opacity: 0,
     animation: {
-      7: { opacity: 1, duration: 0 },
-      8: { opacity: 0, duration: 0 },
+      6: { opacity: 1, duration: 0 },
+      7: { opacity: 0, duration: 0 },
     },
   }
 
@@ -439,7 +422,6 @@ const WhiteScreen = () => {
           <AnimateImage {...cloudText09} />
           <AnimateImage {...cloudText10} />
           <AnimateImage {...cloudText11} />
-          {/* <AnimateImage {...chuoseLogoProps} /> */}
           <AnimateImage {...blackFriendChuoseProps} />
           <AnimateImage {...greyFriendChuoseProps} />
           <AnimateImage {...lightGreyFriendChuoseProps} />
@@ -450,13 +432,9 @@ const WhiteScreen = () => {
           <AnimateImage {...yellowChuoseProps_03} />
           <AnimateImage {...yellowChuoseProps_04} />
           <AnimateImage {...friendChuoseProps_03} />
-
-          {/* <AnimateImage {...bottomBannerProps} /> */}
-
           <Html>
             <div
               style={{
-                opacity: [5, 8, 11, 16, 18].includes(scene) ? 0 : 1,
                 transition: 'ease-in-out 0.5s',
                 display: 'flex',
                 justifyContent: 'center',
