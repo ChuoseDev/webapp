@@ -29,8 +29,18 @@ export const Scene04_05 = () => {
         alt="background"
         style={{ top: '82.34%', left: '0.77%' }}
       />
-      <img class="charactor" src={'images/Charactor.svg'} alt="charactor" />
-      <div class="text">ได้สิ</div>
+      <img
+        class="charactor"
+        src={'images/Charactor.svg'}
+        alt="charactor"
+        style={{
+          top: '19%',
+          left: '12%',
+          transform: 'rotate(-14deg)',
+          width: '295px',
+        }}
+      />
+      <div class="text_button">ได้สิ</div>
     </div>
   )
 }
