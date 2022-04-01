@@ -2,7 +2,8 @@ import { useState, useEffect } from 'react'
 import { Stage, Layer, AnimateImage, Group } from 'konvas'
 import { Html } from 'react-konva-utils'
 
-const BlackPart = () => {
+// this is scene 02-01 to 02-13
+const BlackPart01 = () => {
   const scaleHeight = window.innerHeight / 844
   const scaleWidth = window.innerWidth / 390
   const scaleMean = (scaleHeight + scaleWidth) / 2
@@ -168,4 +169,4 @@ const BlackPart = () => {
   )
 }
 
-export default BlackPart
+export default BlackPart01
