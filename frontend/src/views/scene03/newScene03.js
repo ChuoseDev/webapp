@@ -24,6 +24,21 @@ const Sscene03 = () => {
     setTimeout(() => {
       setScene(6)
     }, 2500)
+    setTimeout(() => {
+      setScene(7)
+    }, 3000)
+    setTimeout(() => {
+      setScene(8)
+    }, 3500)
+    setTimeout(() => {
+      setScene(9)
+    }, 4000)
+    setTimeout(() => {
+      setScene(10)
+    }, 4500)
+    setTimeout(() => {
+      setScene(11)
+    }, 5000)
   }, [])
 
   const containerStyle = (scene) => {
@@ -280,6 +295,227 @@ const Sscene03 = () => {
         )
       }
 
+      case 7: {
+        return (
+          <div>
+            <img
+              class="cloud02"
+              src={'images/WhiteCloud02.svg'}
+              alt="background"
+              style={{ top: '10.19%', left: '56.92%' }}
+            />
+            <img
+              class="cloud03"
+              src={'images/WhiteCloud03.svg'}
+              alt="background"
+              style={{ top: '35.43%', left: '-2.56%', width: '150px' }}
+            />
+            <img
+              class="cloud03"
+              src={'images/WhiteCloud03.svg'}
+              alt="background"
+              style={{ top: '60.66%', left: '48.46%' }}
+            />
+
+            <img
+              class="cloud02"
+              src={'images/WhiteCloud02.svg'}
+              alt="background"
+              style={{ top: '82.35%', left: '-11.03%' }}
+            />
+            <img
+              class="charactor"
+              src={'images/Charactor.svg'}
+              alt="charactor"
+              style={{
+                top: '-9%',
+                left: '12%',
+                transform: 'rotate(-20deg)',
+                width: '295px',
+              }}
+            />
+          </div>
+        )
+      }
+
+      case 8: {
+        return (
+          <div>
+            <img
+              class="cloud02"
+              src={'images/WhiteCloud02.svg'}
+              alt="background"
+              style={{ top: '5.33%', left: '67.69%' }}
+            />
+            <img
+              class="cloud03"
+              src={'images/WhiteCloud03.svg'}
+              alt="background"
+              style={{ top: '31.16%', left: '0.26%', width: '150px' }}
+            />
+            <img
+              class="cloud03"
+              src={'images/WhiteCloud03.svg'}
+              alt="background"
+              style={{ top: '58.77%', left: '48.46%' }}
+            />
+
+            <img
+              class="cloud02"
+              src={'images/WhiteCloud02.svg'}
+              alt="background"
+              style={{ top: '84.83%', left: '-13.59%' }}
+            />
+            <img
+              class="charactor"
+              src={'images/Charactor.svg'}
+              alt="charactor"
+              style={{
+                top: '0%',
+                left: '12%',
+                transform: 'rotate(-17deg)',
+                width: '295px',
+              }}
+            />
+            <div class="text_button">“สวัสดี เราชูโอสนะ”</div>
+          </div>
+        )
+      }
+      case 9: {
+        return (
+          <div>
+            <img
+              class="cloud02"
+              src={'images/WhiteCloud02.svg'}
+              alt="background"
+              style={{ top: '6.99%', left: '53.85%' }}
+            />
+            <img
+              class="cloud03"
+              src={'images/WhiteCloud03.svg'}
+              alt="background"
+              style={{ top: '34.95%', left: '-13.85%', width: '150px' }}
+            />
+            <img
+              class="cloud03"
+              src={'images/WhiteCloud03.svg'}
+              alt="background"
+              style={{ top: '62.56%', left: '34.36%' }}
+            />
+
+            <img
+              class="cloud02"
+              src={'images/WhiteCloud02.svg'}
+              alt="background"
+              style={{ top: '85.9%', left: '-4.1%' }}
+            />
+            <img
+              class="charactor"
+              src={'images/Charactor.svg'}
+              alt="charactor"
+              style={{
+                top: '6%',
+                left: '12%',
+                transform: 'rotate(-5deg)',
+                width: '295px',
+              }}
+            />
+            <div class="text_button">“สวัสดี เราชูโอสนะ”</div>
+          </div>
+        )
+      }
+      case 10: {
+        return (
+          <div>
+            <img
+              class="cloud02"
+              src={'images/WhiteCloud02.svg'}
+              alt="background"
+              style={{ top: '7.58%', left: '58.46%' }}
+            />
+            <img
+              class="cloud03"
+              src={'images/WhiteCloud03.svg'}
+              alt="background"
+              style={{ top: '33.29%', left: '1.03%', width: '150px' }}
+            />
+            <img
+              class="cloud03"
+              src={'images/WhiteCloud03.svg'}
+              alt="background"
+              style={{ top: '62.56%', left: '34.36%' }}
+            />
+
+            <img
+              class="cloud02"
+              src={'images/WhiteCloud02.svg'}
+              alt="background"
+              style={{ top: '85.9%', left: '-4.1%' }}
+            />
+            <img
+              class="charactor"
+              src={'images/Charactor.svg'}
+              alt="charactor"
+              style={{
+                top: '15%',
+                left: '12%',
+                transform: 'rotate(-5deg)',
+                width: '295px',
+              }}
+            />
+            <div class="text_button">“เราอยากช่วยเธอ”</div>
+          </div>
+        )
+      }
+      case 11: {
+        return (
+          <div>
+            <img
+              class="bg_purple"
+              src={'images/BG_Purple.svg'}
+              alt="background"
+            />
+            <img class="star" src={'images/star.svg'} alt="background" />
+            <img
+              class="cloud02"
+              src={'images/WhiteCloud02.svg'}
+              alt="background"
+              style={{ top: '6.99%', left: '58.97%' }}
+            />
+            <img
+              class="cloud03"
+              src={'images/WhiteCloud03.svg'}
+              alt="background"
+              style={{ top: '32.7%', left: '-16.41%', width: '150px' }}
+            />
+            <img
+              class="cloud03"
+              src={'images/WhiteCloud03.svg'}
+              alt="background"
+              style={{ top: '60.9%', left: '63.85%' }}
+            />
+
+            <img
+              class="cloud02"
+              src={'images/WhiteCloud02.svg'}
+              alt="background"
+              style={{ top: '78.79%', left: '-14.87%' }}
+            />
+            <img
+              class="charactor"
+              src={'images/Charactor.svg'}
+              alt="charactor"
+              style={{
+                top: '19%',
+                left: '12%',
+                transform: 'rotate(-14deg)',
+                width: '295px',
+              }}
+            />
+            <div class="text_button">“เราอยากช่วยเธอ”</div>
+          </div>
+        )
+      }
       default: {
         return <div></div>
       }
