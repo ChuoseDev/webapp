@@ -11,7 +11,6 @@ import Information from 'views/information/information'
 import Blackpart from 'views/black-part/black-part01'
 import Grey from 'views/grey/grey'
 import WhiteScreen from 'views/whiteScreen/whiteScreen'
-import WhiteScreen2 from 'views/whiteScreen/whiteScreen2'
 import Scene04B from 'views/scene04-black/scene04b'
 import { Scene04 } from 'views/scene04/scene04'
 import { Scene03 } from 'views/scene03/scene03'
@@ -41,9 +40,7 @@ const App = () => {
           <Route exact path="/blackpart02" element={<BlackPart02 />}></Route>
           <Route exact path="/blackpart03" element={<BlackPart03 />}></Route>
           <Route exact path="/scene04" element={<Scene04 />}></Route>
-
           <Route exact path="/scene05" element={<WhiteScreen />}></Route>
-          <Route exact path="/scene05-1" element={<WhiteScreen2 />}></Route>
         </Switch>
       </BrowserRouter>
     </div>

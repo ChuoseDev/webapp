@@ -1,8 +1,4 @@
 import { useState, useEffect } from 'react'
-import { Stage, Layer, AnimateImage, Group } from 'konvas'
-import { Html } from 'react-konva-utils'
-import { WhiteButton } from 'components/commons/commons'
-import { useNavigate } from 'react-router'
 import './whiteScreen.css'
 
 const WhiteScreen2 = () => {
@@ -10,7 +6,6 @@ const WhiteScreen2 = () => {
   const scaleWidth = window.innerWidth / 390
   const scaleMean = (scaleHeight + scaleWidth) / 2
   const [scene, setScene] = useState(0)
-  const navigate = useNavigate()
   const [message, setMessage] = useState('')
   useEffect(() => {
     const time = 1200
@@ -56,6 +51,29 @@ const WhiteScreen2 = () => {
     height: 891 * scaleHeight,
     width: 1404 * scaleHeight,
   }
+
+  const onClickFeeling = () => {
+    const time = 1200
+    let acc = 0
+    for (let i = 16; i < 19; i = i + 1) {
+      acc += time
+      setTimeout(() => {
+        setScene(i)
+        switch (i) {
+          case 16:
+            setMessage('ฉันใช้ชีวิตไปเรื่อยๆ')
+            break
+          case 17:
+            setMessage('หันมาอีกที')
+            break
+          case 18:
+            setMessage('ก็ไม่เจอใครแล้ว...')
+            break
+        }
+      }, acc)
+    }
+  }
+
   const yellowChuoseStyle_01 = (scene) => {
     switch (scene) {
       case 1:
@@ -192,7 +210,7 @@ const WhiteScreen2 = () => {
       width: 166.05 * scaleWidth,
       height: 169.11 * scaleHeight,
       transition: '0s',
-      opacity: scene == 13 ? 1 : 0,
+      opacity: scene === 13 ? 1 : 0,
     }
   }
 
@@ -204,7 +222,7 @@ const WhiteScreen2 = () => {
       width: 161.05 * scaleWidth,
       height: 162.5 * scaleWidth,
       transition: '0s',
-      opacity: scene == 14 ? 1 : 0,
+      opacity: scene === 14 ? 1 : 0,
     }
   }
 
@@ -216,7 +234,7 @@ const WhiteScreen2 = () => {
       width: 157.75 * scaleWidth,
       height: 159.17 * scaleHeight,
       transition: '0s',
-      opacity: scene == 15 ? 1 : 0,
+      opacity: scene === 15 ? 1 : 0,
     }
   }
 
@@ -227,7 +245,7 @@ const WhiteScreen2 = () => {
       height: 228.76 * scaleWidth,
       top: 372 * scaleHeight,
       left: 11 * scaleWidth,
-      opacity: scene == 7 ? 1 : 0,
+      opacity: scene === 7 ? 1 : 0,
     }
   }
 
@@ -238,7 +256,7 @@ const WhiteScreen2 = () => {
       height: 186.76 * scaleWidth,
       top: 331 * scaleHeight,
       left: 9 * scaleWidth,
-      opacity: scene == 8 ? 1 : 0,
+      opacity: scene === 8 ? 1 : 0,
     }
   }
 
@@ -249,7 +267,7 @@ const WhiteScreen2 = () => {
       height: 229.76 * scaleWidth,
       top: 466 * scaleHeight,
       left: 14 * scaleWidth,
-      opacity: scene == 10 ? 1 : 0,
+      opacity: scene === 10 ? 1 : 0,
     }
   }
 
@@ -416,11 +434,34 @@ const WhiteScreen2 = () => {
       objectFit: 'cover',
     }
   }
+  const cloudText08_08 = (scene) => {
+    return {
+      position: 'absolute',
+      width: 382 * scaleWidth,
+      height: 331.03 * scaleWidth,
+      top: 250 * scaleHeight,
+      left: -6 * scaleWidth,
+      transition: '0s',
+      opacity: scene === 16 ? 1 : 0,
+      objectFit: 'cover',
+    }
+  }
+  const cloudText08_09 = (scene) => {
+    return {
+      position: 'absolute',
+      width: 206.92 * scaleWidth,
+      height: 207.91 * scaleWidth,
+      top: 321 * scaleHeight,
+      left: 131 * scaleWidth,
+      transition: '0s',
+      opacity: scene === 17 ? 1 : 0,
+    }
+  }
 
   return (
     <div
       style={{
-        opacity: scene < 17 ? 1 : 0,
+        opacity: scene < 19 ? 1 : 0,
         transition: '0s',
       }}
     >
@@ -505,6 +546,16 @@ const WhiteScreen2 = () => {
         alt="friend08_02"
         style={friendChuoseStyle_03(scene)}
       />
+      <img
+        src="images/CloudText08_08.svg"
+        alt="cloudText08_08"
+        style={cloudText08_08(scene)}
+      />
+      <img
+        src="images/CloudText08_09.svg"
+        alt="cloudText08_09"
+        style={cloudText08_09(scene)}
+      />
 
       <div
         style={{
@@ -528,7 +579,7 @@ const WhiteScreen2 = () => {
       <div
         style={{
           position: 'absolute',
-          transition: 'ease-in-out 1s',
+          transition: '0s',
           top: 225 * scaleHeight,
           left: 79 * scaleWidth,
           display: 'flex',
@@ -537,10 +588,10 @@ const WhiteScreen2 = () => {
           opacity: scene == 15 ? 1 : 0,
         }}
       >
-        <button class="button-question" onClick={() => navigate('/scene05-1')}>
+        <button class="button-question" onClick={onClickFeeling}>
           เคย
         </button>
-        <button class="button-question" onClick={() => navigate('/scene05-1')}>
+        <button class="button-question" onClick={onClickFeeling}>
           ไม่เคย
         </button>
       </div>
