@@ -179,4 +179,4 @@ const BlackPart = () => {
   )
 }
 
-export default BlackPart01
+export default BlackPart
