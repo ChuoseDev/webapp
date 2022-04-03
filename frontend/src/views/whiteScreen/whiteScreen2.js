@@ -400,7 +400,7 @@ const WhiteScreen2 = () => {
       width: 401.78 * scaleWidth,
       height: 219.76 * scaleWidth,
       top: 348 * scaleHeight,
-      left: 6 * scaleWidth,
+      left: -6 * scaleWidth,
       transition: '0s',
       opacity: scene === 6 ? 1 : 0,
     }
@@ -429,6 +429,42 @@ const WhiteScreen2 = () => {
     }
   }
 
+  const cloud08 = (scene) => {
+    switch (scene) {
+      case 6:
+        return {
+          position: 'absolute',
+          width: 1311.25 * scaleWidth,
+          height: 371.23 * scaleWidth,
+          top: 614 * scaleHeight,
+          left: -6 * scaleWidth,
+          transition: '0s',
+        }
+      case 7:
+        return {
+          position: 'absolute',
+          width: 1311.25 * scaleWidth,
+          height: 371.23 * scaleWidth,
+          top: 614 * scaleHeight,
+          left: -417 * scaleWidth,
+          transition: '0s',
+        }
+      case 8:
+        return {
+          position: 'absolute',
+          width: 1311.25 * scaleWidth,
+          height: 371.23 * scaleWidth,
+          top: 614 * scaleHeight,
+          left: -828 * scaleWidth,
+          transition: '0s',
+        }
+      default:
+        return {
+          opacity: 0,
+        }
+    }
+  }
+
   return (
     <div
       style={{
@@ -436,6 +472,13 @@ const WhiteScreen2 = () => {
         transition: 'opacity ease-in-out 1s',
       }}
     >
+      <img src="images/whiteScreen.svg" alt="background" />
+
+      {/* <img
+        src="images/Cloud08.svg"
+        alt="cloudText07_07"
+        style={cloud08(scene)}
+      /> */}
       <img
         src="images/CloudText01.svg"
         alt="cloudText07_07"
@@ -456,16 +499,16 @@ const WhiteScreen2 = () => {
         alt="cloudText07_10"
         style={cloudText10(scene)}
       />
-      <img
+      {/* <img
         src="images/CloudText07_11.svg"
         alt="cloudText07_11"
         style={cloudText11(scene)}
-      />
-      <img
+      /> */}
+      {/* <img
         src="images/CloudText08_08.svg"
         alt="cloudText08_08"
         style={cloudText08_08(scene)}
-      />
+      /> */}
       <img
         src="images/CloudText08_09.svg"
         alt="cloudText08_09"
