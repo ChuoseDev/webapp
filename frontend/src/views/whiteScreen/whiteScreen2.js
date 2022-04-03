@@ -2,71 +2,56 @@ import { useState, useEffect } from 'react'
 import { Stage, Layer, AnimateImage, Group } from 'konvas'
 import { Html } from 'react-konva-utils'
 import { WhiteButton } from 'components/commons/commons'
+import { useNavigate } from 'react-router'
 
 const WhiteScreen2 = () => {
   const scaleHeight = window.innerHeight / 844
   const scaleWidth = window.innerWidth / 390
   const scaleMean = (scaleHeight + scaleWidth) / 2
   const [scene, setScene] = useState(0)
-  //const [opacity, setOpacity] = useState(0.3)
+  const navigate = useNavigate()
   const [message, setMessage] = useState('')
   useEffect(() => {
     const time = 1200
     let acc = 0
-    for (let i = 1; i < 15; i = i + 1) {
+    for (let i = 1; i < 19; i = i + 1) {
       acc += time
       setTimeout(() => {
         setScene(i)
+        switch (i) {
+          case 1:
+            setMessage('"เราใช้ชีวิตในโลกที่เต็มไปด้วยความคาดหวัง"')
+            break
+          case 5:
+            setMessage('ทุกคนเข้ามา...')
+            break
+          case 7:
+            setMessage('และก็จากเราไปมากมายเช่นกัน')
+            break
+          case 9:
+            setMessage('ทุกคนต่างเดินไปข้างหน้า')
+            break
+          case 13:
+            setMessage('แต่ฉัน...')
+            break
+          case 14:
+            setMessage('ยังอยู่ที่เดิม')
+            break
+          case 15:
+            setMessage('เธอเคยรู้สึกแบบเดียวกับฉันมั้ย?')
+            break
+          case 16:
+            setMessage('ฉันใช้ชีวิตไปเรื่อยๆ')
+            break
+          case 17:
+            setMessage('หันมาอีกที')
+            break
+          case 18:
+            setMessage('ก็ไม่เจอใครแล้ว...')
+            break
+        }
       }, acc)
     }
-    /*setTimeout(() => {
-      setScene(1)
-      setMessage('"เราใช้ชีวิตในโลกที่เต็มไปด้วยความคาดหวัง"')
-    }, 300)
-    setTimeout(() => {
-      setScene(2)
-    }, 1500)
-    setTimeout(() => {
-      setScene(3)
-    }, 2700)
-    setTimeout(() => {
-      setScene(4)
-    }, 3900)
-    setTimeout(() => {
-      setScene(5)
-      setMessage('ทุกคนเข้ามา...')
-    }, 5100)
-    setTimeout(() => {
-      setScene(6)
-    }, 6300)
-    setTimeout(() => {
-      setScene(7)
-      setMessage('และก็จากเราไปมากมายเช่นกัน')
-    }, 7500)
-    setTimeout(() => {
-      setScene(8)
-    }, 8700)
-    setTimeout(() => {
-      setScene(9)
-      setMessage('ทุกคนต่างเดินไปข้างหน้า')
-    }, 9900)
-    setTimeout(() => {
-      setScene(10)
-    }, 11100)
-    setTimeout(() => {
-      setScene(11)
-    }, 12300)
-    setTimeout(() => {
-      setScene(12)
-    }, 13500)
-    setTimeout(() => {
-      setScene(13)
-      setMessage('แต่ฉัน...')
-    }, 14700)
-    setTimeout(() => {
-      setScene(14)
-      setMessage('ยังอยู่ที่เดิม')
-    }, 15900)*/
   }, [])
 
   const stageProps = {
@@ -165,6 +150,8 @@ const WhiteScreen2 = () => {
       case 11:
         return {
           position: 'absolute',
+          width: 147.05 * scaleWidth,
+          height: 149.76 * scaleWidth,
           top: 379 * scaleHeight,
           left: 128 * scaleWidth,
           transition: '0s',
@@ -172,8 +159,135 @@ const WhiteScreen2 = () => {
       case 12:
         return {
           position: 'absolute',
+          width: 147.05 * scaleWidth,
+          height: 149.76 * scaleWidth,
           top: 386 * scaleHeight,
           left: 121 * scaleWidth,
+          transition: '0s',
+        }
+      case 18: {
+        return {
+          position: 'absolute',
+          height: 137.91 * scaleWidth,
+          width: 132.54 * scaleWidth,
+          left: 137 * scaleHeight,
+          top: 398 * scaleWidth,
+          transition: '0s',
+        }
+      }
+      default:
+        return { opacity: 0 }
+    }
+  }
+
+  const yellowChuoseStyle_02 = (scene) => {
+    return {
+      position: 'absolute',
+      top: 465 * scaleHeight,
+      left: 114 * scaleWidth,
+      width: 150 * scaleWidth,
+      height: 152.76 * scaleHeight,
+      transition: '0s',
+      opacity: scene == 8 ? 1 : 0,
+    }
+  }
+
+  const yellowChuoseStyle_03 = (scene) => {
+    return {
+      position: 'absolute',
+      top: 377 * scaleHeight,
+      left: 112 * scaleWidth,
+      width: 166.05 * scaleWidth,
+      height: 169.11 * scaleHeight,
+      transition: '0s',
+      opacity: scene == 13 ? 1 : 0,
+    }
+  }
+
+  const yellowChuoseStyle_04 = (scene) => {
+    return {
+      position: 'absolute',
+      top: 380 * scaleHeight,
+      left: 114 * scaleWidth,
+      width: 161.05 * scaleWidth,
+      height: 162.5 * scaleWidth,
+      transition: '0s',
+      opacity: scene == 14 ? 1 : 0,
+    }
+  }
+
+  const yellowChuoseStyle_05 = (scene) => {
+    return {
+      position: 'absolute',
+      top: 390 * scaleHeight,
+      left: 115 * scaleWidth,
+      width: 157.75 * scaleWidth,
+      height: 159.17 * scaleHeight,
+      transition: '0s',
+      opacity: scene == 15 ? 1 : 0,
+    }
+  }
+
+  const friendChuoseStyle_01 = (scene) => {
+    return {
+      position: 'absolute',
+      width: 370.78 * scaleWidth,
+      height: 228.76 * scaleWidth,
+      top: 372 * scaleHeight,
+      left: 11 * scaleWidth,
+      opacity: scene == 7 ? 1 : 0,
+    }
+  }
+
+  const friendChuoseStyle_02 = (scene) => {
+    return {
+      position: 'absolute',
+      width: 369.31 * scaleWidth,
+      height: 186.76 * scaleWidth,
+      top: 331 * scaleHeight,
+      left: 9 * scaleWidth,
+      opacity: scene == 8 ? 1 : 0,
+    }
+  }
+
+  const friendChuoseStyle_03 = (scene) => {
+    return {
+      position: 'absolute',
+      width: 357.07 * scaleWidth,
+      height: 229.76 * scaleWidth,
+      top: 466 * scaleHeight,
+      left: 14 * scaleWidth,
+      opacity: scene == 10 ? 1 : 0,
+    }
+  }
+
+  const lightGreyFriendChuoseStyle = (scene) => {
+    switch (scene) {
+      case 9:
+        return {
+          position: 'absolute',
+          width: 131.34 * scaleWidth,
+          height: 133.76 * scaleWidth,
+          top: 467 * scaleHeight,
+          left: 243 * scaleWidth,
+          transition: '0s',
+        }
+      case 11:
+        return {
+          position: 'absolute',
+          width: 146.07 * scaleWidth,
+          height: 148.76 * scaleWidth,
+          top: 692 * scaleHeight,
+          left: 224 * scaleWidth,
+          transition: '0s',
+        }
+      case 12:
+        return {
+          position: 'absolute',
+          width: 146.07 * scaleWidth,
+          height: 148.76 * scaleWidth,
+          top: 734 * scaleHeight,
+          left: 219 * scaleWidth,
           transition: '0s',
         }
       default:
@@ -181,169 +295,73 @@ const WhiteScreen2 = () => {
     }
   }
 
-  const yellowChuoseStyle_02 = (scene) => {
-    return scene == 8
-      ? {
+  const blackFriendChuoseStyle = (scene) => {
+    switch (scene) {
+      case 9:
+        return {
           position: 'absolute',
-          top: 465 * scaleHeight,
-          left: 114 * scaleWidth,
-          width: 150 * scaleWidth,
-          height: 152.76 * scaleHeight,
+          width: 130.36 * scaleWidth,
+          height: 132.76 * scaleWidth,
+          top: 373 * scaleHeight,
+          left: 129 * scaleWidth,
           transition: '0s',
         }
-      : { opacity: 0 }
-  }
-
-  const yellowChuoseStyle_03 = (scene) => {
-    return scene == 13
-      ? {
+      case 11:
+        return {
           position: 'absolute',
-          top: 377 * scaleHeight,
-          left: 112 * scaleWidth,
-          width: 166.05 * scaleWidth,
-          height: 169.11 * scaleHeight,
+          width: 159 * scaleWidth,
+          height: 161.92 * scaleWidth,
+          top: 540 * scaleHeight,
+          left: 123 * scaleWidth,
           transition: '0s',
         }
-      : { opacity: 0 }
-  }
-
-  const yellowChuoseStyle_04 = (scene) => {
-    return scene == 14
-      ? {
+      case 12:
+        return {
           position: 'absolute',
-          top: 380 * scaleHeight,
-          left: 114 * scaleWidth,
-          width: 161.05 * scaleWidth,
-          height: 162.5 * scaleWidth,
+          width: 146.07 * scaleWidth,
+          height: 148.76 * scaleWidth,
+          top: 659 * scaleHeight,
+          left: 109 * scaleWidth,
           transition: '0s',
         }
-      : { opacity: 0 }
+      default:
+        return { opacity: 0 }
+    }
   }
 
-  const friendChuoseProps_01 = {
-    image: 'images/Friend07_12.svg',
-    width: 370.78 * scaleWidth,
-    height: 228.76 * scaleWidth,
-    y: 372 * scaleHeight,
-    left: 11 * scaleWidth,
-    scene,
-    opacity: 0,
-    animation: {
-      7: { opacity: 1, duration: 0 },
-      8: { opacity: 0, duration: 0 },
-    },
-  }
-
-  const friendChuoseProps_02 = {
-    image: 'images/Friend07_13.svg',
-    width: 369.31 * scaleWidth,
-    height: 186.76 * scaleWidth,
-    y: 331 * scaleHeight,
-    left: 9 * scaleWidth,
-    scene,
-    opacity: 0,
-    animation: {
-      8: { opacity: 1, duration: 0 },
-      9: { opacity: 0, duration: 0 },
-    },
-  }
-
-  const friendChuoseProps_03 = {
-    image: 'images/Friend08_02.svg',
-    width: 357.07 * scaleWidth,
-    height: 229.76 * scaleWidth,
-    y: 466 * scaleHeight,
-    left: 14 * scaleWidth,
-    scene,
-    opacity: 0,
-    animation: {
-      10: { opacity: 1, duration: 0 },
-      11: { opacity: 0, duration: 0 },
-    },
-  }
-
-  const lightGreyFriendChuoseProps = {
-    image: 'images/LightGreyFriend.svg',
-    width: 131.34 * scaleWidth,
-    height: 133.76 * scaleWidth,
-    y: 467 * scaleHeight,
-    left: 243 * scaleWidth,
-    scene,
-    opacity: 0,
-    animation: {
-      9: { opacity: 1, duration: 0 },
-      10: { opacity: 0, duration: 0 },
-      11: {
-        width: 146.07 * scaleWidth,
-        height: 148.76 * scaleWidth,
-        y: 692 * scaleHeight,
-        left: 224 * scaleWidth,
-        opacity: 1,
-        transition: '0s',
-      },
-      12: {
-        y: 734 * scaleHeight,
-        left: 219 * scaleWidth,
-        transition: '0s',
-      },
-      13: { opacity: 0, duration: 0 },
-    },
-  }
-
-  const blackFriendChuoseProps = {
-    image: 'images/BlackFriend.svg',
-    width: 130.36 * scaleWidth,
-    height: 132.76 * scaleWidth,
-    y: 373 * scaleHeight,
-    left: 129 * scaleWidth,
-    scene,
-    opacity: 0,
-    animation: {
-      9: { opacity: 1, duration: 0 },
-      10: { opacity: 0, duration: 0 },
-      11: {
-        width: 159 * scaleWidth,
-        height: 161.92 * scaleWidth,
-        y: 540 * scaleHeight,
-        left: 123 * scaleWidth,
-        opacity: 1,
-        transition: '0s',
-      },
-      12: {
-        y: 659 * scaleHeight,
-        left: 109 * scaleWidth,
-        transition: '0s',
-      },
-      13: { opacity: 0, duration: 0 },
-    },
-  }
-
-  const greyFriendChuoseProps = {
-    image: 'images/GreyFriend.svg',
-    width: 131.34 * scaleWidth,
-    height: 133.76 * scaleWidth,
-    y: 458 * scaleHeight,
-    left: 17 * scaleWidth,
-    scene,
-    opacity: 0,
-    animation: {
-      9: { opacity: 1, duration: 0 },
-      10: { opacity: 0, duration: 0 },
-      11: {
-        width: 152 * scaleWidth,
-        height: 154.79 * scaleWidth,
-        y: 698 * scaleHeight,
-        left: 20 * scaleWidth,
-        opacity: 1,
-        transition: '0s',
-      },
-      12: {
-        y: 740 * scaleHeight,
-        left: 15 * scaleWidth,
-        transition: '0s',
-      },
-      13: { opacity: 0, duration: 0 },
-    },
+  const greyFriendChuoseStyle = (scene) => {
+    switch (scene) {
+      case 9:
+        return {
+          position: 'absolute',
+          width: 131.34 * scaleWidth,
+          height: 133.76 * scaleWidth,
+          top: 458 * scaleHeight,
+          left: 17 * scaleWidth,
+          transition: '0s',
+        }
+      case 11:
+        return {
+          position: 'absolute',
+          width: 152 * scaleWidth,
+          height: 154.79 * scaleWidth,
+          top: 698 * scaleHeight,
+          left: 20 * scaleWidth,
+          opacity: 1,
+          transition: '0s',
+        }
+      case 12:
+        return {
+          position: 'absolute',
+          width: 152 * scaleWidth,
+          height: 154.79 * scaleWidth,
+          top: 740 * scaleHeight,
+          left: 15 * scaleWidth,
+          transition: '0s',
+        }
+      default:
+        return { opacity: 0 }
+    }
   }
 
   const cloudText07 = {
@@ -419,10 +437,35 @@ const WhiteScreen2 = () => {
   return (
     <div
       style={{
-        opacity: scene < 15 ? 1 : 0,
+        opacity: scene < 19 ? 1 : 0,
         transition: 'opacity ease-in-out 1s',
       }}
     >
+      <img
+        src="images/Friend07_12.svg"
+        alt="friend07_12"
+        style={friendChuoseStyle_01(scene)}
+      />
+      <img
+        src="images/Friend07_13.svg"
+        alt="friend07_13"
+        style={friendChuoseStyle_02(scene)}
+      />
+      <img
+        src="images/BlackFriend.svg"
+        alt="blackFriend"
+        style={blackFriendChuoseStyle(scene)}
+      />
+      <img
+        src="images/LightGreyFriend.svg"
+        alt="lightGreyFriend"
+        style={lightGreyFriendChuoseStyle(scene)}
+      />
+      <img
+        src="images/GreyFriend.svg"
+        alt="greyFriend"
+        style={greyFriendChuoseStyle(scene)}
+      />
       <img
         src="images/YellowChuose_01.svg"
         alt="yellowChuose_01"
@@ -443,11 +486,22 @@ const WhiteScreen2 = () => {
         alt="yellowChuose_04"
         style={yellowChuoseStyle_04(scene)}
       />
+      <img
+        src="images/YellowChuose_05.svg"
+        alt="yellowChuose_05"
+        style={yellowChuoseStyle_05(scene)}
+      />
+      <img
+        src="images/Friend08_02.svg"
+        alt="friend08_02"
+        style={friendChuoseStyle_03(scene)}
+      />
+
       <div
         style={{
           position: 'absolute',
-          transition: 'ease-in-out 1s',
-          top: '206px',
+          transition: '0s',
+          top: scene == 15 ? 171 * scaleHeight : 206 * scaleHeight,
           height: 412 * scaleHeight,
           width: 390 * scaleWidth,
         }}
@@ -459,8 +513,31 @@ const WhiteScreen2 = () => {
             textAlign: 'center',
           }}
         >
-          {scene}
+          {message}
         </p>
+      </div>
+      <div
+        style={{
+          position: 'absolute',
+          transition: 'ease-in-out 1s',
+          top: 225 * scaleHeight,
+          left: 79 * scaleWidth,
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          opacity: scene == 15 ? 1 : 0,
+        }}
+      >
+        <button
+          class="button-info"
+          style={{ marginBottom: '10px' }}
+          onClick={() => navigate('/')}
+        >
+          เคย
+        </button>
+        <button class="button-info" onClick={() => navigate('/')}>
+          ไม่เคย
+        </button>
       </div>
     </div>
   )
