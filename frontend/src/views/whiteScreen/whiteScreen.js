@@ -3,6 +3,7 @@ import { Stage, Layer, AnimateImage, Group } from 'konvas'
 import { Html } from 'react-konva-utils'
 import { WhiteButton } from 'components/commons/commons'
 import { useNavigate } from 'react-router'
+import './whiteScreen.css'
 
 const WhiteScreen2 = () => {
   const scaleHeight = window.innerHeight / 844
@@ -423,6 +424,7 @@ const WhiteScreen2 = () => {
         transition: '0s',
       }}
     >
+      <img src="images/whiteScreen.svg" alt="background" />
       <img
         src="images/Friend07_12.svg"
         alt="friend07_12"
@@ -535,14 +537,10 @@ const WhiteScreen2 = () => {
           opacity: scene == 15 ? 1 : 0,
         }}
       >
-        <button
-          class="button-info"
-          style={{ marginBottom: '10px' }}
-          onClick={() => navigate('/scene05-1')}
-        >
+        <button class="button-question" onClick={() => navigate('/scene05-1')}>
           เคย
         </button>
-        <button class="button-info" onClick={() => navigate('/scene05-1')}>
+        <button class="button-question" onClick={() => navigate('/scene05-1')}>
           ไม่เคย
         </button>
       </div>
