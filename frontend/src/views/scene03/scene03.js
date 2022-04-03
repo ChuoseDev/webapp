@@ -11,9 +11,11 @@ import { Scene03_08 } from './scene03_08'
 import { Scene03_09 } from './scene03_09'
 import { Scene03_10 } from './scene03_10'
 import { Scene03_11 } from './scene03_11'
+import { useNavigate } from 'react-router'
 
 export const Scene03 = () => {
   const [scene, setScene] = useState(1)
+  const navigate = useNavigate()
 
   useEffect(() => {
     setTimeout(() => {
@@ -46,10 +48,16 @@ export const Scene03 = () => {
     setTimeout(() => {
       setScene(11)
     }, 5000)
+    setTimeout(() => {
+      navigate('/scene041')
+    }, 7000)
   }, [])
 
   return (
-    <div className="container">
+    <div
+      className="container"
+      style={{ opacity: scene < 2 ? 0 : 1, transition: 'ease-in-out 1s' }}
+    >
       <div className="scene" style={{ opacity: scene === 1 ? 1 : 0 }}>
         <Scene03_01 />
       </div>
