@@ -84,6 +84,42 @@ const WhiteScreen2 = () => {
     }
   }
 
+  const cloud08 = (scene) => {
+    switch (scene) {
+      case 6:
+        return {
+          position: 'absolute',
+          width: 1311.25 * scaleWidth,
+          height: 371.23 * scaleWidth,
+          top: 614 * scaleHeight,
+          left: -6 * scaleWidth,
+          transition: '0s',
+        }
+      case 7:
+        return {
+          position: 'absolute',
+          width: 1311.25 * scaleWidth,
+          height: 371.23 * scaleWidth,
+          top: 614 * scaleHeight,
+          left: -417 * scaleWidth,
+          transition: '0s',
+        }
+      case 8:
+        return {
+          position: 'absolute',
+          width: 1311.25 * scaleWidth,
+          height: 371.23 * scaleWidth,
+          top: 614 * scaleHeight,
+          left: -828 * scaleWidth,
+          transition: '0s',
+        }
+      default:
+        return {
+          opacity: 0,
+        }
+    }
+  }
+
   return (
     <div
       style={{
@@ -91,6 +127,7 @@ const WhiteScreen2 = () => {
         transition: '0s',
       }}
     >
+      <img src="images/whiteScreen.svg" alt="background" />
       <img
         src="images/CloudText08_08.svg"
         alt="cloudText08_08"
