@@ -364,74 +364,87 @@ const WhiteScreen2 = () => {
     }
   }
 
-  const cloudText07 = {
-    image: 'images/CloudText01.svg',
-    width: 101.01 * scaleWidth,
-    height: 64 * scaleWidth,
-    y: 277 * scaleHeight,
-    left: 219 * scaleWidth,
-    scene,
-    opacity: 0,
-    animation: {
-      2: { opacity: 1, duration: 0 },
-      3: { opacity: 0, duration: 0 },
-    },
+  const cloudText07 = (scene) => {
+    return {
+      position: 'absolute',
+      width: 101.01 * scaleWidth,
+      height: 64 * scaleWidth,
+      top: 277 * scaleHeight,
+      left: 219 * scaleWidth,
+      transition: '0s',
+      opacity: scene === 2 ? 1 : 0,
+    }
   }
 
-  const cloudText08 = {
-    image: 'images/CloudText07_08.svg',
-    width: 323.05 * scaleWidth,
-    height: 219.04 * scaleWidth,
-    y: 252 * scaleHeight,
-    left: 34 * scaleWidth,
-    scene,
-    opacity: 0,
-    animation: {
-      3: { opacity: 1, duration: 0 },
-      4: { opacity: 0, duration: 0 },
-    },
+  const cloudText08 = (scene) => {
+    return {
+      position: 'absolute',
+      width: 323.05 * scaleWidth,
+      height: 219.04 * scaleWidth,
+      top: 252 * scaleHeight,
+      left: 34 * scaleWidth,
+      transition: '0s',
+      opacity: scene === 3 ? 1 : 0,
+    }
   }
 
-  const cloudText09 = {
-    image: 'images/CloudText07_09.svg',
-    width: 350.31 * scaleWidth,
-    height: 273.76 * scaleWidth,
-    y: 275 * scaleHeight,
-    left: 17 * scaleWidth,
-    scene,
-    opacity: 0,
-    animation: {
-      4: { opacity: 1, duration: 0 },
-      5: { opacity: 0, duration: 0 },
-    },
+  const cloudText09 = (scene) => {
+    return {
+      position: 'absolute',
+      width: 350.31 * scaleWidth,
+      height: 273.76 * scaleWidth,
+      top: 275 * scaleHeight,
+      left: 17 * scaleWidth,
+      transition: '0s',
+      opacity: scene === 4 ? 1 : 0,
+    }
   }
 
-  const cloudText10 = {
-    image: 'images/CloudText07_10.svg',
-    width: 350.78 * scaleWidth,
-    height: 225.76 * scaleWidth,
-    y: 352 * scaleHeight,
-    left: 21 * scaleWidth,
-    scene,
-    opacity: 0,
-    animation: {
-      5: { opacity: 1, duration: 0 },
-      6: { opacity: 0, duration: 0 },
-    },
+  const cloudText10 = (scene) => {
+    return {
+      position: 'absolute',
+      width: 350.78 * scaleWidth,
+      height: 225.76 * scaleWidth,
+      top: 352 * scaleHeight,
+      left: 21 * scaleWidth,
+      transition: '0s',
+      opacity: scene === 5 ? 1 : 0,
+    }
   }
 
-  const cloudText11 = {
-    image: 'images/CloudText07_11.svg',
-    width: 401.78 * scaleWidth,
-    height: 219.76 * scaleWidth,
-    y: 348 * scaleHeight,
-    left: 6 * scaleWidth,
-    scene,
-    opacity: 0,
-    animation: {
-      6: { opacity: 1, duration: 0 },
-      7: { opacity: 0, duration: 0 },
-    },
+  const cloudText11 = (scene) => {
+    return {
+      position: 'absolute',
+      width: 401.78 * scaleWidth,
+      height: 219.76 * scaleWidth,
+      top: 348 * scaleHeight,
+      left: 6 * scaleWidth,
+      transition: '0s',
+      opacity: scene === 6 ? 1 : 0,
+    }
+  }
+
+  const cloudText08_08 = (scene) => {
+    return {
+      position: 'absolute',
+      width: 401.78 * scaleWidth,
+      height: 331.03 * scaleWidth,
+      top: 250 * scaleHeight,
+      left: -6 * scaleWidth,
+      transition: '0s',
+      opacity: scene === 16 ? 1 : 0,
+    }
+  }
+  const cloudText08_09 = (scene) => {
+    return {
+      position: 'absolute',
+      width: 206.92 * scaleWidth,
+      height: 207.91 * scaleWidth,
+      top: 321 * scaleHeight,
+      left: 131 * scaleWidth,
+      transition: '0s',
+      opacity: scene === 17 ? 1 : 0,
+    }
   }
 
   return (
@@ -465,6 +478,41 @@ const WhiteScreen2 = () => {
         src="images/GreyFriend.svg"
         alt="greyFriend"
         style={greyFriendChuoseStyle(scene)}
+      />
+      <img
+        src="images/CloudText01.svg"
+        alt="cloudText07_07"
+        style={cloudText07(scene)}
+      />
+      <img
+        src="images/CloudText07_08.svg"
+        alt="cloudText07_08"
+        style={cloudText08(scene)}
+      />
+      <img
+        src="images/CloudText07_09.svg"
+        alt="cloudText07_09"
+        style={cloudText09(scene)}
+      />
+      <img
+        src="images/CloudText07_10.svg"
+        alt="cloudText07_10"
+        style={cloudText10(scene)}
+      />
+      <img
+        src="images/CloudText07_11.svg"
+        alt="cloudText07_11"
+        style={cloudText11(scene)}
+      />
+      <img
+        src="images/CloudText08_08.svg"
+        alt="cloudText08_08"
+        style={cloudText08_08(scene)}
+      />
+      <img
+        src="images/CloudText08_09.svg"
+        alt="cloudText08_09"
+        style={cloudText08_09(scene)}
       />
       <img
         src="images/YellowChuose_01.svg"
