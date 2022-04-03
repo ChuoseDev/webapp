@@ -42,7 +42,8 @@ const App = () => {
           <Route exact path="/blackpart03" element={<BlackPart03 />}></Route>
           <Route exact path="/scene04" element={<Scene04 />}></Route>
 
-          <Route exact path="/scene05" element={<WhiteScreen2 />}></Route>
+          <Route exact path="/scene05" element={<WhiteScreen />}></Route>
+          <Route exact path="/scene05-1" element={<WhiteScreen2 />}></Route>
         </Switch>
       </BrowserRouter>
     </div>
