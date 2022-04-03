@@ -10,8 +10,11 @@ export const Scene04 = () => {
   // eslint-disable-next-line react-hooks/rules-of-hooks
   useEffect(() => {
     setTimeout(() => {
-      setScene(2)
+      setScene(1)
     }, 500)
+    setTimeout(() => {
+      setScene(2)
+    }, 2000)
   }, [])
 
   return (
