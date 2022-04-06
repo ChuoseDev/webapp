@@ -6,6 +6,7 @@ import { WhiteButton } from 'components/commons/commons'
 const Startup = () => {
   const scaleHeight = window.innerHeight / 844
   const scaleWidth = window.innerWidth / 390
+  const scaleMean = (scaleHeight + scaleWidth) / 2
   const [scene, setScene] = useState(0)
   const [opacity, setOpacity] = useState(0.3)
   useEffect(() => {
@@ -21,7 +22,7 @@ const Startup = () => {
     }, 4000)
     setTimeout(() => {
       setScene(4)
-    }, 5500)
+    }, 4700)
   }, [])
 
   const stageProps = {
@@ -84,17 +85,17 @@ const Startup = () => {
   const floatChuoseProps = {
     image: 'images/Charactor.svg',
     x: (window.innerWidth - 280 * scaleHeight) / 2,
-    y: -0.5 * window.innerHeight,
+    y: -1 * window.innerHeight,
     rotation: -7,
-    width: 314.62 * scaleWidth,
-    height: 361 * scaleWidth,
+    width: 314.62 * scaleHeight,
+    height: 361 * scaleHeight,
     scene,
     animation: {
-      2: { y: 80 * scaleHeight, duration: 1.5 },
-      3: { y: 50 * scaleHeight, rotation: 14, duration: 1 },
+      2: { y: 80 * scaleHeight, duration: 2.5 },
+      3: { y: 50 * scaleHeight, rotation: 14, duration: 0.7 },
       4: {
-        width: 278.07 * scaleWidth,
-        height: 319.06 * scaleWidth,
+        width: 278.07 * scaleHeight,
+        height: 319.06 * scaleHeight,
         y: 200 * scaleHeight,
         rotation: -14,
         duration: 0.5,
@@ -167,7 +168,7 @@ const Startup = () => {
                 <p
                   className="header"
                   style={{
-                    fontSize: 18 * scaleWidth,
+                    fontSize: 18 * scaleMean,
                     fontWeight: 'bold',
                     color: '#ffffff',
                     margin: 0,
@@ -177,7 +178,7 @@ const Startup = () => {
                 </p>
                 <p
                   style={{
-                    fontSize: 16 * scaleWidth,
+                    fontSize: 16 * scaleMean,
                     color: '#ffffff',
                     textAlign: 'left',
                   }}
@@ -195,7 +196,7 @@ const Startup = () => {
                 onClick={onClickStart}
                 style={{
                   width: 243 * scaleWidth,
-                  height: 46 * scaleWidth,
+                  height: 46 * scaleHeight,
                   opacity: scene === 4 ? 1 : 0,
                   transition: 'ease-in-out 0.5s',
                 }}
@@ -203,7 +204,7 @@ const Startup = () => {
                   <p
                     style={{
                       margin: 0,
-                      fontSize: 24 * scaleWidth,
+                      fontSize: 24 * scaleHeight,
                       fontWeight: 'bold',
                     }}
                   >

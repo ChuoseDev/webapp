@@ -1,0 +1,26 @@
+<svg width="390" height="387" viewBox="0 0 390 387" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M68.9213 109.597C60.6015 151.198 18.8157 193.932 7.05358 208.587C-100.773 342.932 -4.19194 477.764 35.3354 512.628C114.243 594.431 240.493 593.279 341.144 532.072C471.952 452.527 479.023 286.365 395.942 208.587C364.47 179.124 359.95 150.744 353.518 120.203C316.75 8.4859 245.689 3.53543 203.265 3.53516C118.416 5.30283 77.7597 65.4036 68.9213 109.597Z" fill="#7F8DA8"/>
+<path d="M51.2447 106.062C42.9248 147.662 1.13908 190.397 -10.6231 205.052C-118.45 339.397 -21.8686 474.229 17.6587 509.093C96.5659 590.895 222.817 589.744 323.467 528.537C454.275 448.992 461.346 282.83 378.265 205.052C346.793 175.589 342.274 147.209 335.841 116.668C299.073 4.95074 228.013 0.000271307 185.588 0C100.74 1.76768 60.083 61.8685 51.2447 106.062Z" fill="#98A7C2"/>
+<path d="M173.334 95.4548C171.566 102.525 164.628 109.596 153.889 109.596C143.15 109.596 136.213 104.293 134.445 95.4548" stroke="black" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M240.506 95.4548C238.738 102.525 231.8 109.596 221.061 109.596C210.322 109.596 203.384 104.293 201.617 95.4548" stroke="black" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M173.334 134.343C173.334 134.343 196.314 130.808 205.152 134.343" stroke="black" stroke-linecap="round"/>
+<g filter="url(#filter0_f_1128_10692)">
+<circle cx="228.132" cy="125.505" r="8.83839" fill="#E37B72"/>
+</g>
+<g filter="url(#filter1_f_1128_10692)">
+<circle cx="146.819" cy="125.505" r="8.83839" fill="#E37B72"/>
+</g>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M129.324 109.076C129.247 106.732 128.77 101.003 128.77 101.003C128.77 101.003 121.755 104.095 121.283 104.322C121.132 104.395 120.92 104.524 120.702 104.664C120.463 104.805 120.231 104.963 120.007 105.136C119.858 105.24 119.761 105.311 119.761 105.311L119.778 105.321C118.96 106.011 118.274 106.917 117.809 107.998C116.351 111.384 117.623 115.2 120.649 116.52C123.675 117.84 127.31 116.165 128.767 112.778C129.294 111.554 129.464 110.274 129.324 109.076Z" fill="white"/>
+<defs>
+<filter id="filter0_f_1128_10692" x="215.293" y="112.667" width="25.6768" height="25.6768" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feGaussianBlur stdDeviation="2" result="effect1_foregroundBlur_1128_10692"/>
+</filter>
+<filter id="filter1_f_1128_10692" x="133.98" y="112.667" width="25.6768" height="25.6768" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feGaussianBlur stdDeviation="2" result="effect1_foregroundBlur_1128_10692"/>
+</filter>
+</defs>
+</svg>

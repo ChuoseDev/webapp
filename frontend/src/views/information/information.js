@@ -76,16 +76,26 @@ const Information = () => {
     x: 168 * scaleWidth,
     y: 526 * scaleHeight,
     offsetX: 100 * scaleWidth,
-    offsetY: -50 * scaleWidth,
+    offsetY: -50 * scaleHeight,
     rotation: -20,
-    width: 190 * scaleWidth,
-    height: 218 * scaleWidth,
+    width: 190 * scaleHeight,
+    height: 218 * scaleHeight,
     scene: scene % 4,
     animation: {
-      0: { x: 130, y: 546, rotation: -13, duration: 0.5 },
-      1: { y: 526, rotation: 0, duration: 0.5 },
-      2: { x: 210, y: 546, rotation: 13, duration: 0.5 },
-      3: { y: 526, rotation: 0, duration: 0.5 },
+      0: {
+        x: 130 * scaleWidth,
+        y: 546 * scaleHeight,
+        rotation: -13,
+        duration: 0.5,
+      },
+      1: { y: 526 * scaleHeight, rotation: 0, duration: 0.5 },
+      2: {
+        x: 210 * scaleWidth,
+        y: 546 * scaleHeight,
+        rotation: 13,
+        duration: 0.5,
+      },
+      3: { y: 526 * scaleHeight, rotation: 0, duration: 0.5 },
     },
   }
 
@@ -110,12 +120,15 @@ const Information = () => {
                     textAlign: 'center',
                     height: 844 * scaleHeight,
                     width: 390 * scaleWidth,
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
                   }}
                 >
                   <h1
                     style={{
                       fontWeight: 'bold',
-                      fontSize: 18 / scaleWidth,
+                      fontSize: 18 * scaleWidth,
                       color: 'white',
                     }}
                   >
