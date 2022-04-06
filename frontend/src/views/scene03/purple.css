@@ -30,6 +30,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  font-size: 20px;
 }
 
 .text_buttom {
@@ -38,6 +39,16 @@
   top: 75%;
   left: 50%;
   transform: translate(-50%, -50%);
+  font-size: 20px;
+}
+
+.text_top {
+  position: absolute;
+  color: white;
+  top: 17%;
+  left: 20%;
+  transform: translate(0%);
+  font-size: 20px;
 }
 
 .cloud01 {

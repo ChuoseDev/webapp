@@ -11,34 +11,34 @@ const Scene03 = () => {
   useEffect(() => {
     setTimeout(() => {
       setScene(2)
-    }, 500)
-    setTimeout(() => {
-      setScene(3)
     }, 1000)
     setTimeout(() => {
-      setScene(4)
-    }, 1500)
-    setTimeout(() => {
-      setScene(5)
+      setScene(3)
     }, 2000)
     setTimeout(() => {
-      setScene(6)
-    }, 2500)
-    setTimeout(() => {
-      setScene(7)
+      setScene(4)
     }, 3000)
     setTimeout(() => {
-      setScene(8)
-    }, 3500)
-    setTimeout(() => {
-      setScene(9)
+      setScene(5)
     }, 4000)
     setTimeout(() => {
+      setScene(6)
+    }, 5000)
+    setTimeout(() => {
+      setScene(7)
+    }, 6000)
+    setTimeout(() => {
+      setScene(8)
+    }, 7000)
+    setTimeout(() => {
+      setScene(9)
+    }, 8000)
+    setTimeout(() => {
       setScene(10)
-    }, 4500)
+    }, 9000)
     setTimeout(() => {
       setScene(11)
-    }, 5000)
+    }, 10000)
   }, [])
 
   const containerStyle = (scene) => {
