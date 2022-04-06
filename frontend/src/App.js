@@ -35,8 +35,8 @@ const App = () => {
           <Route exact path="/blackpart01" element={<BlackPart01 />}></Route>
           <Route exact path="/blackpart02" element={<BlackPart02 />}></Route>
           <Route exact path="/blackpart03" element={<BlackPart03 />}></Route>
-          <Route exact path="/scene04" element={<Scene04 />}></Route>
           <Route exact path="/scene05" element={<WhiteScreen />}></Route>
+          <Route exact path="/scene06" element={<WhiteScreen />}></Route>
         </Switch>
       </BrowserRouter>
     </div>
