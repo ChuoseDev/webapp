@@ -15,6 +15,10 @@ import BlackPart02 from 'views/black-part/black-part02'
 import BlackPart03 from 'views/black-part/black-part03'
 import Scene01 from 'views/scene01/scene01'
 import Scene02 from 'views/scene02/scene02'
+import WhiteScreen from 'views/whiteScreen/whiteScreen'
+import Scene04 from 'views/scene04/scene04'
+import Scene01 from 'views/scene01/scene01'
+import Scene03 from 'views/scene03/scene03'
 
 const App = () => {
   return (

@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router'
 import { Stage, Layer, AnimateImage, Group } from 'konvas'
 import { Html } from 'react-konva-utils'
 
-const BlackPart01 = () => {
+const BlackPart = () => {
   const scaleHeight = window.screen.height / 844
   const scaleWidth = window.screen.width / 390
   const scaleMean = (scaleHeight + scaleWidth) / 2
@@ -179,4 +179,4 @@ const BlackPart01 = () => {
   )
 }
 
-export default BlackPart01
+export default BlackPart

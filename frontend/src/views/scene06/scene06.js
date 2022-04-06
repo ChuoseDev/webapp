@@ -2,7 +2,7 @@ import { useNavigate } from 'react-router'
 import { useEffect, useState } from 'react'
 import '../scene03/purple.css'
 
-const Scene04 = () => {
+const Scene06 = () => {
   const [scene, setScene] = useState(1)
   const scaleWidth = window.screen.width / 390
   const scaleHeight = window.screen.height / 844
@@ -17,16 +17,6 @@ const Scene04 = () => {
       setScene(3)
     }, 2000)
   }, [])
-
-  const onClickChangeScene = async () => {
-    setScene(4)
-    setTimeout(() => {
-      setScene(5)
-    }, 1000)
-    setTimeout(() => {
-      navigate('/scene05')
-    }, 2000)
-  }
 
   const containerStyle = (scene) => {
     return {
@@ -60,74 +50,82 @@ const Scene04 = () => {
         return (
           <div>
             <img
+              class="cloud02"
+              src={'images/WhiteCloud02.svg'}
+              alt="background"
+              style={{ top: '8.06%', left: '58.72%' }}
+            />
+            <img
+              class="cloud01"
+              src={'images/WhiteCloud01.svg'}
+              alt="background"
+              style={{ top: '33.77%', left: '-16.67%', width: '43.76%' }}
+            />
+            <img
               class="cloud01"
               src={'images/WhiteCloud01.svg'}
               alt="background"
               style={{ top: '61.97%', left: '63.59%' }}
             />
             <img
-              class="cloud01"
-              src={'images/WhiteCloud01.svg'}
-              alt="background"
-              style={{ top: '33.76%', left: '-16.66%', width: '43.76%' }}
-            />
-            <img
               class="cloud02"
               src={'images/WhiteCloud02.svg'}
               alt="background"
-              style={{ top: '8.05%', left: '58.71%' }}
-            />
-            <img
-              class="cloud02"
-              src={'images/WhiteCloud02.svg'}
-              alt="background"
-              style={{ top: '82.34%', left: '0.77%' }}
+              style={{ top: '82.35%', left: '-0.77%' }}
             />
             <img
               class="charactor"
               src={'images/Charactor.svg'}
               alt="charactor"
               style={{
-                top: '19%',
-                left: '12%',
-                transform: 'rotate(-14deg)',
-                width: '295px',
+                top: '45%',
+                left: '13%',
+                width: '300px',
               }}
             />
-            <div class="text_buttom">ได้สิ</div>
           </div>
         )
       }
+
       case 2: {
         return (
           <div>
+            <div class="text_top">"เราออกไปจากที่นี้กันมั๊ย [ชื่อผู้ใช้]"</div>
             <img
               class="cloud02"
               src={'images/WhiteCloud02.svg'}
               alt="background"
-              style={{ top: '8.53%', left: '51.54%' }}
+              style={{ top: '8.06%', left: '58.72%' }}
             />
-
+            <img
+              class="cloud01"
+              src={'images/WhiteCloud01.svg'}
+              alt="background"
+              style={{ top: '33.77%', left: '-16.67%', width: '43.76%' }}
+            />
+            <img
+              class="cloud01"
+              src={'images/WhiteCloud01.svg'}
+              alt="background"
+              style={{ top: '61.97%', left: '63.59%' }}
+            />
             <img
               class="cloud02"
               src={'images/WhiteCloud02.svg'}
               alt="background"
-              style={{ top: '76.07%', left: '62.31%' }}
+              style={{ top: '82.35%', left: '-0.77%' }}
             />
             <img
               class="charactor"
               src={'images/Charactor.svg'}
               alt="charactor"
               style={{
-                top: '19%',
-                left: '12%',
-                transform: 'rotate(-18deg)',
-                width: '295px',
+                top: '30%',
+                left: '7%',
+                transform: 'rotate(-15deg)',
+                width: '350px',
               }}
             />
-            <div class="text_buttom">
-              “เธอลองให้เรา พาเธอออกไปจากที่นี่ได้มั้ย?”
-            </div>
           </div>
         )
       }
@@ -135,105 +133,46 @@ const Scene04 = () => {
       case 3: {
         return (
           <div>
+            <div class="text_top">"เราออกไปจากที่นี้กันมั๊ย [ชื่อผู้ใช้]"</div>
             <img
               class="cloud02"
               src={'images/WhiteCloud02.svg'}
               alt="background"
-              style={{ top: '7.7%', left: '51.03%' }}
+              style={{ top: '8.06%', left: '58.72%' }}
             />
+            <img
+              class="cloud01"
+              src={'images/WhiteCloud01.svg'}
+              alt="background"
+              style={{ top: '33.77%', left: '-16.67%', width: '43.76%' }}
+            />
+            <img
+              class="cloud01"
+              src={'images/WhiteCloud01.svg'}
+              alt="background"
+              style={{ top: '61.97%', left: '63.59%' }}
+            />
+            <img
+              class="cloud02"
+              src={'images/WhiteCloud02.svg'}
+              alt="background"
+              style={{ top: '82.35%', left: '-0.77%' }}
+            />
+            <img
+              class="charactor"
+              src={'images/Charactor.svg'}
+              alt="charactor"
+              style={{
+                top: '30%',
+                left: '7%',
+                transform: 'rotate(-7.5deg)',
+                width: '350px',
+              }}
+            />
+          </div>
+        )
+      }
 
-            <img
-              class="cloud02"
-              src={'images/WhiteCloud02.svg'}
-              alt="background"
-              style={{ top: '60.19%', left: '-17.18%' }}
-            />
-            <img
-              class="charactor"
-              src={'images/Charactor.svg'}
-              alt="charactor"
-              style={{
-                top: '16%',
-                left: '16%',
-                transform: 'rotate(-18deg)',
-                width: '295px',
-              }}
-            />
-            <div class="text_buttom">
-              “เธอลองให้เรา พาเธอออกไปจากที่นี่ได้มั้ย?”
-            </div>
-            <button class="button" onClick={() => onClickChangeScene()}>
-              ลองดู
-            </button>
-          </div>
-        )
-      }
-      case 4: {
-        return (
-          <div>
-            <img
-              class="cloud02"
-              src={'images/WhiteCloud02.svg'}
-              alt="background"
-              style={{ top: '7.7%', left: '51.03%' }}
-            />
-            <img
-              class="cloud01"
-              src={'images/WhiteCloud01.svg'}
-              alt="background"
-              style={{ top: '30.69%', left: '-17.95%', width: '43.76%' }}
-            />
-            <img
-              class="charactor"
-              src={'images/Charactor.svg'}
-              alt="charactor"
-              style={{
-                top: '18%',
-                left: '15%',
-                transform: 'rotate(-18deg)',
-                width: '295px',
-              }}
-            />
-            <div class="text_buttom">“ว่าแต่เธอชื่ออะไร”</div>
-          </div>
-        )
-      }
-      case 5: {
-        return (
-          <div>
-            <img
-              class="cloud02"
-              src={'images/WhiteCloud02.svg'}
-              alt="background"
-              style={{ top: '6.52%', left: '63.59%' }}
-            />
-            <img
-              class="cloud01"
-              src={'images/WhiteCloud01.svg'}
-              alt="background"
-              style={{ top: '32.23%', left: '-11.79%', width: '43.76%' }}
-            />
-            <img
-              class="cloud02"
-              src={'images/WhiteCloud02.svg'}
-              alt="background"
-              style={{ top: '60.31%', left: '65.13%' }}
-            />
-            <img
-              class="charactor"
-              src={'images/Charactor.svg'}
-              alt="charactor"
-              style={{
-                top: '17%',
-                left: '15.5%',
-                transform: 'rotate(-18deg)',
-                width: '295px',
-              }}
-            />
-            <div class="text_buttom">“ว่าแต่เธอชื่ออะไร”</div>
-          </div>
-        )
-      }
       default: {
         return <div></div>
       }
@@ -258,4 +197,4 @@ const Scene04 = () => {
     </div>
   )
 }
-export default Scene04
+export default Scene06
