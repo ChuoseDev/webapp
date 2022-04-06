@@ -377,7 +377,7 @@ const Scene03 = () => {
                 width: '295px',
               }}
             />
-            <div class="text_button">“สวัสดี เราชูโอสนะ”</div>
+            <div class="text_buttom">“สวัสดี เราชูโอสนะ”</div>
           </div>
         )
       }
@@ -420,7 +420,7 @@ const Scene03 = () => {
                 width: '295px',
               }}
             />
-            <div class="text_button">“สวัสดี เราชูโอสนะ”</div>
+            <div class="text_buttom">“สวัสดี เราชูโอสนะ”</div>
           </div>
         )
       }
@@ -463,7 +463,7 @@ const Scene03 = () => {
                 width: '295px',
               }}
             />
-            <div class="text_button">“เราอยากช่วยเธอ”</div>
+            <div class="text_buttom">“เราอยากช่วยเธอ”</div>
           </div>
         )
       }
@@ -506,7 +506,7 @@ const Scene03 = () => {
                 width: '295px',
               }}
             />
-            <div class="text_button">“เราอยากช่วยเธอ”</div>
+            <div class="text_buttom">“เราอยากช่วยเธอ”</div>
           </div>
         )
       }
