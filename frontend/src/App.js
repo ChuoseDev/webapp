@@ -14,6 +14,7 @@ import { Scene03 } from 'views/scene03/scene03'
 import BlackPart01 from 'views/black-part/black-part01'
 import BlackPart02 from 'views/black-part/black-part02'
 import BlackPart03 from 'views/black-part/black-part03'
+import { Scene01 } from 'views/scene01/scene01'
 
 const App = () => {
   return (
@@ -28,6 +29,7 @@ const App = () => {
           <Route exact path="/startup" element={<Startup />}></Route>
           <Route exact path="/information" element={<Information />}></Route>
           <Route exact path="/grey" element={<Grey />}></Route>
+          <Route exact path="/scene01" element={<Scene01 />}></Route>
           <Route exact path="/scene03" element={<Scene03 />}></Route>
           <Route exact path="/scene04" element={<Scene04 />}></Route>
           <Route exact path="/blackpart01" element={<BlackPart01 />}></Route>
