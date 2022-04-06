@@ -63,19 +63,16 @@ export const Scene01 = () => {
                 transform: 'scale(1.36, 1.36)'
            },
            3: {
-                position: 'relative',
                 left: 7.24*scaleWidth,
                 top: 260*scaleHeight,
                 transform: 'scale(0.82, 0.82)'
            },
            4: {
-                position: 'relative',
                 left: 7.24*scaleWidth,
                 top: 322*scaleHeight,
                 transform: 'scale(1.35, 1.35)'
             },
             5: {
-                position: 'relative',
                 left: 7.24*scaleWidth,
                 top: 450*scaleHeight,
                 transform: 'scale(1.6, 1.6)'
@@ -90,30 +87,27 @@ export const Scene01 = () => {
         opacity: 1,
         animation: {
             1: {
-                position: 'relative',
                left: 93*scaleWidth,
-               top: 341*scaleHeight
+               top: 341*scaleHeight,
+               opacity:0
            },
            2: {
-                position: 'relative',
                 left: 93*scaleWidth,
                 top: 341*scaleHeight,
-                transform: 'scale(1.36, 1.36)'
+                transform: 'scale(1.36, 1.36)',
+                opacity:0
            },
            3: {
-                position: 'relative',
                 left: 7.24*scaleWidth,
                 top: 260*scaleHeight,
                 transform: 'scale(0.82, 0.82)'
            },
            4: {
-                position: 'relative',
                 left: 7.24*scaleWidth,
                 top: 322*scaleHeight,
                 transform: 'scale(1.35, 1.35)'
             },
             5: {
-                position: 'relative',
                 left: 7.24*scaleWidth,
                 top: 450*scaleHeight,
                 transform: 'scale(1.6, 1.6)'
