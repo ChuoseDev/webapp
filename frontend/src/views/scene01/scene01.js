@@ -9,7 +9,7 @@ export const Scene01 = () => {
   const scaleHeight = window.innerHeight / 844
   const scaleWidth = window.innerWidth / 390
   const scaleMean = (scaleHeight + scaleWidth) / 2
-  const [message, setMessage] = useState('')
+  const [message, setMessage] = useState('ตัวฉันที่กำลังลอยอยู่ในความคิด...')
 
   useEffect(() => {
     setTimeout(() => {
@@ -43,8 +43,36 @@ export const Scene01 = () => {
     image: 'images/StarBackground.svg',
     width: 1448 * scaleWidth,
     height: 966 * scaleHeight,
-    opacity: 1,
-    animation: {},
+    opacity: 0,
+    scene: scene,
+    animation: {
+        1:{
+            opacity:0,
+            duration:0
+        },
+        2: {
+            opacity:0.25,
+            duration:0
+        },
+        3: {
+            opacity:0.5,
+            duration:0
+        },
+        4: {
+            opacity:0.75,
+            duration:0
+        },
+        5: {
+            opacity:1,
+            duration:0
+        },
+        6: {
+            opacity:1
+        },
+        7: {
+            opacity:1
+        }
+    },
    }
 
     const char00 = {
@@ -56,13 +84,15 @@ export const Scene01 = () => {
         animation: {
             1: {
                x: 93*scaleWidth,
-               y: 341*scaleHeight
+               y: 341*scaleHeight,
+               duration: 0
            },
            2: {
                 x: 57*scaleWidth,
                 y: 329*scaleHeight,
                 height: 330*scaleHeight,
                 width: 276.21*scaleWidth,
+                duration: 0
            },
            3: {
                opacity:0
@@ -81,6 +111,7 @@ export const Scene01 = () => {
                  y: 322*scaleHeight,
                  height: 406.22*scaleHeight,
                  width: 364.51*scaleWidth,
+                 duration: 0
             },
            3: {
                opacity:1,
@@ -88,21 +119,25 @@ export const Scene01 = () => {
                 y: 322*scaleHeight,
                 height: 406.22*scaleHeight,
                 width: 364.51*scaleWidth,
+                duration: 0
            },
            4: {
                 x: -33*scaleWidth,
                 y: 312*scaleHeight,
                 height: 548.39*scaleHeight,
                 width: 459*scaleWidth,
+                duration: 0
             },
             5: {
                 x: -94*scaleWidth,
                 y: 356*scaleHeight,
                 height: 716.85*scaleHeight,
                 width: 600*scaleWidth,
+                duration: 0
            },
            6: {
-               opacity: 0
+               opacity: 0,
+               duration: 0
            }
         },
     }
@@ -120,32 +155,39 @@ export const Scene01 = () => {
             1: {
                 x: 1227.25*scaleWidth,
                 y: 231.23*scaleHeight,
+                duration: 0
             },
             2: {
                 x:1133.25*scaleWidth,
                 y: 263.23*scaleHeight,
+                duration: 0
             },
             3: {
                 x: 1034.25*scaleWidth,
                 y: 275.23*scaleHeight,
+                duration: 0
             },
             4: {
                 x: 716.25*scaleWidth,
                 y: 318.23*scaleHeight,
+                duration: 0
             },
             5: {
                 x: 796.25*scaleWidth,
                 y: 357.23*scaleHeight,
+                duration: 0
             },
             6: {
                 x: 996.25*scaleWidth,
                 y: 351.23*scaleHeight,
+                duration: 0
             },
             7: {
                 width: 1311*scaleWidth,
                 height: 420*scaleHeight,
                 x: 996*scaleWidth,
                 y: 397*scaleHeight,
+                duration: 0
             },
         },
     }
@@ -162,32 +204,39 @@ export const Scene01 = () => {
             1:{
                 x: -569*scaleWidth,
                 y: 480*scaleHeight,
+                duration: 0
             },
             2: {
                  x: -454*scaleWidth,
                  y: 473*scaleHeight,
+                 duration: 0
             },
            3: {
                 x: -407*scaleWidth,
                 y: 475*scaleHeight,
+                duration: 0
            },
            4: {
                 x: -397*scaleWidth,
                 y: 539*scaleHeight,
+                duration: 0
             },
             5: {
                 x: -744*scaleWidth,
                 y: 627*scaleHeight,
+                duration: 0
            },
             6: {
                 x: -465*scaleWidth,
                 y: 495*scaleHeight,
+                duration: 0
            },
            7: {
                 x: -893*scaleWidth,
                 y: 422*scaleHeight,
                 width: 1325*scaleWidth,
                 height: 435*scaleHeight,
+                duration: 0
            }
         },
     }
@@ -293,15 +342,83 @@ export const Scene01 = () => {
     },
    }
 
+   const backgroundColorMapper = {
+       1: {
+        width: 390 * scaleWidth,
+        height: 844 * scaleHeight,
+        backgroundColor: 'white'
+       },
+       2: {
+        width: 390 * scaleWidth,
+        height: 844 * scaleHeight,
+        backgroundColor: '#C5C5C5'
+       },
+       3: {
+        width: 390 * scaleWidth,
+        height: 844 * scaleHeight,
+        backgroundColor: '#939393'
+       },
+       4: {
+        width: 390 * scaleWidth,
+        height: 844 * scaleHeight,
+        backgroundColor: '#6F6F6F'
+       },
+       5: {
+        width: 390 * scaleWidth,
+        height: 844 * scaleHeight,
+        backgroundColor: 'black'
+       },
+       6: {
+        width: 390 * scaleWidth,
+        height: 844 * scaleHeight,
+        backgroundColor: 'black'
+       },
+       7: {
+        width: 390 * scaleWidth,
+        height: 844 * scaleHeight,
+        backgroundColor: 'black'
+       },
+   }
+
   return (
     <div>
         <Stage {...stageProps}>
             <Layer>
+                    
                 <AnimateImage {...background}/>
                 <AnimateImage {...char00}/>
                 <AnimateImage {...char01}/>
                 <AnimateImage {...cloudTop}/>
                 <AnimateImage {...cloudBtm}/>
+                <Group>
+                    <Html>
+                        <div  style={{
+                            textAlign: 'center',
+                            height: 844 * scaleHeight,
+                            width: 390 * scaleWidth,
+                            display: 'flex',
+                            flexDirection: 'column',
+                            alignItems: 'center',
+                            opacity: scene <= 6 ? 1 : 0,
+                            marginTop: scene == 6 ? 377*scaleHeight : 176*scaleHeight
+                            }}>
+                            <p style={{
+                                color: scene <= 4 ? "#000000" : "#FFFFFF",
+                                fontSize: 18 * scaleWidth
+                            }}>ตัวฉันที่กำลังลอยอยู่ในความคิด</p>
+                            <p style={{
+                                color: scene <= 4 ? "#000000" : "#FFFFFF",
+                                fontSize: 18 * scaleWidth
+                            }}>...</p>
+                        </div>
+                        
+                        
+                    </Html>
+                </Group>
+                {/* <Html>
+                    <div style={backgroundColorMapper[scene]} >
+                    </div>
+                </Html> */}
                 {/* <Group>
                     <Html>
                         <div>
