@@ -4,8 +4,8 @@ import { Html } from 'react-konva-utils'
 
 // this is scene 04-01 to 04-04
 const BlackPart02 = () => {
-  const scaleHeight = window.innerHeight / 844
-  const scaleWidth = window.innerWidth / 390
+  const scaleHeight = window.screen.height / 844
+  const scaleWidth = window.screen.width / 390
   const scaleMean = (scaleHeight + scaleWidth) / 2
   const [message, setMessage] = useState('')
   const [scene, setScene] = useState(-2)
@@ -35,8 +35,8 @@ const BlackPart02 = () => {
   }, [])
 
   const stageProps = {
-    width: window.innerWidth,
-    height: window.innerHeight,
+    width: window.screen.width,
+    height: window.screen.height,
   }
 
   const backgroundProps = {

@@ -49,7 +49,7 @@ export const Scene03 = () => {
       setScene(11)
     }, 5000)
     setTimeout(() => {
-      navigate('/scene041')
+      navigate('/blackpart02')
     }, 7000)
   }, [])
 

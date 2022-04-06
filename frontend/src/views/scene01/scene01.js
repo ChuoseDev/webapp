@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router'
+import Star from 'components/star/star'
 
 const Scene01 = () => {
   const [scene, setScene] = useState(1)
@@ -8,27 +9,27 @@ const Scene01 = () => {
   const navigate = useNavigate()
 
   useEffect(() => {
-    const time = 250
-    let acc = 0
-    for (let i = 2; i < 25; i = i + 1) {
-      acc += time
-      setTimeout(() => {
-        setScene(i)
-        if (i === 24) {
-          setTimeout(() => {
-            navigate('/scene02')
-          })
-        }
-      }, acc)
+    const sceneShifter = setInterval(() => {
+      setScene((scene) => scene + 1)
+    }, 250)
+    return () => {
+      clearInterval(sceneShifter)
     }
   }, [])
 
+  useEffect(() => {
+    if (scene === 24) {
+      setTimeout(() => {
+        navigate('/scene02')
+      }, 1000)
+    }
+  }, [scene])
+
   const containerStyle = (scene) => {
     return {
-      width: window.innerWidth,
-      height: window.innerHeight,
+      width: window.screen.width,
+      height: window.screen.height,
       backgroundColor: `rgba(0, 0, 0, ${0.1 * scene})`,
-      position: 'absolute',
       opacity: scene < 24 ? 1 : 0,
       transition: 'opacity ease-in-out 1s',
     }
@@ -79,14 +80,6 @@ const Scene01 = () => {
     }
   }
 
-  const starStyle = (scene) => {
-    return {
-      position: 'absolute',
-      left: `0px`,
-      top: `${(scene % 4 < 2) * 10}px`,
-    }
-  }
-
   const textStyle = (scene) => {
     const colorNumber = (255 * scene) / 8
     return {
@@ -108,7 +101,7 @@ const Scene01 = () => {
         <br />
         ...
       </div>
-      <img src="images/star.svg" alt="star" style={starStyle(scene)} />
+      <Star />
       {scene <= 5 && (
         <img
           src="images/greyChar_00.svg"
