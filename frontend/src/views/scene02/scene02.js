@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router'
 import Star from 'components/star/star'
+import MiddleCloud from 'components/middleCloud/middleCloud'
 
 const Scene02 = () => {
   const [scene, setScene] = useState(-1)
@@ -91,6 +92,7 @@ const Scene02 = () => {
 
   return (
     <div style={containerStyle(scene)}>
+      <MiddleCloud />
       <Star />
       <div style={messageStyle(scene)}>{message}</div>
       <img src={avocadoSrc} style={avocadoStyle(scene)} />

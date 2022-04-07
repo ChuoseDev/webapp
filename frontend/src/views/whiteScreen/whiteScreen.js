@@ -2,8 +2,8 @@ import { useState, useEffect } from 'react'
 import './whiteScreen.css'
 
 const WhiteScreen2 = () => {
-  const scaleHeight = window.innerHeight / 844
-  const scaleWidth = window.innerWidth / 390
+  const scaleHeight = window.screen.height / 844
+  const scaleWidth = window.screen.width / 390
   const scaleMean = (scaleHeight + scaleWidth) / 2
   const [scene, setScene] = useState(0)
   const [message, setMessage] = useState('')
@@ -42,8 +42,8 @@ const WhiteScreen2 = () => {
   }, [])
 
   const stageProps = {
-    width: window.innerWidth,
-    height: window.innerHeight,
+    width: window.screen.width,
+    height: window.screen.height,
   }
 
   const backgroundProps = {
@@ -461,8 +461,8 @@ const WhiteScreen2 = () => {
   return (
     <div
       style={{
-        opacity: scene < 19 ? 1 : 0,
-        transition: '0s',
+        opacity: scene > 0 && scene < 19 ? 1 : 0,
+        transition: '1s',
       }}
     >
       <img src="images/whiteScreen.svg" alt="background" />

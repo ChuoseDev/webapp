@@ -6,7 +6,6 @@ const Scene06 = () => {
   const [scene, setScene] = useState(1)
   const scaleWidth = window.screen.width / 390
   const scaleHeight = window.screen.height / 844
-  // eslint-disable-next-line react-hooks/rules-of-hooks
   const navigate = useNavigate()
 
   useEffect(() => {
@@ -16,6 +15,9 @@ const Scene06 = () => {
     setTimeout(() => {
       setScene(3)
     }, 2000)
+    setTimeout(() => {
+      navigate('/blackpart03')
+    }, 3000)
   }, [])
 
   const containerStyle = (scene) => {

@@ -8,17 +8,16 @@ import Feeling from './views/questionnaire/feeling'
 import Startup from 'views/startup/startup'
 import Information from 'views/information/information'
 import WhiteScreen from 'views/whiteScreen/whiteScreen'
-import { Scene04 } from 'views/scene04/scene04'
-import { Scene03 } from 'views/scene03/scene03'
 import BlackPart01 from 'views/black-part/black-part01'
 import BlackPart02 from 'views/black-part/black-part02'
 import BlackPart03 from 'views/black-part/black-part03'
 import Scene01 from 'views/scene01/scene01'
 import Scene02 from 'views/scene02/scene02'
-import WhiteScreen from 'views/whiteScreen/whiteScreen'
 import Scene04 from 'views/scene04/scene04'
-import Scene01 from 'views/scene01/scene01'
 import Scene03 from 'views/scene03/scene03'
+import Scene05 from 'views/scene05/scene05'
+import Scene06 from 'views/scene06/scene06'
+import Scene07 from 'views/scene07/scene07'
 
 const App = () => {
   return (
@@ -39,8 +38,10 @@ const App = () => {
           <Route exact path="/blackpart01" element={<BlackPart01 />}></Route>
           <Route exact path="/blackpart02" element={<BlackPart02 />}></Route>
           <Route exact path="/blackpart03" element={<BlackPart03 />}></Route>
-          <Route exact path="/scene05" element={<WhiteScreen />}></Route>
-          <Route exact path="/scene06" element={<WhiteScreen />}></Route>
+          <Route exact path="/scene05" element={<Scene05 />}></Route>
+          <Route exact path="/scene06" element={<Scene06 />}></Route>
+          <Route exact path="/scene07" element={<Scene07 />}></Route>
+          <Route exact path="/scene08" element={<WhiteScreen />}></Route>
         </Switch>
       </BrowserRouter>
     </div>

@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router'
 import Star from 'components/star/star'
+import TopCloud from 'components/topCloud/topCloud'
+import BottomCloud from 'components/bottomCloud/bottomCloud'
 
 const Scene01 = () => {
   const [scene, setScene] = useState(1)
@@ -61,25 +63,6 @@ const Scene01 = () => {
     }
   }
 
-  const topCloudStyle = (scene) => {
-    return {
-      position: 'absolute',
-      left: `-${10 + scene * 10}px`,
-      top: '-110px',
-      transform: 'rotate(180deg)',
-      opacity: '0.3',
-    }
-  }
-
-  const bottomCloudStyle = (scene) => {
-    return {
-      position: 'absolute',
-      left: `-${630 + scene * 10}px`,
-      top: '500px',
-      opacity: '0.3',
-    }
-  }
-
   const textStyle = (scene) => {
     const colorNumber = (255 * scene) / 8
     return {
@@ -116,12 +99,8 @@ const Scene01 = () => {
           style={characterWithHandStyle(scene)}
         />
       )}
-      <img src="images/cloud.svg" alt="topCloud" style={topCloudStyle(scene)} />
-      <img
-        src="images/cloud.svg"
-        alt="bottomCloud"
-        style={bottomCloudStyle(scene)}
-      />
+      <TopCloud />
+      <BottomCloud />
     </div>
   )
 }

@@ -1,6 +1,9 @@
 import { useNavigate } from 'react-router'
 import { useEffect, useState } from 'react'
 import './purple.css'
+import Star from 'components/star/star'
+import TopCloud from 'components/topCloud/topCloud'
+import BottomCloud from 'components/bottomCloud/bottomCloud'
 
 const Scene03 = () => {
   const [scene, setScene] = useState(1)
@@ -39,6 +42,9 @@ const Scene03 = () => {
     setTimeout(() => {
       setScene(11)
     }, 10000)
+    setTimeout(() => {
+      navigate('/blackpart02')
+    }, 11000)
   }, [])
 
   const containerStyle = (scene) => {
@@ -54,14 +60,6 @@ const Scene03 = () => {
   const backgroundStyles = (scene) => {
     return {
       position: 'relative',
-      left: 0,
-      top: 0,
-    }
-  }
-
-  const starStyle = (scene) => {
-    return {
-      position: 'absolute',
       left: 0,
       top: 0,
     }
@@ -524,13 +522,12 @@ const Scene03 = () => {
         alt="background"
         style={backgroundStyles(scene)}
       />
-      <img
-        class="star"
-        src={'images/star.svg'}
-        alt="background"
-        style={starStyle(scene)}
-      />
+      <Star />
       <CloudCharacterText />
+      {scene >= 3 && scene <= 7 && (
+        <TopCloud top={-50} ttl={4000} fadeIn={true} />
+      )}
+      {scene >= 3 && <BottomCloud fadeIn={true} />}
     </div>
   )
 }

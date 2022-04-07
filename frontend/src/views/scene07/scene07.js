@@ -15,6 +15,14 @@ const Scene07 = () => {
     }, 1000)
   }, [])
 
+  useEffect(() => {
+    if (scene === 2) {
+      setTimeout(() => {
+        navigate('/scene08')
+      }, 2000)
+    }
+  }, [scene])
+
   const containerStyle = (scene) => {
     return {
       position: 'relative',
@@ -22,6 +30,8 @@ const Scene07 = () => {
       top: 0,
       textAlign: 'center',
       margin: 0,
+      opacity: scene === 1 ? 1 : 0,
+      transition: 'opacity ease-in-out 2s',
     }
   }
 
@@ -87,7 +97,7 @@ const Scene07 = () => {
       case 2: {
         return (
           <div>
-            <div class="text_top">"เราออกไปจากที่นี้กันมั๊ย [ชื่อผู้ใช้]"</div>
+            <div class="text_top">"ได้สิ เราลองมาหาทางออกด้วยกันมั้ย"</div>
             <img
               class="cloud02"
               src={'images/WhiteCloud02.svg'}

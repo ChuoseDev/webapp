@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Stage, Layer, AnimateImage, Group } from 'konvas'
 import { Html } from 'react-konva-utils'
+import { useNavigate } from 'react-router'
 
 // this is scene 04-01 to 04-04
 const BlackPart02 = () => {
@@ -11,6 +12,7 @@ const BlackPart02 = () => {
   const [scene, setScene] = useState(-2)
   const [opacity, setOpacity] = useState(1.0)
   const [avocado, setAvocado] = useState('')
+  const navigate = useNavigate()
   useEffect(() => {
     setOpacity(1)
     setTimeout(() => {
@@ -32,6 +34,9 @@ const BlackPart02 = () => {
     setTimeout(() => {
       setScene(4)
     }, 3200)
+    setTimeout(() => {
+      navigate('/scene05')
+    }, 4200)
   }, [])
 
   const stageProps = {

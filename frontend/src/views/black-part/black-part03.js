@@ -1,16 +1,18 @@
 import { useState, useEffect } from 'react'
 import { Stage, Layer, AnimateImage, Group } from 'konvas'
 import { Html } from 'react-konva-utils'
+import { useNavigate } from 'react-router'
 
 // this is scene 06-08 to 06-11
 const BlackPart03 = () => {
-  const scaleHeight = window.innerHeight / 844
-  const scaleWidth = window.innerWidth / 390
+  const scaleHeight = window.screen.height / 844
+  const scaleWidth = window.screen.width / 390
   const scaleMean = (scaleHeight + scaleWidth) / 2
   const [message, setMessage] = useState('')
   const [scene, setScene] = useState(-2)
   const [opacity, setOpacity] = useState(1.0)
   const [avocado, setAvocado] = useState('')
+  const navigate = useNavigate()
   useEffect(() => {
     setOpacity(1)
     setTimeout(() => {
@@ -28,15 +30,19 @@ const BlackPart03 = () => {
     }, 2200)
     setTimeout(() => {
       setScene(3)
+      setMessage('ฉันจะออกไปไหวหรอ')
     }, 3200)
     setTimeout(() => {
       setScene(4)
     }, 4200)
+    setTimeout(() => {
+      navigate('/scene07')
+    }, 5200)
   }, [])
 
   const stageProps = {
-    width: window.innerWidth,
-    height: window.innerHeight,
+    width: window.screen.width,
+    height: window.screen.height,
   }
 
   const backgroundProps = {
