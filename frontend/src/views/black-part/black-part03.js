@@ -28,6 +28,7 @@ const BlackPart03 = () => {
     }, 2200)
     setTimeout(() => {
       setScene(3)
+      setMessage('ฉันจะออกไปไหวหรอ')
     }, 3200)
     setTimeout(() => {
       setScene(4)
