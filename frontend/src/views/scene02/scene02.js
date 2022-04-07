@@ -60,7 +60,7 @@ const Scene02 = () => {
     return {
       width: window.screen.width,
       height: window.screen.height,
-      opacity: scene === -1 ? 0 : 1,
+      opacity: 1,
       transition: 'opacity ease-in-out 1s',
       backgroundColor: '#000000',
     }

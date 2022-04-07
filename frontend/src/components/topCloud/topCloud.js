@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 
-const TopCloud = ({ top = 0, ttl, fadeIn = false }) => {
+const TopCloud = ({ top = 0, ttl, fadeIn = true }) => {
   const [scene, setScene] = useState(1)
   const [opacity, setOpacity] = useState(fadeIn ? 0 : 0.3)
 

@@ -43,7 +43,7 @@ const Scene03 = () => {
       setScene(11)
     }, 10000)
     setTimeout(() => {
-      navigate('/blackpart02')
+      navigate('/scene04')
     }, 11000)
   }, [])
 

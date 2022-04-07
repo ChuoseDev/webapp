@@ -1,13 +1,19 @@
 import { useEffect, useState } from 'react'
 import { omit } from 'utils/function'
 
-const MiddleCloud = () => {
+const MiddleCloud = ({ fadeIn = true }) => {
   const [scene, setScene] = useState(1)
+  const [opacity, setOpacity] = useState(fadeIn ? 0 : 1)
 
   useEffect(() => {
     const sceneShifter = setInterval(() => {
       setScene((scene) => ((scene + 1) % 11) + 1)
     }, 1000)
+
+    if (fadeIn) {
+      setOpacity(1)
+    }
+
     return () => {
       clearInterval(sceneShifter)
     }
@@ -132,27 +138,47 @@ const MiddleCloud = () => {
   }
 
   return (
-    <div style={{}}>
+    <div>
       <img
         src={mapper[scene].cloud1.src}
         alt="background"
-        style={{ ...omit(mapper[scene].cloud1, 'src'), position: 'absolute' }}
+        style={{
+          ...omit(mapper[scene].cloud1, 'src'),
+          position: 'absolute',
+          opacity,
+          transition: 'opacity ease-in-out 1s',
+        }}
       />
       <img
         src={mapper[scene].cloud2.src}
         alt="background"
-        style={{ ...omit(mapper[scene].cloud2, 'src'), position: 'absolute' }}
+        style={{
+          ...omit(mapper[scene].cloud2, 'src'),
+          position: 'absolute',
+          opacity,
+          transition: 'opacity ease-in-out 1s',
+        }}
       />
       <img
         src={mapper[scene].cloud3.src}
         alt="background"
-        style={{ ...omit(mapper[scene].cloud3, 'src'), position: 'absolute' }}
+        style={{
+          ...omit(mapper[scene].cloud3, 'src'),
+          position: 'absolute',
+          opacity,
+          transition: 'opacity ease-in-out 1s',
+        }}
       />
 
       <img
         src={mapper[scene].cloud4.src}
         alt="background"
-        style={{ ...omit(mapper[scene].cloud4, 'src'), position: 'absolute' }}
+        style={{
+          ...omit(mapper[scene].cloud4, 'src'),
+          position: 'absolute',
+          opacity,
+          transition: 'opacity ease-in-out 1s',
+        }}
       />
     </div>
   )

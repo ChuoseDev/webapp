@@ -20,7 +20,7 @@ const Scene04B = () => {
         }
         if (i === 15) {
           setTimeout(() => {
-            navigate('/scene042')
+            navigate('/scene05')
           }, 500)
         }
       }, acc)
