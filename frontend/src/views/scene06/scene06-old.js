@@ -2,11 +2,10 @@ import { useNavigate } from 'react-router'
 import { useEffect, useState } from 'react'
 import '../scene03/purple.css'
 
-const Scene07 = () => {
+const Scene06 = () => {
   const [scene, setScene] = useState(1)
   const scaleWidth = window.screen.width / 390
   const scaleHeight = window.screen.height / 844
-  // eslint-disable-next-line react-hooks/rules-of-hooks
   const navigate = useNavigate()
 
   useEffect(() => {
@@ -17,17 +16,9 @@ const Scene07 = () => {
       setScene(3)
     }, 2000)
     setTimeout(() => {
-      setScene(4)
+      navigate('/blackpart03')
     }, 3000)
   }, [])
-
-  useEffect(() => {
-    if (scene === 2) {
-      setTimeout(() => {
-        navigate('/scene08')
-      }, 2000)
-    }
-  }, [scene])
 
   const containerStyle = (scene) => {
     return {
@@ -36,8 +27,6 @@ const Scene07 = () => {
       top: 0,
       textAlign: 'center',
       margin: 0,
-      opacity: scene === 1 ? 1 : 0,
-      transition: 'opacity ease-in-out 2s',
     }
   }
 
@@ -62,9 +51,48 @@ const Scene07 = () => {
       case 1: {
         return (
           <div>
-            <div class="text_top">
-              "ได้สิ<br></br> เราลองมาหาทางออกด้วยกันมั๊ย"
-            </div>
+            <img
+              class="cloud02"
+              src={'images/WhiteCloud02.svg'}
+              alt="background"
+              style={{ top: '8.06%', left: '58.72%' }}
+            />
+            <img
+              class="cloud01"
+              src={'images/WhiteCloud01.svg'}
+              alt="background"
+              style={{ top: '33.77%', left: '-16.67%', width: '43.76%' }}
+            />
+            <img
+              class="cloud01"
+              src={'images/WhiteCloud01.svg'}
+              alt="background"
+              style={{ top: '61.97%', left: '63.59%' }}
+            />
+            <img
+              class="cloud02"
+              src={'images/WhiteCloud02.svg'}
+              alt="background"
+              style={{ top: '82.35%', left: '-0.77%' }}
+            />
+            <img
+              class="charactor"
+              src={'images/Charactor.svg'}
+              alt="charactor"
+              style={{
+                top: '45%',
+                left: '13%',
+                width: '300px',
+              }}
+            />
+          </div>
+        )
+      }
+
+      case 2: {
+        return (
+          <div>
+            <div class="text_top">"เราออกไปจากที่นี้กันมั๊ย [ชื่อผู้ใช้]"</div>
             <img
               class="cloud02"
               src={'images/WhiteCloud02.svg'}
@@ -104,10 +132,10 @@ const Scene07 = () => {
         )
       }
 
-      case 2: {
+      case 3: {
         return (
           <div>
-            <div class="text_top">"ได้สิ เราลองมาหาทางออกด้วยกันมั้ย"</div>
+            <div class="text_top">"เราออกไปจากที่นี้กันมั๊ย [ชื่อผู้ใช้]"</div>
             <img
               class="cloud02"
               src={'images/WhiteCloud02.svg'}
@@ -137,42 +165,11 @@ const Scene07 = () => {
               src={'images/Charactor.svg'}
               alt="charactor"
               style={{
-                top: '35%',
+                top: '30%',
                 left: '7%',
-                transform: 'rotate(-10deg)',
+                transform: 'rotate(-7.5deg)',
                 width: '350px',
               }}
-            />
-          </div>
-        )
-      }
-
-      case 3: {
-        return (
-          <div>
-            <img
-              class="cloud02"
-              src={'images/WhiteCloud02.svg'}
-              alt="background"
-              style={{ top: '18.5%', left: '61.75%' }}
-            />
-            <img
-              class="cloud01"
-              src={'images/WhiteCloud01.svg'}
-              alt="background"
-              style={{ top: '44.22%', left: '-10.01%', width: '43.76%' }}
-            />
-            <img
-              class="cloud01"
-              src={'images/WhiteCloud01.svg'}
-              alt="background"
-              style={{ top: '72.44%', left: '66.39%' }}
-            />
-            <img
-              class="cloud02"
-              src={'images/WhiteCloud02.svg'}
-              alt="background"
-              style={{ top: '94.14%', left: '7.57%' }}
             />
           </div>
         )
@@ -202,4 +199,4 @@ const Scene07 = () => {
     </div>
   )
 }
-export default Scene07
+export default Scene06

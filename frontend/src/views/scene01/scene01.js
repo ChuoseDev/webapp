@@ -1,35 +1,40 @@
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router'
+import Star from 'components/star/star'
+import TopCloud from 'components/topCloud/topCloud'
+import BottomCloud from 'components/bottomCloud/bottomCloud'
+import { SCENE01_SHIFT_TIME, VIEW_CHANGING_DELAY_TIME } from 'utils/constant'
 
 const Scene01 = () => {
   const [scene, setScene] = useState(1)
   const scaleWidth = window.screen.width / 390
   const scaleHeight = window.screen.height / 844
   const navigate = useNavigate()
+  const totalScene = 24
 
   useEffect(() => {
-    const time = 250
-    let acc = 0
-    for (let i = 2; i < 25; i = i + 1) {
-      acc += time
-      setTimeout(() => {
-        setScene(i)
-        if (i === 24) {
-          setTimeout(() => {
-            navigate('/scene02')
-          })
-        }
-      }, acc)
+    const sceneShifter = setInterval(() => {
+      setScene((scene) => scene + 1)
+    }, SCENE01_SHIFT_TIME)
+    return () => {
+      clearInterval(sceneShifter)
     }
   }, [])
 
+  useEffect(() => {
+    if (scene === totalScene) {
+      setTimeout(() => {
+        navigate('/scene02')
+      }, VIEW_CHANGING_DELAY_TIME)
+    }
+  }, [scene])
+
   const containerStyle = (scene) => {
     return {
-      width: window.innerWidth,
-      height: window.innerHeight,
+      width: window.screen.width,
+      height: window.screen.height,
       backgroundColor: `rgba(0, 0, 0, ${0.1 * scene})`,
-      position: 'absolute',
-      opacity: scene < 24 ? 1 : 0,
+      opacity: 1,
       transition: 'opacity ease-in-out 1s',
     }
   }
@@ -60,33 +65,6 @@ const Scene01 = () => {
     }
   }
 
-  const topCloudStyle = (scene) => {
-    return {
-      position: 'absolute',
-      left: `-${10 + scene * 10}px`,
-      top: '-110px',
-      transform: 'rotate(180deg)',
-      opacity: '0.3',
-    }
-  }
-
-  const bottomCloudStyle = (scene) => {
-    return {
-      position: 'absolute',
-      left: `-${630 + scene * 10}px`,
-      top: '500px',
-      opacity: '0.3',
-    }
-  }
-
-  const starStyle = (scene) => {
-    return {
-      position: 'absolute',
-      left: `0px`,
-      top: `${(scene % 4 < 2) * 10}px`,
-    }
-  }
-
   const textStyle = (scene) => {
     const colorNumber = (255 * scene) / 8
     return {
@@ -108,7 +86,7 @@ const Scene01 = () => {
         <br />
         ...
       </div>
-      <img src="images/star.svg" alt="star" style={starStyle(scene)} />
+      <Star />
       {scene <= 5 && (
         <img
           src="images/greyChar_00.svg"
@@ -123,12 +101,8 @@ const Scene01 = () => {
           style={characterWithHandStyle(scene)}
         />
       )}
-      <img src="images/cloud.svg" alt="topCloud" style={topCloudStyle(scene)} />
-      <img
-        src="images/cloud.svg"
-        alt="bottomCloud"
-        style={bottomCloudStyle(scene)}
-      />
+      <TopCloud ttl={totalScene * SCENE01_SHIFT_TIME} />
+      <BottomCloud ttl={totalScene * SCENE01_SHIFT_TIME} />
     </div>
   )
 }

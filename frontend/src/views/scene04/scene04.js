@@ -1,261 +1,109 @@
+import { useState, useEffect } from 'react'
+import { Stage, Layer, AnimateImage, Group } from 'konvas'
+import { Html } from 'react-konva-utils'
 import { useNavigate } from 'react-router'
-import { useEffect, useState } from 'react'
-import '../scene03/purple.css'
 
-const Scene04 = () => {
-  const [scene, setScene] = useState(1)
-  const scaleWidth = window.screen.width / 390
+// this is scene 04-01 to 04-04
+const BlackPart02 = () => {
   const scaleHeight = window.screen.height / 844
-  // eslint-disable-next-line react-hooks/rules-of-hooks
+  const scaleWidth = window.screen.width / 390
+  const scaleMean = (scaleHeight + scaleWidth) / 2
+  const [message, setMessage] = useState('')
+  const [scene, setScene] = useState(-2)
+  const [opacity, setOpacity] = useState(1.0)
+  const [avocado, setAvocado] = useState('')
   const navigate = useNavigate()
-
   useEffect(() => {
+    setOpacity(1)
+    setTimeout(() => {
+      setScene(-1)
+    }, 100)
+    setTimeout(() => {
+      setScene(0)
+    }, 200)
+    setTimeout(() => {
+      setScene(1)
+      setMessage('มีใครช่วยฉันได้หรอ')
+    }, 200)
     setTimeout(() => {
       setScene(2)
-    }, 1000)
+    }, 1200)
     setTimeout(() => {
       setScene(3)
-    }, 2000)
-  }, [])
-
-  const onClickChangeScene = async () => {
-    setScene(4)
+    }, 2200)
     setTimeout(() => {
-      setScene(5)
-    }, 1000)
+      setScene(4)
+    }, 3200)
     setTimeout(() => {
       navigate('/scene05')
-    }, 2000)
+    }, 4200)
+  }, [])
+
+  const stageProps = {
+    width: window.screen.width,
+    height: window.screen.height,
   }
 
-  const containerStyle = (scene) => {
-    return {
-      position: 'relative',
-      left: 0,
-      top: 0,
-      textAlign: 'center',
-      margin: 0,
-    }
+  const backgroundProps = {
+    image: 'images/StarBackground.svg',
+    width: 1448 * scaleWidth,
+    height: 966 * scaleHeight,
+    opacity: 1,
+    animation: {},
   }
 
-  const backgroundStyles = (scene) => {
-    return {
-      position: 'relative',
-      left: 0,
-      top: 0,
-    }
-  }
-
-  const starStyle = (scene) => {
-    return {
-      position: 'absolute',
-      left: 0,
-      top: 0,
-    }
-  }
-
-  const CloudCharacterText = () => {
-    switch (scene) {
-      case 1: {
-        return (
-          <div>
-            <img
-              class="cloud01"
-              src={'images/WhiteCloud01.svg'}
-              alt="background"
-              style={{ top: '61.97%', left: '63.59%' }}
-            />
-            <img
-              class="cloud01"
-              src={'images/WhiteCloud01.svg'}
-              alt="background"
-              style={{ top: '33.76%', left: '-16.66%', width: '43.76%' }}
-            />
-            <img
-              class="cloud02"
-              src={'images/WhiteCloud02.svg'}
-              alt="background"
-              style={{ top: '8.05%', left: '58.71%' }}
-            />
-            <img
-              class="cloud02"
-              src={'images/WhiteCloud02.svg'}
-              alt="background"
-              style={{ top: '82.34%', left: '0.77%' }}
-            />
-            <img
-              class="charactor"
-              src={'images/Charactor.svg'}
-              alt="charactor"
-              style={{
-                top: '19%',
-                left: '12%',
-                transform: 'rotate(-14deg)',
-                width: '295px',
-              }}
-            />
-            <div class="text_buttom">ได้สิ</div>
-          </div>
-        )
-      }
-      case 2: {
-        return (
-          <div>
-            <img
-              class="cloud02"
-              src={'images/WhiteCloud02.svg'}
-              alt="background"
-              style={{ top: '8.53%', left: '51.54%' }}
-            />
-
-            <img
-              class="cloud02"
-              src={'images/WhiteCloud02.svg'}
-              alt="background"
-              style={{ top: '76.07%', left: '62.31%' }}
-            />
-            <img
-              class="charactor"
-              src={'images/Charactor.svg'}
-              alt="charactor"
-              style={{
-                top: '19%',
-                left: '12%',
-                transform: 'rotate(-18deg)',
-                width: '295px',
-              }}
-            />
-            <div class="text_buttom">
-              “เธอลองให้เรา พาเธอออกไปจากที่นี่ได้มั้ย?”
-            </div>
-          </div>
-        )
-      }
-
-      case 3: {
-        return (
-          <div>
-            <img
-              class="cloud02"
-              src={'images/WhiteCloud02.svg'}
-              alt="background"
-              style={{ top: '7.7%', left: '51.03%' }}
-            />
-
-            <img
-              class="cloud02"
-              src={'images/WhiteCloud02.svg'}
-              alt="background"
-              style={{ top: '60.19%', left: '-17.18%' }}
-            />
-            <img
-              class="charactor"
-              src={'images/Charactor.svg'}
-              alt="charactor"
-              style={{
-                top: '16%',
-                left: '16%',
-                transform: 'rotate(-18deg)',
-                width: '295px',
-              }}
-            />
-            <div class="text_buttom">
-              “เธอลองให้เรา พาเธอออกไปจากที่นี่ได้มั้ย?”
-            </div>
-            <button class="button" onClick={() => onClickChangeScene()}>
-              ลองดู
-            </button>
-          </div>
-        )
-      }
-      case 4: {
-        return (
-          <div>
-            <img
-              class="cloud02"
-              src={'images/WhiteCloud02.svg'}
-              alt="background"
-              style={{ top: '7.7%', left: '51.03%' }}
-            />
-            <img
-              class="cloud01"
-              src={'images/WhiteCloud01.svg'}
-              alt="background"
-              style={{ top: '30.69%', left: '-17.95%', width: '43.76%' }}
-            />
-            <img
-              class="charactor"
-              src={'images/Charactor.svg'}
-              alt="charactor"
-              style={{
-                top: '18%',
-                left: '15%',
-                transform: 'rotate(-18deg)',
-                width: '295px',
-              }}
-            />
-            <div class="text_buttom">“ว่าแต่เธอชื่ออะไร”</div>
-          </div>
-        )
-      }
-      case 5: {
-        return (
-          <div>
-            <img
-              class="cloud02"
-              src={'images/WhiteCloud02.svg'}
-              alt="background"
-              style={{ top: '6.52%', left: '63.59%' }}
-            />
-            <img
-              class="cloud01"
-              src={'images/WhiteCloud01.svg'}
-              alt="background"
-              style={{ top: '32.23%', left: '-11.79%', width: '43.76%' }}
-            />
-            <img
-              class="cloud02"
-              src={'images/WhiteCloud02.svg'}
-              alt="background"
-              style={{ top: '60.31%', left: '65.13%' }}
-            />
-            <img
-              class="charactor"
-              src={'images/Charactor.svg'}
-              alt="charactor"
-              style={{
-                top: '17%',
-                left: '15.5%',
-                transform: 'rotate(-18deg)',
-                width: '295px',
-              }}
-            />
-            <div class="text_buttom">“ว่าแต่เธอชื่ออะไร”</div>
-          </div>
-        )
-      }
-      default: {
-        return <div></div>
-      }
-    }
+  const avocadoMapper = {
+    1: 'images/avocado/avocado02.svg',
+    2: 'images/avocado/avocado03.svg',
+    3: 'images/avocado/avocado02.svg',
+    4: 'images/avocado/avocado03.svg',
   }
 
   return (
-    <div style={containerStyle(scene)}>
-      <img
-        class="bg_purple"
-        src={'images/BG_Purple.svg'}
-        alt="background"
-        style={backgroundStyles(scene)}
-      />
-      <img
-        class="star"
-        src={'images/star.svg'}
-        alt="background"
-        style={starStyle(scene)}
-      />
-      <CloudCharacterText />
+    <div style={{ opacity, transition: 'opacity ease-in-out 1.5s' }}>
+      <Stage {...stageProps}>
+        <Layer>
+          <AnimateImage {...backgroundProps} />
+          <Group>
+            <Html>
+              <div
+                style={{
+                  opacity: 1,
+                  transition: 'ease-in-out 1s',
+                  display: 'flex',
+                  top: '-25%',
+                  marginLeft: 195 * scaleWidth,
+                  marginTop: 212 * scaleHeight,
+                }}
+              >
+                <p
+                  style={{
+                    fontSize: 18 * scaleMean,
+                    color: '#ffffff',
+                    margin: 0,
+                    left: '50%',
+                    transform: 'translate(-50%,0%)',
+                  }}
+                >
+                  {message}
+                </p>
+              </div>
+              <div
+                style={{
+                  position: 'absolute',
+                  bottom: '0px',
+                  position: 'bottom',
+                  marginTop: 221 * scaleHeight,
+                }}
+              >
+                <img src={avocadoMapper[scene]}></img>
+              </div>
+            </Html>
+          </Group>
+        </Layer>
+      </Stage>
     </div>
   )
 }
-export default Scene04
+
+export default BlackPart02
