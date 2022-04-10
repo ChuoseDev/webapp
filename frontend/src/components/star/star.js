@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { STAR_SHIFT_TIME } from 'utils/constant'
 
 const Star = () => {
   const [scene, setScene] = useState(0)
@@ -6,7 +7,7 @@ const Star = () => {
   useEffect(() => {
     const sceneShifter = setInterval(() => {
       setScene((scene) => (scene + 1) % 2)
-    }, 500)
+    }, STAR_SHIFT_TIME)
 
     return () => {
       clearInterval(sceneShifter)
