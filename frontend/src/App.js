@@ -15,6 +15,7 @@ import Scene04 from 'views/scene04/scene04'
 import Scene05 from 'views/scene05/scene05'
 import Scene06 from 'views/scene06/scene06'
 import Scene07 from 'views/scene07/scene07'
+import Scene03_new from 'views/scene03/scene03'
 
 const App = () => {
   return (
