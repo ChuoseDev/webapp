@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router'
 import Star from 'components/star/star'
 import MiddleCloud from 'components/middleCloud/middleCloud'
+import { SCENE02_SHIFT_TIME } from 'utils/constant'
 
 const Scene02 = () => {
   const [scene, setScene] = useState(-1)
@@ -36,7 +37,7 @@ const Scene02 = () => {
     setTimeout(() => setScene(1))
     const sceneShifter = setInterval(() => {
       setScene((scene) => scene + 1)
-    }, 1700)
+    }, SCENE02_SHIFT_TIME)
     return () => {
       clearInterval(sceneShifter)
     }
