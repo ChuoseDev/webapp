@@ -40,7 +40,7 @@ export const Scene04_05 = () => {
           width: '295px',
         }}
       />
-      <div class="text_button">ได้สิ</div>
+      <div class="text_buttom">ได้สิ</div>
     </div>
   )
 }

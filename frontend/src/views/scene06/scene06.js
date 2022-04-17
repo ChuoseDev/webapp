@@ -1,16 +1,18 @@
 import { useState, useEffect } from 'react'
 import { Stage, Layer, AnimateImage, Group } from 'konvas'
 import { Html } from 'react-konva-utils'
+import { useNavigate } from 'react-router'
 
-// this is scene 04-01 to 04-04
-const BlackPart02 = () => {
-  const scaleHeight = window.innerHeight / 844
-  const scaleWidth = window.innerWidth / 390
+// this is scene 06-08 to 06-11
+const BlackPart03 = () => {
+  const scaleHeight = window.screen.height / 844
+  const scaleWidth = window.screen.width / 390
   const scaleMean = (scaleHeight + scaleWidth) / 2
   const [message, setMessage] = useState('')
   const [scene, setScene] = useState(-2)
   const [opacity, setOpacity] = useState(1.0)
   const [avocado, setAvocado] = useState('')
+  const navigate = useNavigate()
   useEffect(() => {
     setOpacity(1)
     setTimeout(() => {
@@ -21,22 +23,26 @@ const BlackPart02 = () => {
     }, 200)
     setTimeout(() => {
       setScene(1)
-      setMessage('มีใครช่วยฉันได้หรอ')
+      setMessage('แต่ฉันเหนื่อยจังเลย')
     }, 200)
     setTimeout(() => {
       setScene(2)
-    }, 1200)
-    setTimeout(() => {
-      setScene(3)
     }, 2200)
     setTimeout(() => {
-      setScene(4)
+      setScene(3)
+      setMessage('ฉันจะออกไปไหวหรอ')
     }, 3200)
+    setTimeout(() => {
+      setScene(4)
+    }, 4200)
+    setTimeout(() => {
+      navigate('/scene07')
+    }, 5200)
   }, [])
 
   const stageProps = {
-    width: window.innerWidth,
-    height: window.innerHeight,
+    width: window.screen.width,
+    height: window.screen.height,
   }
 
   const backgroundProps = {
@@ -49,9 +55,9 @@ const BlackPart02 = () => {
 
   const avocadoMapper = {
     1: 'images/avocado/avocado02.svg',
-    2: 'images/avocado/avocado03.svg',
-    3: 'images/avocado/avocado02.svg',
-    4: 'images/avocado/avocado03.svg',
+    2: 'images/avocado/avocado02.svg',
+    3: 'images/avocado/avocado03.svg',
+    4: 'images/avocado/avocado06.svg',
   }
 
   return (
@@ -101,4 +107,4 @@ const BlackPart02 = () => {
   )
 }
 
-export default BlackPart02
+export default BlackPart03

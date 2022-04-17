@@ -30,14 +30,27 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  font-size: 20px;
 }
 
-.text_button {
+.text_buttom {
   position: absolute;
   color: white;
   top: 75%;
   left: 50%;
   transform: translate(-50%, -50%);
+  font-size: 20px;
+}
+
+.text_top {
+  position: absolute;
+  color: white;
+  top: 17%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  transform: translate(0%);
+  font-size: 20px;
 }
 
 .cloud01 {
@@ -69,4 +82,25 @@
   position: absolute;
   left: 0;
   top: 0;
+}
+
+.button {
+  position: absolute;
+  top: 85%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.input {
+  position: absolute;
+  width: 75%;
+  height: 6%;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  border-radius: 100vh;
+  border: none;
+  font-size: 18px;
+  font-weight: 500;
 }
