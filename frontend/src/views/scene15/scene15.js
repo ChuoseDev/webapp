@@ -151,14 +151,7 @@ const Scene15 = () => {
       </div>
       <Star />
       <MiddleCloud />
-      {scene >= 4 && (
-        <img
-          class="charactor"
-          src={'images/Charactor.svg'}
-          alt="character"
-          style={characterStyle}
-        />
-      )}
+
       {scene >= 3 && scene <= 7 && (
         <TopCloud top={-50} ttl={4000} fadeIn={true} />
       )}
