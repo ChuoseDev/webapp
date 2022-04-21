@@ -16,6 +16,7 @@ import Scene05 from 'views/scene05/scene05'
 import Scene06 from 'views/scene06/scene06'
 import Scene07 from 'views/scene07/scene07'
 import Scene03_new from 'views/scene03/scene03'
+import Scene15 from 'views/scene15/scene15'
 
 const App = () => {
   return (
@@ -38,6 +39,7 @@ const App = () => {
           <Route exact path="/scene07" element={<Scene07 />}></Route>
           {/* <Route exact path="/scene07" element={<WhiteScreen />}></Route> */}
           <Route exact path="/scene08" element={<WhiteScreen />}></Route>
+          <Route exact path="/scene15" element={<Scene15 />}></Route>
         </Switch>
       </BrowserRouter>
     </div>
