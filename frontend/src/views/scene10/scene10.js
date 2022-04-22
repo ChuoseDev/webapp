@@ -9,6 +9,9 @@ const Scene10 = () => {
   const scaleMean = (scaleHeight + scaleWidth) / 2
   const [scene, setScene] = useState(1)
   const [message, setMessage] = useState('')
+  const [message2, setMessage2] = useState('')
+  const [message3, setMessage3] = useState('')
+  const [message4, setMessage4] = useState('')
   const [messageStyle, setMessageStyle] = useState({
     position: 'fixed',
     fontSize: 18 * scaleMean,
@@ -46,14 +49,19 @@ const Scene10 = () => {
 
   const mapper = {
     1: {
-      message:
-        'Automatic Nagative Thoughts \n (ANTs) \n | “ความคิดลบแบบไม่พัก”',
+      message: 'Automatic Nagative Thoughts',
+      message2: '(ANTs)',
+      message3: '|',
+      message4: '“ความคิดลบแบบไม่พัก”',
       imageInCloudStyle: {
         opacity: 0,
       },
     },
     3: {
       message: '“ความคิดลบแบบไม่พัก” คือ',
+      message2: ' ',
+      message3: ' ',
+      message4: ' ',
     },
     5: {
       message: 'ประสบการณ์แย่ ๆ ในอดีต',
@@ -101,26 +109,31 @@ const Scene10 = () => {
       },
     },
     12: {
-      message:
-        'ประสบการณ์แย่ๆในอดีต\nที่ส่งผลให้เรามีความคิดในแง่ลบวนเวียนอยู่ในหัวตลอดเวลา',
+      message: 'ประสบการณ์แย่ ๆ ในอดีต',
+      message2: 'ที่ส่งผลให้เรามีความคิดในแง่ลบ',
+      message3: 'วนเวียนอยู่ในหัวตลอดเวลา',
       imageInCloud: 'images/minus01.svg',
       imageInCloudStyle: {
         width: '50%',
       },
     },
     13: {
+      message2: ' ',
+      message3: ' ',
       imageInCloud: 'images/minus02.svg',
       imageInCloudStyle: {
         left: '48%',
       },
     },
     14: {
-      message: 'เป็นเสียงแรกที่โผล่ขึ้นมาในหัวของเรา\nเมื่อเจอเหตุการณ์หนึ่ง',
+      message: 'เป็นเสียงแรกที่โผล่ขึ้นมาในหัวของเรา',
+      message2: 'เมื่อเจอเหตุการณ์หนึ่ง',
       imageInCloudStyle: {
         opacity: 0,
       },
     },
     15: {
+      message2: ' ',
       messageInCloud: 'นั่นเป็นความผิดของฉันเองแหละ',
     },
     16: {
@@ -184,6 +197,15 @@ const Scene10 = () => {
     if (mapper[scene] && mapper[scene].message) {
       setMessage(mapper[scene].message)
     }
+    if (mapper[scene] && mapper[scene].message2) {
+      setMessage2(mapper[scene].message2)
+    }
+    if (mapper[scene] && mapper[scene].message3) {
+      setMessage3(mapper[scene].message3)
+    }
+    if (mapper[scene] && mapper[scene].message4) {
+      setMessage4(mapper[scene].message4)
+    }
 
     if (mapper[scene] && mapper[scene].characterStyle) {
       setCharacterStyle((characterStyle) => {
@@ -237,7 +259,16 @@ const Scene10 = () => {
   return (
     <div style={containerStyle(scene)}>
       <div>
-        <p style={messageStyle}>{message}</p>
+        <p style={messageStyle}>
+          {message}
+          <br></br>
+          {message2}
+          <br></br>
+          {message3}
+          <br></br>
+          {message4}
+          <br></br>
+        </p>
       </div>
       <img
         class="yellowChuose"
