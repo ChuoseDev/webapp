@@ -41,9 +41,6 @@ const Scene10 = () => {
   }
   const [imageInCloud, setimageInCloud] = useState('')
   const [imageInCloudStyle, setimageInCloudStyle] = useState({})
-  const [phase, setPhase] = useState(phaseEnum.firstPhase)
-  const [username, setUsername] = useState('')
-  const [age, setAge] = useState('')
 
   const navigate = useNavigate()
 
@@ -245,14 +242,6 @@ const Scene10 = () => {
       top: 0,
       textAlign: 'center',
       margin: 0,
-    }
-  }
-
-  const backgroundStyles = (scene) => {
-    return {
-      position: 'relative',
-      left: 0,
-      top: 0,
     }
   }
 
