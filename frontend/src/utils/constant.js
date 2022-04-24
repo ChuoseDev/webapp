@@ -12,6 +12,7 @@ export const SCENE07_SHIFT_TIME = 200
 export const SCENE08_SHIFT_TIME = 1200
 export const SCENE013_SHIFT_TIME = 1000
 export const SCENE08_SHIFT_TIME = 1200
+export const SCENE12_SHIFT_TIME = 800
 
 // components scene shifter interval time
 export const STAR_SHIFT_TIME = 500
