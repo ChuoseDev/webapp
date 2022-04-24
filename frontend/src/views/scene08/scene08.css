@@ -1,6 +1,7 @@
 .background-gradient {
   width: 390px;
   height: 844px;
+  position: relative;
   transition: opacity ease-in-out 1s;
   background: linear-gradient(
     to top,
@@ -14,6 +15,7 @@
 .background-gradient-2 {
   width: 390px;
   height: 844px;
+  position: relative;
   transition: opacity ease-in-out 1s;
   background: linear-gradient(
     to top,
@@ -27,6 +29,7 @@
 .background-gradient-3 {
   width: 390px;
   height: 844px;
+  position: relative;
   transition: opacity ease-in-out 1s;
   background: linear-gradient(
     to top,

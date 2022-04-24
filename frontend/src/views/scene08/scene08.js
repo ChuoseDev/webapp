@@ -89,7 +89,7 @@ const Scene08 = () => {
         },
       },
       5: {
-        message: 'ทุกคนเข้ามา\n...',
+        message: 'ทุกคนเข้ามา...',
         character: {
           style: {
             width: 142.41 * scaleWidth,
@@ -288,16 +288,6 @@ const Scene08 = () => {
         character: {
           src: 'images/YellowChuose_06.svg',
           style: {
-            height: 138.03 * scaleWidth,
-            width: 137.54 * scaleWidth,
-            left: 126 * scaleHeight,
-            top: 443 * scaleWidth,
-          },
-        },
-        friend: {
-          src: 'images/CloudText08_08.svg',
-          style: {
-            opacity: 1,
             width: 382 * scaleWidth,
             height: 331.03 * scaleWidth,
             top: 250 * scaleHeight,
@@ -316,9 +306,6 @@ const Scene08 = () => {
             left: 131 * scaleHeight,
             top: 391 * scaleWidth,
           },
-        },
-        friend: {
-          style: { opacity: 0 },
         },
       },
       3: {
@@ -383,7 +370,7 @@ const Scene08 = () => {
     ) {
       setfriendSrc(mapper[phase][scene].friend.src)
     }
-    if (phase === phaseEnum.secondPhase && scene === 3) {
+    if (phase === phaseEnum.secondPhase && scene === 4) {
       //change scene
     }
   }, [scene])
