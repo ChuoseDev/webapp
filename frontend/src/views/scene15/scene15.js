@@ -7,7 +7,7 @@ import TopCloud from 'components/topCloud/topCloud'
 import BottomCloud from 'components/bottomCloud/bottomCloud'
 import { SCENE03_SHIFT_TIME } from 'utils/constant'
 
-const Scene03 = () => {
+const Scene15 = () => {
   const [scene, setScene] = useState(1)
   const [message, setMessage] = useState('')
   const [characterStyle, setCharacterStyle] = useState({
@@ -151,14 +151,7 @@ const Scene03 = () => {
       </div>
       <Star />
       <MiddleCloud />
-      {scene >= 4 && (
-        <img
-          class="charactor"
-          src={'images/Charactor.svg'}
-          alt="character"
-          style={characterStyle}
-        />
-      )}
+
       {scene >= 3 && scene <= 7 && (
         <TopCloud top={-50} ttl={4000} fadeIn={true} />
       )}
@@ -167,4 +160,4 @@ const Scene03 = () => {
   )
 }
 
-export default Scene03
+export default Scene15

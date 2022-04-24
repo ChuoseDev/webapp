@@ -13,6 +13,12 @@ const Scene07 = () => {
     setTimeout(() => {
       setScene(2)
     }, 1000)
+    setTimeout(() => {
+      setScene(3)
+    }, 2000)
+    setTimeout(() => {
+      setScene(4)
+    }, 3000)
   }, [])
 
   useEffect(() => {
@@ -56,6 +62,9 @@ const Scene07 = () => {
       case 1: {
         return (
           <div>
+            <div class="text_top">
+              "ได้สิ<br></br> เราลองมาหาทางออกด้วยกันมั๊ย"
+            </div>
             <img
               class="cloud02"
               src={'images/WhiteCloud02.svg'}
@@ -85,9 +94,10 @@ const Scene07 = () => {
               src={'images/Charactor.svg'}
               alt="charactor"
               style={{
-                top: '45%',
-                left: '13%',
-                width: '300px',
+                top: '30%',
+                left: '7%',
+                transform: 'rotate(-15deg)',
+                width: '350px',
               }}
             />
           </div>
@@ -127,15 +137,47 @@ const Scene07 = () => {
               src={'images/Charactor.svg'}
               alt="charactor"
               style={{
-                top: '30%',
+                top: '35%',
                 left: '7%',
-                transform: 'rotate(-15deg)',
+                transform: 'rotate(-10deg)',
                 width: '350px',
               }}
             />
           </div>
         )
       }
+
+      case 3: {
+        return (
+          <div>
+            <img
+              class="cloud02"
+              src={'images/WhiteCloud02.svg'}
+              alt="background"
+              style={{ top: '18.5%', left: '61.75%' }}
+            />
+            <img
+              class="cloud01"
+              src={'images/WhiteCloud01.svg'}
+              alt="background"
+              style={{ top: '44.22%', left: '-10.01%', width: '43.76%' }}
+            />
+            <img
+              class="cloud01"
+              src={'images/WhiteCloud01.svg'}
+              alt="background"
+              style={{ top: '72.44%', left: '66.39%' }}
+            />
+            <img
+              class="cloud02"
+              src={'images/WhiteCloud02.svg'}
+              alt="background"
+              style={{ top: '94.14%', left: '7.57%' }}
+            />
+          </div>
+        )
+      }
+
       default: {
         return <div></div>
       }
