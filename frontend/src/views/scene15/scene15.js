@@ -1,4 +1,3 @@
-import { useNavigate } from 'react-router'
 import { useEffect, useState } from 'react'
 import '../scene15/scene15.css'
 import MiddleCloud from 'components/middleCloud/middleCloud'
@@ -8,32 +7,55 @@ import { SCENE15_SHIFT_TIME } from 'utils/constant'
 const Scene15 = () => {
   const [scene, setScene] = useState(1)
   const [message, setMessage] = useState('')
+  const [openDoorStyle, setOpenDoorStyle] = useState({})
 
-  const navigate = useNavigate()
   const mapper = {
-    4: {},
-    5: {},
-    6: {},
-    7: {},
-    8: {},
+    5: {
+      openDoorStyle: {
+        position: 'absolute',
+        top: '57%',
+        left: '50%',
+        transform: 'translate(-50%, -50%)',
+        width: '310px',
+      },
+    },
+    6: {
+      openDoorStyle: {
+        position: 'absolute',
+        top: '57%',
+        left: '50%',
+        transform: 'translate(-50%, -50%)',
+        width: '400px',
+      },
+    },
+    7: {
+      openDoorStyle: {
+        position: 'absolute',
+        top: '57%',
+        left: '50%',
+        transform: 'translate(-50%, -50%)',
+        width: '480px',
+      },
+    },
+    8: {
+      openDoorStyle: {
+        position: 'absolute',
+        top: '57%',
+        left: '50%',
+        transform: 'translate(-50%, -50%)',
+        width: '580px',
+      },
+    },
     9: {
-      message: '“สวัสดี เราชูโอสนะ”',
-      characterStyle: {
-        top: '6%',
-        left: '12%',
-        transform: 'rotate(-5deg)',
-        width: '295px',
+      openDoorStyle: {
+        position: 'absolute',
+        top: '69%',
+        left: '63%',
+        transform: 'translate(-50%, -50%)',
+        width: '860px',
       },
     },
-    10: {
-      message: '“เราอยากช่วยเธอ”',
-      characterStyle: {
-        top: '15%',
-        left: '12%',
-        transform: 'rotate(-5deg)',
-        width: '295px',
-      },
-    },
+
     11: {
       message: '“ฉันรู้ว่าเธอพยายามอยู่เสมอ”',
     },
@@ -69,13 +91,6 @@ const Scene15 = () => {
       }
     }
   }
-  const backgroundStyles = (scene) => {
-    return {
-      position: 'relative',
-      left: 0,
-      top: 0,
-    }
-  }
 
   useEffect(() => {
     const sceneShifter = setInterval(() => {
@@ -91,16 +106,24 @@ const Scene15 = () => {
     if (mapper[scene] && mapper[scene].message) {
       setMessage(mapper[scene].message)
     }
+    if (mapper[scene] && mapper[scene].openDoorStyle) {
+      setOpenDoorStyle((openDoorStyle) => {
+        return { ...openDoorStyle, ...mapper[scene].openDoorStyle }
+      })
+    }
   }, [scene])
 
   return (
     <div style={containerStyle(scene)}>
       {scene == 4 && (
         <img
-          className={'img_center'}
+          className={'closeDoor'}
           src={'images/CloseDoor.svg'}
           alt="closedoor"
         />
+      )}
+      {scene >= 5 && scene <= 9 && (
+        <img src={'images/OpenDoor.svg'} alt="opendoor" style={openDoorStyle} />
       )}
       <div className={'text_center'}>{message}</div>
       {scene >= 3 && scene <= 9 && (
