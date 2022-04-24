@@ -162,6 +162,10 @@ const Scene13 = () => {
     }
   }
 
+  const goNext = () => {
+    navigate('/scene14')
+  }
+
   return (
     <div style={containerStyle(scene)}>
       <img
@@ -181,7 +185,18 @@ const Scene13 = () => {
           style={characterStyle}
         />
       )}
-      {phase === phaseEnum.firstPhase && scene >= 12 && <div></div>}
+      {phase === phaseEnum.firstPhase && scene >= 12 && (
+        <div>
+          <textarea class="textbox" style={{ top: '30%' }}></textarea>
+          <button
+            class="button"
+            style={{ top: '50%' }}
+            onClick={() => goNext()}
+          >
+            ไปต่อ
+          </button>
+        </div>
+      )}
     </div>
   )
 }
