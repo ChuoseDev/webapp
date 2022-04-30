@@ -14,43 +14,43 @@ const Scene15 = () => {
       openDoorStyle: {
         position: 'absolute',
         top: '57%',
-        left: '50%',
+        left: '52%',
         transform: 'translate(-50%, -50%)',
-        width: '310px',
+        width: '320px',
       },
     },
     6: {
       openDoorStyle: {
         position: 'absolute',
         top: '57%',
-        left: '50%',
+        left: '54%',
         transform: 'translate(-50%, -50%)',
-        width: '400px',
+        width: '420px',
       },
     },
     7: {
       openDoorStyle: {
         position: 'absolute',
         top: '57%',
-        left: '50%',
+        left: '56%',
         transform: 'translate(-50%, -50%)',
-        width: '480px',
+        width: '550px',
       },
     },
     8: {
       openDoorStyle: {
         position: 'absolute',
         top: '57%',
-        left: '50%',
+        left: '60%',
         transform: 'translate(-50%, -50%)',
-        width: '580px',
+        width: '680px',
       },
     },
     9: {
       openDoorStyle: {
         position: 'absolute',
         top: '69%',
-        left: '63%',
+        left: '64%',
         transform: 'translate(-50%, -50%)',
         width: '860px',
       },
@@ -66,7 +66,7 @@ const Scene15 = () => {
     13: {
       message: '“ฉันจะอยู่ข้างๆเธอเอง”',
     },
-    14: { message: '' },
+    14: { message: ' ' },
   }
 
   const containerStyle = (scene) => {
@@ -115,6 +115,12 @@ const Scene15 = () => {
 
   return (
     <div style={containerStyle(scene)}>
+      {scene >= 3 && scene <= 9 && (
+        <>
+          <Star />
+          <MiddleCloud />
+        </>
+      )}
       {scene == 4 && (
         <img
           className={'closeDoor'}
@@ -126,12 +132,6 @@ const Scene15 = () => {
         <img src={'images/OpenDoor.svg'} alt="opendoor" style={openDoorStyle} />
       )}
       <div className={'text_center'}>{message}</div>
-      {scene >= 3 && scene <= 9 && (
-        <>
-          <Star />
-          <MiddleCloud />
-        </>
-      )}
     </div>
   )
 }
