@@ -2,13 +2,14 @@ import { useState, useEffect } from 'react'
 import { SCENE08_SHIFT_TIME } from 'utils/constant'
 import './scene08.css'
 import TopCloud from 'components/topCloud/topCloud'
+import { useNavigate } from 'react-router'
 
 const Scene08 = () => {
   const [scene, setScene] = useState(1)
   const [message, setMessage] = useState('')
   const scaleHeight = window.screen.height / 844
   const scaleWidth = window.screen.width / 390
-  const scaleMean = (scaleHeight + scaleWidth) / 2
+  const navigate = useNavigate()
   const [characterStyle, setCharacterStyle] = useState({
     width: 166 * scaleWidth,
     height: 169.05 * scaleWidth,
@@ -296,7 +297,7 @@ const Scene08 = () => {
           },
         },
       },
-      2: {
+      3: {
         message: 'หันมาอีกที',
         character: {
           src: 'images/YellowChuose_07.svg',
@@ -308,7 +309,7 @@ const Scene08 = () => {
           },
         },
       },
-      3: {
+      4: {
         message: 'ก็ไม่เจอใครแล้ว...',
         character: {
           src: 'images/YellowChuose_01.svg',
@@ -370,8 +371,8 @@ const Scene08 = () => {
     ) {
       setfriendSrc(mapper[phase][scene].friend.src)
     }
-    if (phase === phaseEnum.secondPhase && scene === 4) {
-      //change scene
+    if (phase === phaseEnum.secondPhase && scene === 5) {
+      navigate('/scene09')
     }
   }, [scene])
 
@@ -394,7 +395,7 @@ const Scene08 = () => {
       <div
         class={
           phase === phaseEnum.firstPhase && scene >= 15
-            ? 'text_top'
+            ? 'text_top_8'
             : 'text_middle'
         }
       >
