@@ -60,6 +60,7 @@ const Scene12 = () => {
         message: '“อืม...”',
         character: {
           style: {
+            transform: 'rotate(0deg)',
             width: 161.05 * scaleWidth,
             height: 162.5 * scaleHeight,
             top: 470 * scaleHeight,

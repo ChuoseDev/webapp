@@ -14,6 +14,7 @@ import Scene04 from 'views/scene04/scene04'
 import Scene05 from 'views/scene05/scene05'
 import Scene06 from 'views/scene06/scene06'
 import Scene07 from 'views/scene07/scene07'
+import Scene08 from 'views/scene08/scene08'
 import Scene13 from 'views/scene13/scene13'
 import Scene12 from 'views/scene12/scene12'
 import Scene15 from 'views/scene15/scene15'
@@ -38,7 +39,7 @@ const App = () => {
           <Route exact path="/scene06" element={<Scene06 />}></Route>
           <Route exact path="/scene07" element={<Scene07 />}></Route>
           {/* <Route exact path="/scene07" element={<WhiteScreen />}></Route> */}
-          <Route exact path="/scene08" element={<WhiteScreen />}></Route>
+          <Route exact path="/scene08" element={<Scene08 />}></Route>
           <Route exact path="/scene13" element={<Scene13 />}></Route>
           <Route exact path="/scene12" element={<Scene12 />}></Route>
           <Route exact path="/scene15" element={<Scene15 />}></Route>
