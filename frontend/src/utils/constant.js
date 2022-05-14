@@ -10,7 +10,7 @@ export const SCENE05_SHIFT_TIME = 1000
 export const SCENE06_SHIFT_TIME = 200
 export const SCENE07_SHIFT_TIME = 200
 export const SCENE08_SHIFT_TIME = 1500
-export const SCENE12_SHIFT_TIME = 800
+export const SCENE12_SHIFT_TIME = 1500
 export const SCENE13_SHIFT_TIME = 1000
 export const SCENE15_SHIFT_TIME = 1000
 

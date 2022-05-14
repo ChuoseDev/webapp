@@ -56,7 +56,7 @@ const Scene12 = () => {
 
   const mapper = {
     [phaseEnum.firstPhase]: {
-      1: {
+      4: {
         message: '“อืม...”',
         character: {
           style: {
@@ -68,7 +68,7 @@ const Scene12 = () => {
           },
         },
       },
-      2: {
+      5: {
         character: {
           src: 'images/ChuoseShadow_02.svg',
         },
@@ -77,7 +77,7 @@ const Scene12 = () => {
           left: 104.61 * scaleWidth,
         },
       },
-      3: {
+      6: {
         character: {
           src: 'images/ChuoseShadow_01.svg',
         },
@@ -86,13 +86,13 @@ const Scene12 = () => {
           left: 252.61 * scaleWidth,
         },
       },
-      4: {
+      7: {
         message: '“เมฆก้อนดำกลืนกินเราจริงๆหรอ?”',
         thunderStyle: {
           opacity: 0,
         },
       },
-      5: {
+      8: {
         projection: {
           src: 'images/ProjectionShadow_02.svg',
           style: {
@@ -100,7 +100,7 @@ const Scene12 = () => {
           },
         },
       },
-      6: {
+      9: {
         character: {
           src: 'images/ChuoseShadow_03.svg',
           style: {
@@ -115,7 +115,7 @@ const Scene12 = () => {
           },
         },
       },
-      7: {
+      10: {
         message: '“หรือเราเป็นคนเดินเข้าไปหามันกันนะ?”',
         character: {
           src: 'images/ChuoseShadow_04.svg',
@@ -130,7 +130,7 @@ const Scene12 = () => {
           },
         },
       },
-      8: {
+      11: {
         character: {
           src: 'images/ChuoseShadow_05.svg',
           style: {
@@ -151,7 +151,7 @@ const Scene12 = () => {
           height: 109.36 * scaleHeight,
         },
       },
-      9: {
+      12: {
         character: {
           style: {
             top: 499 * scaleHeight,
@@ -169,7 +169,7 @@ const Scene12 = () => {
           opacity: 0,
         },
       },
-      10: {
+      13: {
         message: '“เธอคิดว่ายังไง?”',
         character: {
           style: {
@@ -180,9 +180,7 @@ const Scene12 = () => {
       },
     },
 
-    [phaseEnum.secondPhase]: {
-      1: {},
-    },
+    [phaseEnum.secondPhase]: { 1: { message: ' ' } },
   }
 
   useEffect(() => {
@@ -246,14 +244,14 @@ const Scene12 = () => {
         return { ...projectionStyle, ...mapper[phase][scene].projection.style }
       })
     }
-    if (phase === phaseEnum.secondPhase && scene === 3) {
-      // change scene
+    if (phase === phaseEnum.secondPhase && scene === 4) {
+      navigate('/scene13')
     }
   }, [scene])
 
   const shiftPhase = (phase) => {
     console.log(feeling)
-    setScene(0)
+    setScene(1)
     setPhase(phase)
   }
 
@@ -264,64 +262,70 @@ const Scene12 = () => {
       top: 0,
       textAlign: 'center',
       margin: 0,
+      height: '100vh',
+      backgroundColor: scene === 2 ? 'black' : 'white',
+      transitionDuration: scene >= 1 && scene <= 4 ? '1s' : '',
     }
   }
 
   return (
     <div style={containerStyle(scene)}>
-      <div className="background">
-        <div className="text_top">{message}</div>
+      <div className="text_top">{message}</div>
+      {phase === phaseEnum.firstPhase && scene >= 4 && (
+        <div>
+          <img
+            class="shadow"
+            style={thunderStyle}
+            src={'images/Thunderbolt.svg'}
+            alt="shadow"
+          />
+          <img
+            class="shadow"
+            src={'images/Shadow.svg'}
+            alt="shadow"
+            style={shadowStyle}
+          />
+          <img
+            class="cloud"
+            style={blackCloudStyle}
+            src={
+              scene == 12
+                ? 'images/blackCloud_02.svg'
+                : 'images/BlackCloud_01.svg'
+            }
+            alt="blackCloud"
+          />
+          <img
+            class="charactor"
+            src={characterSrc}
+            alt="character"
+            style={characterStyle}
+          />
+          <img
+            class="projection"
+            src={projection}
+            alt="projection"
+            style={projectionStyle}
+          />
+        </div>
+      )}
 
-        <img
-          class="shadow"
-          style={thunderStyle}
-          src={'images/Thunderbolt.svg'}
-          alt="shadow"
-        />
-        <img
-          class="shadow"
-          src={'images/Shadow.svg'}
-          alt="shadow"
-          style={shadowStyle}
-        />
-        <img
-          class="cloud"
-          style={blackCloudStyle}
-          src={
-            scene == 9 ? 'images/blackCloud_02.svg' : 'images/BlackCloud_01.svg'
-          }
-          alt="blackCloud"
-        />
-        <img
-          class="charactor"
-          src={characterSrc}
-          alt="character"
-          style={characterStyle}
-        />
-        <img
-          class="projection"
-          src={projection}
-          alt="projection"
-          style={projectionStyle}
-        />
-
-        {phase === phaseEnum.firstPhase && scene >= 10 && (
-          <div>
-            <textarea
-              id="feeling-textarea"
-              class="textbox"
-              value={feeling}
-              onChange={(e) => setFeeling(e.target.value)}
-            ></textarea>
-            <button
-              class="button"
-              onClick={() => shiftPhase(phaseEnum.secondPhase)}
-            >
-              ไปต่อ
-            </button>
-          </div>
-        )}
-      </div>
+      {phase === phaseEnum.firstPhase && scene >= 13 && (
+        <div>
+          <textarea
+            id="feeling-textarea"
+            class="textbox"
+            value={feeling}
+            onChange={(e) => setFeeling(e.target.value)}
+          ></textarea>
+          <button
+            class="button"
+            onClick={() => shiftPhase(phaseEnum.secondPhase)}
+          >
+            ไปต่อ
+          </button>
+        </div>
+      )}
     </div>
   )
 }

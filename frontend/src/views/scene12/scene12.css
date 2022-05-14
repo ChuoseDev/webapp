@@ -1,8 +1,3 @@
-.background {
-  position: relative;
-  transition: opacity ease-in-out 1s;
-  background: #ffffff;
-}
 .text_top {
   top: 232px;
   justify-content: center;
