@@ -263,69 +263,77 @@ const Scene12 = () => {
       textAlign: 'center',
       margin: 0,
       height: '100vh',
-      backgroundColor: scene === 2 ? 'black' : 'white',
+      backgroundColor: scene === 2 ? 'black' : '',
       transitionDuration: scene >= 1 && scene <= 4 ? '1s' : '',
     }
   }
 
   return (
     <div style={containerStyle(scene)}>
-      <div className="text_top">{message}</div>
-      {phase === phaseEnum.firstPhase && scene >= 4 && (
-        <div>
-          <img
-            class="shadow"
-            style={thunderStyle}
-            src={'images/Thunderbolt.svg'}
-            alt="shadow"
-          />
-          <img
-            class="shadow"
-            src={'images/Shadow.svg'}
-            alt="shadow"
-            style={shadowStyle}
-          />
-          <img
-            class="cloud"
-            style={blackCloudStyle}
-            src={
-              scene == 12
-                ? 'images/blackCloud_02.svg'
-                : 'images/BlackCloud_01.svg'
-            }
-            alt="blackCloud"
-          />
-          <img
-            class="charactor"
-            src={characterSrc}
-            alt="character"
-            style={characterStyle}
-          />
-          <img
-            class="projection"
-            src={projection}
-            alt="projection"
-            style={projectionStyle}
-          />
-        </div>
-      )}
+      <div class={scene >= 4 ? 'background-gradient-12' : ''}>
+        <div className="text_top">{message}</div>
+        {phase === phaseEnum.firstPhase && scene >= 4 && (
+          <div>
+            <img
+              class="shadow"
+              style={thunderStyle}
+              src={'images/Thunderbolt.svg'}
+              alt="shadow"
+            />
+            <img
+              class="shadow"
+              src={'images/Shadow.svg'}
+              alt="shadow"
+              style={shadowStyle}
+            />
+            <img
+              class="cloud"
+              style={blackCloudStyle}
+              src={
+                scene == 12
+                  ? 'images/blackCloud_02.svg'
+                  : 'images/BlackCloud_01.svg'
+              }
+              alt="blackCloud"
+            />
+            <img
+              class="charactor"
+              src={characterSrc}
+              alt="character"
+              style={characterStyle}
+            />
+            <img
+              class="projection"
+              src={projection}
+              alt="projection"
+              style={projectionStyle}
+            />
+          </div>
+        )}
 
-      {phase === phaseEnum.firstPhase && scene >= 13 && (
-        <div>
-          <textarea
-            id="feeling-textarea"
-            class="textbox"
-            value={feeling}
-            onChange={(e) => setFeeling(e.target.value)}
-          ></textarea>
-          <button
-            class="button"
-            onClick={() => shiftPhase(phaseEnum.secondPhase)}
-          >
-            ไปต่อ
-          </button>
-        </div>
-      )}
+        {phase === phaseEnum.firstPhase && scene >= 13 && (
+          <div>
+            <textarea
+              id="feeling-textarea"
+              class="textbox"
+              value={feeling}
+              onChange={(e) => setFeeling(e.target.value)}
+            ></textarea>
+            <button
+              class="button"
+              onClick={() => shiftPhase(phaseEnum.secondPhase)}
+            >
+              ไปต่อ
+            </button>
+          </div>
+        )}
+        {scene >= 4 && (
+          <div>
+            <TopCloud ttl={15 * SCENE12_SHIFT_TIME} />
+            <BottomCloud ttl={15 * SCENE12_SHIFT_TIME} />
+          </div>
+        )}
+      </div>
     </div>
   )
 }
