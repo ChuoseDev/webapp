@@ -39,8 +39,6 @@ const App = () => {
           <Route exact path="/scene06" element={<Scene06 />}></Route>
           <Route exact path="/scene07" element={<Scene07 />}></Route>
           <Route exact path="/scene08" element={<Scene08 />}></Route>
-          {/* <Route exact path="/scene07" element={<WhiteScreen />}></Route> */}
-          <Route exact path="/scene08" element={<WhiteScreen />}></Route>
           <Route exact path="/scene10" element={<Scene10 />}></Route>
           <Route exact path="/scene13" element={<Scene13 />}></Route>
           <Route exact path="/scene15" element={<Scene15 />}></Route>
