@@ -1,602 +1,433 @@
 import { useState, useEffect } from 'react'
-import './whiteScreen.css'
+import { SCENE08_SHIFT_TIME } from 'utils/constant'
+import './scene08.css'
+import TopCloud from 'components/topCloud/topCloud'
 
-const WhiteScreen2 = () => {
+const Scene08 = () => {
+  const [scene, setScene] = useState(1)
+  const [message, setMessage] = useState('')
   const scaleHeight = window.screen.height / 844
   const scaleWidth = window.screen.width / 390
   const scaleMean = (scaleHeight + scaleWidth) / 2
-  const [scene, setScene] = useState(0)
-  const [message, setMessage] = useState('')
+  const [characterStyle, setCharacterStyle] = useState({
+    width: 166 * scaleWidth,
+    height: 169.05 * scaleWidth,
+    top: 349 * scaleHeight,
+    left: 112 * scaleWidth,
+  })
+  const [characterSrc, setCharacterSrc] = useState('images/YellowChuose_01.svg')
+  const [friendStyle, setFriendStyle] = useState({ opacity: 0 })
+  const [friendSrc, setfriendSrc] = useState()
+  const phaseEnum = {
+    firstPhase: 'firstPhase',
+    secondPhase: 'secondPhase',
+  }
+  const [phase, setPhase] = useState(phaseEnum.firstPhase)
+
+  const mapper = {
+    [phaseEnum.firstPhase]: {
+      1: {
+        message: '“เราใช้ชีวิตในโลกที่เต็มไปด้วยความคาดหวัง”',
+        character: {
+          src: 'images/YellowChuose_01.svg',
+          style: {
+            width: 166 * scaleWidth,
+            height: 169.05 * scaleWidth,
+            top: 349 * scaleHeight,
+            left: 112 * scaleWidth,
+          },
+        },
+      },
+      2: {
+        friend: {
+          src: 'images/CloudText01.svg',
+          style: {
+            opacity: 1,
+            width: 101.01 * scaleWidth,
+            height: 64 * scaleWidth,
+            top: 277 * scaleHeight,
+            left: 219 * scaleWidth,
+          },
+        },
+      },
+      3: {
+        character: {
+          style: {
+            width: 159 * scaleWidth,
+            height: 161.92 * scaleWidth,
+            top: 448.11 * scaleHeight,
+            left: 139.13 * scaleWidth,
+          },
+        },
+        friend: {
+          src: 'images/CloudText07_08.svg',
+          style: {
+            width: 323.05 * scaleWidth,
+            height: 219.04 * scaleWidth,
+            top: 252 * scaleHeight,
+            left: 34 * scaleWidth,
+          },
+        },
+      },
+      4: {
+        character: {
+          style: {
+            width: 150 * scaleWidth,
+            height: 152.76 * scaleWidth,
+            top: 497 * scaleHeight,
+            left: 109 * scaleWidth,
+          },
+        },
+        friend: {
+          src: 'images/CloudText07_09.svg',
+          style: {
+            width: 350.31 * scaleWidth,
+            height: 273.76 * scaleWidth,
+            top: 275 * scaleHeight,
+            left: 17 * scaleWidth,
+          },
+        },
+      },
+      5: {
+        message: 'ทุกคนเข้ามา...',
+        character: {
+          style: {
+            width: 142.41 * scaleWidth,
+            height: 145.03 * scaleWidth,
+            top: 473 * scaleHeight,
+            left: 104 * scaleWidth,
+          },
+        },
+        friend: {
+          src: 'images/CloudText07_10.svg',
+          style: {
+            width: 350.78 * scaleWidth,
+            height: 225.76 * scaleWidth,
+            top: 352 * scaleHeight,
+            left: 21 * scaleWidth,
+          },
+        },
+      },
+      6: {
+        character: {
+          style: {
+            width: 135.54 * scaleWidth,
+            height: 138.03 * scaleWidth,
+            top: 448 * scaleHeight,
+            left: 128 * scaleWidth,
+          },
+        },
+        friend: {
+          src: 'images/CloudText07_11.svg',
+          style: {
+            width: 382 * scaleWidth,
+            height: 219.76 * scaleWidth,
+            top: 348 * scaleHeight,
+            left: 6 * scaleWidth,
+          },
+        },
+      },
+      7: {
+        message: 'และก็จากเราไปมากมายเช่นกัน',
+        character: {
+          style: {
+            width: 142.41 * scaleWidth,
+            height: 145.03 * scaleWidth,
+            top: 491 * scaleHeight,
+            left: 103 * scaleWidth,
+          },
+        },
+        friend: {
+          src: 'images/Friend07_12.svg',
+          style: {
+            width: 370.78 * scaleWidth,
+            height: 228.76 * scaleWidth,
+            top: 372 * scaleHeight,
+            left: 11 * scaleWidth,
+          },
+        },
+      },
+      8: {
+        character: {
+          src: 'images/YellowChuose_02.svg',
+          style: {
+            top: 465 * scaleHeight,
+            left: 114 * scaleWidth,
+            width: 150 * scaleWidth,
+            height: 152.76 * scaleHeight,
+          },
+        },
+        friend: {
+          src: 'images/Friend07_13.svg',
+          style: {
+            width: 369.31 * scaleWidth,
+            height: 186.76 * scaleWidth,
+            top: 331 * scaleHeight,
+            left: 9 * scaleWidth,
+          },
+        },
+      },
+      9: {
+        message: 'ทุกคนต่างเดินไปข้างหน้า',
+        character: {
+          src: 'images/YellowChuose_01.svg',
+          style: {
+            width: 137.23 * scaleWidth,
+            height: 139.76 * scaleWidth,
+            top: 475 * scaleHeight,
+            left: 128 * scaleWidth,
+          },
+        },
+        friend: {
+          src: 'images/Friend08_01.svg',
+          style: {
+            width: 357.34 * scaleWidth,
+            height: 227.76 * scaleWidth,
+            top: 373 * scaleHeight,
+            left: 17 * scaleWidth,
+          },
+        },
+      },
+      10: {
+        character: {
+          style: {
+            width: 147.05 * scaleWidth,
+            height: 149.76 * scaleWidth,
+            top: 382 * scaleHeight,
+            left: 121.9 * scaleWidth,
+          },
+        },
+        friend: {
+          src: 'images/Friend08_02.svg',
+          style: {
+            width: 357.07 * scaleWidth,
+            height: 229.76 * scaleWidth,
+            top: 466 * scaleHeight,
+            left: 14 * scaleWidth,
+            zIndex: 1,
+          },
+        },
+      },
+      11: {
+        character: {
+          style: {
+            top: 379 * scaleHeight,
+            left: 128 * scaleWidth,
+          },
+        },
+        friend: {
+          src: 'images/Friend08_03.svg',
+          style: {
+            width: 350.07 * scaleWidth,
+            height: 312.79 * scaleWidth,
+            top: 540 * scaleHeight,
+            left: 20 * scaleWidth,
+          },
+        },
+      },
+      12: {
+        character: {
+          style: {
+            top: 386 * scaleHeight,
+            left: 121 * scaleWidth,
+          },
+        },
+        friend: {
+          src: 'images/Friend08_04.svg',
+          style: {
+            width: 350.07 * scaleWidth,
+            height: 235.79 * scaleWidth,
+            top: 659 * scaleHeight,
+            left: 15 * scaleWidth,
+          },
+        },
+      },
+      13: {
+        message: 'แต่ฉัน...',
+        character: {
+          src: 'images/YellowChuose_03.svg',
+          style: {
+            top: 377 * scaleHeight,
+            left: 112 * scaleWidth,
+            width: 166.05 * scaleWidth,
+            height: 169.11 * scaleHeight,
+          },
+        },
+        friend: {
+          style: { opacity: 0 },
+        },
+      },
+      14: {
+        message: 'ยังอยู่ที่เดิม',
+        character: {
+          src: 'images/YellowChuose_04.svg',
+          style: {
+            top: 380 * scaleHeight,
+            left: 114 * scaleWidth,
+            width: 161.05 * scaleWidth,
+            height: 162.5 * scaleWidth,
+          },
+        },
+      },
+      15: {
+        message: 'เธอเคยรู้สึกแบบเดียวกับฉันมั้ย?',
+        character: {
+          src: 'images/YellowChuose_05.svg',
+          style: {
+            top: 390 * scaleHeight,
+            left: 115 * scaleWidth,
+            width: 157.75 * scaleWidth,
+            height: 159.17 * scaleHeight,
+          },
+        },
+      },
+    },
+    [phaseEnum.secondPhase]: {
+      1: {
+        message: 'ฉันใช้ชีวิตไปเรื่อยๆ',
+        character: {
+          src: 'images/YellowChuose_06.svg',
+          style: {
+            width: 382 * scaleWidth,
+            height: 331.03 * scaleWidth,
+            top: 250 * scaleHeight,
+            left: -6 * scaleWidth,
+            objectFit: 'cover',
+          },
+        },
+      },
+      2: {
+        message: 'หันมาอีกที',
+        character: {
+          src: 'images/YellowChuose_07.svg',
+          style: {
+            height: 137.91 * scaleWidth,
+            width: 132.54 * scaleWidth,
+            left: 131 * scaleHeight,
+            top: 391 * scaleWidth,
+          },
+        },
+      },
+      3: {
+        message: 'ก็ไม่เจอใครแล้ว...',
+        character: {
+          src: 'images/YellowChuose_01.svg',
+          style: {
+            height: 137.91 * scaleWidth,
+            width: 132.54 * scaleWidth,
+            left: 137 * scaleHeight,
+            top: 398 * scaleWidth,
+          },
+        },
+      },
+    },
+  }
+
   useEffect(() => {
-    const time = 1200
-    let acc = 0
-    for (let i = 1; i < 16; i = i + 1) {
-      acc += time
-      setTimeout(() => {
-        setScene(i)
-        switch (i) {
-          case 1:
-            setMessage('"เราใช้ชีวิตในโลกที่เต็มไปด้วยความคาดหวัง"')
-            break
-          case 5:
-            setMessage('ทุกคนเข้ามา...')
-            break
-          case 7:
-            setMessage('และก็จากเราไปมากมายเช่นกัน')
-            break
-          case 9:
-            setMessage('ทุกคนต่างเดินไปข้างหน้า')
-            break
-          case 13:
-            setMessage('แต่ฉัน...')
-            break
-          case 14:
-            setMessage('ยังอยู่ที่เดิม')
-            break
-          case 15:
-            setMessage('เธอเคยรู้สึกแบบเดียวกับฉันมั้ย?')
-            break
-        }
-      }, acc)
+    const sceneShifter = setInterval(() => {
+      setScene((scene) => scene + 1)
+    }, SCENE08_SHIFT_TIME)
+
+    return () => {
+      clearInterval(sceneShifter)
     }
   }, [])
 
-  const stageProps = {
-    width: window.screen.width,
-    height: window.screen.height,
-  }
+  useEffect(() => {
+    if (mapper[phase][scene] && mapper[phase][scene].message) {
+      setMessage(mapper[phase][scene].message)
+    }
 
-  const backgroundProps = {
-    image: 'images/whiteScreen.svg',
-    height: 891 * scaleHeight,
-    width: 1404 * scaleHeight,
-  }
+    if (
+      mapper[phase][scene] &&
+      mapper[phase][scene].character &&
+      mapper[phase][scene].character.style
+    ) {
+      setCharacterStyle((characterStyle) => {
+        return { ...characterStyle, ...mapper[phase][scene].character.style }
+      })
+    }
+    if (
+      mapper[phase][scene] &&
+      mapper[phase][scene].character &&
+      mapper[phase][scene].character.src
+    ) {
+      setCharacterSrc(mapper[phase][scene].character.src)
+    }
+    if (
+      mapper[phase][scene] &&
+      mapper[phase][scene].friend &&
+      mapper[phase][scene].friend.style
+    ) {
+      setFriendStyle((friendStyle) => {
+        return { ...friendStyle, ...mapper[phase][scene].friend.style }
+      })
+    }
+    if (
+      mapper[phase][scene] &&
+      mapper[phase][scene].friend &&
+      mapper[phase][scene].friend.src
+    ) {
+      setfriendSrc(mapper[phase][scene].friend.src)
+    }
+    if (phase === phaseEnum.secondPhase && scene === 4) {
+      //change scene
+    }
+  }, [scene])
 
-  const onClickFeeling = () => {
-    const time = 1200
-    let acc = 0
-    for (let i = 16; i < 19; i = i + 1) {
-      acc += time
-      setTimeout(() => {
-        setScene(i)
-        switch (i) {
-          case 16:
-            setMessage('ฉันใช้ชีวิตไปเรื่อยๆ')
-            break
-          case 17:
-            setMessage('หันมาอีกที')
-            break
-          case 18:
-            setMessage('ก็ไม่เจอใครแล้ว...')
-            break
-        }
-      }, acc)
-    }
-  }
-
-  const yellowChuoseStyle_01 = (scene) => {
-    switch (scene) {
-      case 1:
-        return {
-          position: 'absolute',
-          width: 166 * scaleWidth,
-          height: 169.05 * scaleWidth,
-          top: 349 * scaleHeight,
-          left: 112 * scaleWidth,
-          transition: '0s',
-        }
-      case 2:
-        return {
-          position: 'absolute',
-          width: 166 * scaleWidth,
-          height: 169.05 * scaleWidth,
-          top: 349 * scaleHeight,
-          left: 112 * scaleWidth,
-          transition: '0s',
-        }
-      case 3:
-        return {
-          position: 'absolute',
-          width: 159 * scaleWidth,
-          height: 161.92 * scaleWidth,
-          top: 448.11 * scaleHeight,
-          left: 139.13 * scaleWidth,
-          transition: '0s',
-        }
-      case 4:
-        return {
-          position: 'absolute',
-          width: 150 * scaleWidth,
-          height: 152.76 * scaleWidth,
-          top: 497 * scaleHeight,
-          left: 109 * scaleWidth,
-          transition: '0s',
-        }
-      case 5:
-        return {
-          position: 'absolute',
-          width: 142.41 * scaleWidth,
-          height: 145.03 * scaleWidth,
-          top: 473 * scaleHeight,
-          left: 104 * scaleWidth,
-          transition: '0s',
-        }
-      case 6:
-        return {
-          position: 'absolute',
-          width: 135.54 * scaleWidth,
-          height: 138.03 * scaleWidth,
-          top: 448 * scaleHeight,
-          left: 128 * scaleWidth,
-          transition: '0s',
-        }
-      case 7:
-        return {
-          position: 'absolute',
-          width: 142.41 * scaleWidth,
-          height: 145.03 * scaleWidth,
-          top: 491 * scaleHeight,
-          left: 103 * scaleWidth,
-          transition: '0s',
-        }
-      case 9:
-        return {
-          position: 'absolute',
-          width: 137.23 * scaleWidth,
-          height: 139.76 * scaleWidth,
-          top: 475 * scaleHeight,
-          left: 128 * scaleWidth,
-          transition: '0s',
-        }
-      case 10:
-        return {
-          position: 'absolute',
-          width: 147.05 * scaleWidth,
-          height: 149.76 * scaleWidth,
-          top: 382 * scaleHeight,
-          left: 121.9 * scaleWidth,
-          transition: '0s',
-        }
-      case 11:
-        return {
-          position: 'absolute',
-          width: 147.05 * scaleWidth,
-          height: 149.76 * scaleWidth,
-          top: 379 * scaleHeight,
-          left: 128 * scaleWidth,
-          transition: '0s',
-        }
-      case 12:
-        return {
-          position: 'absolute',
-          width: 147.05 * scaleWidth,
-          height: 149.76 * scaleWidth,
-          top: 386 * scaleHeight,
-          left: 121 * scaleWidth,
-          transition: '0s',
-        }
-      case 18: {
-        return {
-          position: 'absolute',
-          height: 137.91 * scaleWidth,
-          width: 132.54 * scaleWidth,
-          left: 137 * scaleHeight,
-          top: 398 * scaleWidth,
-          transition: '0s',
-        }
-      }
-      default:
-        return { opacity: 0 }
-    }
-  }
-
-  const yellowChuoseStyle_02 = (scene) => {
-    return {
-      position: 'absolute',
-      top: 465 * scaleHeight,
-      left: 114 * scaleWidth,
-      width: 150 * scaleWidth,
-      height: 152.76 * scaleHeight,
-      transition: '0s',
-      opacity: scene == 8 ? 1 : 0,
-    }
-  }
-
-  const yellowChuoseStyle_03 = (scene) => {
-    return {
-      position: 'absolute',
-      top: 377 * scaleHeight,
-      left: 112 * scaleWidth,
-      width: 166.05 * scaleWidth,
-      height: 169.11 * scaleHeight,
-      transition: '0s',
-      opacity: scene === 13 ? 1 : 0,
-    }
-  }
-
-  const yellowChuoseStyle_04 = (scene) => {
-    return {
-      position: 'absolute',
-      top: 380 * scaleHeight,
-      left: 114 * scaleWidth,
-      width: 161.05 * scaleWidth,
-      height: 162.5 * scaleWidth,
-      transition: '0s',
-      opacity: scene === 14 ? 1 : 0,
-    }
-  }
-
-  const yellowChuoseStyle_05 = (scene) => {
-    return {
-      position: 'absolute',
-      top: 390 * scaleHeight,
-      left: 115 * scaleWidth,
-      width: 157.75 * scaleWidth,
-      height: 159.17 * scaleHeight,
-      transition: '0s',
-      opacity: scene === 15 ? 1 : 0,
-    }
-  }
-
-  const friendChuoseStyle_01 = (scene) => {
-    return {
-      position: 'absolute',
-      width: 370.78 * scaleWidth,
-      height: 228.76 * scaleWidth,
-      top: 372 * scaleHeight,
-      left: 11 * scaleWidth,
-      opacity: scene === 7 ? 1 : 0,
-    }
-  }
-
-  const friendChuoseStyle_02 = (scene) => {
-    return {
-      position: 'absolute',
-      width: 369.31 * scaleWidth,
-      height: 186.76 * scaleWidth,
-      top: 331 * scaleHeight,
-      left: 9 * scaleWidth,
-      opacity: scene === 8 ? 1 : 0,
-    }
-  }
-
-  const friendChuoseStyle_03 = (scene) => {
-    return {
-      position: 'absolute',
-      width: 357.07 * scaleWidth,
-      height: 229.76 * scaleWidth,
-      top: 466 * scaleHeight,
-      left: 14 * scaleWidth,
-      opacity: scene === 10 ? 1 : 0,
-    }
-  }
-
-  const lightGreyFriendChuoseStyle = (scene) => {
-    switch (scene) {
-      case 9:
-        return {
-          position: 'absolute',
-          width: 131.34 * scaleWidth,
-          height: 133.76 * scaleWidth,
-          top: 467 * scaleHeight,
-          left: 243 * scaleWidth,
-          transition: '0s',
-        }
-      case 11:
-        return {
-          position: 'absolute',
-          width: 146.07 * scaleWidth,
-          height: 148.76 * scaleWidth,
-          top: 692 * scaleHeight,
-          left: 224 * scaleWidth,
-          transition: '0s',
-        }
-      case 12:
-        return {
-          position: 'absolute',
-          width: 146.07 * scaleWidth,
-          height: 148.76 * scaleWidth,
-          top: 734 * scaleHeight,
-          left: 219 * scaleWidth,
-          transition: '0s',
-        }
-      default:
-        return { opacity: 0 }
-    }
-  }
-
-  const blackFriendChuoseStyle = (scene) => {
-    switch (scene) {
-      case 9:
-        return {
-          position: 'absolute',
-          width: 130.36 * scaleWidth,
-          height: 132.76 * scaleWidth,
-          top: 373 * scaleHeight,
-          left: 129 * scaleWidth,
-          transition: '0s',
-        }
-      case 11:
-        return {
-          position: 'absolute',
-          width: 159 * scaleWidth,
-          height: 161.92 * scaleWidth,
-          top: 540 * scaleHeight,
-          left: 123 * scaleWidth,
-          transition: '0s',
-        }
-      case 12:
-        return {
-          position: 'absolute',
-          width: 146.07 * scaleWidth,
-          height: 148.76 * scaleWidth,
-          top: 659 * scaleHeight,
-          left: 109 * scaleWidth,
-          transition: '0s',
-        }
-      default:
-        return { opacity: 0 }
-    }
-  }
-
-  const greyFriendChuoseStyle = (scene) => {
-    switch (scene) {
-      case 9:
-        return {
-          position: 'absolute',
-          width: 131.34 * scaleWidth,
-          height: 133.76 * scaleWidth,
-          top: 458 * scaleHeight,
-          left: 17 * scaleWidth,
-          transition: '0s',
-        }
-      case 11:
-        return {
-          position: 'absolute',
-          width: 152 * scaleWidth,
-          height: 154.79 * scaleWidth,
-          top: 698 * scaleHeight,
-          left: 20 * scaleWidth,
-          opacity: 1,
-          transition: '0s',
-        }
-      case 12:
-        return {
-          position: 'absolute',
-          width: 152 * scaleWidth,
-          height: 154.79 * scaleWidth,
-          top: 740 * scaleHeight,
-          left: 15 * scaleWidth,
-          transition: '0s',
-        }
-      default:
-        return { opacity: 0 }
-    }
-  }
-
-  const cloudText07 = (scene) => {
-    return {
-      position: 'absolute',
-      width: 101.01 * scaleWidth,
-      height: 64 * scaleWidth,
-      top: 277 * scaleHeight,
-      left: 219 * scaleWidth,
-      transition: '0s',
-      opacity: scene === 2 ? 1 : 0,
-    }
-  }
-
-  const cloudText08 = (scene) => {
-    return {
-      position: 'absolute',
-      width: 323.05 * scaleWidth,
-      height: 219.04 * scaleWidth,
-      top: 252 * scaleHeight,
-      left: 34 * scaleWidth,
-      transition: '0s',
-      opacity: scene === 3 ? 1 : 0,
-    }
-  }
-
-  const cloudText09 = (scene) => {
-    return {
-      position: 'absolute',
-      width: 350.31 * scaleWidth,
-      height: 273.76 * scaleWidth,
-      top: 275 * scaleHeight,
-      left: 17 * scaleWidth,
-      transition: '0s',
-      opacity: scene === 4 ? 1 : 0,
-    }
-  }
-
-  const cloudText10 = (scene) => {
-    return {
-      position: 'absolute',
-      width: 350.78 * scaleWidth,
-      height: 225.76 * scaleWidth,
-      top: 352 * scaleHeight,
-      left: 21 * scaleWidth,
-      transition: '0s',
-      opacity: scene === 5 ? 1 : 0,
-    }
-  }
-
-  const cloudText11 = (scene) => {
-    return {
-      position: 'absolute',
-      width: 382 * scaleWidth,
-      height: 219.76 * scaleWidth,
-      top: 348 * scaleHeight,
-      left: 6 * scaleWidth,
-      transition: '0s',
-      opacity: scene === 6 ? 1 : 0,
-      objectFit: 'cover',
-    }
-  }
-  const cloudText08_08 = (scene) => {
-    return {
-      position: 'absolute',
-      width: 382 * scaleWidth,
-      height: 331.03 * scaleWidth,
-      top: 250 * scaleHeight,
-      left: -6 * scaleWidth,
-      transition: '0s',
-      opacity: scene === 16 ? 1 : 0,
-      objectFit: 'cover',
-    }
-  }
-  const cloudText08_09 = (scene) => {
-    return {
-      position: 'absolute',
-      width: 206.92 * scaleWidth,
-      height: 207.91 * scaleWidth,
-      top: 321 * scaleHeight,
-      left: 131 * scaleWidth,
-      transition: '0s',
-      opacity: scene === 17 ? 1 : 0,
-    }
+  const shiftPhase = (phase) => {
+    setPhase(phase)
+    setScene(1)
   }
 
   return (
     <div
-      style={{
-        opacity: scene > 0 && scene < 19 ? 1 : 0,
-        transition: '1s',
-      }}
+      class={
+        (phase === phaseEnum.firstPhase && scene < 12) ||
+        (phase === phaseEnum.secondPhase && scene === 1)
+          ? 'background-gradient'
+          : phase === phaseEnum.secondPhase && scene >= 2
+          ? 'background-gradient-3'
+          : 'background-gradient-2'
+      }
     >
-      <img src="images/whiteScreen.svg" alt="background" />
-      <img
-        src="images/Friend07_12.svg"
-        alt="friend07_12"
-        style={friendChuoseStyle_01(scene)}
-      />
-      <img
-        src="images/Friend07_13.svg"
-        alt="friend07_13"
-        style={friendChuoseStyle_02(scene)}
-      />
-      <img
-        src="images/BlackFriend.svg"
-        alt="blackFriend"
-        style={blackFriendChuoseStyle(scene)}
-      />
-      <img
-        src="images/LightGreyFriend.svg"
-        alt="lightGreyFriend"
-        style={lightGreyFriendChuoseStyle(scene)}
-      />
-      <img
-        src="images/GreyFriend.svg"
-        alt="greyFriend"
-        style={greyFriendChuoseStyle(scene)}
-      />
-      <img
-        src="images/CloudText01.svg"
-        alt="cloudText07_07"
-        style={cloudText07(scene)}
-      />
-      <img
-        src="images/CloudText07_08.svg"
-        alt="cloudText07_08"
-        style={cloudText08(scene)}
-      />
-      <img
-        src="images/CloudText07_09.svg"
-        alt="cloudText07_09"
-        style={cloudText09(scene)}
-      />
-      <img
-        src="images/CloudText07_10.svg"
-        alt="cloudText07_10"
-        style={cloudText10(scene)}
-      />
-      <img
-        src="images/CloudText07_11.svg"
-        alt="cloudText07_11"
-        style={cloudText11(scene)}
-      />
-      <img
-        src="images/YellowChuose_01.svg"
-        alt="yellowChuose_01"
-        style={yellowChuoseStyle_01(scene)}
-      />
-      <img
-        src="images/YellowChuose_02.svg"
-        alt="yellowChuose_02"
-        style={yellowChuoseStyle_02(scene)}
-      />
-      <img
-        src="images/YellowChuose_03.svg"
-        alt="yellowChuose_03"
-        style={yellowChuoseStyle_03(scene)}
-      />
-      <img
-        src="images/YellowChuose_04.svg"
-        alt="yellowChuose_04"
-        style={yellowChuoseStyle_04(scene)}
-      />
-      <img
-        src="images/YellowChuose_05.svg"
-        alt="yellowChuose_05"
-        style={yellowChuoseStyle_05(scene)}
-      />
-      <img
-        src="images/Friend08_02.svg"
-        alt="friend08_02"
-        style={friendChuoseStyle_03(scene)}
-      />
-      <img
-        src="images/CloudText08_08.svg"
-        alt="cloudText08_08"
-        style={cloudText08_08(scene)}
-      />
-      <img
-        src="images/CloudText08_09.svg"
-        alt="cloudText08_09"
-        style={cloudText08_09(scene)}
-      />
-
       <div
-        style={{
-          position: 'absolute',
-          transition: '0s',
-          top: scene == 15 ? 171 * scaleHeight : 206 * scaleHeight,
-          height: 412 * scaleHeight,
-          width: 390 * scaleWidth,
-        }}
+        class={
+          phase === phaseEnum.firstPhase && scene >= 15
+            ? 'text_top'
+            : 'text_middle'
+        }
       >
-        <p
-          style={{
-            fontSize: 18 * scaleMean,
-            color: '#020202',
-            textAlign: 'center',
-          }}
-        >
-          {message}
-        </p>
+        {message}
       </div>
-      <div
-        style={{
-          position: 'absolute',
-          transition: '0s',
-          top: 225 * scaleHeight,
-          left: 79 * scaleWidth,
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          opacity: scene == 15 ? 1 : 0,
-        }}
-      >
-        <button class="button-question" onClick={onClickFeeling}>
-          เคย
-        </button>
-        <button class="button-question" onClick={onClickFeeling}>
-          ไม่เคย
-        </button>
-      </div>
+      <img class="friend" src={friendSrc} alt="friend" style={friendStyle} />
+      <img
+        class="charactor"
+        src={characterSrc}
+        alt="character"
+        style={characterStyle}
+      />
+      {phase === phaseEnum.firstPhase && scene >= 15 && (
+        <div class="button-group">
+          <button
+            class="button-question"
+            onClick={() => shiftPhase(phaseEnum.secondPhase)}
+          >
+            เคย
+          </button>
+          <button
+            class="button-question"
+            onClick={() => shiftPhase(phaseEnum.secondPhase)}
+          >
+            ไม่เคย
+          </button>
+        </div>
+      )}
+      {phase === phaseEnum.secondPhase && scene >= 2 && (
+        <TopCloud ttl={2 * SCENE08_SHIFT_TIME} />
+      )}
     </div>
   )
 }
 
-export default WhiteScreen2
+export default Scene08
