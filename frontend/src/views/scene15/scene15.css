@@ -1,0 +1,43 @@
+
+  
+  .container {
+    position: relative;
+    left: 0;
+    top: 0;
+    text-align: center;
+    margin: 0;
+  }
+  
+  .text_center {
+    position: fixed;
+    color: black;
+    top: 50%;
+    width: 100vh;
+    transform: translate(-50%, -50%);
+    font-size: 20px;
+    text-align: center;
+  }
+
+  .closeDoor {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 200px;
+  }
+
+  .openDoor {
+    position: absolute;
+    top: 58%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  .scene {
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+  
+ 
+  

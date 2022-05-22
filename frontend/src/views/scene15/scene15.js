@@ -1,122 +1,101 @@
-import { useNavigate } from 'react-router'
 import { useEffect, useState } from 'react'
-import '../scene03/purple.css'
+import '../scene15/scene15.css'
 import MiddleCloud from 'components/middleCloud/middleCloud'
 import Star from 'components/star/star'
-import TopCloud from 'components/topCloud/topCloud'
-import BottomCloud from 'components/bottomCloud/bottomCloud'
-import { SCENE03_SHIFT_TIME } from 'utils/constant'
+import { SCENE15_SHIFT_TIME } from 'utils/constant'
 
 const Scene15 = () => {
   const [scene, setScene] = useState(1)
   const [message, setMessage] = useState('')
-  const [characterStyle, setCharacterStyle] = useState({
-    top: '-18.5%',
-    left: '-3.85%',
-    transform: 'rotate(-22deg)',
-    width: '185px',
-  })
+  const [openDoorStyle, setOpenDoorStyle] = useState({})
 
-  const navigate = useNavigate()
   const mapper = {
-    1: {
-      message: 'กุ๊งกิ๊ง กุ๊งกิ๊ง',
-    },
-    2: {
-      message: 'กุ๊งกิ๊ง กุ๊งกิ๊ง',
-    },
-    3: {
-      message: 'กุ๊งกิ๊ง กุ๊งกิ๊ง',
-    },
-    4: {
-      message: 'เสียงอะไรน่ะ',
-    },
     5: {
-      message: 'เสียงอะไรน่ะ',
-      characterStyle: {
-        top: '-20%',
-        left: '2.93%',
-        transform: 'rotate(-22deg)',
-        width: '284.44px',
+      openDoorStyle: {
+        position: 'absolute',
+        top: '57%',
+        left: '52%',
+        transform: 'translate(-50%, -50%)',
+        width: '320px',
       },
     },
     6: {
-      message: ' ',
-      characterStyle: {
-        top: '-15%',
-        left: '7%',
-        transform: 'rotate(-22deg)',
-        width: '284.44px',
+      openDoorStyle: {
+        position: 'absolute',
+        top: '57%',
+        left: '54%',
+        transform: 'translate(-50%, -50%)',
+        width: '420px',
       },
     },
     7: {
-      message: ' ',
-      characterStyle: {
-        top: '-9%',
-        left: '12%',
-        transform: 'rotate(-20deg)',
-        width: '295px',
+      openDoorStyle: {
+        position: 'absolute',
+        top: '57%',
+        left: '56%',
+        transform: 'translate(-50%, -50%)',
+        width: '550px',
       },
     },
     8: {
-      message: '“สวัสดี เราชูโอสนะ”',
-      characterStyle: {
-        top: '0%',
-        left: '12%',
-        transform: 'rotate(-17deg)',
-        width: '295px',
+      openDoorStyle: {
+        position: 'absolute',
+        top: '57%',
+        left: '60%',
+        transform: 'translate(-50%, -50%)',
+        width: '680px',
       },
     },
     9: {
-      message: '“สวัสดี เราชูโอสนะ”',
-      characterStyle: {
-        top: '6%',
-        left: '12%',
-        transform: 'rotate(-5deg)',
-        width: '295px',
+      openDoorStyle: {
+        position: 'absolute',
+        top: '69%',
+        left: '64%',
+        transform: 'translate(-50%, -50%)',
+        width: '860px',
       },
     },
-    10: {
-      message: '“เราอยากช่วยเธอ”',
-      characterStyle: {
-        top: '15%',
-        left: '12%',
-        transform: 'rotate(-5deg)',
-        width: '295px',
-      },
-    },
+
     11: {
-      message: '“เราอยากช่วยเธอ”',
-      characterStyle: {
-        top: '19%',
-        left: '12%',
-        transform: 'rotate(-14deg)',
-        width: '295px',
-      },
+      message: '“ฉันรู้ว่าเธอพยายามอยู่เสมอ”',
     },
+
+    12: {
+      message: '“อย่าเจ็บปวดเกินไปเลยนะ”',
+    },
+    13: {
+      message: '“ฉันจะอยู่ข้างๆเธอเอง”',
+    },
+    14: { message: ' ' },
   }
 
   const containerStyle = (scene) => {
-    return {
-      position: 'relative',
-      left: 0,
-      top: 0,
-      textAlign: 'center',
-      margin: 0,
-    }
-  }
-  const backgroundStyles = (scene) => {
-    return {
-      position: 'relative',
-      left: 0,
-      top: 0,
+    if (scene >= 2 && scene <= 9) {
+      return {
+        position: 'relative',
+        left: 0,
+        top: 0,
+        textAlign: 'center',
+        margin: 0,
+        height: '100vh',
+        backgroundColor: 'black',
+      }
+    } else {
+      return {
+        position: 'relative',
+        left: 0,
+        top: 0,
+        textAlign: 'center',
+        margin: 0,
+        height: '100vh',
+      }
     }
   }
 
   useEffect(() => {
     const sceneShifter = setInterval(() => {
       setScene((scene) => scene + 1)
-    }, SCENE03_SHIFT_TIME)
+    }, SCENE15_SHIFT_TIME)
 
     return () => {
       clearInterval(sceneShifter)
@@ -127,35 +106,32 @@ const Scene15 = () => {
     if (mapper[scene] && mapper[scene].message) {
       setMessage(mapper[scene].message)
     }
-
-    if (mapper[scene] && mapper[scene].characterStyle) {
-      setCharacterStyle((characterStyle) => {
-        return { ...characterStyle, ...mapper[scene].characterStyle }
+    if (mapper[scene] && mapper[scene].openDoorStyle) {
+      setOpenDoorStyle((openDoorStyle) => {
+        return { ...openDoorStyle, ...mapper[scene].openDoorStyle }
       })
-    }
-    if (scene === 11) {
-      navigate('/scene04')
     }
   }, [scene])
 
   return (
     <div style={containerStyle(scene)}>
-      <img
-        class="bg_purple"
-        src={'images/BG_Purple.svg'}
-        alt="background"
-        style={backgroundStyles(scene)}
-      />
-      <div className={scene >= 8 ? 'text_buttom' : 'text_center'}>
-        {message}
-      </div>
-      <Star />
-      <MiddleCloud />
-
-      {scene >= 3 && scene <= 7 && (
-        <TopCloud top={-50} ttl={4000} fadeIn={true} />
+      {scene >= 3 && scene <= 9 && (
+        <>
+          <Star />
+          <MiddleCloud />
+        </>
       )}
-      {scene >= 3 && <BottomCloud fadeIn={true} />}
+      {scene == 4 && (
+        <img
+          className={'closeDoor'}
+          src={'images/CloseDoor.svg'}
+          alt="closedoor"
+        />
+      )}
+      {scene >= 5 && scene <= 9 && (
+        <img src={'images/OpenDoor.svg'} alt="opendoor" style={openDoorStyle} />
+      )}
+      <div className={'text_center'}>{message}</div>
     </div>
   )
 }
