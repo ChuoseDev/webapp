@@ -7,7 +7,6 @@ import Loading from './views/signup/loading'
 import Feeling from './views/questionnaire/feeling'
 import Startup from 'views/startup/startup'
 import Information from 'views/information/information'
-import WhiteScreen from 'views/whiteScreen/whiteScreen'
 import Scene01 from 'views/scene01/scene01'
 import Scene02 from 'views/scene02/scene02'
 import Scene03 from 'views/scene03/scene03'
@@ -15,6 +14,7 @@ import Scene04 from 'views/scene04/scene04'
 import Scene05 from 'views/scene05/scene05'
 import Scene06 from 'views/scene06/scene06'
 import Scene07 from 'views/scene07/scene07'
+import Scene08 from 'views/scene08/scene08'
 import Scene10 from 'views/scene10/scene10'
 import Scene13 from 'views/scene13/scene13'
 import Scene15 from 'views/scene15/scene15'
@@ -38,6 +38,7 @@ const App = () => {
           <Route exact path="/scene05" element={<Scene05 />}></Route>
           <Route exact path="/scene06" element={<Scene06 />}></Route>
           <Route exact path="/scene07" element={<Scene07 />}></Route>
+          <Route exact path="/scene08" element={<Scene08 />}></Route>
           {/* <Route exact path="/scene07" element={<WhiteScreen />}></Route> */}
           <Route exact path="/scene08" element={<WhiteScreen />}></Route>
           <Route exact path="/scene10" element={<Scene10 />}></Route>
