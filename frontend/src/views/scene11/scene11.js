@@ -1,6 +1,5 @@
 import { useNavigate } from 'react-router'
 import { useEffect, useState } from 'react'
-import './scene11.css'
 import Star from 'components/star/star'
 import { SCENE11_SHIFT_TIME } from 'utils/constant'
 
@@ -352,7 +351,7 @@ const Scene11 = () => {
     return {
       position: 'relative',
       left: 0,
-      top: 0,
+      top: -30,
     }
   }
 
@@ -428,7 +427,7 @@ const Scene11 = () => {
             'transform': 'translate(-50%, -50%)',
             'width': 243.8
         }}
-          onClick={() => navigate('/scene05')}
+          onClick={() => navigate('/scene12')}
         >
           ไปต่อ
         </button>
