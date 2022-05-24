@@ -13,12 +13,6 @@ const CardSlider = ({ style }) => {
     slidesToShow: 1,
     slidesToScroll: 1,
   }
-  const cardSliderStyle = {
-    position: 'fixed',
-    width: '50vh',
-    top: '25%',
-    zindex: '999',
-  }
   return (
     <Slider {...settings} style={style}>
       {/* <div>
