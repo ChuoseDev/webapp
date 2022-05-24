@@ -4,8 +4,7 @@ import './scene10.css'
 import { SCENE10_SHIFT_TIME } from 'utils/constant'
 import CardSlider from 'components/cardSlider/cardSlider'
 import { WhiteButton } from 'components/commons/commons'
-
-const Scene10 = () => {
+const TestCard = () => {
   const scaleHeight = window.screen.height / 844
   const scaleWidth = window.screen.width / 390
   const scaleMean = (scaleHeight + scaleWidth) / 2
@@ -36,11 +35,7 @@ const Scene10 = () => {
     width: '70vw',
   })
   const [characterStyle, setCharacterStyle] = useState({})
-  const phaseEnum = {
-    firstPhase: 'firstPhase',
-    secondPhase: 'secondPhase',
-    thirdPhase: 'thirdPhase',
-  }
+
   const [imageInCloud, setimageInCloud] = useState('')
   const [imageInCloudStyle, setimageInCloudStyle] = useState({})
 
@@ -48,139 +43,15 @@ const Scene10 = () => {
 
   const mapper = {
     1: {
-      message: 'Automatic Nagative Thoughts',
-      message2: '(ANTs)',
-      message3: '|',
-      message4: '“ความคิดลบแบบไม่พัก”',
-      imageInCloudStyle: {
-        opacity: 0,
-      },
-    },
-    3: {
-      message: '“ความคิดลบแบบไม่พัก” คือ',
-      message2: ' ',
-      message3: ' ',
-      message4: ' ',
-    },
-    5: {
-      message: 'ประสบการณ์แย่ ๆ ในอดีต',
-      messageStyle: {
-        top: '10vh',
-      },
-    },
-    6: {
-      characterStyle: {
-        bottom: '-20vh',
-      },
-    },
-    7: {
-      characterStyle: {
-        bottom: '-25vh',
-      },
-      imageInCloud: 'images/crowd01.svg',
-      imageInCloudStyle: {
-        opacity: 1,
-      },
-    },
-    8: {
-      imageInCloud: 'images/crowd02.svg',
-      imageInCloudStyle: {
-        top: '42.5%',
-        left: '48%',
-      },
-    },
-    9: {
-      imageInCloud: 'images/crowd03.svg',
-      imageInCloudStyle: {
-        top: '40%',
-        left: '50%',
-      },
-    },
-    10: {
-      imageInCloud: 'images/YellowChuose_07.svg',
-      imageInCloudStyle: {
-        width: '17.5%', //70% of normal (0.7*25)
-      },
-    },
-    11: {
-      imageInCloudStyle: {
-        width: '25%',
-      },
-    },
-    12: {
-      message: 'ประสบการณ์แย่ ๆ ในอดีต',
-      message2: 'ที่ส่งผลให้เรามีความคิดในแง่ลบ',
-      message3: 'วนเวียนอยู่ในหัวตลอดเวลา',
-      imageInCloud: 'images/minus01.svg',
-      imageInCloudStyle: {
-        width: '50%',
-      },
-    },
-    13: {
-      message2: ' ',
-      message3: ' ',
-      imageInCloud: 'images/minus02.svg',
-      imageInCloudStyle: {
-        left: '48%',
-      },
-    },
-    14: {
-      message: 'เป็นเสียงแรกที่โผล่ขึ้นมาในหัวของเรา',
-      message2: 'เมื่อเจอเหตุการณ์หนึ่ง',
-      imageInCloudStyle: {
-        opacity: 0,
-      },
-    },
-    15: {
-      message2: ' ',
-      messageInCloud: 'นั่นเป็นความผิดของฉันเองแหละ',
-    },
-    16: {
-      messageInCloud: '',
-      messageInCloudStyle: {
-        opacity: 0,
-      },
-    },
-    17: {
-      messageInCloud: 'คนอื่นต้องคิดว่าฉันมันแย่แน่ ๆ เลย',
-      messageInCloudStyle: {
-        opacity: 1,
-      },
-    },
-    18: {
-      messageStyle: {
-        opacity: 0,
-      },
-      messageInCloudStyle: {
-        opacity: 0,
-      },
-      characterStyle: {
-        opacity: 0,
-      },
-    },
-    19: {
-      message: 'ความคิดลบแบบไม่พักมันมีรูปแบบอยู่นะ',
-      messageStyle: {
-        top: '30%',
-        opacity: 1,
-        fontSize: 17 * scaleMean,
-      },
-      characterStyle: {
-        opacity: 1,
-        bottom: '-20vh',
-      },
-    },
-    20: {
       message: 'เธอคิดว่าความคิดลบแบบไม่พักของเธอเป็นรูปแบบไหน?',
       messageStyle: {
         top: '10%',
         fontSize: 17 * scaleMean,
       },
       characterStyle: {
-        opacity: 0,
+        bottom: '-25vh',
       },
     },
-    21: {},
   }
 
   useEffect(() => {
@@ -255,54 +126,20 @@ const Scene10 = () => {
 
   return (
     <div style={containerStyle(scene)}>
-      <div>
-        <p style={messageStyle}>
-          {message}
-          <br></br>
-          {message2}
-          <br></br>
-          {message3}
-          <br></br>
-          {message4}
-          <br></br>
-        </p>
-      </div>
-      <img
-        class="yellowChuose"
-        src={'images/YellowChuose_06.svg'}
-        alt="character"
-        style={characterStyle}
-      />
-      <img
-        class="smallCloud"
-        src={'images/whiteSmallCloud.svg'}
-        alt="smallCloud"
-        style={{ opacity: scene > 5 && scene < 18 ? 1 : 0 }}
-      />
-      <img
-        class="bigCloud"
-        src={'images/whiteBigCloud.svg'}
-        alt="bigCloud"
-        style={{ opacity: scene > 6 && scene < 18 ? 1 : 0 }}
-      />
-      <img
-        class="imageInCloud"
-        src={imageInCloud}
-        alt="imageInCloud"
-        style={imageInCloudStyle}
-      />
-      <div>
-        <p style={messageInCloudStyle}>{messageInCloud}</p>
-      </div>
       <CardSlider
         style={{
           position: 'fixed',
           width: '50vh',
           top: '25%',
           zindex: '999',
-          opacity: scene >= 20 ? 1 : 0,
         }}
       />
+      <div>
+        <p style={messageStyle}>
+          {message}
+          <br></br>
+        </p>
+      </div>
       <WhiteButton
         onClick={onClickStart}
         style={{
@@ -314,7 +151,6 @@ const Scene10 = () => {
           height: 46 * scaleHeight,
           // opacity: scene === 4 ? 1 : 0,
           transition: 'ease-in-out 0.5s',
-          opacity: scene >= 20 ? 1 : 0,
         }}
         children={
           <p
@@ -331,4 +167,4 @@ const Scene10 = () => {
     </div>
   )
 }
-export default Scene10
+export default TestCard
