@@ -1,6 +1,5 @@
 import { useNavigate } from 'react-router'
 import { useEffect, useState } from 'react'
-import './scene12.css'
 import TopCloud from 'components/topCloud/topCloud'
 import BottomCloud from 'components/bottomCloud/bottomCloud'
 import { SCENE12_SHIFT_TIME } from 'utils/constant'
