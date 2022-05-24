@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 
-const card03 = () => {
+const Card03 = () => {
   const [bgCard, setBgCard] = useState('#FFFFFF')
 
   const cardStyle = {
@@ -145,4 +145,4 @@ const card03 = () => {
   )
 }
 
-export default card03
+export default Card03

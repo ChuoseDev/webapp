@@ -180,7 +180,6 @@ const Scene10 = () => {
         opacity: 0,
       },
     },
-    21: {},
   }
 
   useEffect(() => {
@@ -233,9 +232,6 @@ const Scene10 = () => {
         return { ...messageInCloudStyle, ...mapper[scene].messageInCloudStyle }
       })
     }
-    if (scene === 20) {
-      //   navigate('/scene11')
-    }
   }, [scene])
 
   const containerStyle = (scene) => {
@@ -249,7 +245,7 @@ const Scene10 = () => {
   }
   const onClickStart = () => {
     setTimeout(() => {
-      window.location.href = '/information'
+      window.location.href = '/scene11'
     }, 1500)
   }
 
@@ -303,31 +299,32 @@ const Scene10 = () => {
           opacity: scene >= 20 ? 1 : 0,
         }}
       />
-      <WhiteButton
-        onClick={onClickStart}
-        style={{
-          position: 'fixed',
-          top: '85%',
-          left: '50%',
-          transform: 'translate(-50%, -50%)',
-          width: 243 * scaleWidth,
-          height: 46 * scaleHeight,
-          // opacity: scene === 4 ? 1 : 0,
-          transition: 'ease-in-out 0.5s',
-          opacity: scene >= 20 ? 1 : 0,
-        }}
-        children={
-          <p
-            style={{
-              margin: 0,
-              fontSize: 24 * scaleHeight,
-              fontWeight: 'bold',
-            }}
-          >
-            ไปต่อ
-          </p>
-        }
-      />
+      {scene >= 20 && (
+        <WhiteButton
+          onClick={onClickStart}
+          style={{
+            position: 'fixed',
+            top: '85%',
+            left: '50%',
+            transform: 'translate(-50%, -50%)',
+            width: 243 * scaleWidth,
+            height: 46 * scaleHeight,
+            // opacity: scene === 4 ? 1 : 0,
+            transition: 'ease-in-out 0.5s',
+          }}
+          children={
+            <p
+              style={{
+                margin: 0,
+                fontSize: 24 * scaleHeight,
+                fontWeight: 'bold',
+              }}
+            >
+              ไปต่อ
+            </p>
+          }
+        />
+      )}
     </div>
   )
 }
