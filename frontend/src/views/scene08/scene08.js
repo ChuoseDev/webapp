@@ -381,7 +381,10 @@ const Scene08 = () => {
     }
   }, [scene])
 
-  const shiftPhase = (phase) => {
+  const shiftPhase = (phase, isSameFeeling) => {
+    if (phase === phaseEnum.secondPhase) {
+      sessionStorage.setItem('isSameFeeling', isSameFeeling)
+    }
     setPhase(phase)
     setScene(1)
   }
@@ -432,14 +435,14 @@ const Scene08 = () => {
           <button
             class="button-info"
             style={{ marginTop: 10 * scaleHeight }}
-            onClick={() => shiftPhase(phaseEnum.secondPhase)}
+            onClick={() => shiftPhase(phaseEnum.secondPhase, true)}
           >
             เคย
           </button>
           <button
             class="button-info"
             style={{ marginTop: 10 * scaleHeight }}
-            onClick={() => shiftPhase(phaseEnum.secondPhase)}
+            onClick={() => shiftPhase(phaseEnum.secondPhase, false)}
           >
             ไม่เคย
           </button>

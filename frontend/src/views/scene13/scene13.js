@@ -8,6 +8,7 @@ import '../scene03/purple.css'
 const Scene13 = () => {
   const [scene, setScene] = useState(1)
   const [message, setMessage] = useState('')
+  const [anything, setAnything] = useState('')
   const [characterStyle, setCharacterStyle] = useState({
     top: '19%',
     left: '12%',
@@ -163,6 +164,7 @@ const Scene13 = () => {
   }
 
   const goNext = () => {
+    sessionStorage.setItem('anything', anything)
     navigate('/scene14')
   }
 
@@ -187,7 +189,12 @@ const Scene13 = () => {
       )}
       {phase === phaseEnum.firstPhase && scene >= 12 && (
         <div>
-          <textarea class="textbox" style={{ top: '30%' }}></textarea>
+          <textarea
+            class="textbox"
+            style={{ top: '30%' }}
+            value={anything}
+            onChange={(e) => setAnything(e.target.value)}
+          ></textarea>
           <button
             class="button"
             style={{ top: '50%' }}

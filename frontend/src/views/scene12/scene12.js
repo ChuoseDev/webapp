@@ -254,7 +254,6 @@ const Scene12 = () => {
   }, [scene])
 
   const shiftPhase = (phase) => {
-    console.log(feeling)
     setScene(1)
     setPhase(phase)
   }
@@ -342,7 +341,10 @@ const Scene12 = () => {
             <button
               class="button-info"
               style={{ marginTop: 497 * scaleHeight }}
-              onClick={() => shiftPhase(phaseEnum.secondPhase)}
+              onClick={() => {
+                sessionStorage.setItem('blackCloudThinking', feeling)
+                shiftPhase(phaseEnum.secondPhase)
+              }}
             >
               ไปต่อ
             </button>
