@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react'
 import { SCENE08_SHIFT_TIME } from 'utils/constant'
-import './scene08.css'
 import TopCloud from 'components/topCloud/topCloud'
 import { useNavigate } from 'react-router'
 
@@ -293,7 +292,7 @@ const Scene08 = () => {
       1: {
         message: 'ฉันใช้ชีวิตไปเรื่อยๆ',
         character: {
-          src: 'images/YellowChuose_06.svg',
+          src: 'images/YellowChuose_08.svg',
           style: {
             width: 382 * scaleWidth,
             height: 331.03 * scaleWidth,
@@ -431,13 +430,15 @@ const Scene08 = () => {
       {phase === phaseEnum.firstPhase && scene >= 15 && (
         <div style={buttonGroupStyle(scene)}>
           <button
-            class="button-question"
+            class="button-info"
+            style={{ marginTop: 10 * scaleHeight }}
             onClick={() => shiftPhase(phaseEnum.secondPhase)}
           >
             เคย
           </button>
           <button
-            class="button-question"
+            class="button-info"
+            style={{ marginTop: 10 * scaleHeight }}
             onClick={() => shiftPhase(phaseEnum.secondPhase)}
           >
             ไม่เคย
