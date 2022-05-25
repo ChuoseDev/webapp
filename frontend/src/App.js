@@ -20,6 +20,7 @@ import Scene11 from 'views/scene11/scene11'
 import Scene13 from 'views/scene13/scene13'
 import Scene12 from 'views/scene12/scene12'
 import Scene15 from 'views/scene15/scene15'
+import Scene09 from 'views/scene09/scene09'
 
 const App = () => {
   return (
@@ -41,6 +42,7 @@ const App = () => {
           <Route exact path="/scene06" element={<Scene06 />}></Route>
           <Route exact path="/scene07" element={<Scene07 />}></Route>
           <Route exact path="/scene08" element={<Scene08 />}></Route>
+          <Route exact path="/scene09" element={<Scene09 />}></Route>
           <Route exact path="/scene10" element={<Scene10 />}></Route>
           <Route exact path="/scene11" element={<Scene11 />}></Route>
           <Route exact path="/scene13" element={<Scene13 />}></Route>
