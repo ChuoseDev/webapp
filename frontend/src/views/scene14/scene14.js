@@ -131,10 +131,6 @@ const Scene14 = () => {
   }, [])
 
   useEffect(() => {
-    if (mapper[scene]) {
-      console.log(mapper[scene])
-      console.log('message' in mapper[scene])
-    }
     if (mapper[scene] && 'message' in mapper[scene]) {
       setMessage(mapper[scene].message)
     }
@@ -167,7 +163,7 @@ const Scene14 = () => {
       {scene >= 30 && (
         <>
           <TopCloud fadeIn={true} />
-          <TopCloud fadeIn={true} top={100} />
+          {/* <TopCloud fadeIn={true} top={100} /> */}
           <BottomCloud fadeIn={true} />
           <BottomCloud fadeIn={true} bottom={100} />
           <BottomCloud fadeIn={true} bottom={200} />

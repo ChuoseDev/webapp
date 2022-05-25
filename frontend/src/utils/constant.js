@@ -19,6 +19,6 @@ export const SCENE15_SHIFT_TIME = 1000
 
 // components scene shifter interval time
 export const STAR_SHIFT_TIME = 500
-export const TOP_CLOUD_SHIFT_TIME = 200
+export const TOP_CLOUD_SHIFT_TIME = 250
 export const MIDDLE_CLOUD_SHIFT_TIME = 200
-export const BOTTOM_CLOUD_SHIFT_TIME = 200
+export const BOTTOM_CLOUD_SHIFT_TIME = 250
