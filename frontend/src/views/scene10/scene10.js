@@ -43,6 +43,7 @@ const Scene10 = () => {
   }
   const [imageInCloud, setimageInCloud] = useState('')
   const [imageInCloudStyle, setimageInCloudStyle] = useState({})
+  const [selectedCards, setSelectedCard] = useState([])
 
   const navigate = useNavigate()
 
@@ -249,6 +250,17 @@ const Scene10 = () => {
     }, 1500)
   }
 
+  const onClickCard = (id, add = true) => {
+    if (add) {
+      setSelectedCard([...selectedCards, id])
+    } else {
+      const idIndex = selectedCards.indexOf(id)
+      if (idIndex !== -1) {
+        selectedCards.splice(idIndex, 1)
+      }
+    }
+  }
+
   return (
     <div style={containerStyle(scene)}>
       <div>
@@ -298,8 +310,9 @@ const Scene10 = () => {
           zindex: '999',
           opacity: scene >= 20 ? 1 : 0,
         }}
+        onClickCard={onClickCard}
       />
-      {scene >= 20 && (
+      {scene >= 20 && selectedCards.length > 0 && (
         <WhiteButton
           onClick={onClickStart}
           style={{
