@@ -640,9 +640,9 @@ const Scene09 = () => {
           },
         },
       },
-      3: {
+      4: {
         middleCloud: {
-          src: 'images/MiddleCloud10_01.svg',
+          src: 'images/MiddleCloud10_02.svg',
           style: {
             transform: 'rotate(0deg)',
             width: 403 * scaleWidth,
@@ -653,7 +653,30 @@ const Scene09 = () => {
         },
         message: 'สุดท้าย',
         character: {
-          src: 'images/Chuose10_01.svg',
+          src: 'images/Chuose10_02.svg',
+          style: {
+            transform: 'rotate(0deg)',
+            width: 157.75 * scaleWidth,
+            height: 159.17 * scaleHeight,
+            top: 474 * scaleHeight,
+            left: 123 * scaleWidth,
+          },
+        },
+      },
+      4: {
+        middleCloud: {
+          src: 'images/MiddleCloud10_02.svg',
+          style: {
+            transform: 'rotate(0deg)',
+            width: 403 * scaleWidth,
+            height: 169 * scaleHeight,
+            top: 316 * scaleHeight,
+            left: 79 * scaleWidth,
+          },
+        },
+        message: 'สุดท้าย',
+        character: {
+          src: 'images/Chuose10_02.svg',
           style: {
             transform: 'rotate(0deg)',
             width: 157.75 * scaleWidth,
@@ -937,6 +960,17 @@ const Scene09 = () => {
             </button>
           </div>
         )}
+        {/* {phase === phaseEnum.fifthPhase && (
+          <div>
+            <img src={characterSrc} alt="character" style={characterStyle} />
+            <img
+              src={middleCloudSrc}
+              alt="middleCloud"
+              style={middleCloudStyle}
+            />
+      
+          </div>
+        )} */}
 
         {scene >= 1 && (
           <div>
