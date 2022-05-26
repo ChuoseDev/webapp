@@ -3,9 +3,8 @@ import { BOTTOM_CLOUD_SHIFT_TIME } from 'utils/constant'
 
 const BottomCloud = ({ bottom = 0, ttl, fadeIn = false }) => {
   const [scene, setScene] = useState(1)
-  const [opacity, setOpacity] = useState(fadeIn ? 0 : 0.3)
   const [cloudProps, setCloudProps] = useState([
-    { subtractor: 0, opacity: fadeIn ? 0.3 : 0 },
+    { subtractor: 0, opacity: fadeIn ? 0 : 0.3 },
   ])
 
   useEffect(() => {
@@ -40,16 +39,13 @@ const BottomCloud = ({ bottom = 0, ttl, fadeIn = false }) => {
   useEffect(() => {
     if (scene % 40 === 0) {
       const newCloudProp = { subtractor: scene, opacity: 0 }
-      setCloudProps([...cloudProps, newCloudProp])
+      setCloudProps([{ ...cloudProps[0], opacity: 0 }, newCloudProp])
       setTimeout(() => {
-        setCloudProps([
-          { ...cloudProps[0], opacity: 0 },
-          { ...newCloudProp, opacity: 0.3 },
-        ])
+        setCloudProps([{ ...newCloudProp, opacity: 0 }])
       }, 5 * BOTTOM_CLOUD_SHIFT_TIME)
       setTimeout(() => {
         setCloudProps([{ ...newCloudProp, opacity: 0.3 }])
-      }, 5 * BOTTOM_CLOUD_SHIFT_TIME + 20)
+      }, 5 * BOTTOM_CLOUD_SHIFT_TIME + 100)
     }
   }, [scene])
 

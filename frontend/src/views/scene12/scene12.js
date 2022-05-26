@@ -254,7 +254,6 @@ const Scene12 = () => {
   }, [scene])
 
   const shiftPhase = (phase) => {
-    console.log(feeling)
     setScene(1)
     setPhase(phase)
   }
@@ -262,11 +261,12 @@ const Scene12 = () => {
   const containerStyle = (scene) => {
     return {
       position: 'relative',
+      overflow: 'hidden',
       left: 0,
       top: 0,
       textAlign: 'center',
       margin: 0,
-      height: '100vh',
+      height: window.screen.height,
       backgroundColor: scene === 2 ? 'black' : '',
       transitionDuration: scene >= 1 && scene <= 4 ? '1s' : '',
     }
@@ -330,28 +330,31 @@ const Scene12 = () => {
             <img src={projection} alt="projection" style={projectionStyle} />
           </div>
         )}
-
+        {scene >= 4 && (
+          <div>
+            <TopCloud ttl={15 * SCENE12_SHIFT_TIME} />
+            <BottomCloud ttl={15 * SCENE12_SHIFT_TIME} />
+          </div>
+        )}
         {phase === phaseEnum.firstPhase && scene >= 13 && (
           <div>
             <textarea
               id="feeling-textarea"
-              style={textboxStyle(scene)}
+              style={{ ...textboxStyle(scene) }}
               value={feeling}
               onChange={(e) => setFeeling(e.target.value)}
             ></textarea>
             <button
               class="button-info"
-              style={{ marginTop: 497 * scaleHeight }}
+              style={{
+                top: 497 * scaleHeight,
+                left: 71 * scaleWidth,
+                position: 'absolute',
+              }}
               onClick={() => shiftPhase(phaseEnum.secondPhase)}
             >
               ไปต่อ
             </button>
-          </div>
-        )}
-        {scene >= 4 && (
-          <div>
-            <TopCloud ttl={15 * SCENE12_SHIFT_TIME} />
-            <BottomCloud ttl={15 * SCENE12_SHIFT_TIME} />
           </div>
         )}
       </div>

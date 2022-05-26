@@ -1,9 +1,9 @@
 import BottomCloud from 'components/bottomCloud/bottomCloud'
 import GlitterStar from 'components/glitterStar/glitterStar'
 import MiddleCloud from 'components/middleCloud/middleCloud'
-import Star from 'components/star/star'
 import TopCloud from 'components/topCloud/topCloud'
 import { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router'
 import { SCENE14_SHIFT_TIME } from 'utils/constant'
 
 const Scene14 = () => {
@@ -17,6 +17,7 @@ const Scene14 = () => {
   })
   const [message, setMessage] = useState('"เธอเก่งมากเลยนะ..."')
 
+  const navigate = useNavigate()
   const characterStyle = (scene) => {
     const speed = 2
     return {
@@ -83,6 +84,7 @@ const Scene14 = () => {
   const containerStyle = (scene) => {
     return {
       position: 'relative',
+      overflow: 'hidden',
       left: 0,
       top: 0,
       textAlign: 'center',
@@ -150,12 +152,14 @@ const Scene14 = () => {
         }
       }, 300)
     }
+    if (scene === 42) {
+      navigate('/scene15')
+    }
   }, [scene])
 
   return (
     <div style={containerStyle(scene)}>
       <div style={{}}>
-        {/* <Star /> */}
         <GlitterStar />
       </div>
       {scene <= 27 && <BottomCloud fadeIn={true} />}
@@ -163,7 +167,7 @@ const Scene14 = () => {
       {scene >= 30 && (
         <>
           <TopCloud fadeIn={true} />
-          {/* <TopCloud fadeIn={true} top={100} /> */}
+          <TopCloud fadeIn={true} top={100} />
           <BottomCloud fadeIn={true} />
           <BottomCloud fadeIn={true} bottom={100} />
           <BottomCloud fadeIn={true} bottom={200} />

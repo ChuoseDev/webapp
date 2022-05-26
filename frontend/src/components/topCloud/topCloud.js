@@ -4,7 +4,7 @@ import { TOP_CLOUD_SHIFT_TIME } from 'utils/constant'
 const TopCloud = ({ top = 0, ttl, fadeIn = true }) => {
   const [scene, setScene] = useState(1)
   const [cloudProps, setCloudProps] = useState([
-    { subtractor: 0, opacity: fadeIn ? 0.3 : 0 },
+    { subtractor: 0, opacity: fadeIn ? 0 : 0.3 },
   ])
 
   useEffect(() => {
@@ -39,16 +39,13 @@ const TopCloud = ({ top = 0, ttl, fadeIn = true }) => {
   useEffect(() => {
     if (scene % 40 === 0) {
       const newCloudProp = { subtractor: scene, opacity: 0 }
-      setCloudProps([...cloudProps, newCloudProp])
+      setCloudProps([{ ...cloudProps[0], opacity: 0 }, newCloudProp])
       setTimeout(() => {
-        setCloudProps([
-          { ...cloudProps[0], opacity: 0 },
-          { ...newCloudProp, opacity: 0.3 },
-        ])
+        setCloudProps([{ ...newCloudProp, opacity: 0 }])
       }, 5 * TOP_CLOUD_SHIFT_TIME)
       setTimeout(() => {
         setCloudProps([{ ...newCloudProp, opacity: 0.3 }])
-      }, 5 * TOP_CLOUD_SHIFT_TIME + 500)
+      }, 5 * TOP_CLOUD_SHIFT_TIME + 100)
     }
   }, [scene])
 
@@ -60,6 +57,7 @@ const TopCloud = ({ top = 0, ttl, fadeIn = true }) => {
       transform: 'rotate(180deg)',
       opacity,
       transition: 'opacity ease-in-out 1s',
+      overflowX: 'hidden',
     }
   }
 
