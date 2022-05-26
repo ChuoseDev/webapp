@@ -332,6 +332,7 @@ const Scene11 = () => {
   const containerStyle = (scene) => {
     return {
       position: 'relative',
+      overflow: 'hidden',
       left: 0,
       top: 0,
       textAlign: 'center',
@@ -428,10 +429,7 @@ const Scene11 = () => {
             transform: 'translate(-50%, -50%)',
             width: 243.8,
           }}
-          onClick={() => {
-            sessionStorage.setItem('possibility', story)
-            navigate('/scene12')
-          }}
+          onClick={() => navigate('/scene12')}
         >
           ไปต่อ
         </button>

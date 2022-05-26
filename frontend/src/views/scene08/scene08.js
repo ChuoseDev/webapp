@@ -394,6 +394,7 @@ const Scene08 = () => {
       width: 390 * scaleWidth,
       height: 844 * scaleHeight,
       position: 'relative',
+      overflow: 'hidden',
       transition: 'opacity ease-in-out 1s',
       background:
         (phase === phaseEnum.firstPhase && scene < 12) ||
