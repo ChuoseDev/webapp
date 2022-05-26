@@ -24,6 +24,7 @@ import Scene15 from 'views/scene15/scene15'
 import TestCard from 'views/scene10/testCard'
 import SceneWrapper from 'views/sceneWrapper/sceneWrapper'
 import EmergencyCall from 'views/emergencyCall/emergencyCall'
+import EndPage from 'views/endPage/endPage'
 
 const App = () => {
   return (
@@ -38,6 +39,7 @@ const App = () => {
           <Route exact path="/startup" element={<Startup />}></Route>
           <Route exact path="/information" element={<Information />}></Route>
           <Route exact path="/emergency" element={<EmergencyCall />}></Route>
+          <Route exact path="/ending" element={<EndPage />}></Route>
           <Route
             exact
             path="/scene01"
