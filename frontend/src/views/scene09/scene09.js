@@ -69,6 +69,7 @@ const Scene09 = () => {
     thirdPhase: 'thirdPhase',
     fourthPhase: 'fourthPhase',
     fifthPhase: 'fifthPhase',
+    sixthPhase: 'sixthPhase',
   }
 
   const [phase, setPhase] = useState(phaseEnum.firstPhase)
@@ -568,7 +569,7 @@ const Scene09 = () => {
         },
       },
     },
-    [phaseEnum.fifth]: {
+    [phaseEnum.fifthPhase]: {
       1: {
         middleCloud: {
           src: 'images/MiddleCloud09_14.svg',
@@ -645,10 +646,10 @@ const Scene09 = () => {
           src: 'images/MiddleCloud10_02.svg',
           style: {
             transform: 'rotate(0deg)',
-            width: 403 * scaleWidth,
-            height: 169 * scaleHeight,
+            width: 341.58 * scaleWidth,
+            height: 183 * scaleHeight,
             top: 316 * scaleHeight,
-            left: 79 * scaleWidth,
+            left: 149 * scaleWidth,
           },
         },
         message: 'สุดท้าย',
@@ -663,30 +664,111 @@ const Scene09 = () => {
           },
         },
       },
-      4: {
+      5: {
         middleCloud: {
-          src: 'images/MiddleCloud10_02.svg',
+          src: 'images/MiddleCloud10_03.svg',
           style: {
             transform: 'rotate(0deg)',
-            width: 403 * scaleWidth,
-            height: 169 * scaleHeight,
-            top: 316 * scaleHeight,
-            left: 79 * scaleWidth,
+            width: 488 * scaleWidth,
+            height: 118.61 * scaleHeight,
+            top: 303 * scaleHeight,
+            left: -26 * scaleWidth,
           },
         },
-        message: 'สุดท้าย',
+        message: 'สุดท้าย...',
         character: {
-          src: 'images/Chuose10_02.svg',
+          src: 'images/Chuose10_03.svg',
           style: {
             transform: 'rotate(0deg)',
             width: 157.75 * scaleWidth,
             height: 159.17 * scaleHeight,
             top: 474 * scaleHeight,
             left: 123 * scaleWidth,
+          },
+        },
+      },
+      6: {
+        middleCloud: {
+          src: 'images/MiddleCloud10_04.svg',
+          style: {
+            transform: 'rotate(0deg)',
+            width: 225.65 * scaleWidth,
+            height: 114.36 * scaleHeight,
+            top: 417.34 * scaleHeight,
+            left: 308.77 * scaleWidth,
+          },
+        },
+        message: 'เมฆก้อนดำก็...',
+        character: {
+          src: 'images/Chuose10_04.svg',
+          style: {
+            transform: 'rotate(0deg)',
+            width: 157.75 * scaleWidth,
+            height: 159.17 * scaleHeight,
+            top: 474 * scaleHeight,
+            left: 123 * scaleWidth,
+          },
+        },
+      },
+      7: {
+        middleCloud: {
+          style: {
+            opacity: 0,
+          },
+        },
+        message: 'เมฆก้อนดำก็กลืนกินฉันไป',
+        character: {
+          src: 'images/ChuoseCloud10_05.svg',
+          style: {
+            transform: 'rotate(0deg)',
+            width: 262.23 * scaleWidth,
+            height: 368 * scaleHeight,
+            top: 297 * scaleHeight,
+            left: 64 * scaleWidth,
+          },
+        },
+      },
+      8: {
+        message: 'เมฆก้อนดำก็กลืนกินฉันไป',
+        character: {
+          src: 'images/ChuoseCloud10_06.svg',
+          style: {
+            transform: 'rotate(0deg)',
+            width: 262.23 * scaleWidth,
+            height: 368 * scaleHeight,
+            top: 297 * scaleHeight,
+            left: 64 * scaleWidth,
+          },
+        },
+      },
+      9: {
+        message: 'เมฆก้อนดำก็กลืนกินฉันไป',
+        character: {
+          src: 'images/ChuoseCloud10_07.svg',
+          style: {
+            transform: 'rotate(0deg)',
+            width: 262.23 * scaleWidth,
+            height: 368 * scaleHeight,
+            top: 297 * scaleHeight,
+            left: 64 * scaleWidth,
+          },
+        },
+      },
+      10: {
+        message: 'เมฆก้อนดำก็กลืนกินฉันไป',
+        character: {
+          src: 'images/ChuoseCloud10_08.svg',
+          style: {
+            transform: 'rotate(0deg)',
+            width: 262.23 * scaleWidth,
+            height: 368 * scaleHeight,
+            top: 297 * scaleHeight,
+            left: 64 * scaleWidth,
           },
         },
       },
     },
+    [phaseEnum.sixthPhase]: { 1: '' },
   }
 
   useEffect(() => {
@@ -769,9 +851,9 @@ const Scene09 = () => {
         return { ...projectionStyle, ...mapper[phase][scene].projection.style }
       })
     }
-    if (phase === phaseEnum.fifthPhase && scene === 1) {
-      navigate('/scene10')
-    }
+    // if (phase === phaseEnum.fifthPhase && scene >= 10) {
+    //   navigate('/scene10')
+    // }
   }, [scene])
 
   const shiftPhase = (phase) => {
@@ -788,8 +870,9 @@ const Scene09 = () => {
       textAlign: 'center',
       margin: 0,
       height: '100vh',
-      backgroundColor: scene === 2 ? 'black' : '',
-      transitionDuration: scene >= 1 && scene <= 4 ? '1s' : '',
+      backgroundColor:
+        scene === 2 && phase === phaseEnum.fifthPhase ? 'black' : '',
+      // transitionDuration: scene >= 1 && scene <= 4 ? '1s' : '',
     }
   }
 
@@ -940,7 +1023,6 @@ const Scene09 = () => {
               alt="middleCloud"
               style={middleCloudStyle}
             />
-            {/* <img src={projection} alt="projection" style={projectionStyle} /> */}
           </div>
         )}
         {phase === phaseEnum.fourthPhase && (
@@ -960,7 +1042,7 @@ const Scene09 = () => {
             </button>
           </div>
         )}
-        {/* {phase === phaseEnum.fifthPhase && (
+        {phase === phaseEnum.fifthPhase && (
           <div>
             <img src={characterSrc} alt="character" style={characterStyle} />
             <img
@@ -968,16 +1050,20 @@ const Scene09 = () => {
               alt="middleCloud"
               style={middleCloudStyle}
             />
-      
           </div>
-        )} */}
+        )}
 
         {scene >= 1 && (
           <div>
             <BottomCloud ttl={15 * SCENE09_SHIFT_TIME} />
           </div>
         )}
-        {scene >= 2 && (
+        {phase === phaseEnum.firstPhase && scene >= 2 && (
+          <div>
+            <TopCloud ttl={15 * SCENE09_SHIFT_TIME} />
+          </div>
+        )}
+        {phase !== phaseEnum.firstPhase && (
           <div>
             <TopCloud ttl={15 * SCENE09_SHIFT_TIME} />
           </div>
