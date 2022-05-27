@@ -30,39 +30,6 @@ const Scene09 = () => {
   const [middleCloudSrc, setMiddleCloudSrc] = useState(
     'images/MiddleCloud08_11.svg'
   )
-
-  const [projection, setProjection] = useState('images/ProjectionShadow_01.svg')
-  const [thunderStyle, setThunderStyle] = useState({
-    position: 'absolute',
-    top: 282 * scaleHeight,
-    left: 239.61 * scaleWidth,
-    width: 24.5 * scaleWidth,
-    height: 60.5747 * scaleHeight,
-    zIndex: 2,
-  })
-  const [projectionStyle, setProjectionStyle] = useState({
-    position: 'absolute',
-    top: 337.5 * scaleHeight,
-    left: 75.18 * scaleWidth,
-    width: 242.34 * scaleWidth,
-    height: 327 * scaleHeight,
-  })
-  const [shadowStyle, setShadowStyle] = useState({
-    position: 'absolute',
-    top: 615 * scaleHeight,
-    left: 76 * scaleWidth,
-    width: 241 * scaleWidth,
-    height: 50 * scaleHeight,
-  })
-  const [blackCloudStyle, setBlackCloudStyle] = useState({
-    position: 'absolute',
-    top: 297 * scaleHeight,
-    left: 64 * scaleWidth,
-    width: 262.23 * scaleWidth,
-    height: 136.55 * scaleHeight,
-    zIndex: 1,
-  })
-
   const phaseEnum = {
     firstPhase: 'firstPhase',
     secondPhase: 'secondPhase',
@@ -332,121 +299,11 @@ const Scene09 = () => {
             transform: 'rotate(0deg)',
             width: 157.75 * scaleWidth,
             height: 159.17 * scaleHeight,
-            top: 462 * scaleHeight,
-            left: 108 * scaleWidth,
+            top: 474 * scaleHeight,
+            left: 123 * scaleWidth,
           },
         },
       },
-      //   10: {
-      //     character: {
-      //       src: 'images/ChuoseShadow_02.svg',
-      //     },
-      //     thunderStyle: {
-      //       top: 369 * scaleHeight,
-      //       left: 104.61 * scaleWidth,
-      //     },
-      //   },
-      //   6: {
-      //     character: {
-      //       src: 'images/ChuoseShadow_01.svg',
-      //     },
-      //     thunderStyle: {
-      //       top: 297 * scaleHeight,
-      //       left: 252.61 * scaleWidth,
-      //     },
-      //   },
-      //   7: {
-      //     message: '“เมฆก้อนดำกลืนกินเราจริงๆหรอ?”',
-      //     thunderStyle: {
-      //       opacity: 0,
-      //     },
-      //   },
-      //   8: {
-      //     projection: {
-      //       src: 'images/ProjectionShadow_02.svg',
-      //       style: {
-      //         height: 229 * scaleHeight,
-      //       },
-      //     },
-      //   },
-      //   9: {
-      //     character: {
-      //       src: 'images/ChuoseShadow_03.svg',
-      //       style: {
-      //         height: 169.37 * scaleHeight,
-      //         top: 461 * scaleHeight,
-      //       },
-      //     },
-      //     projection: {
-      //       src: 'images/ProjectionShadow_03.svg',
-      //       style: {
-      //         height: 169 * scaleHeight,
-      //       },
-      //     },
-      //   },
-      //   10: {
-      //     message: '“หรือเราเป็นคนเดินเข้าไปหามันกันนะ?”',
-      //     character: {
-      //       src: 'images/ChuoseShadow_04.svg',
-      //       style: {
-      //         height: 171.77 * scaleHeight,
-      //         left: 115 * scaleWidth,
-      //       },
-      //     },
-      //     projection: {
-      //       style: {
-      //         opacity: 0,
-      //       },
-      //     },
-      //   },
-      //   11: {
-      //     character: {
-      //       src: 'images/ChuoseShadow_05.svg',
-      //       style: {
-      //         height: 181 * scaleHeight,
-      //         top: 479 * scaleHeight,
-      //         left: 114 * scaleWidth,
-      //       },
-      //     },
-      //     shadowStyle: {
-      //       top: 596 * scaleHeight,
-      //       left: 96 * scaleWidth,
-      //       width: 198 * scaleWidth,
-      //       height: 39 * scaleHeight,
-      //     },
-      //     blackCloudStyle: {
-      //       left: 90 * scaleWidth,
-      //       width: 210 * scaleWidth,
-      //       height: 109.36 * scaleHeight,
-      //     },
-      //   },
-      //   12: {
-      //     character: {
-      //       style: {
-      //         top: 499 * scaleHeight,
-      //         left: 109 * scaleWidth,
-      //         width: 172.62 * scaleWidth,
-      //         height: 194 * scaleHeight,
-      //       },
-      //     },
-      //     blackCloudStyle: {
-      //       left: 103 * scaleWidth,
-      //       width: 185 * scaleWidth,
-      //       height: 96.34 * scaleHeight,
-      //     },
-      //     shadowStyle: {
-      //       opacity: 0,
-      //     },
-      //   },
-      //   13: {
-      //     message: '“เธอคิดว่ายังไง?”',
-      //     character: {
-      //       style: {
-      //         opacity: 0,
-      //       },
-      //     },
-      //     blackCloudStyle: { opacity: 0 },
-      //   },
     },
 
     [phaseEnum.secondPhase]: {
@@ -563,8 +420,8 @@ const Scene09 = () => {
             transform: 'rotate(0deg)',
             width: 157.75 * scaleWidth,
             height: 159.17 * scaleHeight,
-            top: 487 * scaleHeight,
-            left: 108 * scaleWidth,
+            top: 474 * scaleHeight,
+            left: 123 * scaleWidth,
           },
         },
       },
@@ -913,37 +770,6 @@ const Scene09 = () => {
     ) {
       setCharacterSrc(mapper[phase][scene].character.src)
     }
-    if (
-      mapper[phase][scene] &&
-      mapper[phase][scene].projection &&
-      mapper[phase][scene].projection.src
-    ) {
-      setProjection(mapper[phase][scene].projection.src)
-    }
-    if (mapper[phase][scene] && mapper[phase][scene].thunderStyle) {
-      setThunderStyle((thunderStyle) => {
-        return { ...thunderStyle, ...mapper[phase][scene].thunderStyle }
-      })
-    }
-    if (mapper[phase][scene] && mapper[phase][scene].shadowStyle) {
-      setShadowStyle((shadowStyle) => {
-        return { ...shadowStyle, ...mapper[phase][scene].shadowStyle }
-      })
-    }
-    if (mapper[phase][scene] && mapper[phase][scene].blackCloudStyle) {
-      setBlackCloudStyle((shadowStyle) => {
-        return { ...shadowStyle, ...mapper[phase][scene].blackCloudStyle }
-      })
-    }
-    if (
-      mapper[phase][scene] &&
-      mapper[phase][scene].projection &&
-      mapper[phase][scene].projection.style
-    ) {
-      setProjectionStyle((projectionStyle) => {
-        return { ...projectionStyle, ...mapper[phase][scene].projection.style }
-      })
-    }
     if (phase === phaseEnum.fifthPhase && scene >= 17) {
       navigate('/scene10')
     }
@@ -996,11 +822,11 @@ const Scene09 = () => {
       height: 110 * scaleHeight,
       left: '50%',
       transform: 'translate(-50%, 0)',
-      top: 300 * scaleWidth,
+      top: 290 * scaleWidth,
       background: 'rgba(255, 255, 255, 0.9)',
       boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
       borderStyle: 'none',
-      zIndex: 10,
+      zIndex: 5,
     }
   }
   return (
@@ -1013,7 +839,7 @@ const Scene09 = () => {
         }
       >
         <p style={messageStyle(scene)}>{message}</p>
-        {/* {scene >= 1 && (
+        {scene >= 1 && (
           <div>
             <BottomCloud ttl={15 * SCENE09_SHIFT_TIME} />
           </div>
@@ -1027,7 +853,7 @@ const Scene09 = () => {
           <div>
             <TopCloud ttl={15 * SCENE09_SHIFT_TIME} />
           </div>
-        )} */}
+        )}
         {phase === phaseEnum.firstPhase && (
           <div>
             <img src={characterSrc} alt="character" style={characterStyle} />
@@ -1081,19 +907,44 @@ const Scene09 = () => {
             />
           </div>
         )}
-
-        {phase === phaseEnum.secondPhase && (
+        {phase === phaseEnum.firstPhase && scene >= 12 && (
           <div>
             <textarea
               id="feeling-textarea"
-              style={textboxStyle(scene)}
+              style={{ ...textboxStyle(scene) }}
               value={feeling}
               onChange={(e) => setFeeling(e.target.value)}
             ></textarea>
             <button
               class="button-info"
-              style={{ marginTop: 713 * scaleHeight }}
-              onClick={() => shiftPhase(phaseEnum.thirdPhase)}
+              style={{
+                top: 713 * scaleHeight,
+                left: 73 * scaleWidth,
+                position: 'absolute',
+              }}
+              onClick={() => shiftPhase(phaseEnum.secondPhase)}
+            >
+              ไปต่อ
+            </button>
+          </div>
+        )}
+
+        {phase === phaseEnum.secondPhase && (
+          <div>
+            <textarea
+              id="feeling-textarea"
+              style={{ ...textboxStyle(scene) }}
+              value={feeling}
+              onChange={(e) => setFeeling(e.target.value)}
+            ></textarea>
+            <button
+              class="button-info"
+              style={{
+                top: 713 * scaleHeight,
+                left: 73 * scaleWidth,
+                position: 'absolute',
+              }}
+              onClick={() => shiftPhase(phaseEnum.secondPhase)}
             >
               ไปต่อ
             </button>
@@ -1103,14 +954,18 @@ const Scene09 = () => {
           <div>
             <textarea
               id="feeling-textarea"
-              style={textboxStyle(scene)}
+              style={{ ...textboxStyle(scene) }}
               value={feeling}
               onChange={(e) => setFeeling(e.target.value)}
             ></textarea>
             <button
               class="button-info"
-              style={{ marginTop: 713 * scaleHeight }}
-              onClick={() => shiftPhase(phaseEnum.fourthPhase)}
+              style={{
+                top: 713 * scaleHeight,
+                left: 73 * scaleWidth,
+                position: 'absolute',
+              }}
+              onClick={() => shiftPhase(phaseEnum.secondPhase)}
             >
               ไปต่อ
             </button>
@@ -1120,30 +975,17 @@ const Scene09 = () => {
           <div>
             <textarea
               id="feeling-textarea"
-              style={textboxStyle(scene)}
+              style={{ ...textboxStyle(scene) }}
               value={feeling}
               onChange={(e) => setFeeling(e.target.value)}
             ></textarea>
             <button
               class="button-info"
-              style={{ marginTop: 713 * scaleHeight }}
-              onClick={() => shiftPhase(phaseEnum.fifthPhase)}
-            >
-              ไปต่อ
-            </button>
-          </div>
-        )}
-        {phase === phaseEnum.firstPhase && scene >= 12 && (
-          <div>
-            <textarea
-              id="feeling-textarea"
-              style={textboxStyle(scene)}
-              value={feeling}
-              onChange={(e) => setFeeling(e.target.value)}
-            ></textarea>
-            <button
-              class="button-info"
-              style={{ marginTop: 713 * scaleHeight }}
+              style={{
+                top: 713 * scaleHeight,
+                left: 73 * scaleWidth,
+                position: 'absolute',
+              }}
               onClick={() => shiftPhase(phaseEnum.secondPhase)}
             >
               ไปต่อ
