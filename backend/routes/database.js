@@ -3,8 +3,8 @@
 const express = require('express')
 
 const routes = express.Router()
-const { ctrl } = require('../controllers/UserController')
+const { db } = require('../controllers/DatabaseController')
 
-routes.post('/', ctrl.signUp)
+routes.post('/', db.insert)
 
 module.exports = routes

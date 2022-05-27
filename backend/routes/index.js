@@ -1,10 +1,10 @@
-'use strict';
+'use strict'
 
-const express = require('express');
-const app = express.Router();
+const express = require('express')
+const app = express.Router()
 
-const users = require('./users')
+const database = require('./database')
 
-app.use('/users', users)
+app.use('/database', database)
 
-module.exports = app;
+module.exports = app

@@ -1,13 +1,15 @@
 import { useEffect, useState } from 'react'
 import '../scene15/scene15.css'
 import MiddleCloud from 'components/middleCloud/middleCloud'
-import Star from 'components/star/star'
+import GlitterStar from 'components/glitterStar/glitterStar'
 import { SCENE15_SHIFT_TIME } from 'utils/constant'
+import { useNavigate } from 'react-router'
 
 const Scene15 = () => {
   const [scene, setScene] = useState(1)
   const [message, setMessage] = useState('')
   const [openDoorStyle, setOpenDoorStyle] = useState({})
+  const navigate = useNavigate()
 
   const mapper = {
     5: {
@@ -60,19 +62,20 @@ const Scene15 = () => {
       message: '“ฉันรู้ว่าเธอพยายามอยู่เสมอ”',
     },
 
-    12: {
+    13: {
       message: '“อย่าเจ็บปวดเกินไปเลยนะ”',
     },
-    13: {
+    15: {
       message: '“ฉันจะอยู่ข้างๆเธอเอง”',
     },
-    14: { message: ' ' },
+    17: { message: ' ' },
   }
 
   const containerStyle = (scene) => {
     if (scene >= 2 && scene <= 9) {
       return {
         position: 'relative',
+        overflow: 'hidden',
         left: 0,
         top: 0,
         textAlign: 'center',
@@ -111,13 +114,16 @@ const Scene15 = () => {
         return { ...openDoorStyle, ...mapper[scene].openDoorStyle }
       })
     }
+    if (scene === 17) {
+      navigate('/ending')
+    }
   }, [scene])
 
   return (
     <div style={containerStyle(scene)}>
       {scene >= 3 && scene <= 9 && (
         <>
-          <Star />
+          <GlitterStar />
           <MiddleCloud />
         </>
       )}
