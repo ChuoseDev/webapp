@@ -767,6 +767,97 @@ const Scene09 = () => {
           },
         },
       },
+      11: {
+        message: 'เมฆก้อนดำก็กลืนกินฉันไป',
+        character: {
+          src: 'images/ChuoseCloud10_08.svg',
+          style: {
+            transform: 'rotate(0deg)',
+            width: 262.23 * scaleWidth,
+            height: 368 * scaleHeight,
+            top: 297 * scaleHeight,
+            left: 64 * scaleWidth,
+          },
+        },
+      },
+      12: {
+        message: '...',
+        character: {
+          src: 'images/ChuoseCloud10_10.svg',
+          style: {
+            transform: 'rotate(0deg)',
+            width: 262.23 * scaleWidth,
+            height: 368 * scaleHeight,
+            top: 297 * scaleHeight,
+            left: 64 * scaleWidth,
+          },
+        },
+      },
+      13: {
+        message: 'บางครั้ง...เธอเคยรู้สึกมั้ย?',
+        character: {
+          src: 'images/ChuoseCloud11_01.svg',
+          style: {
+            transform: 'rotate(0deg)',
+            width: 262.23 * scaleWidth,
+            height: 368 * scaleHeight,
+            top: 297 * scaleHeight,
+            left: 64 * scaleWidth,
+          },
+        },
+      },
+      14: {
+        message: '“ว่าความคิดในหัวกำลังบั่นทอนเธออยู่”',
+        character: {
+          src: 'images/ChuoseCloud11_02.svg',
+          style: {
+            transform: 'rotate(0deg)',
+            width: 262.23 * scaleWidth,
+            height: 368 * scaleHeight,
+            top: 297 * scaleHeight,
+            left: 64 * scaleWidth,
+          },
+        },
+      },
+      15: {
+        message: '“ว่าความคิดในหัวกำลังบั่นทอนเธออยู่”',
+        character: {
+          src: 'images/ChuoseCloud11_03.svg',
+          style: {
+            transform: 'rotate(0deg)',
+            width: 262.23 * scaleWidth,
+            height: 368 * scaleHeight,
+            top: 297 * scaleHeight,
+            left: 64 * scaleWidth,
+          },
+        },
+      },
+      16: {
+        message: '“ว่าความคิดในหัวกำลังบั่นทอนเธออยู่”',
+        character: {
+          src: 'images/ChuoseCloud11_04.svg',
+          style: {
+            transform: 'rotate(0deg)',
+            width: 262.23 * scaleWidth,
+            height: 368 * scaleHeight,
+            top: 297 * scaleHeight,
+            left: 64 * scaleWidth,
+          },
+        },
+      },
+      17: {
+        message: '“ว่าความคิดในหัวกำลังบั่นทอนเธออยู่”',
+        character: {
+          src: 'images/ChuoseCloud11_05.svg',
+          style: {
+            transform: 'rotate(0deg)',
+            width: 262.23 * scaleWidth,
+            height: 368 * scaleHeight,
+            top: 297 * scaleHeight,
+            left: 64 * scaleWidth,
+          },
+        },
+      },
     },
     [phaseEnum.sixthPhase]: { 1: '' },
   }
@@ -851,9 +942,9 @@ const Scene09 = () => {
         return { ...projectionStyle, ...mapper[phase][scene].projection.style }
       })
     }
-    // if (phase === phaseEnum.fifthPhase && scene >= 10) {
-    //   navigate('/scene10')
-    // }
+    if (phase === phaseEnum.fifthPhase && scene >= 17) {
+      navigate('/scene10')
+    }
   }, [scene])
 
   const shiftPhase = (phase) => {
