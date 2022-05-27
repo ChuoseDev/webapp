@@ -694,8 +694,8 @@ const Scene09 = () => {
             transform: 'rotate(0deg)',
             width: 225.65 * scaleWidth,
             height: 114.36 * scaleHeight,
-            top: 417.34 * scaleHeight,
-            left: 308.77 * scaleWidth,
+            top: 303 * scaleHeight,
+            left: 81 * scaleWidth,
           },
         },
         message: 'เมฆก้อนดำก็...',
@@ -858,6 +858,8 @@ const Scene09 = () => {
           },
         },
       },
+      18: '',
+      19: '',
     },
     [phaseEnum.sixthPhase]: { 1: '' },
   }
@@ -956,13 +958,13 @@ const Scene09 = () => {
   const containerStyle = (scene) => {
     return {
       position: 'relative',
+      overflow: 'hidden',
       left: 0,
       top: 0,
       textAlign: 'center',
       margin: 0,
-      height: '100vh',
-      backgroundColor:
-        scene === 2 && phase === phaseEnum.fifthPhase ? 'black' : '',
+      height: window.screen.height,
+      // backgroundColor: scene === 2 ? 'black' : '',
       // transitionDuration: scene >= 1 && scene <= 4 ? '1s' : '',
     }
   }
@@ -994,59 +996,46 @@ const Scene09 = () => {
       height: 110 * scaleHeight,
       left: '50%',
       transform: 'translate(-50%, 0)',
-      top: 290 * scaleWidth,
+      top: 300 * scaleWidth,
       background: 'rgba(255, 255, 255, 0.9)',
       boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
       borderStyle: 'none',
-      zIndex: 4,
+      zIndex: 10,
     }
   }
   return (
     <div style={containerStyle(scene)}>
-      <div style={backgroundStyles(scene)}>
+      <div
+        style={
+          scene >= 17 && phase === phaseEnum.fifthPhase
+            ? {}
+            : backgroundStyles(scene)
+        }
+      >
         <p style={messageStyle(scene)}>{message}</p>
+        {/* {scene >= 1 && (
+          <div>
+            <BottomCloud ttl={15 * SCENE09_SHIFT_TIME} />
+          </div>
+        )}
+        {phase === phaseEnum.firstPhase && scene >= 2 && (
+          <div>
+            <TopCloud ttl={15 * SCENE09_SHIFT_TIME} />
+          </div>
+        )}
+        {phase !== phaseEnum.firstPhase && (
+          <div>
+            <TopCloud ttl={15 * SCENE09_SHIFT_TIME} />
+          </div>
+        )} */}
         {phase === phaseEnum.firstPhase && (
           <div>
-            {/* <img
-              style={thunderStyle}
-              src={'images/Thunderbolt.svg'}
-              alt="shadow"
-            /> */}
-            {/* <img src={'images/Shadow.svg'} alt="shadow" style={shadowStyle} /> */}
-            {/* <img
-              style={blackCloudStyle}
-              src={
-                scene == 12
-                  ? 'images/blackCloud_02.svg'
-                  : 'images/BlackCloud_01.svg'
-              }
-              alt="blackCloud"
-            /> */}
             <img src={characterSrc} alt="character" style={characterStyle} />
             <img
               src={middleCloudSrc}
               alt="middleCloud"
               style={middleCloudStyle}
             />
-            {/* <img src={projection} alt="projection" style={projectionStyle} /> */}
-          </div>
-        )}
-
-        {phase === phaseEnum.firstPhase && scene >= 12 && (
-          <div>
-            <textarea
-              id="feeling-textarea"
-              style={textboxStyle(scene)}
-              value={feeling}
-              onChange={(e) => setFeeling(e.target.value)}
-            ></textarea>
-            <button
-              class="button-info"
-              style={{ marginTop: 713 * scaleHeight }}
-              onClick={() => shiftPhase(phaseEnum.secondPhase)}
-            >
-              ไปต่อ
-            </button>
           </div>
         )}
         {phase === phaseEnum.secondPhase && (
@@ -1057,9 +1046,42 @@ const Scene09 = () => {
               alt="middleCloud"
               style={middleCloudStyle}
             />
-            {/* <img src={projection} alt="projection" style={projectionStyle} /> */}
           </div>
         )}
+
+        {phase === phaseEnum.thirdPhase && (
+          <div>
+            <img src={characterSrc} alt="character" style={characterStyle} />
+            <img
+              src={middleCloudSrc}
+              alt="middleCloud"
+              style={middleCloudStyle}
+            />
+          </div>
+        )}
+
+        {phase === phaseEnum.fourthPhase && (
+          <div>
+            <img src={characterSrc} alt="character" style={characterStyle} />
+            <img
+              src={middleCloudSrc}
+              alt="middleCloud"
+              style={middleCloudStyle}
+            />
+          </div>
+        )}
+
+        {phase === phaseEnum.fifthPhase && (
+          <div>
+            <img src={characterSrc} alt="character" style={characterStyle} />
+            <img
+              src={middleCloudSrc}
+              alt="middleCloud"
+              style={middleCloudStyle}
+            />
+          </div>
+        )}
+
         {phase === phaseEnum.secondPhase && (
           <div>
             <textarea
@@ -1075,17 +1097,6 @@ const Scene09 = () => {
             >
               ไปต่อ
             </button>
-          </div>
-        )}
-        {phase === phaseEnum.thirdPhase && (
-          <div>
-            <img src={characterSrc} alt="character" style={characterStyle} />
-            <img
-              src={middleCloudSrc}
-              alt="middleCloud"
-              style={middleCloudStyle}
-            />
-            {/* <img src={projection} alt="projection" style={projectionStyle} /> */}
           </div>
         )}
         {phase === phaseEnum.thirdPhase && scene > 2 && (
@@ -1105,17 +1116,6 @@ const Scene09 = () => {
             </button>
           </div>
         )}
-
-        {phase === phaseEnum.fourthPhase && (
-          <div>
-            <img src={characterSrc} alt="character" style={characterStyle} />
-            <img
-              src={middleCloudSrc}
-              alt="middleCloud"
-              style={middleCloudStyle}
-            />
-          </div>
-        )}
         {phase === phaseEnum.fourthPhase && (
           <div>
             <textarea
@@ -1133,30 +1133,21 @@ const Scene09 = () => {
             </button>
           </div>
         )}
-        {phase === phaseEnum.fifthPhase && (
+        {phase === phaseEnum.firstPhase && scene >= 12 && (
           <div>
-            <img src={characterSrc} alt="character" style={characterStyle} />
-            <img
-              src={middleCloudSrc}
-              alt="middleCloud"
-              style={middleCloudStyle}
-            />
-          </div>
-        )}
-
-        {scene >= 1 && (
-          <div>
-            <BottomCloud ttl={15 * SCENE09_SHIFT_TIME} />
-          </div>
-        )}
-        {phase === phaseEnum.firstPhase && scene >= 2 && (
-          <div>
-            <TopCloud ttl={15 * SCENE09_SHIFT_TIME} />
-          </div>
-        )}
-        {phase !== phaseEnum.firstPhase && (
-          <div>
-            <TopCloud ttl={15 * SCENE09_SHIFT_TIME} />
+            <textarea
+              id="feeling-textarea"
+              style={textboxStyle(scene)}
+              value={feeling}
+              onChange={(e) => setFeeling(e.target.value)}
+            ></textarea>
+            <button
+              class="button-info"
+              style={{ marginTop: 713 * scaleHeight }}
+              onClick={() => shiftPhase(phaseEnum.secondPhase)}
+            >
+              ไปต่อ
+            </button>
           </div>
         )}
       </div>
