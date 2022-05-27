@@ -332,7 +332,7 @@ const Scene09 = () => {
       },
     },
     [phaseEnum.thirdPhase]: {
-      1: {
+      2: {
         middleCloud: {
           src: 'images/MiddleCloud09_10.svg',
           style: {
@@ -355,7 +355,7 @@ const Scene09 = () => {
           },
         },
       },
-      2: {
+      3: {
         middleCloud: {
           src: 'images/MiddleCloud09_11.svg',
           style: {
@@ -378,7 +378,7 @@ const Scene09 = () => {
           },
         },
       },
-      3: {
+      4: {
         middleCloud: {
           style: {
             transform: 'rotate(0deg)',
@@ -453,6 +453,30 @@ const Scene09 = () => {
       },
       2: {
         middleCloud: {
+          src: 'images/MiddleCloud09_14.svg',
+          style: {
+            transform: 'rotate(0deg)',
+            width: 455.56 * scaleWidth,
+            height: 184 * scaleHeight,
+            top: 319 * scaleHeight,
+            left: 19 * scaleWidth,
+          },
+        },
+        message:
+          'ฉันรับรู้ว่าเธอกำลัง..\nความคิด : [ข้อความ Q2]\nความรู้สึก : [ข้อความ Q3]\nพฤติกรรม : [ข้อความ Q4]',
+        character: {
+          src: 'images/Chuose09_09_1.svg',
+          style: {
+            transform: 'rotate(0deg)',
+            width: 157.75 * scaleWidth,
+            height: 159.17 * scaleHeight,
+            top: 474 * scaleHeight,
+            left: 123 * scaleWidth,
+          },
+        },
+      },
+      3: {
+        middleCloud: {
           src: 'images/MiddleCloud09_15.svg',
           style: {
             transform: 'rotate(0deg)',
@@ -475,7 +499,7 @@ const Scene09 = () => {
           },
         },
       },
-      3: {
+      4: {
         middleCloud: {
           src: 'images/MiddleCloud10_01.svg',
           style: {
@@ -498,7 +522,7 @@ const Scene09 = () => {
           },
         },
       },
-      4: {
+      5: {
         middleCloud: {
           src: 'images/MiddleCloud10_02.svg',
           style: {
@@ -521,7 +545,7 @@ const Scene09 = () => {
           },
         },
       },
-      5: {
+      6: {
         middleCloud: {
           src: 'images/MiddleCloud10_03.svg',
           style: {
@@ -544,7 +568,7 @@ const Scene09 = () => {
           },
         },
       },
-      6: {
+      7: {
         middleCloud: {
           src: 'images/MiddleCloud10_04.svg',
           style: {
@@ -567,7 +591,7 @@ const Scene09 = () => {
           },
         },
       },
-      7: {
+      8: {
         middleCloud: {
           style: {
             opacity: 0,
@@ -585,7 +609,7 @@ const Scene09 = () => {
           },
         },
       },
-      8: {
+      9: {
         message: 'เมฆก้อนดำก็กลืนกินฉันไป',
         character: {
           src: 'images/ChuoseCloud10_06.svg',
@@ -598,23 +622,10 @@ const Scene09 = () => {
           },
         },
       },
-      9: {
-        message: 'เมฆก้อนดำก็กลืนกินฉันไป',
-        character: {
-          src: 'images/ChuoseCloud10_07.svg',
-          style: {
-            transform: 'rotate(0deg)',
-            width: 262.23 * scaleWidth,
-            height: 368 * scaleHeight,
-            top: 297 * scaleHeight,
-            left: 64 * scaleWidth,
-          },
-        },
-      },
       10: {
         message: 'เมฆก้อนดำก็กลืนกินฉันไป',
         character: {
-          src: 'images/ChuoseCloud10_08.svg',
+          src: 'images/ChuoseCloud10_07.svg',
           style: {
             transform: 'rotate(0deg)',
             width: 262.23 * scaleWidth,
@@ -638,6 +649,19 @@ const Scene09 = () => {
         },
       },
       12: {
+        message: 'เมฆก้อนดำก็กลืนกินฉันไป',
+        character: {
+          src: 'images/ChuoseCloud10_08.svg',
+          style: {
+            transform: 'rotate(0deg)',
+            width: 262.23 * scaleWidth,
+            height: 368 * scaleHeight,
+            top: 297 * scaleHeight,
+            left: 64 * scaleWidth,
+          },
+        },
+      },
+      13: {
         message: '...',
         character: {
           src: 'images/ChuoseCloud10_10.svg',
@@ -650,7 +674,7 @@ const Scene09 = () => {
           },
         },
       },
-      13: {
+      14: {
         message: 'บางครั้ง...เธอเคยรู้สึกมั้ย?',
         character: {
           src: 'images/ChuoseCloud11_01.svg',
@@ -663,7 +687,7 @@ const Scene09 = () => {
           },
         },
       },
-      14: {
+      15: {
         message: '“ว่าความคิดในหัวกำลังบั่นทอนเธออยู่”',
         character: {
           src: 'images/ChuoseCloud11_02.svg',
@@ -676,7 +700,7 @@ const Scene09 = () => {
           },
         },
       },
-      15: {
+      16: {
         message: '“ว่าความคิดในหัวกำลังบั่นทอนเธออยู่”',
         character: {
           src: 'images/ChuoseCloud11_03.svg',
@@ -689,7 +713,7 @@ const Scene09 = () => {
           },
         },
       },
-      16: {
+      17: {
         message: '“ว่าความคิดในหัวกำลังบั่นทอนเธออยู่”',
         character: {
           src: 'images/ChuoseCloud11_04.svg',
@@ -702,7 +726,7 @@ const Scene09 = () => {
           },
         },
       },
-      17: {
+      18: {
         message: '“ว่าความคิดในหัวกำลังบั่นทอนเธออยู่”',
         character: {
           src: 'images/ChuoseCloud11_05.svg',
@@ -715,10 +739,17 @@ const Scene09 = () => {
           },
         },
       },
-      18: '',
-      19: '',
+      19: {
+        message: ' ',
+        character: {
+          style: {
+            opacity: 0,
+          },
+        },
+      },
+      20: {},
+      21: {},
     },
-    [phaseEnum.sixthPhase]: { 1: '' },
   }
 
   useEffect(() => {
@@ -770,7 +801,7 @@ const Scene09 = () => {
     ) {
       setCharacterSrc(mapper[phase][scene].character.src)
     }
-    if (phase === phaseEnum.fifthPhase && scene >= 17) {
+    if (phase === phaseEnum.fifthPhase && scene >= 21) {
       navigate('/scene10')
     }
   }, [scene])
@@ -790,17 +821,18 @@ const Scene09 = () => {
       textAlign: 'center',
       margin: 0,
       height: window.screen.height,
-      // backgroundColor: scene === 2 ? 'black' : '',
-      // transitionDuration: scene >= 1 && scene <= 4 ? '1s' : '',
+      backgroundColor:
+        scene == 20 && phase == phaseEnum.fifthPhase ? 'black' : '',
+      transitionDuration: scene >= 19 ? '1s' : '',
     }
   }
-
   const backgroundStyles = (scene) => {
     return {
       width: 390 * scaleWidth,
       height: 844 * scaleHeight,
       position: 'relative',
       transition: 'opacity ease-in-out 1s',
+
       background:
         'linear-gradient(359.76deg, #dbdbdb 2.45%, #ffffff 30.14%, #ffffff 43.59%, #ffffff 62.56%, #e8e8e8 101.6%)',
     }
@@ -833,13 +865,13 @@ const Scene09 = () => {
     <div style={containerStyle(scene)}>
       <div
         style={
-          scene >= 17 && phase === phaseEnum.fifthPhase
+          scene >= 19 && phase === phaseEnum.fifthPhase
             ? {}
             : backgroundStyles(scene)
         }
       >
         <p style={messageStyle(scene)}>{message}</p>
-        {scene >= 1 && (
+        {scene >= 1 && scene <= 18 && (
           <div>
             <BottomCloud ttl={15 * SCENE09_SHIFT_TIME} />
           </div>
@@ -849,7 +881,7 @@ const Scene09 = () => {
             <TopCloud ttl={15 * SCENE09_SHIFT_TIME} />
           </div>
         )}
-        {phase !== phaseEnum.firstPhase && (
+        {phase !== phaseEnum.firstPhase && scene <= 18 && (
           <div>
             <TopCloud ttl={15 * SCENE09_SHIFT_TIME} />
           </div>
@@ -944,13 +976,13 @@ const Scene09 = () => {
                 left: 73 * scaleWidth,
                 position: 'absolute',
               }}
-              onClick={() => shiftPhase(phaseEnum.secondPhase)}
+              onClick={() => shiftPhase(phaseEnum.thirdPhase)}
             >
               ไปต่อ
             </button>
           </div>
         )}
-        {phase === phaseEnum.thirdPhase && scene > 2 && (
+        {phase === phaseEnum.thirdPhase && scene >= 4 && (
           <div>
             <textarea
               id="feeling-textarea"
@@ -965,7 +997,7 @@ const Scene09 = () => {
                 left: 73 * scaleWidth,
                 position: 'absolute',
               }}
-              onClick={() => shiftPhase(phaseEnum.secondPhase)}
+              onClick={() => shiftPhase(phaseEnum.fourthPhase)}
             >
               ไปต่อ
             </button>
@@ -986,7 +1018,7 @@ const Scene09 = () => {
                 left: 73 * scaleWidth,
                 position: 'absolute',
               }}
-              onClick={() => shiftPhase(phaseEnum.secondPhase)}
+              onClick={() => shiftPhase(phaseEnum.fifthPhase)}
             >
               ไปต่อ
             </button>
