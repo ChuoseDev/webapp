@@ -15,6 +15,7 @@ const EmergencyButton = () => {
         top: scaleHeight * 785,
         width: 43 * scaleMean,
         height: 43 * scaleMean,
+        zIndex: 10,
       }}
       onClick={() => {
         navigate('/emergency')

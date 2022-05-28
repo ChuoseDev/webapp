@@ -239,7 +239,7 @@ const Scene05 = () => {
             <select
               id="gender"
               class="input"
-              style={{ top: '39%', left: '12%' }}
+              style={{ top: '39%', left: '12%', width: '296.5px' }}
             >
               <option value="">เพศ</option>
               <option value="male">ชาย</option>

@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router'
 import { SCENE13_SHIFT_TIME } from 'utils/constant'
 import '../scene03/purple.css'
+import axios from 'axios'
 
 const Scene13 = () => {
   const [scene, setScene] = useState(1)
@@ -164,9 +165,20 @@ const Scene13 = () => {
     }
   }
 
-  const goNext = () => {
+  const goNext = async () => {
     sessionStorage.setItem('TEXT_Q2', anything)
-    navigate('/scene14')
+    try {
+      // await axios.post('/', {
+      //   CUST_USR_NM: sessionStorage.getItem('username'),
+      //   CUST_AGE: sessionStorage.getItem('age'),
+      //   CUST_GENDER: sessionStorage.getItem('gender'),
+      //   TEXT_Q1: sessionStorage.getItem('TEXT_Q1'),
+      //   TEXT_Q2: sessionStorage.getItem('TEXT_Q2'),
+      // })
+      navigate('/scene14')
+    } catch (error) {
+      throw error
+    }
   }
 
   return (

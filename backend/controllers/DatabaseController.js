@@ -2,8 +2,8 @@ const mysql = require('mysql')
 
 const con = mysql.createConnection({
   host: process.env.AWS_DYNAMO_ENDPOINT,
-  user: '',
-  password: '',
+  user: 'sa',
+  password: 'Passw0rd!',
   database: 'cust_info',
 })
 
@@ -43,6 +43,7 @@ const db = {
     con.query(sql, [values], (err, result) => {
       if (err) throw err
       console.log('Successfull insert')
+      return res.status[201]
     })
   },
 }

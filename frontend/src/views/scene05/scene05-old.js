@@ -75,7 +75,7 @@ const Scene05 = () => {
           />
         )}
         {scene >= 5 && scene < 7 && (
-          <select class="input" style={{ top: '39%', left: '12%' }}>
+          <select style={{ top: '39%', left: '12%', width: '296.5px' }}>
             <option value="">เพศ</option>
             <option value="male">ชาย</option>
             <option value="female">หญิง</option>
