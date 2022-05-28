@@ -167,6 +167,17 @@ const Scene13 = () => {
     navigate('/scene14')
   }
 
+  const textStyles = (scene) => {
+    return {
+      position: 'absolute',
+      color: 'white',
+      top: '50%',
+      left: '50%',
+      transform: 'translate(-50%, -50%)',
+      fontSize: '20px',
+    }
+  }
+
   return (
     <div style={containerStyle(scene)}>
       <img
@@ -175,7 +186,7 @@ const Scene13 = () => {
         alt="background"
         style={backgroundStyles(scene)}
       />
-      <div className={'text_top'}>{message}</div>
+      <div style={textStyles(scene)}>{message}</div>
       <Star />
       <MiddleCloud />
       {phase === phaseEnum.firstPhase && scene < 12 && (

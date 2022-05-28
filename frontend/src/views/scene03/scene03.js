@@ -139,6 +139,28 @@ const Scene03 = () => {
     }
   }, [scene])
 
+  const textStyles = (scene) => {
+    if (scene >= 8) {
+      return {
+        position: 'absolute',
+        color: 'white',
+        top: '75%',
+        left: '50%',
+        transform: 'translate(-50%, -50%)',
+        fontSize: '20px',
+      }
+    } else {
+      return {
+        position: 'absolute',
+        color: 'white',
+        top: '50%',
+        left: '50%',
+        transform: 'translate(-50%, -50%)',
+        fontSize: '20px',
+      }
+    }
+  }
+
   return (
     <div style={containerStyle(scene)}>
       <img
@@ -147,9 +169,7 @@ const Scene03 = () => {
         alt="background"
         style={backgroundStyles(scene)}
       />
-      <div className={scene >= 8 ? 'text_buttom' : 'text_center'}>
-        {message}
-      </div>
+      <div style={textStyles(scene)}>{message}</div>
       <Star />
       <MiddleCloud />
       {scene >= 4 && (
