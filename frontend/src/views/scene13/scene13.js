@@ -200,7 +200,7 @@ const Scene13 = () => {
         alt="background"
         style={backgroundStyles(scene)}
       />
-      <div style={textStyles(scene)}>{message}</div>
+      <div className={'text_top'}>{message}</div>
       <Star />
       <MiddleCloud />
       {phase === phaseEnum.firstPhase && scene < 12 && (
