@@ -165,7 +165,7 @@ const Scene13 = () => {
   }
 
   const goNext = () => {
-    sessionStorage.setItem('anything', anything)
+    sessionStorage.setItem('TEXT_Q2', anything)
     navigate('/scene14')
   }
 
