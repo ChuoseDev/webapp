@@ -15,6 +15,7 @@ import Scene05 from 'views/scene05/scene05'
 import Scene06 from 'views/scene06/scene06'
 import Scene07 from 'views/scene07/scene07'
 import Scene08 from 'views/scene08/scene08'
+import Scene09 from 'views/scene09/scene09'
 import Scene10 from 'views/scene10/scene10'
 import Scene11 from 'views/scene11/scene11'
 import Scene12 from 'views/scene12/scene12'
@@ -109,6 +110,15 @@ const App = () => {
             element={
               <SceneWrapper>
                 <Scene08 />
+              </SceneWrapper>
+            }
+          ></Route>
+          <Route
+            exact
+            path="/scene09"
+            element={
+              <SceneWrapper>
+                <Scene09 />
               </SceneWrapper>
             }
           ></Route>
