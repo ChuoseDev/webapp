@@ -18,7 +18,7 @@ const date =
 
 const mock = {
   AS_AT_DT: date,
-  CUST_USR_NM: 'Test',
+  CUST_USR_NM: '1111',
   CUST_AGE: '20',
   CUST_GENDER: 'Male',
   TEXT_Q1: 'สบาย',
@@ -44,6 +44,7 @@ const db = {
       if (err) throw err
       console.log('Successfull insert')
     })
+    res.json({ message: 'successfull' })
   },
 }
 
