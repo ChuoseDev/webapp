@@ -26,6 +26,7 @@ import TestCard from 'views/scene10/testCard'
 import SceneWrapper from 'views/sceneWrapper/sceneWrapper'
 import EmergencyCall from 'views/emergencyCall/emergencyCall'
 import EndPage from 'views/endPage/endPage'
+import EmergencyContact from 'views/emergencyContact/emergencyContact'
 
 const App = () => {
   return (
@@ -40,6 +41,7 @@ const App = () => {
           <Route exact path="/startup" element={<Startup />}></Route>
           <Route exact path="/information" element={<Information />}></Route>
           <Route exact path="/emergency" element={<EmergencyCall />}></Route>
+          <Route exact path="/emergency-contact" element={<EmergencyContact />}></Route>
           <Route exact path="/ending" element={<EndPage />}></Route>
           <Route
             exact
