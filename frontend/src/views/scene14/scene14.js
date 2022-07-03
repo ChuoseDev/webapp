@@ -15,7 +15,7 @@ const Scene14 = () => {
     backgroundImage:
       'linear-gradient(0deg, #CB956F -3.62%, rgba(223, 136, 136, 0.65) 14.77%, #8276D3 70.47%, #50318A 97.27%)',
   })
-  const [message, setMessage] = useState('"เธอเก่งมากเลยนะ..."')
+  const [message, setMessage] = useState('“เธอสุดยอดจริงๆ...”')
 
   const navigate = useNavigate()
   const characterStyle = (scene) => {

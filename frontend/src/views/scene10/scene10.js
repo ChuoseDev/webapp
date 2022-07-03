@@ -49,10 +49,8 @@ const Scene10 = () => {
 
   const mapper = {
     1: {
-      message: 'Automatic Nagative Thoughts',
-      message2: '(ANTs)',
-      message3: '|',
-      message4: '“ความคิดลบแบบไม่พัก”',
+      message: 'Negative Automatic Thoughts',
+      message2: '“ความคิดลบอัตโนมัติ”',
       imageInCloudStyle: {
         opacity: 0,
       },
@@ -110,8 +108,8 @@ const Scene10 = () => {
     },
     12: {
       message: 'ประสบการณ์แย่ ๆ ในอดีต',
-      message2: 'ที่ส่งผลให้เรามีความคิดในแง่ลบ',
-      message3: 'วนเวียนอยู่ในหัวตลอดเวลา',
+      message2: 'ที่ส่งผลให้เรามีความคิดในแง่ลบวนเวียนอยู่',
+      message3: 'ในหัวตลอดเวลา',
       imageInCloud: 'images/minus01.svg',
       imageInCloudStyle: {
         width: '50%',

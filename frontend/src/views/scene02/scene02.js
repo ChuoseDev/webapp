@@ -15,15 +15,21 @@ const Scene02 = () => {
 
   const mapper = {
     1: {
-      message: 'เหนื่อยจัง',
+      message: 'เหนื่อยจัง...',
     },
     3: { message: 'ทำไมอะไร ๆ มันยากไปหมดเลย' },
     4: { avocado: 'images/avocado/avocado01.svg' },
     5: { message: 'หรือฉัน...', avocado: 'images/avocado/avocado01.svg' },
     6: { avocado: 'images/avocado/avocado02.svg' },
-    7: { message: 'ไม่ควรอยู่ตรงนี้', avocado: 'images/avocado/avocado03.svg' },
+    7: {
+      message: 'ไม่เหมาะกับโลกใบนี้',
+      avocado: 'images/avocado/avocado03.svg',
+    },
     8: { avocado: 'images/avocado/avocado03.svg' },
-    9: { message: 'มีแค่ฉันหรือป่าว', avocado: 'images/avocado/avocado04.svg' },
+    9: {
+      message: 'มีแค่ฉันหรือเปล่า',
+      avocado: 'images/avocado/avocado04.svg',
+    },
     10: { avocado: 'images/avocado/avocado05.svg' },
     11: {
       message: 'ที่ต้องจมอยู่แบบนี้',
