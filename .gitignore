@@ -1,5 +1,8 @@
 backend/node_modules/
 backend/.env
 
+backend-python/.env
+backend-python/config-files
+
 frontend/node_modules/
 yarn.lock
