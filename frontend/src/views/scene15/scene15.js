@@ -10,6 +10,7 @@ const Scene15 = () => {
   const [message, setMessage] = useState('')
   const [openDoorStyle, setOpenDoorStyle] = useState({})
   const navigate = useNavigate()
+  const userSpeechToThemselves = 'asdada'
 
   const mapper = {
     5: {
@@ -59,16 +60,25 @@ const Scene15 = () => {
     },
 
     11: {
-      message: '“ฉันรู้ว่าเธอพยายามอยู่เสมอ”',
+      message: '“เมื่อไหร่ที่ความคิดในแง่ลบ ทำให้เธอรู้สึกแย่”',
     },
 
     13: {
-      message: '“อย่าเจ็บปวดเกินไปเลยนะ”',
+      message: '“ฉันเชื่อว่า..”',
     },
     15: {
-      message: '“ฉันจะอยู่ข้างๆเธอเอง”',
+      message: '“เธอสามารถจัดการมันได้”',
     },
-    17: { message: ' ' },
+    17: { message: `“${userSpeechToThemselves}”` },
+    19: {
+      message: '“อย่าเจ็บปวดเกินไปเลยนะ”',
+    },
+    21: {
+      message: '“เพราะฉัน..”',
+    },
+    23: {
+      message: '“จะอยู่ข้างๆเธอเอง”',
+    },
   }
 
   const containerStyle = (scene) => {
@@ -114,7 +124,7 @@ const Scene15 = () => {
         return { ...openDoorStyle, ...mapper[scene].openDoorStyle }
       })
     }
-    if (scene === 17) {
+    if (scene === 26) {
       navigate('/ending')
     }
   }, [scene])

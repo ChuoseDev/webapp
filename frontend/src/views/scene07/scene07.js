@@ -64,7 +64,7 @@ const Scene07 = () => {
         return (
           <div>
             <div class="text_top">
-              "ได้สิ<br></br> เราลองมาหาทางออกด้วยกันมั๊ย"
+              "ได้สิ ฉันเชื่อว่าเธอทำได้<br></br> เรามาหาทางออกด้วยกันนะ"
             </div>
             <img
               class="cloud02"
