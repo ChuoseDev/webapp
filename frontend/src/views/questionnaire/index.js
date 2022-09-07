@@ -1,1 +1,0 @@
-export { feeling } from './feeling'
