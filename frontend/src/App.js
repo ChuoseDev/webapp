@@ -1,12 +1,5 @@
 import './App.css'
 import { BrowserRouter, Routes as Switch, Route } from 'react-router-dom'
-import Home from './views/signup/home'
-import Info from './views/info/info'
-import Signup from './views/signup/signup'
-import Loading from './views/signup/loading'
-import Feeling from './views/questionnaire/feeling'
-import Startup from 'views/startup/startup'
-import Information from 'views/information/information'
 import Scene01 from 'views/scene01/scene01'
 import Scene02 from 'views/scene02/scene02'
 import Scene03 from 'views/scene03/scene03'
@@ -22,7 +15,6 @@ import Scene12 from 'views/scene12/scene12'
 import Scene13 from 'views/scene13/scene13'
 import Scene14 from 'views/scene14/scene14'
 import Scene15 from 'views/scene15/scene15'
-import TestCard from 'views/scene10/testCard'
 import SceneWrapper from 'views/sceneWrapper/sceneWrapper'
 import EmergencyCall from 'views/emergencyCall/emergencyCall'
 import EndPage from 'views/endPage/endPage'
@@ -33,13 +25,6 @@ const App = () => {
     <div className="App">
       <BrowserRouter>
         <Switch>
-          <Route exact path="/" element={<Info />}></Route>
-          <Route exact path="/signup" element={<Signup />}></Route>
-          <Route exact path="/loading" element={<Loading />}></Route>
-          <Route exact path="/feeling" element={<Feeling />}></Route>
-          <Route exact path="/home" element={<Home />}></Route>
-          <Route exact path="/startup" element={<Startup />}></Route>
-          <Route exact path="/information" element={<Information />}></Route>
           <Route exact path="/emergency" element={<EmergencyCall />}></Route>
           <Route exact path="/emergency-contact" element={<EmergencyContact />}></Route>
           <Route exact path="/ending" element={<EndPage />}></Route>
@@ -178,7 +163,6 @@ const App = () => {
               </SceneWrapper>
             }
           ></Route>
-          <Route exact path="/testCard" element={<TestCard />}></Route>
         </Switch>
       </BrowserRouter>
     </div>
