@@ -1,3 +1,4 @@
+from crypt import methods
 import flask
 import pymysql
 from datetime import date
@@ -9,6 +10,12 @@ from sklearn.feature_extraction.text import TfidfTransformer
 from attacut import tokenize
 from joblib import load
 import logging
+import numpy as np
+from pythainlp import word_tokenize
+from pythainlp import word_vector
+from gensim.models import KeyedVectors
+from tensorflow import keras
+from keras.models import load_model
 
 load_dotenv()
 
@@ -25,20 +32,22 @@ if dynamo_db_host is None or dynamo_db_port is None or dynamo_db_user is None or
     exit()
 
 con = pymysql.connect(host=dynamo_db_host,
-        port = int(dynamo_db_port),
-        user = dynamo_db_user,
-        password = dynamo_db_password,
-        db = dynamo_db_database_name
-    )
+                      port=int(dynamo_db_port),
+                      user=dynamo_db_user,
+                      password=dynamo_db_password,
+                      db=dynamo_db_database_name
+                      )
+
 
 def insert_data(usr_nm, age, gender, text1, text2):
     today = date.today()
     today.strftime('%Y-%m-%d')
     cur = con.cursor()
-    cur.execute('INSERT INTO USER_INFO (AS_AT_DT, CUST_USR_NM, CUST_AGE, CUST_GENDER, TEXT_Q1, TEXT_Q2) VALUES (%s,%s,%s,%s,%s,%s)'
-    ,(today,usr_nm, age, gender, text1, text2))
+    cur.execute('INSERT INTO USER_INFO (AS_AT_DT, CUST_USR_NM, CUST_AGE, CUST_GENDER, TEXT_Q1, TEXT_Q2) VALUES (%s,%s,%s,%s,%s,%s)',
+                (today, usr_nm, age, gender, text1, text2))
     con.commit()
     return
+
 
 vectorCount = CountVectorizer(tokenizer=tokenize)
 tf_transformer = TfidfTransformer(use_idf=False)
@@ -47,21 +56,92 @@ model_weight_path = os.getenv('MODEL_WEIGHT_PATH')
 if model_weight_path != None and os.path.exists(model_weight_path):
     clf = load(model_weight_path)
 else:
-    logging.exception(f'are not exist or there are no file corresponding to path: MODEL_WEIGHT_PATH={model_weight_path} of environment variable')
+    logging.exception(
+        f'are not exist or there are no file corresponding to path: MODEL_WEIGHT_PATH={model_weight_path} of environment variable')
     exit()
+
+model_lstm_path = os.getenv('MODEL_LSTM_PATH')
+if model_lstm_path != None and os.path.exists(model_lstm_path):
+    print(model_lstm_path)
+    lstmModel = load_model(model_lstm_path)
+else:
+    logging.exception(
+        f'are not exist or there are no file corresponding to path: MODEL_LSTM_PATH={model_lstm_path} of environment variable')
+    exit()
+
+wModel = word_vector.core.get_model()
+thai2dict = {}
+for word in wModel.index_to_key:
+    thai2dict[word] = wModel[word]
+thai2vec = pd.DataFrame.from_dict(thai2dict, orient='index')
+thVocab = thai2vec.index.to_list()
+
 
 def prepare_transformer(vectorCount, tf_transformer):
     model_train_data_path = os.getenv('MODEL_TRAIN_DATA_PATH')
     if model_train_data_path != None and os.path.exists(model_train_data_path):
-        X_train = pd.read_csv(model_train_data_path).drop(columns='Unnamed: 0')['Tweet']
+        X_train = pd.read_csv(model_train_data_path).drop(
+            columns='Unnamed: 0')['Tweet']
         logging.info('X_train loaded with shape:', X_train.shape)
         X_trainCount = vectorCount.fit_transform(X_train)
         tf_transformer.fit(X_trainCount)
-        logging.info('count vector from train data is fitted with shape:', X_trainCount.shape)
+        logging.info(
+            'count vector from train data is fitted with shape:', X_trainCount.shape)
     else:
-        logging.error(f'are not exist or there are no file corresponding to path: MODEL_TRAIN_DATA_PATH={model_train_data_path} of environment variable')
+        logging.error(
+            f'are not exist or there are no file corresponding to path: MODEL_TRAIN_DATA_PATH={model_train_data_path} of environment variable')
         exit()
     return vectorCount, tf_transformer
+
+
+def findMaxArray(fma):
+    maxlen = 0
+    for mi in range(len(fma)):
+        nA = len(fma[mi])
+        if nA > maxlen:
+            maxlen = nA
+    return maxlen
+
+
+def fill0in(f0i):
+    fMax = findMaxArray(f0i)
+    for fi, ax in enumerate(f0i):
+        if len(ax) < fMax:
+            f0i[fi] = np.hstack((ax, np.zeros(fMax-len(ax))))
+        f0i1 = np.array(f0i)
+    return f0i1
+
+
+def convWord(cw):
+    cWord = cw
+    for ti in range(len(cWord)):
+        if cWord[ti] == ' ':
+            cWord[ti] = ''
+        elif cWord[ti] not in thVocab:
+            cWord[ti] = ''
+    return cWord
+
+
+def tokenWord(wordTarget):
+    wordToken = word_tokenize(wordTarget, engine='attacut')
+    return wordToken
+
+
+def token2index(t2idx):
+    w2index = []
+    for wi in range(len(t2idx)):
+        if t2idx[wi] in thVocab:
+            w2index.append(thVocab.index(t2idx[wi]))
+    return np.array(w2index)
+
+
+def prepare2train(ipt):
+    pre2t = []
+    for pidx in range(len(ipt)):
+        wp1 = ipt[pidx]
+        pre2t.append(token2index(convWord(tokenWord(wp1))))
+    return pre2t
+
 
 def get_label(tweet):
     input = pd.Series([tweet])
@@ -70,19 +150,28 @@ def get_label(tweet):
     testPredict = clf.predict(testTF)
     if len(testPredict) > 0:
         return testPredict[0]
-    logging.error('There are something wrong with classifier, could not get prediction')
+    logging.error(
+        'There are something wrong with classifier, could not get prediction')
     return ''
 
+
 def contain_fields(js):
-    field_names = ['CUST_USR_NM', 'CUST_AGE', 'CUST_GENDER', 'TEXT_Q1', 'TEXT_Q2']
+    field_names = ['CUST_USR_NM', 'CUST_AGE',
+                   'CUST_GENDER', 'TEXT_Q1', 'TEXT_Q2']
     for field in field_names:
         if field not in js:
             return False
     return True
 
+
+def getLabelLSTM(text_list):
+    return np.argmax(lstmModel.predict(fill0in(prepare2train(text_list))))
+
+
 @app.route('/')
 def home():
     return 'Hello my first Flask'
+
 
 @app.route('/', methods=['post'])
 def insert():
@@ -96,9 +185,22 @@ def insert():
         text2 = js['TEXT_Q2']
         insert_data(usr_nm, age, gender, text1, text2)
         label = get_label(text1)
-        return flask.jsonify({'message':'successful', 'label':label})
+        return flask.jsonify({'message': 'successful', 'label': label})
     return flask.jsonify({'message': 'grae mai mee sit'}), 400
 
+
+@app.route('/lstm', methods=['post'])
+def lstm():
+    request = flask.request
+    if request.method == 'POST' and request.content_type == 'application/json' and contain_fields(request.json):
+        js = request.json
+        text = js['TEXT']
+        label = getLabelLSTM([text])
+        return flask.jsonify({'message': 'successful', 'label': label})
+    return flask.jsonify({'message': 'grae mai mee sit'}), 400
+
+
 if __name__ == '__main__':
-    vectorCount, tf_transformer = prepare_transformer(vectorCount=vectorCount, tf_transformer=tf_transformer)
+    vectorCount, tf_transformer = prepare_transformer(
+        vectorCount=vectorCount, tf_transformer=tf_transformer)
     app.run(debug=True)
