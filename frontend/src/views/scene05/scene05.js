@@ -149,6 +149,11 @@ const Scene05 = () => {
   }, [scene])
 
   const shiftPhase = (phase) => {
+    if (phase === phaseEnum.thirdPhase) {
+      sessionStorage.setItem('username', username)
+      sessionStorage.setItem('age', age)
+      sessionStorage.setItem('gender', document.getElementById('gender').value)
+    }
     setScene(0)
     setPhase(phase)
   }
@@ -248,7 +253,11 @@ const Scene05 = () => {
             />
           )}
           {scene >= 7 && (
-            <select class="input" style={{ top: '39%', left: '12%' }}>
+            <select
+              id="gender"
+              class="input"
+              style={{ top: '39%', left: '12%', width: '296.5px' }}
+            >
               <option value="">เพศ</option>
               <option value="male">ชาย</option>
               <option value="female">หญิง</option>
