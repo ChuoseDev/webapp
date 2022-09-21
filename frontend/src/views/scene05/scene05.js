@@ -150,9 +150,9 @@ const Scene05 = () => {
 
   const shiftPhase = (phase) => {
     if (phase === phaseEnum.thirdPhase) {
-      sessionStorage.setItem('username', username)
-      sessionStorage.setItem('age', age)
-      sessionStorage.setItem('gender', document.getElementById('gender').value)
+      sessionStorage.setItem('CUST_USR_NM', username)
+      sessionStorage.setItem('CUST_AGE', age)
+      sessionStorage.setItem('CUST_GENDER', document.getElementById('gender').value)
     }
     setScene(0)
     setPhase(phase)

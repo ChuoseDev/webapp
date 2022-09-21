@@ -168,14 +168,15 @@ const Scene13 = () => {
   const goNext = async () => {
     sessionStorage.setItem('TEXT_Q2', anything)
     try {
-      await axios.post('/database', {
-        CUST_USR_NM: sessionStorage.getItem('username'),
-        CUST_AGE: sessionStorage.getItem('age'),
-        CUST_GENDER: sessionStorage.getItem('gender'),
+      const { data } = await axios.post('http://127.0.0.1:5000/', {
+        CUST_USR_NM: sessionStorage.getItem('CUST_USR_NM'),
+        CUST_AGE: sessionStorage.getItem('CUST_AGE'),
+        CUST_GENDER: sessionStorage.getItem('CUST_GENDER'),
         TEXT_Q1: sessionStorage.getItem('TEXT_Q1'),
         TEXT_Q2: sessionStorage.getItem('TEXT_Q2'),
       })
-      navigate('/scene14')
+      sessionStorage.setItem('LEVEL', data.label)
+      navigate('/level')
     } catch (error) {
       throw error
     }

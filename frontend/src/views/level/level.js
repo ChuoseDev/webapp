@@ -10,11 +10,8 @@ import { useNavigate } from 'react-router'
 const Level = () => {
   const scaleHeight = window.screen.height / 844
   const scaleWidth = window.screen.width / 390
-  const [level, setLevel] = useState(4)
+  const level = sessionStorage.getItem('LEVEL')
   const navigate = useNavigate()
-
-  useEffect(() => {
-  }, [])
 
   const containerStyle = () => {
     return {
@@ -57,7 +54,7 @@ const Level = () => {
       transform: 'rotate(180deg)',
       opacity: 0.4,
       top: -360.67 * scaleHeight,
-      left: -467.97 * scaleWidth
+      left: -467.97 * scaleWidth,
     }
   }
 
@@ -69,7 +66,7 @@ const Level = () => {
       transform: 'rotate(180deg)',
       opacity: 0.4,
       top: -473.2 * scaleHeight,
-      left: -840 * scaleWidth
+      left: -840 * scaleWidth,
     }
   }
 
@@ -80,7 +77,7 @@ const Level = () => {
       height: 832.56 * scaleHeight,
       opacity: 0.4,
       top: 341 * scaleHeight,
-      left: -579 * scaleWidth
+      left: -579 * scaleWidth,
     }
   }
 
@@ -91,7 +88,7 @@ const Level = () => {
       height: 720.1 * scaleHeight,
       opacity: 0.4,
       top: 566 * scaleHeight,
-      left: -207 * scaleWidth
+      left: -207 * scaleWidth,
     }
   }
 
@@ -103,24 +100,23 @@ const Level = () => {
       width: 243.8 * scaleWidth,
       height: 46 * scaleHeight,
       transition: 'ease-in-out 0.5s',
-      
     }
   }
 
   const onClickNext = () => {
     setTimeout(() => {
-      navigate('/')
+      navigate('/scene14')
     }, 500)
   }
 
   const onClickEmergency = () => {
-      navigate('/emergency')
+    navigate('/emergency')
   }
 
   return (
     <div style={containerStyle()}>
-      <div style={ backgroundStyles() }>
-      <img
+      <div style={backgroundStyles()}>
+        <img
           src={'images/cloud_11.svg'}
           alt="character"
           style={innerTopCloudStyle()}
@@ -143,34 +139,41 @@ const Level = () => {
         <p style={messageStyle()}>ความเสี่ยงในการ{<br />}ฆ่าตัวตายของคุณ</p>
         <Star />
       </div>
-      <div style={{
+      <div
+        style={{
           position: 'fixed',
           top: 220.8 * scaleHeight,
-          left: 44 * scaleWidth
-        }}>
-        { level === 1 && <LevelCard1_1 />}
-        { level === 2 && <LevelCard1_2 />}
-        { level === 3 && <LevelCard3 />}
-        { (level === 4 || level === 5) && <LevelCard4_5 />}
+          left: 44 * scaleWidth,
+        }}
+      >
+        {level < 2 ? (
+          <LevelCard1_1 />
+        ) : level < 3 ? (
+          <LevelCard1_2 />
+        ) : level < 4 ? (
+          <LevelCard3 />
+        ) : (
+          <LevelCard4_5 />
+        )}
       </div>
-        <WhiteButton
-          onClick={(level >= 4) ? onClickEmergency : onClickNext}
-          style={buttonStyle()}
-          children={
-            <p
-              style={{
-                fontFamily: 'Comfortaa',
-                margin: 0,
-                fontSize: (level >= 4) ? 20 * scaleHeight : 24 * scaleHeight,
-                fontWeight: 700,
-                color: (level >= 4) ? '#F0524A': '#425F83',
-                opacity: 0.9
-              }}
-            >
-             { (level >= 4) ? 'Emergency contact' : 'ไปต่อ' }
-            </p>
-          }
-        />
+      <WhiteButton
+        onClick={level >= 4 ? onClickEmergency : onClickNext}
+        style={buttonStyle()}
+        children={
+          <p
+            style={{
+              fontFamily: 'Comfortaa',
+              margin: 0,
+              fontSize: level >= 4 ? 20 * scaleHeight : 24 * scaleHeight,
+              fontWeight: 700,
+              color: level >= 4 ? '#F0524A' : '#425F83',
+              opacity: 0.9,
+            }}
+          >
+            {level >= 4 ? 'Emergency contact' : 'ไปต่อ'}
+          </p>
+        }
+      />
     </div>
   )
 }
