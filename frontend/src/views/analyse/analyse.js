@@ -1,0 +1,364 @@
+// import { useNavigate } from 'react-router'
+import { useEffect, useState } from 'react'
+import Star from 'components/star/star'
+import { ANALYSE_SHIFT_TIME } from 'utils/constant'
+
+const Analyse = () => {
+  const [scene, setScene] = useState(1)
+  const [message, setMessage] = useState('')
+  const [innerBtmCloudStyle, setInnerBtmCloudStyle] = useState({})
+  const [outerBtmCloudStyle, setOuterBtmCloudStyle] = useState({})
+  const [innerTopCloudStyle, setInnerTopCloudStyle] = useState({})
+  const [outerTopCloudStyle, setOuterTopCloudStyle] = useState({})
+  const [image, setImage] = useState('images/char_11_01.svg')
+  const [characterStyle, setCharacterStyle] = useState({
+    top: '50%',
+    left: '50%',
+    position: 'absolute',
+    transform: 'translate(-50%, -50%)',
+  })
+
+  const generalAttributeBtmCloudStyle = {
+    position: 'absolute',
+    width: 1447.98,
+    height: 720.1,
+    opacity: 0.4,
+  }
+  const generalAttributeTopCloudStyle = {
+    position: 'absolute',
+    width: 1447.95,
+    height: 832.56,
+    opacity: 0.4,
+    transform: 'rotate(180deg)',
+  }
+
+  const mapper = {
+    1: {
+      message: 'ชูโอสกำลังทำการประเมินเรื่องราวของคุณ',
+      image: 'images/char_11_01.svg',
+      innerTopCloudStyle: {
+        ...generalAttributeTopCloudStyle,
+        top: '-46.5%',
+        left: '-123.2%',
+      },
+      outerTopCloudStyle: {
+        ...generalAttributeTopCloudStyle,
+        top: '-70.2%',
+        left: '-221.9%',
+      },
+      innerBtmCloudStyle: {
+        top: '51.4%',
+        left: '-145.4%',
+        ...generalAttributeBtmCloudStyle,
+      },
+      outerBtmCloudStyle: {
+        top: '78.1%',
+        left: '-50%',
+        ...generalAttributeBtmCloudStyle,
+      },
+    },
+    2: {
+      message: 'ชูโอสกำลังทำการประเมินเรื่องราวของคุณ\n.',
+      image: 'images/char_11_02.svg',
+      innerTopCloudStyle: {
+        ...generalAttributeTopCloudStyle,
+        top: '-36.7%',
+        left: '-123.2%',
+      },
+      outerTopCloudStyle: {
+        ...generalAttributeTopCloudStyle,
+        top: '-63.6%',
+        left: '-221.9%',
+      },
+      innerBtmCloudStyle: {
+        top: '48.5%',
+        left: '-145.4%',
+        ...generalAttributeBtmCloudStyle,
+      },
+      outerBtmCloudStyle: {
+        top: '75.1%',
+        left: '-50%',
+        ...generalAttributeBtmCloudStyle,
+      },
+    },
+    3: {
+      message: 'ชูโอสกำลังทำการประเมินเรื่องราวของคุณ\n..',
+      image: 'images/char_11_03.svg',
+      innerTopCloudStyle: {
+        ...generalAttributeTopCloudStyle,
+        top: '-29.8%',
+        left: '-123.2%',
+      },
+      outerTopCloudStyle: {
+        ...generalAttributeTopCloudStyle,
+        top: '-56.7%',
+        left: '-221.9%',
+      },
+      innerBtmCloudStyle: {
+        top: '45.5%',
+        left: '-145.4%',
+        ...generalAttributeBtmCloudStyle,
+      },
+      outerBtmCloudStyle: {
+        top: '72.2%',
+        left: '-50%',
+        ...generalAttributeBtmCloudStyle,
+      },
+    },
+    4: {
+      message: 'ชูโอสกำลังทำการประเมินเรื่องราวของคุณ\n...',
+      image: 'images/char_11_04.svg',
+      innerTopCloudStyle: {
+        ...generalAttributeTopCloudStyle,
+        top: '-26.1%',
+        left: '-123.2%',
+      },
+      outerTopCloudStyle: {
+        ...generalAttributeTopCloudStyle,
+        top: '-53%',
+        left: '-221.9%',
+      },
+      innerBtmCloudStyle: {
+        top: '43.5%',
+        left: '-145.4%',
+        ...generalAttributeBtmCloudStyle,
+      },
+      outerBtmCloudStyle: {
+        top: '70.1%',
+        left: '-50%',
+        ...generalAttributeBtmCloudStyle,
+      },
+    },
+    5: {
+      message: 'ชูโอสกำลังทำการประเมินเรื่องราวของคุณ\n....',
+      image: 'images/char_11_02.svg',
+      innerTopCloudStyle: {
+        ...generalAttributeTopCloudStyle,
+        top: '-26.1%',
+        left: '-123.2%',
+      },
+      outerTopCloudStyle: {
+        ...generalAttributeTopCloudStyle,
+        top: '-53%',
+        left: '-221.9%',
+      },
+      innerBtmCloudStyle: {
+        top: '43.5%',
+        left: '-145.4%',
+        ...generalAttributeBtmCloudStyle,
+      },
+      outerBtmCloudStyle: {
+        top: '70.1%',
+        left: '-50%',
+        ...generalAttributeBtmCloudStyle,
+      },
+    },
+    6: {
+      message: 'ชูโอสกำลังทำการประเมินเรื่องราวของคุณ\n.....',
+      image: 'images/char_11_05.svg',
+      innerTopCloudStyle: {
+        ...generalAttributeTopCloudStyle,
+        top: '-29.8%',
+        left: '-123.2%',
+      },
+      outerTopCloudStyle: {
+        ...generalAttributeTopCloudStyle,
+        top: '-56.7%',
+        left: '-221.9%',
+      },
+      innerBtmCloudStyle: {
+        top: '45.5%',
+        left: '-145.4%',
+        ...generalAttributeBtmCloudStyle,
+      },
+      outerBtmCloudStyle: {
+        top: '72.2%',
+        left: '-50%',
+        ...generalAttributeBtmCloudStyle,
+      },
+    },
+    7: {
+      message: 'ชูโอสกำลังทำการประเมินเรื่องราวของคุณ\n......',
+      image: 'images/char_11_06.svg',
+      innerTopCloudStyle: {
+        ...generalAttributeTopCloudStyle,
+        top: '-31.8%',
+        left: '-123.2%',
+      },
+      outerTopCloudStyle: {
+        ...generalAttributeTopCloudStyle,
+        top: '-58.7%',
+        left: '-221.9%',
+      },
+      innerBtmCloudStyle: {
+        top: '48.1%',
+        left: '-145.4%',
+        ...generalAttributeBtmCloudStyle,
+      },
+      outerBtmCloudStyle: {
+        top: '74.8%',
+        left: '-50%',
+        ...generalAttributeBtmCloudStyle,
+      },
+    },
+    8: {
+      message: 'ชูโอสกำลังทำการประเมินเรื่องราวของคุณ\n.......',
+      image: 'images/char_11_07.svg',
+      innerTopCloudStyle: {
+        ...generalAttributeTopCloudStyle,
+        top: '-43.4%',
+        left: '-123.2%',
+      },
+      outerTopCloudStyle: {
+        ...generalAttributeTopCloudStyle,
+        top: '-70.2%',
+        left: '-221.9%',
+      },
+      innerBtmCloudStyle: {
+        top: '51.4%',
+        left: '-145.4%',
+        ...generalAttributeBtmCloudStyle,
+      },
+      outerBtmCloudStyle: {
+        top: '78.1%',
+        left: '-50%',
+        ...generalAttributeBtmCloudStyle,
+      },
+    },
+    9: {
+      message: 'ชูโอสกำลังทำการประเมินเรื่องราวของคุณ',
+      image: 'images/char_11_01.svg',
+      innerTopCloudStyle: {
+        ...generalAttributeTopCloudStyle,
+        top: '-43.4%',
+        left: '-123.2%',
+      },
+      outerTopCloudStyle: {
+        ...generalAttributeTopCloudStyle,
+        top: '-70.2%',
+        left: '-221.9%',
+      },
+      innerBtmCloudStyle: {
+        top: '51.4%',
+        left: '-145.4%',
+        ...generalAttributeBtmCloudStyle,
+      },
+      outerBtmCloudStyle: {
+        top: '78.1%',
+        left: '-50%',
+        ...generalAttributeBtmCloudStyle,
+      },
+    },
+  }
+
+  useEffect(() => {
+    const sceneShifter = setInterval(() => {
+      setScene((scene) => scene + 1)
+    }, ANALYSE_SHIFT_TIME)
+
+    return () => {
+      clearInterval(sceneShifter)
+    }
+  }, [])
+
+  useEffect(() => {
+    if (mapper[scene] && mapper[scene].message) {
+      setMessage(mapper[scene].message)
+    }
+    if (mapper[scene] && mapper[scene].image) {
+      setImage(mapper[scene].image)
+    }
+    if (mapper[scene] && mapper[scene].innerBtmCloudStyle) {
+      setInnerBtmCloudStyle(mapper[scene].innerBtmCloudStyle)
+    }
+    if (mapper[scene] && mapper[scene].outerBtmCloudStyle) {
+      setOuterBtmCloudStyle(mapper[scene].outerBtmCloudStyle)
+    }
+
+    if (mapper[scene] && mapper[scene].innerTopCloudStyle) {
+      setInnerTopCloudStyle(mapper[scene].innerTopCloudStyle)
+    }
+    if (mapper[scene] && mapper[scene].outerTopCloudStyle) {
+      setOuterTopCloudStyle(mapper[scene].outerTopCloudStyle)
+    }
+
+    if (mapper[scene] && mapper[scene].characterStyle) {
+      setCharacterStyle((characterStyle) => {
+        return { ...characterStyle, ...mapper[scene].characterStyle }
+      })
+    }
+  }, [scene])
+
+  const containerStyle = (scene) => {
+    return {
+      position: 'relative',
+      left: 0,
+      top: 0,
+      textAlign: 'center',
+      margin: 0,
+    }
+  }
+
+  const backgroundStyles = (scene) => {
+    return {
+      position: 'relative',
+      left: 0,
+      top: -30,
+    }
+  }
+
+  return (
+    <div style={containerStyle(scene)}>
+      <img
+        src={'images/BG_11.svg'}
+        alt="background"
+        style={backgroundStyles(scene)}
+      />
+
+      <img
+        src={'images/cloud_11.svg'}
+        alt="character"
+        style={outerTopCloudStyle}
+      />
+
+      <img
+        src={'images/cloud_11.svg'}
+        alt="character"
+        style={innerTopCloudStyle}
+      />
+
+      <Star />
+
+      <div
+        style={{
+          position: 'absolute',
+          color: '#020202',
+          top: '28%',
+          left: '50%',
+          transform: 'translate(-50%, -50%)',
+          'font-size': '18px',
+          width: '80%',
+          whiteSpace: 'pre-wrap',
+        }}
+      >
+        {message}
+      </div>
+
+      <img src={image} alt="character" style={characterStyle} />
+
+      <img
+        src={'images/cloud_11.svg'}
+        alt="character"
+        style={innerBtmCloudStyle}
+      />
+
+      <img
+        src={'images/cloud_11.svg'}
+        alt="character"
+        style={outerBtmCloudStyle}
+      />
+    </div>
+  )
+}
+
+export default Analyse
