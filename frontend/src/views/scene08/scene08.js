@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react'
 import { SCENE08_SHIFT_TIME } from 'utils/constant'
-import './scene08.css'
 import TopCloud from 'components/topCloud/topCloud'
 import { useNavigate } from 'react-router'
 
@@ -11,13 +10,19 @@ const Scene08 = () => {
   const scaleWidth = window.screen.width / 390
   const navigate = useNavigate()
   const [characterStyle, setCharacterStyle] = useState({
+    position: 'absolute',
+    transform: 'rotate(0deg)',
     width: 166 * scaleWidth,
     height: 169.05 * scaleWidth,
     top: 349 * scaleHeight,
     left: 112 * scaleWidth,
   })
   const [characterSrc, setCharacterSrc] = useState('images/YellowChuose_01.svg')
-  const [friendStyle, setFriendStyle] = useState({ opacity: 0 })
+  const [friendStyle, setFriendStyle] = useState({
+    opacity: 0,
+    position: 'absolute',
+    transform: 'rotate(0deg)',
+  })
   const [friendSrc, setfriendSrc] = useState()
   const phaseEnum = {
     firstPhase: 'firstPhase',
@@ -287,7 +292,7 @@ const Scene08 = () => {
       1: {
         message: 'ฉันใช้ชีวิตไปเรื่อยๆ',
         character: {
-          src: 'images/YellowChuose_06.svg',
+          src: 'images/YellowChuose_08.svg',
           style: {
             width: 382 * scaleWidth,
             height: 331.03 * scaleWidth,
@@ -381,43 +386,60 @@ const Scene08 = () => {
     setScene(1)
   }
 
-  return (
-    <div
-      class={
+  const backgroundStyles = (scene) => {
+    return {
+      width: 390 * scaleWidth,
+      height: 844 * scaleHeight,
+      position: 'relative',
+      overflow: 'hidden',
+      transition: 'opacity ease-in-out 1s',
+      background:
         (phase === phaseEnum.firstPhase && scene < 12) ||
         (phase === phaseEnum.secondPhase && scene === 1)
-          ? 'background-gradient'
+          ? 'linear-gradient(359.76deg, #DBDBDB 2.45%, #FFFFFF 22.04%, #FFFFFF 43.59%, #FFFFFF 82.88%, #E8E8E8 101.6%)'
           : phase === phaseEnum.secondPhase && scene >= 2
-          ? 'background-gradient-3'
-          : 'background-gradient-2'
-      }
-    >
-      <div
-        class={
-          phase === phaseEnum.firstPhase && scene >= 15
-            ? 'text_top_8'
-            : 'text_middle'
-        }
-      >
-        {message}
-      </div>
-      <img class="friend" src={friendSrc} alt="friend" style={friendStyle} />
-      <img
-        class="charactor"
-        src={characterSrc}
-        alt="character"
-        style={characterStyle}
-      />
+          ? 'linear-gradient(359.76deg, #DBDBDB 2.45%, #FFFFFF 33.49%, #FFFFFF 43.59%, #FFFFFF 61.92%, #E8E8E8 101.6%)'
+          : 'linear-gradient(359.76deg, #DBDBDB 15.35%, #FFFFFF 52.05%, #FFFFFF 52.18%, #FFFFFF 55.64%, #E8E8E8 74.79%)',
+    }
+  }
+
+  const buttonGroupStyle = (scene) => {
+    return {
+      position: 'absolute',
+      top: 225 * scaleWidth,
+    }
+  }
+
+  const messageStyle = (scene) => {
+    return {
+      position: 'absolute',
+      top:
+        phase === phaseEnum.firstPhase && scene >= 15
+          ? 171 * scaleWidth
+          : 206 * scaleWidth,
+      fontSize: '18px',
+      width: '100%',
+      color: 'black',
+    }
+  }
+
+  return (
+    <div style={backgroundStyles(scene)}>
+      <p style={messageStyle(scene)}>{message}</p>
+      <img src={friendSrc} alt="friend" style={friendStyle} />
+      <img src={characterSrc} alt="character" style={characterStyle} />
       {phase === phaseEnum.firstPhase && scene >= 15 && (
-        <div class="button-group">
+        <div style={buttonGroupStyle(scene)}>
           <button
-            class="button-question"
+            class="button-info"
+            style={{ marginTop: 10 * scaleHeight }}
             onClick={() => shiftPhase(phaseEnum.secondPhase)}
           >
             เคย
           </button>
           <button
-            class="button-question"
+            class="button-info"
+            style={{ marginTop: 10 * scaleHeight }}
             onClick={() => shiftPhase(phaseEnum.secondPhase)}
           >
             ไม่เคย

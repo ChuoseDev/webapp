@@ -156,6 +156,7 @@ const Scene05 = () => {
   const containerStyle = (scene) => {
     return {
       position: 'relative',
+      overflow: 'hidden',
       left: 0,
       top: 0,
       textAlign: 'center',
@@ -170,6 +171,32 @@ const Scene05 = () => {
       top: 0,
     }
   }
+  const textStyles = (scene, phase) => {
+    if (
+      phase === phaseEnum.firstPhase ||
+      (phase === phaseEnum.secondPhase && scene <= 2)
+    ) {
+      return {
+        position: 'absolute',
+        color: 'white',
+        top: '75%',
+        left: '50%',
+        transform: 'translate(-50%, -50%)',
+        fontSize: '20px',
+      }
+    } else {
+      return {
+        position: 'absolute',
+        color: 'white',
+        top: '17%',
+        width: '100%',
+        display: 'flex',
+        justifyContent: 'center',
+        transform: 'translate(0%)',
+        fontSize: '20px',
+      }
+    }
+  }
 
   return (
     <div style={containerStyle(scene)}>
@@ -179,16 +206,7 @@ const Scene05 = () => {
         alt="background"
         style={backgroundStyles(scene)}
       />
-      <div
-        className={
-          phase === phaseEnum.firstPhase ||
-          (phase === phaseEnum.secondPhase && scene <= 2)
-            ? 'text_buttom'
-            : 'text_top'
-        }
-      >
-        {message}
-      </div>
+      <div style={textStyles(scene, phase)}>{message}</div>
       <Star />
       <MiddleCloud />
       <img

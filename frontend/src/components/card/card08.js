@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 
-const Card08 = () => {
+const Card08 = ({ onClickFunction }) => {
   const [bgCard, setBgCard] = useState('#FFFFFF')
 
   const cardStyle = {
@@ -114,8 +114,10 @@ const Card08 = () => {
       onClick={() => {
         if (bgCard === '#FFFFFF') {
           setBgCard('#FFEAB2')
+          onClickFunction(8)
         } else {
           setBgCard('#FFFFFF')
+          onClickFunction(8, false)
         }
       }}
     >

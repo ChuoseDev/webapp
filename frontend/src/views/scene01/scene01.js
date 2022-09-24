@@ -33,6 +33,8 @@ const Scene01 = () => {
     return {
       width: window.screen.width,
       height: window.screen.height,
+      position: 'relative',
+      overflow: 'hidden',
       backgroundColor: `rgba(0, 0, 0, ${0.1 * scene})`,
       opacity: 1,
       transition: 'opacity ease-in-out 1s',

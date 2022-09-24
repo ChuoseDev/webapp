@@ -2,6 +2,8 @@ import { useNavigate } from 'react-router'
 import { useEffect, useState } from 'react'
 import './scene10.css'
 import { SCENE10_SHIFT_TIME } from 'utils/constant'
+import CardSlider from 'components/cardSlider/cardSlider'
+import { WhiteButton } from 'components/commons/commons'
 
 const Scene10 = () => {
   const scaleHeight = window.screen.height / 844
@@ -41,15 +43,14 @@ const Scene10 = () => {
   }
   const [imageInCloud, setimageInCloud] = useState('')
   const [imageInCloudStyle, setimageInCloudStyle] = useState({})
+  const [selectedCards, setSelectedCard] = useState([])
 
   const navigate = useNavigate()
 
   const mapper = {
     1: {
-      message: 'Automatic Nagative Thoughts',
-      message2: '(ANTs)',
-      message3: '|',
-      message4: '“ความคิดลบแบบไม่พัก”',
+      message: 'Negative Automatic Thoughts',
+      message2: '“ความคิดลบอัตโนมัติ”',
       imageInCloudStyle: {
         opacity: 0,
       },
@@ -107,8 +108,8 @@ const Scene10 = () => {
     },
     12: {
       message: 'ประสบการณ์แย่ ๆ ในอดีต',
-      message2: 'ที่ส่งผลให้เรามีความคิดในแง่ลบ',
-      message3: 'วนเวียนอยู่ในหัวตลอดเวลา',
+      message2: 'ที่ส่งผลให้เรามีความคิดในแง่ลบวนเวียนอยู่',
+      message3: 'ในหัวตลอดเวลา',
       imageInCloud: 'images/minus01.svg',
       imageInCloudStyle: {
         width: '50%',
@@ -175,7 +176,7 @@ const Scene10 = () => {
         fontSize: 17 * scaleMean,
       },
       characterStyle: {
-        bottom: '-25vh',
+        opacity: 0,
       },
     },
   }
@@ -230,18 +231,32 @@ const Scene10 = () => {
         return { ...messageInCloudStyle, ...mapper[scene].messageInCloudStyle }
       })
     }
-    if (scene === 20) {
-      //   navigate('/scene11')
-    }
   }, [scene])
 
   const containerStyle = (scene) => {
     return {
       position: 'relative',
+      overflow: 'hidden',
       left: 0,
       top: 0,
       textAlign: 'center',
       margin: 0,
+    }
+  }
+  const onClickStart = () => {
+    setTimeout(() => {
+      window.location.href = '/scene11'
+    }, 1500)
+  }
+
+  const onClickCard = (id, add = true) => {
+    if (add) {
+      setSelectedCard([...selectedCards, id])
+    } else {
+      const idIndex = selectedCards.indexOf(id)
+      if (idIndex !== -1) {
+        selectedCards.splice(idIndex, 1)
+      }
     }
   }
 
@@ -286,6 +301,42 @@ const Scene10 = () => {
       <div>
         <p style={messageInCloudStyle}>{messageInCloud}</p>
       </div>
+      <CardSlider
+        style={{
+          position: 'fixed',
+          width: '50vh',
+          top: '25%',
+          zindex: '999',
+          opacity: scene >= 20 ? 1 : 0,
+        }}
+        onClickCard={onClickCard}
+      />
+      {scene >= 20 && selectedCards.length > 0 && (
+        <WhiteButton
+          onClick={onClickStart}
+          style={{
+            position: 'fixed',
+            top: '85%',
+            left: '50%',
+            transform: 'translate(-50%, -50%)',
+            width: 243 * scaleWidth,
+            height: 46 * scaleHeight,
+            // opacity: scene === 4 ? 1 : 0,
+            transition: 'ease-in-out 0.5s',
+          }}
+          children={
+            <p
+              style={{
+                margin: 0,
+                fontSize: 24 * scaleHeight,
+                fontWeight: 'bold',
+              }}
+            >
+              ไปต่อ
+            </p>
+          }
+        />
+      )}
     </div>
   )
 }

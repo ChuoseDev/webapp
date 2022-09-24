@@ -67,7 +67,7 @@ const Scene13 = () => {
         },
       },
       6: {
-        message: 'ถ้าเธอรู้ตัวว่ากำลังมีความคิดลบแบบไม่พักอยู่ ',
+        message: '“ถ้าเธอรู้ตัวว่ากำลังมีความคิดลบอัตโนมัติอยู่”',
         characterStyle: {
           top: '35%',
           left: '12%',
@@ -92,7 +92,7 @@ const Scene13 = () => {
         },
       },
       9: {
-        message: 'ก็นับเป็นก้าวใหญ่มากเลยนะที่จะพาเธออกไปจากตรงนี้ ',
+        message: '“ก็นับเป็นก้าวใหญ่มากเลยนะที่จะพาเธออกไปจากตรงนี้"',
         characterStyle: {
           top: '35%',
           left: '12%',
@@ -117,7 +117,7 @@ const Scene13 = () => {
         },
       },
       12: {
-        message: 'มาถึงตรงนี้แล้ว เธอรู้สึกยังไงบ้าง?',
+        message: '“มาถึงตรงนี้แล้ว มีอะไรอยากบอกกับตัวเองมั้ย?”',
       },
     },
   }
@@ -147,6 +147,7 @@ const Scene13 = () => {
   const containerStyle = (scene) => {
     return {
       position: 'relative',
+      overflow: 'hidden',
       left: 0,
       top: 0,
       textAlign: 'center',
@@ -166,6 +167,17 @@ const Scene13 = () => {
     navigate('/scene14')
   }
 
+  const textStyles = (scene) => {
+    return {
+      position: 'absolute',
+      color: 'white',
+      top: '50%',
+      left: '50%',
+      transform: 'translate(-50%, -50%)',
+      fontSize: '20px',
+    }
+  }
+
   return (
     <div style={containerStyle(scene)}>
       <img
@@ -174,7 +186,7 @@ const Scene13 = () => {
         alt="background"
         style={backgroundStyles(scene)}
       />
-      <div className={'text_top'}>{message}</div>
+      <div style={textStyles(scene)}>{message}</div>
       <Star />
       <MiddleCloud />
       {phase === phaseEnum.firstPhase && scene < 12 && (

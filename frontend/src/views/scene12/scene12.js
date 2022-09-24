@@ -10,6 +10,7 @@ const Scene12 = () => {
   const [scene, setScene] = useState(1)
   const [message, setMessage] = useState('')
   const [characterStyle, setCharacterStyle] = useState({
+    position: 'absolute',
     width: 161.05 * scaleWidth,
     height: 162.5 * scaleHeight,
     top: 470 * scaleHeight,
@@ -18,6 +19,7 @@ const Scene12 = () => {
   const [characterSrc, setCharacterSrc] = useState('images/ChuoseShadow_01.svg')
   const [projection, setProjection] = useState('images/ProjectionShadow_01.svg')
   const [thunderStyle, setThunderStyle] = useState({
+    position: 'absolute',
     top: 282 * scaleHeight,
     left: 239.61 * scaleWidth,
     width: 24.5 * scaleWidth,
@@ -25,18 +27,21 @@ const Scene12 = () => {
     zIndex: 2,
   })
   const [projectionStyle, setProjectionStyle] = useState({
+    position: 'absolute',
     top: 337.5 * scaleHeight,
     left: 75.18 * scaleWidth,
     width: 242.34 * scaleWidth,
     height: 327 * scaleHeight,
   })
   const [shadowStyle, setShadowStyle] = useState({
+    position: 'absolute',
     top: 615 * scaleHeight,
     left: 76 * scaleWidth,
     width: 241 * scaleWidth,
     height: 50 * scaleHeight,
   })
   const [blackCloudStyle, setBlackCloudStyle] = useState({
+    position: 'absolute',
     top: 297 * scaleHeight,
     left: 64 * scaleWidth,
     width: 262.23 * scaleWidth,
@@ -249,7 +254,6 @@ const Scene12 = () => {
   }, [scene])
 
   const shiftPhase = (phase) => {
-    console.log(feeling)
     setScene(1)
     setPhase(phase)
   }
@@ -257,36 +261,63 @@ const Scene12 = () => {
   const containerStyle = (scene) => {
     return {
       position: 'relative',
+      overflow: 'hidden',
       left: 0,
       top: 0,
       textAlign: 'center',
       margin: 0,
-      height: '100vh',
+      height: window.screen.height,
       backgroundColor: scene === 2 ? 'black' : '',
       transitionDuration: scene >= 1 && scene <= 4 ? '1s' : '',
     }
   }
 
+  const backgroundStyles = (scene) => {
+    return {
+      width: 390 * scaleWidth,
+      height: 844 * scaleHeight,
+      position: 'relative',
+      transition: 'opacity ease-in-out 1s',
+      background:
+        'linear-gradient(359.76deg, #dbdbdb 2.45%, #ffffff 30.14%, #ffffff 43.59%, #ffffff 62.56%, #e8e8e8 101.6%)',
+    }
+  }
+  const messageStyle = (scene) => {
+    return {
+      position: 'absolute',
+      top: 232 * scaleWidth,
+      fontSize: '18px',
+      width: '100%',
+      color: 'black',
+    }
+  }
+  const textboxStyle = (scene) => {
+    return {
+      position: 'absolute',
+      display: 'flex',
+      width: 317 * scaleWidth,
+      height: 110 * scaleHeight,
+      left: '50%',
+      transform: 'translate(-50%, 0)',
+      top: 300 * scaleWidth,
+      background: 'rgba(255, 255, 255, 0.9)',
+      boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
+      borderStyle: 'none',
+    }
+  }
   return (
     <div style={containerStyle(scene)}>
-      <div class={scene >= 4 ? 'background-gradient-12' : ''}>
-        <div className="text_top">{message}</div>
+      <div style={scene >= 4 ? backgroundStyles(scene) : {}}>
+        <p style={messageStyle(scene)}>{message}</p>
         {phase === phaseEnum.firstPhase && scene >= 4 && (
           <div>
             <img
-              class="shadow"
               style={thunderStyle}
               src={'images/Thunderbolt.svg'}
               alt="shadow"
             />
+            <img src={'images/Shadow.svg'} alt="shadow" style={shadowStyle} />
             <img
-              class="shadow"
-              src={'images/Shadow.svg'}
-              alt="shadow"
-              style={shadowStyle}
-            />
-            <img
-              class="cloud"
               style={blackCloudStyle}
               src={
                 scene == 12
@@ -295,41 +326,35 @@ const Scene12 = () => {
               }
               alt="blackCloud"
             />
-            <img
-              class="charactor"
-              src={characterSrc}
-              alt="character"
-              style={characterStyle}
-            />
-            <img
-              class="projection"
-              src={projection}
-              alt="projection"
-              style={projectionStyle}
-            />
-          </div>
-        )}
-
-        {phase === phaseEnum.firstPhase && scene >= 13 && (
-          <div>
-            <textarea
-              id="feeling-textarea"
-              class="textbox"
-              value={feeling}
-              onChange={(e) => setFeeling(e.target.value)}
-            ></textarea>
-            <button
-              class="button"
-              onClick={() => shiftPhase(phaseEnum.secondPhase)}
-            >
-              ไปต่อ
-            </button>
+            <img src={characterSrc} alt="character" style={characterStyle} />
+            <img src={projection} alt="projection" style={projectionStyle} />
           </div>
         )}
         {scene >= 4 && (
           <div>
             <TopCloud ttl={15 * SCENE12_SHIFT_TIME} />
             <BottomCloud ttl={15 * SCENE12_SHIFT_TIME} />
+          </div>
+        )}
+        {phase === phaseEnum.firstPhase && scene >= 13 && (
+          <div>
+            <textarea
+              id="feeling-textarea"
+              style={{ ...textboxStyle(scene) }}
+              value={feeling}
+              onChange={(e) => setFeeling(e.target.value)}
+            ></textarea>
+            <button
+              class="button-info"
+              style={{
+                top: 497 * scaleHeight,
+                left: 71 * scaleWidth,
+                position: 'absolute',
+              }}
+              onClick={() => shiftPhase(phaseEnum.secondPhase)}
+            >
+              ไปต่อ
+            </button>
           </div>
         )}
       </div>
