@@ -16,6 +16,7 @@ import Scene13 from 'views/scene13/scene13'
 import Scene14 from 'views/scene14/scene14'
 import Scene15 from 'views/scene15/scene15'
 import Analyse from 'views/analyse/analyse'
+import Level from 'views/level/level'
 import SceneWrapper from 'views/sceneWrapper/sceneWrapper'
 import EmergencyCall from 'views/emergencyCall/emergencyCall'
 import EndPage from 'views/endPage/endPage'
@@ -174,6 +175,15 @@ const App = () => {
             element={
               <SceneWrapper>
                 <Analyse />
+              </SceneWrapper>
+            }
+          ></Route>
+          <Route
+            exact
+            path="/level"
+            element={
+              <SceneWrapper>
+                <Level />
               </SceneWrapper>
             }
           ></Route>

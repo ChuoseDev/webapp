@@ -9,10 +9,12 @@ from sklearn.feature_extraction.text import TfidfTransformer
 from attacut import tokenize
 from joblib import load
 import logging
+from flask_cors import CORS
 
 load_dotenv()
 
 app = flask.Flask(__name__)
+CORS(app)
 
 dynamo_db_host = os.getenv('DYNAMO_DB_HOST')
 dynamo_db_port = os.getenv('DYNAMO_DB_PORT')
