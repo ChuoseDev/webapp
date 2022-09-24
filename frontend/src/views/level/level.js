@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react'
 import Star from 'components/star/star'
 import LevelCard1_1 from 'components/levelCard/levelCard1_1'
 import LevelCard1_2 from 'components/levelCard/levelCard1_2'
@@ -6,6 +5,7 @@ import LevelCard3 from 'components/levelCard/levelCard3'
 import LevelCard4_5 from 'components/levelCard/levelCard4_5'
 import { WhiteButton } from 'components/commons/commons'
 import { useNavigate } from 'react-router'
+import { VIEW_CHANGING_DELAY_TIME } from 'utils/constant'
 
 const Level = () => {
   const scaleHeight = window.screen.height / 844
@@ -106,7 +106,7 @@ const Level = () => {
   const onClickNext = () => {
     setTimeout(() => {
       navigate('/scene14')
-    }, 500)
+    }, VIEW_CHANGING_DELAY_TIME)
   }
 
   const onClickEmergency = () => {

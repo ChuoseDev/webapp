@@ -1,11 +1,12 @@
-// import { useNavigate } from 'react-router'
+import { useNavigate } from 'react-router'
 import { useEffect, useState } from 'react'
 import Star from 'components/star/star'
-import { ANALYSE_SHIFT_TIME } from 'utils/constant'
+import { ANALYSE_SHIFT_TIME, VIEW_CHANGING_DELAY_TIME } from 'utils/constant'
 
 const Analyse = () => {
   const [scene, setScene] = useState(1)
   const [message, setMessage] = useState('')
+  const navigate = useNavigate()
   const [innerBtmCloudStyle, setInnerBtmCloudStyle] = useState({})
   const [outerBtmCloudStyle, setOuterBtmCloudStyle] = useState({})
   const [innerTopCloudStyle, setInnerTopCloudStyle] = useState({})
@@ -286,6 +287,14 @@ const Analyse = () => {
       setCharacterStyle((characterStyle) => {
         return { ...characterStyle, ...mapper[scene].characterStyle }
       })
+    }
+  }, [scene])
+
+  useEffect(() => {
+    if (scene === 9) {
+      setTimeout(() => {
+        navigate('/level')
+      }, VIEW_CHANGING_DELAY_TIME)
     }
   }, [scene])
 

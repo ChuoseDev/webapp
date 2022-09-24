@@ -176,8 +176,9 @@ const Scene13 = () => {
         TEXT_Q2: sessionStorage.getItem('TEXT_Q2'),
       })
       sessionStorage.setItem('LEVEL', data.label)
-      navigate('/level')
+      navigate('/analyse')
     } catch (error) {
+      navigate('/scene14')
       throw error
     }
   }
