@@ -2,6 +2,11 @@ flask==2.1.2
 pymysql==1.0.2
 datetime==4.5
 python-dotenv==0.20.0
-sklearn==1.0.2
+# sklearn==1.0.2
+scikit-learn==1.0.2 # Tiew change
 attacut==1.0.6
 joblib==1.1.0
+
+
+#Tiew add
+pandas==1.2.4
