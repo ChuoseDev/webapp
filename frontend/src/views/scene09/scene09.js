@@ -831,7 +831,7 @@ const Scene09 = () => {
     ) {
       setCharacterSrc(mapper[phase][scene].character.src)
     }
-    if (phase === phaseEnum.fifthPhase && scene >= 21) {
+    if (phase === phaseEnum.seventhPhase) {
       navigate('/scene10')
     }
   }, [scene])
