@@ -41,11 +41,11 @@ const Scene09 = () => {
   }
 
   const [phase, setPhase] = useState(phaseEnum.firstPhase)
-  const [firstText, setFirstText] = useState('')
-  const [secondText, setSecondText] = useState('')
-  const [thirdText, setThirdText] = useState('')
-  const [fourthText, setFourthText] = useState('')
-  const [fifthText, setFifthText] = useState('')
+  const [question1, setQuestion1] = useState('')
+  const [question2, setQuestion2] = useState('')
+  const [question3, setQuestion3] = useState('')
+  const [question4, setQuestion4] = useState('')
+  const [question5, setQuestion5] = useState('')
   const navigate = useNavigate()
 
   const mapper = {
@@ -902,11 +902,11 @@ const Scene09 = () => {
           {message}
           {phase === phaseEnum.sixthPhase && (
             <div style={{ fontSize: '18px', width: '100%', color: 'black' }}>
-              {`ความคิด : ${thirdText}`}
+              {`ความคิด : ${question3}`}
               <br />
-              {`ความรู้สึก : ${fourthText}`}
+              {`ความรู้สึก : ${question4}`}
               <br />
-              {`พฤติกรรม : ${fifthText}`}
+              {`พฤติกรรม : ${question5}`}
             </div>
           )}
         </p>
@@ -983,8 +983,8 @@ const Scene09 = () => {
             <textarea
               id="feeling-textarea"
               style={{ ...textboxStyle(scene) }}
-              value={firstText}
-              onChange={(e) => setFirstText(e.target.value)}
+              value={question1}
+              onChange={(e) => setQuestion1(e.target.value)}
             ></textarea>
             <button
               class="button-info"
@@ -993,7 +993,10 @@ const Scene09 = () => {
                 left: 73 * scaleWidth,
                 position: 'absolute',
               }}
-              onClick={() => shiftPhase(phaseEnum.secondPhase)}
+              onClick={() => {
+                sessionStorage.setItem('TEXT_Q1', question1)
+                shiftPhase(phaseEnum.secondPhase)
+              }}
             >
               ไปต่อ
             </button>
@@ -1005,8 +1008,8 @@ const Scene09 = () => {
             <textarea
               id="feeling-textarea"
               style={{ ...textboxStyle(scene) }}
-              value={secondText}
-              onChange={(e) => setSecondText(e.target.value)}
+              value={question2}
+              onChange={(e) => setQuestion2(e.target.value)}
             ></textarea>
             <button
               class="button-info"
@@ -1026,8 +1029,8 @@ const Scene09 = () => {
             <textarea
               id="feeling-textarea"
               style={{ ...textboxStyle(scene) }}
-              value={thirdText}
-              onChange={(e) => setThirdText(e.target.value)}
+              value={question3}
+              onChange={(e) => setQuestion3(e.target.value)}
             ></textarea>
             <button
               class="button-info"
@@ -1047,8 +1050,8 @@ const Scene09 = () => {
             <textarea
               id="feeling-textarea"
               style={{ ...textboxStyle(scene) }}
-              value={fourthText}
-              onChange={(e) => setFourthText(e.target.value)}
+              value={question4}
+              onChange={(e) => setQuestion4(e.target.value)}
             ></textarea>
             <button
               class="button-info"
@@ -1068,8 +1071,8 @@ const Scene09 = () => {
             <textarea
               id="feeling-textarea"
               style={{ ...textboxStyle(scene) }}
-              value={fifthText}
-              onChange={(e) => setFifthText(e.target.value)}
+              value={question5}
+              onChange={(e) => setQuestion5(e.target.value)}
             ></textarea>
             <button
               class="button-info"
