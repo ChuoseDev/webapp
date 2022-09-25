@@ -19,6 +19,7 @@ import SceneWrapper from 'views/sceneWrapper/sceneWrapper'
 import EmergencyCall from 'views/emergencyCall/emergencyCall'
 import EndPage from 'views/endPage/endPage'
 import EmergencyContact from 'views/emergencyContact/emergencyContact'
+import Hospital from 'views/้hospitalInfo/hospitalInfo'
 
 const App = () => {
   return (
@@ -26,8 +27,13 @@ const App = () => {
       <BrowserRouter>
         <Switch>
           <Route exact path="/emergency" element={<EmergencyCall />}></Route>
-          <Route exact path="/emergency-contact" element={<EmergencyContact />}></Route>
+          <Route
+            exact
+            path="/emergency-contact"
+            element={<EmergencyContact />}
+          ></Route>
           <Route exact path="/ending" element={<EndPage />}></Route>
+          <Route exact path="/hospital" element={<Hospital />}></Route>
           <Route
             exact
             path="/scene01"

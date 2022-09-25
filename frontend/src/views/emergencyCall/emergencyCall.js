@@ -40,12 +40,19 @@ const EmergencyCall = () => {
           'linear-gradient(#CAD8F3 13.35%, #FFF6ED 29.76%, #FFF2F2 50.51%, #CAD8F3 100%, rgba(255, 209, 90, 0.15) 100%)',
       }}
     >
-      <div style={buttonStyle(337 * scaleHeight)}>ติดต่อสายด่วน</div>
-      <div style={buttonStyle(399 * scaleHeight)}>ข้อมูลโรงพยาบาล</div>
       <TopCloud />
       <TopCloud top={50} />
       <BottomCloud />
       <BottomCloud bottom={50} />
+      <div style={buttonStyle(337 * scaleHeight)}>ติดต่อสายด่วน</div>
+      <div
+        style={buttonStyle(399 * scaleHeight)}
+        onClick={() => {
+          navigate('/hospital')
+        }}
+      >
+        ข้อมูลโรงพยาบาล
+      </div>
       <div>
         <Icon
           icon="material-symbols:arrow-back-ios-new-rounded"
