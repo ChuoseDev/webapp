@@ -6,3 +6,6 @@ backend-python/config-files
 
 frontend/node_modules/
 yarn.lock
+
+SVMSMCT_Kfold1.joblib
+LSTM_128n64n32e1000_K1.h5
