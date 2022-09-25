@@ -14,8 +14,8 @@ import numpy as np
 from pythainlp import word_tokenize
 from pythainlp import word_vector
 from gensim.models import KeyedVectors
-from tensorflow import keras
-from keras.models import load_model
+import tensorflow
+
 
 load_dotenv()
 
@@ -63,7 +63,7 @@ else:
 model_lstm_path = os.getenv('MODEL_LSTM_PATH')
 if model_lstm_path != None and os.path.exists(model_lstm_path):
     print(model_lstm_path)
-    lstmModel = load_model(model_lstm_path)
+    lstmModel = tensorflow.keras.models.load_model(model_lstm_path)
 else:
     logging.exception(
         f'are not exist or there are no file corresponding to path: MODEL_LSTM_PATH={model_lstm_path} of environment variable')
@@ -165,7 +165,7 @@ def contain_fields(js):
 
 
 def getLabelLSTM(text_list):
-    return np.argmax(lstmModel.predict(fill0in(prepare2train(text_list))))
+    return str(np.argmax(lstmModel.predict(fill0in(prepare2train(text_list)))))
 
 
 @app.route('/')
@@ -192,12 +192,10 @@ def insert():
 @app.route('/lstm', methods=['post'])
 def lstm():
     request = flask.request
-    if request.method == 'POST' and request.content_type == 'application/json' and contain_fields(request.json):
-        js = request.json
-        text = js['TEXT']
-        label = getLabelLSTM([text])
-        return flask.jsonify({'message': 'successful', 'label': label})
-    return flask.jsonify({'message': 'grae mai mee sit'}), 400
+    js = request.json
+    text = js['TEXT']
+    label = getLabelLSTM([text])
+    return flask.jsonify({'message': 'successful', 'label': label})
 
 
 if __name__ == '__main__':
