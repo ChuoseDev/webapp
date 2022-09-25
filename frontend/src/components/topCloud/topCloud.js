@@ -18,8 +18,8 @@ const TopCloud = ({ top = 0, ttl, fadeIn = true }) => {
 
     if (ttl) {
       setTimeout(() => {
-        setCloudProps(
-          cloudProps.map((cp) => {
+        setCloudProps((cps) =>
+          cps.map((cp) => {
             return { subtractor: cp.subtractor, opacity: 0 }
           })
         )
@@ -27,19 +27,22 @@ const TopCloud = ({ top = 0, ttl, fadeIn = true }) => {
     }
 
     return () => {
-      setCloudProps(
-        cloudProps.map((cp) => {
+      setCloudProps((cps) =>
+        cps.map((cp) => {
           return { subtractor: cp.subtractor, opacity: 0 }
         })
       )
       clearInterval(sceneShifter)
     }
-  }, [])
+  }, [fadeIn, ttl])
 
   useEffect(() => {
     if (scene % 40 === 0) {
       const newCloudProp = { subtractor: scene, opacity: 0 }
-      setCloudProps([{ ...cloudProps[0], opacity: 0 }, newCloudProp])
+      setCloudProps((oldCloudProps) => [
+        { ...oldCloudProps[0], opacity: 0 },
+        newCloudProp,
+      ])
       setTimeout(() => {
         setCloudProps([{ ...newCloudProp, opacity: 0 }])
       }, 5 * TOP_CLOUD_SHIFT_TIME)
