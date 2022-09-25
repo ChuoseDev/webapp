@@ -46,6 +46,7 @@ const Scene09 = () => {
   const [question3, setQuestion3] = useState('')
   const [question4, setQuestion4] = useState('')
   const [question5, setQuestion5] = useState('')
+
   const navigate = useNavigate()
 
   const mapper = {
@@ -830,7 +831,7 @@ const Scene09 = () => {
     ) {
       setCharacterSrc(mapper[phase][scene].character.src)
     }
-    if (phase === phaseEnum.fifthPhase && scene >= 21) {
+    if (phase === phaseEnum.seventhPhase) {
       navigate('/scene10')
     }
   }, [scene])
@@ -984,7 +985,7 @@ const Scene09 = () => {
               id="feeling-textarea"
               style={{ ...textboxStyle(scene) }}
               value={question1}
-              onChange={(e) => setQuestion1(e.target.value)}
+              onChange={(e) => setQuestion1(e.target.value.slice(0, 280))}
             ></textarea>
             <button
               class="button-info"
@@ -1009,7 +1010,7 @@ const Scene09 = () => {
               id="feeling-textarea"
               style={{ ...textboxStyle(scene) }}
               value={question2}
-              onChange={(e) => setQuestion2(e.target.value)}
+              onChange={(e) => setQuestion2(e.target.value.slice(0, 280))}
             ></textarea>
             <button
               class="button-info"
@@ -1030,7 +1031,7 @@ const Scene09 = () => {
               id="feeling-textarea"
               style={{ ...textboxStyle(scene) }}
               value={question3}
-              onChange={(e) => setQuestion3(e.target.value)}
+              onChange={(e) => setQuestion3(e.target.value.slice(0, 280))}
             ></textarea>
             <button
               class="button-info"
@@ -1051,7 +1052,7 @@ const Scene09 = () => {
               id="feeling-textarea"
               style={{ ...textboxStyle(scene) }}
               value={question4}
-              onChange={(e) => setQuestion4(e.target.value)}
+              onChange={(e) => setQuestion4(e.target.value.slice(0, 280))}
             ></textarea>
             <button
               class="button-info"
@@ -1072,7 +1073,7 @@ const Scene09 = () => {
               id="feeling-textarea"
               style={{ ...textboxStyle(scene) }}
               value={question5}
-              onChange={(e) => setQuestion5(e.target.value)}
+              onChange={(e) => setQuestion5(e.target.value.slice(0, 280))}
             ></textarea>
             <button
               class="button-info"
