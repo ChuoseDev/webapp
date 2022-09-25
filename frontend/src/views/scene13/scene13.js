@@ -4,10 +4,12 @@ import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router'
 import { SCENE13_SHIFT_TIME } from 'utils/constant'
 import '../scene03/purple.css'
+import axios from 'axios'
 
 const Scene13 = () => {
   const [scene, setScene] = useState(1)
   const [message, setMessage] = useState('')
+  const [anything, setAnything] = useState('')
   const [characterStyle, setCharacterStyle] = useState({
     top: '19%',
     left: '12%',
@@ -163,8 +165,22 @@ const Scene13 = () => {
     }
   }
 
-  const goNext = () => {
-    navigate('/scene14')
+  const goNext = async () => {
+    sessionStorage.setItem('TEXT_Q2', anything)
+    try {
+      const { data } = await axios.post('http://127.0.0.1:5000/', {
+        CUST_USR_NM: sessionStorage.getItem('CUST_USR_NM'),
+        CUST_AGE: sessionStorage.getItem('CUST_AGE'),
+        CUST_GENDER: sessionStorage.getItem('CUST_GENDER'),
+        TEXT_Q1: sessionStorage.getItem('TEXT_Q1'),
+        TEXT_Q2: sessionStorage.getItem('TEXT_Q2'),
+      })
+      sessionStorage.setItem('LEVEL', data.label)
+      navigate('/analyse')
+    } catch (error) {
+      navigate('/scene14')
+      throw error
+    }
   }
 
   const textStyles = (scene) => {
@@ -186,7 +202,7 @@ const Scene13 = () => {
         alt="background"
         style={backgroundStyles(scene)}
       />
-      <div style={textStyles(scene)}>{message}</div>
+      <div className={'text_top'}>{message}</div>
       <Star />
       <MiddleCloud />
       {phase === phaseEnum.firstPhase && scene < 12 && (
@@ -199,7 +215,12 @@ const Scene13 = () => {
       )}
       {phase === phaseEnum.firstPhase && scene >= 12 && (
         <div>
-          <textarea class="textbox" style={{ top: '30%' }}></textarea>
+          <textarea
+            class="textbox"
+            style={{ top: '30%' }}
+            value={anything}
+            onChange={(e) => setAnything(e.target.value)}
+          ></textarea>
           <button
             class="button"
             style={{ top: '50%' }}
