@@ -1018,7 +1018,10 @@ const Scene09 = () => {
                 left: 73 * scaleWidth(),
                 position: 'absolute',
               }}
-              onClick={() => shiftPhase(phaseEnum.thirdPhase)}
+              onClick={() => {
+                sessionStorage.setItem('TEXT_Q2', question2)
+                shiftPhase(phaseEnum.thirdPhase)
+              }}
             >
               ไปต่อ
             </button>
@@ -1039,7 +1042,10 @@ const Scene09 = () => {
                 left: 73 * scaleWidth(),
                 position: 'absolute',
               }}
-              onClick={() => shiftPhase(phaseEnum.fourthPhase)}
+              onClick={() => {
+                sessionStorage.setItem('TEXT_Q3', question3)
+                shiftPhase(phaseEnum.fourthPhase)
+              }}
             >
               ไปต่อ
             </button>
