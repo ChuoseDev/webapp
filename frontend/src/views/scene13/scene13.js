@@ -4,8 +4,8 @@ import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router'
 import { SCENE13_SHIFT_TIME } from 'utils/constant'
 import '../scene03/purple.css'
-import axios from 'axios'
 import { scaleWidth, scaleHeight } from 'utils/constant'
+import { getPrediction } from 'api/api'
 
 const Scene13 = () => {
   const [scene, setScene] = useState(1)
@@ -19,7 +19,6 @@ const Scene13 = () => {
   })
   const phaseEnum = {
     firstPhase: 'firstPhase',
-    secondPhase: 'secondPhase',
   }
   const [phase, setPhase] = useState(phaseEnum.firstPhase)
   const navigate = useNavigate()
@@ -166,22 +165,15 @@ const Scene13 = () => {
     }
   }
 
-  const goNext = async () => {
+  const goNext = () => {
     sessionStorage.setItem('TEXT_Q2', anything)
-    try {
-      const { data } = await axios.post('http://127.0.0.1:5000/', {
-        CUST_USR_NM: sessionStorage.getItem('CUST_USR_NM'),
-        CUST_AGE: sessionStorage.getItem('CUST_AGE'),
-        CUST_GENDER: sessionStorage.getItem('CUST_GENDER'),
-        TEXT_Q1: sessionStorage.getItem('TEXT_Q1'),
-        TEXT_Q2: sessionStorage.getItem('TEXT_Q2'),
+    getPrediction()
+      .then((res) => {
+        const { data } = res
+        sessionStorage.setItem('LEVEL', data.label)
       })
-      sessionStorage.setItem('LEVEL', data.label)
-      navigate('/analyse')
-    } catch (error) {
-      navigate('/scene14')
-      throw error
-    }
+      .catch((_) => {})
+    navigate('/analyse')
   }
 
   return (
