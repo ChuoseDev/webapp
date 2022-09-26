@@ -5,11 +5,11 @@ import TopCloud from 'components/topCloud/topCloud'
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router'
 import { SCENE14_SHIFT_TIME } from 'utils/constant'
+import { scaleWidth, scaleHeight } from 'utils/constant'
 
 const Scene14 = () => {
   const [scene, setScene] = useState(0)
-  const scaleWidth = window.screen.width / 390
-  const scaleHeight = window.screen.height / 844
+
   const [backgroundImage, setBackgroundImage] = useState({
     opacity: 1,
     backgroundImage:
@@ -37,7 +37,7 @@ const Scene14 = () => {
           (scene >= 11) * (scene - 11) * 12 -
           (scene >= 14) * (scene - 14) * 7)
       }deg)`,
-      width: `${295 * scaleWidth}px`,
+      width: `${295 * scaleWidth()}px`,
     }
   }
 
@@ -104,7 +104,7 @@ const Scene14 = () => {
       display: 'flex',
       justifyContent: 'center',
       transform: 'translate(0%)',
-      fontSize: `${18 * scaleWidth}px`,
+      fontSize: `${18 * scaleWidth()}px`,
     }
   }
 
@@ -115,10 +115,10 @@ const Scene14 = () => {
     const left = scene < 34 ? 183 : scene < 36 ? 168 : 149
     return {
       position: 'absolute',
-      width: width * scaleWidth,
-      height: height * scaleHeight,
-      top: top * scaleHeight,
-      left: left * scaleWidth,
+      width: width * scaleWidth(),
+      height: height * scaleHeight(),
+      top: top * scaleHeight(),
+      left: left * scaleWidth(),
     }
   }
 

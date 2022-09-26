@@ -4,8 +4,6 @@ import '../scene03/purple.css'
 
 const Scene06 = () => {
   const [scene, setScene] = useState(1)
-  const scaleWidth = window.screen.width / 390
-  const scaleHeight = window.screen.height / 844
   const navigate = useNavigate()
 
   useEffect(() => {

@@ -1,10 +1,9 @@
 import { useState, useEffect } from 'react'
 import { Stage, Layer, AnimateImage } from 'konvas'
 import { useNavigate } from 'react-router'
+import { scaleWidth, scaleHeight } from 'utils/constant'
 
 const Startup = () => {
-  const scaleHeight = window.innerHeight / 844
-  const scaleWidth = window.innerWidth / 390
   const [scene, setScene] = useState(0)
   const [opacity, setOpacity] = useState(0.3)
   const navigate = useNavigate()
@@ -35,54 +34,54 @@ const Startup = () => {
   }, [scene])
 
   const stageProps = {
-    width: window.innerWidth,
-    height: window.innerHeight,
+    width: window.screen.width,
+    height: window.screen.height,
   }
 
   const chuoseLogoProps = {
     image: 'images/logo.svg',
-    x: (window.innerWidth - 308 * scaleHeight) / 2,
-    y: 370 * scaleHeight,
-    height: 72 * scaleHeight,
-    width: 308 * scaleHeight,
+    x: (window.innerWidth - 308 * scaleHeight()) / 2,
+    y: 370 * scaleHeight(),
+    height: 72 * scaleHeight(),
+    width: 308 * scaleHeight(),
     opacity: 0,
     scene,
     animation: {
       1: { opacity: 1, duration: 0.5 },
-      2: { y: 523 * scaleHeight, duration: 0.4 },
+      2: { y: 523 * scaleHeight(), duration: 0.4 },
       3: { opacity: 0, duration: 0.5 },
     },
   }
 
   const backgroundProps = {
     image: 'images/cloudBackground.svg',
-    height: 891 * scaleHeight,
-    width: 1404 * scaleHeight,
-    x: -62 * scaleHeight,
-    y: -86 * scaleHeight,
+    height: 891 * scaleHeight(),
+    width: 1404 * scaleHeight(),
+    x: -62 * scaleHeight(),
+    y: -86 * scaleHeight(),
     scene,
     animation: {
       2: {
-        x: -2 * scaleHeight,
-        y: -92 * scaleHeight,
-        height: 1046 * scaleHeight,
-        width: 1649 * scaleHeight,
+        x: -2 * scaleHeight(),
+        y: -92 * scaleHeight(),
+        height: 1046 * scaleHeight(),
+        width: 1649 * scaleHeight(),
         duration: 1,
       },
       3: {
-        x: -277 * scaleHeight,
-        y: -206 * scaleHeight,
-        height: 1244 * scaleHeight,
-        width: 1962 * scaleHeight,
+        x: -277 * scaleHeight(),
+        y: -206 * scaleHeight(),
+        height: 1244 * scaleHeight(),
+        width: 1962 * scaleHeight(),
         duration: 1,
       },
     },
   }
   const jumboChuoseProps = {
     image: 'images/jumboLogo.svg',
-    width: 448 * scaleWidth,
-    height: 437 * scaleWidth,
-    y: 500 * scaleHeight,
+    width: 448 * scaleWidth(),
+    height: 437 * scaleWidth(),
+    y: 500 * scaleHeight(),
     opacity: 0,
     scene,
     animation: {

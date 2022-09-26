@@ -3,9 +3,9 @@ import BottomCloud from 'components/bottomCloud/bottomCloud'
 import TopCloud from 'components/topCloud/topCloud'
 import { useNavigate } from 'react-router'
 
+import { scaleWidth, scaleHeight } from 'utils/constant'
+
 const Consent = () => {
-  const scaleWidth = window.screen.width / 390
-  const scaleHeight = window.screen.height / 844
   const navigate = useNavigate()
   const [phase, setPhase] = useState(0)
 
@@ -15,19 +15,19 @@ const Consent = () => {
 
   const buttonStyle = () => {
     return {
-      width: scaleWidth * 243,
-      height: scaleHeight * 46,
+      width: scaleWidth() * 243,
+      height: scaleHeight() * 46,
       boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
       backgroundColor: '#ffffff',
       borderRadius: 35,
-      fontSize: 20 * scaleHeight,
+      fontSize: 20 * scaleHeight(),
       display: 'flex',
       justifyContent: 'center',
       alignItems: 'center',
       color: '#8A7EBE',
       position: 'absolute',
-      left: scaleWidth * 73,
-      top: scaleHeight * 702,
+      left: scaleWidth() * 73,
+      top: scaleHeight() * 702,
       textDecoration: 'none',
     }
   }
@@ -64,13 +64,15 @@ const Consent = () => {
         <div
           style={{
             justifyContent: 'center',
-            marginTop: `${191 * scaleHeight}px`,
+            marginTop: `${300 * scaleHeight()}px`,
             color: '#8A7EBE',
-            fontSize: `${18 * scaleWidth}px`,
+            fontSize: `${18 * scaleWidth()}px`,
           }}
         >
           ชิ้นงานนี้เป็นส่วนหนึ่งของ{' '}
-          <span style={{ color: '#EC9F40', fontSize: `${18 * scaleWidth}px` }}>
+          <span
+            style={{ color: '#EC9F40', fontSize: `${18 * scaleWidth()}px` }}
+          >
             วิทยานิพนธ์
           </span>
           <br />
@@ -79,6 +81,61 @@ const Consent = () => {
           ภาควิชาวิศวกรรมคอมพิวเตอร์
           <br />
           คณะวิศวกรรมศาสตร์ จุฬาลงกรณ์มหาวิทยาลัย
+          <br />
+          <br />
+          ผู้วิจัยจะไม่เก็บบันทึกข้อมูลส่วนบุคคลของผู้เล่น
+          <br />
+          รวมถึงคำตอบขณะเข้าใช้ CHUOSE ด้วย
+          <br />
+          มีเพียงขอเก็บสถิติโดยรวม
+          <br />
+          เช่น ยอดจำนวนผู้เข้าใช้ อายุเฉลี่ยของผู้
+          <br />
+          เพื่อประกอบในวิทยานิพนธ์เท่านั้น
+          <br />
+        </div>
+      )}
+      {phase === 2 && (
+        <div
+          style={{
+            justifyContent: 'center',
+            marginTop: `${300 * scaleHeight()}px`,
+            color: '#8A7EBE',
+            fontSize: `${18 * scaleWidth()}px`,
+          }}
+        >
+          <span
+            style={{ color: '#EC9F40', fontSize: `${18 * scaleWidth()}px` }}
+          >
+            CHUOSE{' '}
+          </span>
+          เว็บแอปพลิเคชันที่พัฒนาขึ้น
+          <br />
+          เพื่อเป็นเครื่องมือตรวจหาระดับความคิดฆ่าตัวตาย
+          <br />
+          ของผู้ตกอยู่ในภาวะซึมเศร้า หรือ มีความคิดแง่ลบ
+          <br />
+          ตั้งแต่ระดับเล็กน้อยถึงปานกลาง
+          <br />
+          <br />
+          ชิ้นงานนี้เกิดขึ้นเพื่อช่วยเหลือให้ทุกคน
+          <br />
+          เข้าใจและจัดการความคิดของตนได้
+          <br />
+          <br />
+          หรืออย่างน้อยที่สุด สามารถเป็นส่วนหนึ่งที่ให้ทุกคน
+          <br />
+          ได้ลองหันมาทำความรู้จักและพูดคุยกับ
+          <br />
+          ความคิด ความรู้สึก ของตนเอง
+          <br />
+          <br />
+          <div style={{ color: '#EC9F40', fontSize: `${18 * scaleWidth()}px` }}>
+            โปรดใช้เวลาอย่างช้า ๆ
+            <br />
+            เพราะความรู้สึกของคุณนั้นสำคัญ
+            <br />
+          </div>
         </div>
       )}
       <div

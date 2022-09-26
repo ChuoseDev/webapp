@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router'
 import { SCENE13_SHIFT_TIME } from 'utils/constant'
 import '../scene03/purple.css'
 import axios from 'axios'
+import { scaleWidth, scaleHeight } from 'utils/constant'
 
 const Scene13 = () => {
   const [scene, setScene] = useState(1)
@@ -34,7 +35,7 @@ const Scene13 = () => {
           width: '295px',
         },
       },
-      2: {
+      3: {
         characterStyle: {
           top: '35%',
           left: '12%',
@@ -42,34 +43,9 @@ const Scene13 = () => {
           width: '295px',
         },
       },
-      3: {
+      5: {
         message:
           'เป็นเพราะความคิดของเราที่ทำให้ยึดติดกับเรื่องราวในอดีตและสิ่งที่ยังไม่เกิดขึ้น',
-        characterStyle: {
-          top: '35%',
-          left: '12%',
-          transform: 'rotate(-14deg)',
-          width: '295px',
-        },
-      },
-      4: {
-        characterStyle: {
-          top: '35%',
-          left: '12%',
-          transform: 'rotate(-10deg)',
-          width: '295px',
-        },
-      },
-      5: {
-        characterStyle: {
-          top: '35%',
-          left: '12%',
-          transform: 'rotate(- )',
-          width: '295px',
-        },
-      },
-      6: {
-        message: '“ถ้าเธอรู้ตัวว่ากำลังมีความคิดลบอัตโนมัติอยู่”',
         characterStyle: {
           top: '35%',
           left: '12%',
@@ -81,11 +57,36 @@ const Scene13 = () => {
         characterStyle: {
           top: '35%',
           left: '12%',
+          transform: 'rotate(-10deg)',
+          width: '295px',
+        },
+      },
+      9: {
+        characterStyle: {
+          top: '35%',
+          left: '12%',
+          transform: 'rotate(- )',
+          width: '295px',
+        },
+      },
+      11: {
+        message: '“ถ้าเธอรู้ตัวว่ากำลังมีความคิดลบอัตโนมัติอยู่”',
+        characterStyle: {
+          top: '35%',
+          left: '12%',
+          transform: 'rotate(-14deg)',
+          width: '295px',
+        },
+      },
+      13: {
+        characterStyle: {
+          top: '35%',
+          left: '12%',
           transform: 'rotate(-25deg)',
           width: '295px',
         },
       },
-      8: {
+      15: {
         characterStyle: {
           top: '35%',
           left: '12%',
@@ -93,7 +94,7 @@ const Scene13 = () => {
           width: '295px',
         },
       },
-      9: {
+      17: {
         message: '“ก็นับเป็นก้าวใหญ่มากเลยนะที่จะพาเธออกไปจากตรงนี้"',
         characterStyle: {
           top: '35%',
@@ -102,7 +103,7 @@ const Scene13 = () => {
           width: '295px',
         },
       },
-      10: {
+      19: {
         characterStyle: {
           top: '35%',
           left: '12%',
@@ -110,7 +111,7 @@ const Scene13 = () => {
           width: '295px',
         },
       },
-      11: {
+      21: {
         characterStyle: {
           top: '35%',
           left: '12%',
@@ -118,7 +119,7 @@ const Scene13 = () => {
           width: '295px',
         },
       },
-      12: {
+      23: {
         message: '“มาถึงตรงนี้แล้ว มีอะไรอยากบอกกับตัวเองมั้ย?”',
       },
     },
@@ -183,17 +184,6 @@ const Scene13 = () => {
     }
   }
 
-  const textStyles = (scene) => {
-    return {
-      position: 'absolute',
-      color: 'white',
-      top: '50%',
-      left: '50%',
-      transform: 'translate(-50%, -50%)',
-      fontSize: '20px',
-    }
-  }
-
   return (
     <div style={containerStyle(scene)}>
       <img
@@ -205,7 +195,7 @@ const Scene13 = () => {
       <div className={'text_top'}>{message}</div>
       <Star />
       <MiddleCloud />
-      {phase === phaseEnum.firstPhase && scene < 12 && (
+      {phase === phaseEnum.firstPhase && scene < 24 && (
         <img
           class="charactor"
           src={'images/Charactor.svg'}
@@ -213,11 +203,17 @@ const Scene13 = () => {
           style={characterStyle}
         />
       )}
-      {phase === phaseEnum.firstPhase && scene >= 12 && (
+      {phase === phaseEnum.firstPhase && scene >= 24 && (
         <div>
           <textarea
             class="textbox"
-            style={{ top: '30%' }}
+            style={{
+              top: '30%',
+              left: 12 * scaleWidth(),
+              position: 'absolute',
+              width: 317 * scaleWidth(),
+              height: 100 * scaleHeight(),
+            }}
             value={anything}
             onChange={(e) => setAnything(e.target.value)}
           ></textarea>
