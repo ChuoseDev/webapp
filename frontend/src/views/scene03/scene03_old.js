@@ -7,8 +7,7 @@ import BottomCloud from 'components/bottomCloud/bottomCloud'
 
 const Scene03_old = () => {
   const [scene, setScene] = useState(1)
-  const scaleWidth = window.screen.width / 390
-  const scaleHeight = window.screen.height / 844
+
   const navigate = useNavigate()
 
   useEffect(() => {

@@ -3,9 +3,9 @@ import BottomCloud from 'components/bottomCloud/bottomCloud'
 import TopCloud from 'components/topCloud/topCloud'
 import { useNavigate } from 'react-router'
 
+import { scaleWidth, scaleHeight } from 'utils/constant'
+
 const Consent = () => {
-  const scaleWidth = window.screen.width / 390
-  const scaleHeight = window.screen.height / 844
   const navigate = useNavigate()
   const [phase, setPhase] = useState(0)
 
@@ -15,19 +15,19 @@ const Consent = () => {
 
   const buttonStyle = () => {
     return {
-      width: scaleWidth * 243,
-      height: scaleHeight * 46,
+      width: scaleWidth() * 243,
+      height: scaleHeight() * 46,
       boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
       backgroundColor: '#ffffff',
       borderRadius: 35,
-      fontSize: 20 * scaleHeight,
+      fontSize: 20 * scaleHeight(),
       display: 'flex',
       justifyContent: 'center',
       alignItems: 'center',
       color: '#8A7EBE',
       position: 'absolute',
-      left: scaleWidth * 73,
-      top: scaleHeight * 702,
+      left: scaleWidth() * 73,
+      top: scaleHeight() * 702,
       textDecoration: 'none',
     }
   }
@@ -64,13 +64,15 @@ const Consent = () => {
         <div
           style={{
             justifyContent: 'center',
-            marginTop: `${191 * scaleHeight}px`,
+            marginTop: `${191 * scaleHeight()}px`,
             color: '#8A7EBE',
-            fontSize: `${18 * scaleWidth}px`,
+            fontSize: `${18 * scaleWidth()}px`,
           }}
         >
           ชิ้นงานนี้เป็นส่วนหนึ่งของ{' '}
-          <span style={{ color: '#EC9F40', fontSize: `${18 * scaleWidth}px` }}>
+          <span
+            style={{ color: '#EC9F40', fontSize: `${18 * scaleWidth()}px` }}
+          >
             วิทยานิพนธ์
           </span>
           <br />

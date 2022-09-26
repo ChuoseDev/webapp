@@ -6,10 +6,9 @@ import LevelCard4_5 from 'components/levelCard/levelCard4_5'
 import { WhiteButton } from 'components/commons/commons'
 import { useNavigate } from 'react-router'
 import { VIEW_CHANGING_DELAY_TIME } from 'utils/constant'
+import { scaleWidth, scaleHeight } from 'utils/constant'
 
 const Level = () => {
-  const scaleHeight = window.screen.height / 844
-  const scaleWidth = window.screen.width / 390
   const level = sessionStorage.getItem('LEVEL')
   const navigate = useNavigate()
 
@@ -27,8 +26,8 @@ const Level = () => {
 
   const backgroundStyles = () => {
     return {
-      width: 390 * scaleWidth,
-      height: 866.8 * scaleHeight,
+      width: 390 * scaleWidth(),
+      height: 866.8 * scaleHeight(),
       position: 'relative',
       transform: 'translateY(-2.7%)',
       transition: 'opacity ease-in-out 1s',
@@ -39,7 +38,7 @@ const Level = () => {
   const messageStyle = () => {
     return {
       position: 'absolute',
-      top: 108 * scaleWidth,
+      top: 108 * scaleWidth(),
       fontSize: '24px',
       width: '100%',
       color: 'black',
@@ -49,56 +48,56 @@ const Level = () => {
   const innerTopCloudStyle = () => {
     return {
       position: 'absolute',
-      width: 1447.95 * scaleWidth,
-      height: 832.56 * scaleHeight,
+      width: 1447.95 * scaleWidth(),
+      height: 832.56 * scaleHeight(),
       transform: 'rotate(180deg)',
       opacity: 0.4,
-      top: -360.67 * scaleHeight,
-      left: -467.97 * scaleWidth,
+      top: -360.67 * scaleHeight(),
+      left: -467.97 * scaleWidth(),
     }
   }
 
   const outerTopCloudStyle = () => {
     return {
       position: 'absolute',
-      width: 1447.98 * scaleWidth,
-      height: 720.1 * scaleHeight,
+      width: 1447.98 * scaleWidth(),
+      height: 720.1 * scaleHeight(),
       transform: 'rotate(180deg)',
       opacity: 0.4,
-      top: -473.2 * scaleHeight,
-      left: -840 * scaleWidth,
+      top: -473.2 * scaleHeight(),
+      left: -840 * scaleWidth(),
     }
   }
 
   const innerBtmCloudStyle = () => {
     return {
       position: 'absolute',
-      width: 1447.95 * scaleWidth,
-      height: 832.56 * scaleHeight,
+      width: 1447.95 * scaleWidth(),
+      height: 832.56 * scaleHeight(),
       opacity: 0.4,
-      top: 341 * scaleHeight,
-      left: -579 * scaleWidth,
+      top: 341 * scaleHeight(),
+      left: -579 * scaleWidth(),
     }
   }
 
   const outerBtmCloudStyle = () => {
     return {
       position: 'absolute',
-      width: 1447.98 * scaleWidth,
-      height: 720.1 * scaleHeight,
+      width: 1447.98 * scaleWidth(),
+      height: 720.1 * scaleHeight(),
       opacity: 0.4,
-      top: 566 * scaleHeight,
-      left: -207 * scaleWidth,
+      top: 566 * scaleHeight(),
+      left: -207 * scaleWidth(),
     }
   }
 
   const buttonStyle = () => {
     return {
       position: 'fixed',
-      top: 672 * scaleHeight,
-      left: 77 * scaleWidth,
-      width: 243.8 * scaleWidth,
-      height: 46 * scaleHeight,
+      top: 672 * scaleHeight(),
+      left: 77 * scaleWidth(),
+      width: 243.8 * scaleWidth(),
+      height: 46 * scaleHeight(),
       transition: 'ease-in-out 0.5s',
     }
   }
@@ -142,8 +141,8 @@ const Level = () => {
       <div
         style={{
           position: 'fixed',
-          top: 220.8 * scaleHeight,
-          left: 44 * scaleWidth,
+          top: 220.8 * scaleHeight(),
+          left: 44 * scaleWidth(),
         }}
       >
         {level < 2 ? (
@@ -164,7 +163,7 @@ const Level = () => {
             style={{
               fontFamily: 'Comfortaa',
               margin: 0,
-              fontSize: level >= 4 ? 20 * scaleHeight : 24 * scaleHeight,
+              fontSize: level >= 4 ? 20 * scaleHeight() : 24 * scaleHeight(),
               fontWeight: 700,
               color: level >= 4 ? '#F0524A' : '#425F83',
               opacity: 0.9,

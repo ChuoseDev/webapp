@@ -2,20 +2,20 @@ import { useState, useEffect } from 'react'
 import { SCENE08_SHIFT_TIME } from 'utils/constant'
 import TopCloud from 'components/topCloud/topCloud'
 import { useNavigate } from 'react-router'
+import { scaleWidth, scaleHeight } from 'utils/constant'
 
 const Scene08 = () => {
   const [scene, setScene] = useState(1)
   const [message, setMessage] = useState('')
-  const scaleHeight = window.screen.height / 844
-  const scaleWidth = window.screen.width / 390
+
   const navigate = useNavigate()
   const [characterStyle, setCharacterStyle] = useState({
     position: 'absolute',
     transform: 'rotate(0deg)',
-    width: 166 * scaleWidth,
-    height: 169.05 * scaleWidth,
-    top: 349 * scaleHeight,
-    left: 112 * scaleWidth,
+    width: 166 * scaleWidth(),
+    height: 169.05 * scaleWidth(),
+    top: 349 * scaleHeight(),
+    left: 112 * scaleWidth(),
   })
   const [characterSrc, setCharacterSrc] = useState('images/YellowChuose_01.svg')
   const [friendStyle, setFriendStyle] = useState({
@@ -37,10 +37,10 @@ const Scene08 = () => {
         character: {
           src: 'images/YellowChuose_01.svg',
           style: {
-            width: 166 * scaleWidth,
-            height: 169.05 * scaleWidth,
-            top: 349 * scaleHeight,
-            left: 112 * scaleWidth,
+            width: 166 * scaleWidth(),
+            height: 169.05 * scaleWidth(),
+            top: 349 * scaleHeight(),
+            left: 112 * scaleWidth(),
           },
         },
       },
@@ -49,48 +49,48 @@ const Scene08 = () => {
           src: 'images/CloudText01.svg',
           style: {
             opacity: 1,
-            width: 101.01 * scaleWidth,
-            height: 64 * scaleWidth,
-            top: 277 * scaleHeight,
-            left: 219 * scaleWidth,
+            width: 101.01 * scaleWidth(),
+            height: 64 * scaleWidth(),
+            top: 277 * scaleHeight(),
+            left: 219 * scaleWidth(),
           },
         },
       },
       3: {
         character: {
           style: {
-            width: 159 * scaleWidth,
-            height: 161.92 * scaleWidth,
-            top: 448.11 * scaleHeight,
-            left: 139.13 * scaleWidth,
+            width: 159 * scaleWidth(),
+            height: 161.92 * scaleWidth(),
+            top: 448.11 * scaleHeight(),
+            left: 139.13 * scaleWidth(),
           },
         },
         friend: {
           src: 'images/CloudText07_08.svg',
           style: {
-            width: 323.05 * scaleWidth,
-            height: 219.04 * scaleWidth,
-            top: 252 * scaleHeight,
-            left: 34 * scaleWidth,
+            width: 323.05 * scaleWidth(),
+            height: 219.04 * scaleWidth(),
+            top: 252 * scaleHeight(),
+            left: 34 * scaleWidth(),
           },
         },
       },
       4: {
         character: {
           style: {
-            width: 150 * scaleWidth,
-            height: 152.76 * scaleWidth,
-            top: 497 * scaleHeight,
-            left: 109 * scaleWidth,
+            width: 150 * scaleWidth(),
+            height: 152.76 * scaleWidth(),
+            top: 497 * scaleHeight(),
+            left: 109 * scaleWidth(),
           },
         },
         friend: {
           src: 'images/CloudText07_09.svg',
           style: {
-            width: 350.31 * scaleWidth,
-            height: 273.76 * scaleWidth,
-            top: 275 * scaleHeight,
-            left: 17 * scaleWidth,
+            width: 350.31 * scaleWidth(),
+            height: 273.76 * scaleWidth(),
+            top: 275 * scaleHeight(),
+            left: 17 * scaleWidth(),
           },
         },
       },
@@ -98,38 +98,38 @@ const Scene08 = () => {
         message: 'ทุกคนเข้ามา...',
         character: {
           style: {
-            width: 142.41 * scaleWidth,
-            height: 145.03 * scaleWidth,
-            top: 473 * scaleHeight,
-            left: 104 * scaleWidth,
+            width: 142.41 * scaleWidth(),
+            height: 145.03 * scaleWidth(),
+            top: 473 * scaleHeight(),
+            left: 104 * scaleWidth(),
           },
         },
         friend: {
           src: 'images/CloudText07_10.svg',
           style: {
-            width: 350.78 * scaleWidth,
-            height: 225.76 * scaleWidth,
-            top: 352 * scaleHeight,
-            left: 21 * scaleWidth,
+            width: 350.78 * scaleWidth(),
+            height: 225.76 * scaleWidth(),
+            top: 352 * scaleHeight(),
+            left: 21 * scaleWidth(),
           },
         },
       },
       6: {
         character: {
           style: {
-            width: 135.54 * scaleWidth,
-            height: 138.03 * scaleWidth,
-            top: 448 * scaleHeight,
-            left: 128 * scaleWidth,
+            width: 135.54 * scaleWidth(),
+            height: 138.03 * scaleWidth(),
+            top: 448 * scaleHeight(),
+            left: 128 * scaleWidth(),
           },
         },
         friend: {
           src: 'images/CloudText07_11.svg',
           style: {
-            width: 382 * scaleWidth,
-            height: 219.76 * scaleWidth,
-            top: 348 * scaleHeight,
-            left: 6 * scaleWidth,
+            width: 382 * scaleWidth(),
+            height: 219.76 * scaleWidth(),
+            top: 348 * scaleHeight(),
+            left: 6 * scaleWidth(),
           },
         },
       },
@@ -137,19 +137,19 @@ const Scene08 = () => {
         message: 'และก็จากเราไปมากมายเช่นกัน',
         character: {
           style: {
-            width: 142.41 * scaleWidth,
-            height: 145.03 * scaleWidth,
-            top: 491 * scaleHeight,
-            left: 103 * scaleWidth,
+            width: 142.41 * scaleWidth(),
+            height: 145.03 * scaleWidth(),
+            top: 491 * scaleHeight(),
+            left: 103 * scaleWidth(),
           },
         },
         friend: {
           src: 'images/Friend07_12.svg',
           style: {
-            width: 370.78 * scaleWidth,
-            height: 228.76 * scaleWidth,
-            top: 372 * scaleHeight,
-            left: 11 * scaleWidth,
+            width: 370.78 * scaleWidth(),
+            height: 228.76 * scaleWidth(),
+            top: 372 * scaleHeight(),
+            left: 11 * scaleWidth(),
           },
         },
       },
@@ -157,19 +157,19 @@ const Scene08 = () => {
         character: {
           src: 'images/YellowChuose_02.svg',
           style: {
-            top: 465 * scaleHeight,
-            left: 114 * scaleWidth,
-            width: 150 * scaleWidth,
-            height: 152.76 * scaleHeight,
+            top: 465 * scaleHeight(),
+            left: 114 * scaleWidth(),
+            width: 150 * scaleWidth(),
+            height: 152.76 * scaleHeight(),
           },
         },
         friend: {
           src: 'images/Friend07_13.svg',
           style: {
-            width: 369.31 * scaleWidth,
-            height: 186.76 * scaleWidth,
-            top: 331 * scaleHeight,
-            left: 9 * scaleWidth,
+            width: 369.31 * scaleWidth(),
+            height: 186.76 * scaleWidth(),
+            top: 331 * scaleHeight(),
+            left: 9 * scaleWidth(),
           },
         },
       },
@@ -178,38 +178,38 @@ const Scene08 = () => {
         character: {
           src: 'images/YellowChuose_01.svg',
           style: {
-            width: 137.23 * scaleWidth,
-            height: 139.76 * scaleWidth,
-            top: 475 * scaleHeight,
-            left: 128 * scaleWidth,
+            width: 137.23 * scaleWidth(),
+            height: 139.76 * scaleWidth(),
+            top: 475 * scaleHeight(),
+            left: 128 * scaleWidth(),
           },
         },
         friend: {
           src: 'images/Friend08_01.svg',
           style: {
-            width: 357.34 * scaleWidth,
-            height: 227.76 * scaleWidth,
-            top: 373 * scaleHeight,
-            left: 17 * scaleWidth,
+            width: 357.34 * scaleWidth(),
+            height: 227.76 * scaleWidth(),
+            top: 373 * scaleHeight(),
+            left: 17 * scaleWidth(),
           },
         },
       },
       10: {
         character: {
           style: {
-            width: 147.05 * scaleWidth,
-            height: 149.76 * scaleWidth,
-            top: 382 * scaleHeight,
-            left: 121.9 * scaleWidth,
+            width: 147.05 * scaleWidth(),
+            height: 149.76 * scaleWidth(),
+            top: 382 * scaleHeight(),
+            left: 121.9 * scaleWidth(),
           },
         },
         friend: {
           src: 'images/Friend08_02.svg',
           style: {
-            width: 357.07 * scaleWidth,
-            height: 229.76 * scaleWidth,
-            top: 466 * scaleHeight,
-            left: 14 * scaleWidth,
+            width: 357.07 * scaleWidth(),
+            height: 229.76 * scaleWidth(),
+            top: 466 * scaleHeight(),
+            left: 14 * scaleWidth(),
             zIndex: 1,
           },
         },
@@ -217,34 +217,34 @@ const Scene08 = () => {
       11: {
         character: {
           style: {
-            top: 379 * scaleHeight,
-            left: 128 * scaleWidth,
+            top: 379 * scaleHeight(),
+            left: 128 * scaleWidth(),
           },
         },
         friend: {
           src: 'images/Friend08_03.svg',
           style: {
-            width: 350.07 * scaleWidth,
-            height: 312.79 * scaleWidth,
-            top: 540 * scaleHeight,
-            left: 20 * scaleWidth,
+            width: 350.07 * scaleWidth(),
+            height: 312.79 * scaleWidth(),
+            top: 540 * scaleHeight(),
+            left: 20 * scaleWidth(),
           },
         },
       },
       12: {
         character: {
           style: {
-            top: 386 * scaleHeight,
-            left: 121 * scaleWidth,
+            top: 386 * scaleHeight(),
+            left: 121 * scaleWidth(),
           },
         },
         friend: {
           src: 'images/Friend08_04.svg',
           style: {
-            width: 350.07 * scaleWidth,
-            height: 235.79 * scaleWidth,
-            top: 659 * scaleHeight,
-            left: 15 * scaleWidth,
+            width: 350.07 * scaleWidth(),
+            height: 235.79 * scaleWidth(),
+            top: 659 * scaleHeight(),
+            left: 15 * scaleWidth(),
           },
         },
       },
@@ -253,10 +253,10 @@ const Scene08 = () => {
         character: {
           src: 'images/YellowChuose_03.svg',
           style: {
-            top: 377 * scaleHeight,
-            left: 112 * scaleWidth,
-            width: 166.05 * scaleWidth,
-            height: 169.11 * scaleHeight,
+            top: 377 * scaleHeight(),
+            left: 112 * scaleWidth(),
+            width: 166.05 * scaleWidth(),
+            height: 169.11 * scaleHeight(),
           },
         },
         friend: {
@@ -268,10 +268,10 @@ const Scene08 = () => {
         character: {
           src: 'images/YellowChuose_04.svg',
           style: {
-            top: 380 * scaleHeight,
-            left: 114 * scaleWidth,
-            width: 161.05 * scaleWidth,
-            height: 162.5 * scaleWidth,
+            top: 380 * scaleHeight(),
+            left: 114 * scaleWidth(),
+            width: 161.05 * scaleWidth(),
+            height: 162.5 * scaleWidth(),
           },
         },
       },
@@ -280,10 +280,10 @@ const Scene08 = () => {
         character: {
           src: 'images/YellowChuose_05.svg',
           style: {
-            top: 390 * scaleHeight,
-            left: 115 * scaleWidth,
-            width: 157.75 * scaleWidth,
-            height: 159.17 * scaleHeight,
+            top: 390 * scaleHeight(),
+            left: 115 * scaleWidth(),
+            width: 157.75 * scaleWidth(),
+            height: 159.17 * scaleHeight(),
           },
         },
       },
@@ -294,10 +294,10 @@ const Scene08 = () => {
         character: {
           src: 'images/YellowChuose_08.svg',
           style: {
-            width: 382 * scaleWidth,
-            height: 331.03 * scaleWidth,
-            top: 250 * scaleHeight,
-            left: -6 * scaleWidth,
+            width: 382 * scaleWidth(),
+            height: 331.03 * scaleWidth(),
+            top: 250 * scaleHeight(),
+            left: -6 * scaleWidth(),
             objectFit: 'cover',
           },
         },
@@ -307,10 +307,10 @@ const Scene08 = () => {
         character: {
           src: 'images/YellowChuose_07.svg',
           style: {
-            height: 137.91 * scaleWidth,
-            width: 132.54 * scaleWidth,
-            left: 131 * scaleHeight,
-            top: 391 * scaleWidth,
+            height: 137.91 * scaleWidth(),
+            width: 132.54 * scaleWidth(),
+            left: 131 * scaleHeight(),
+            top: 391 * scaleWidth(),
           },
         },
       },
@@ -319,10 +319,10 @@ const Scene08 = () => {
         character: {
           src: 'images/YellowChuose_01.svg',
           style: {
-            height: 137.91 * scaleWidth,
-            width: 132.54 * scaleWidth,
-            left: 137 * scaleHeight,
-            top: 398 * scaleWidth,
+            height: 137.91 * scaleWidth(),
+            width: 132.54 * scaleWidth(),
+            left: 137 * scaleHeight(),
+            top: 398 * scaleWidth(),
           },
         },
       },
@@ -388,8 +388,8 @@ const Scene08 = () => {
 
   const backgroundStyles = (scene) => {
     return {
-      width: 390 * scaleWidth,
-      height: 844 * scaleHeight,
+      width: 390 * scaleWidth(),
+      height: 844 * scaleHeight(),
       position: 'relative',
       overflow: 'hidden',
       transition: 'opacity ease-in-out 1s',
@@ -406,7 +406,7 @@ const Scene08 = () => {
   const buttonGroupStyle = (scene) => {
     return {
       position: 'absolute',
-      top: 225 * scaleWidth,
+      top: 225 * scaleWidth(),
     }
   }
 
@@ -415,8 +415,8 @@ const Scene08 = () => {
       position: 'absolute',
       top:
         phase === phaseEnum.firstPhase && scene >= 15
-          ? 171 * scaleWidth
-          : 206 * scaleWidth,
+          ? 171 * scaleWidth()
+          : 206 * scaleWidth(),
       fontSize: '18px',
       width: '100%',
       color: 'black',
@@ -432,14 +432,14 @@ const Scene08 = () => {
         <div style={buttonGroupStyle(scene)}>
           <button
             class="button-info"
-            style={{ marginTop: 10 * scaleHeight }}
+            style={{ marginTop: 10 * scaleHeight() }}
             onClick={() => shiftPhase(phaseEnum.secondPhase)}
           >
             เคย
           </button>
           <button
             class="button-info"
-            style={{ marginTop: 10 * scaleHeight }}
+            style={{ marginTop: 10 * scaleHeight() }}
             onClick={() => shiftPhase(phaseEnum.secondPhase)}
           >
             ไม่เคย
