@@ -130,8 +130,7 @@ const Scene10 = () => {
       },
     },
     15: {
-      message2: ' ',
-      messageInCloud: 'นั่นเป็นความผิดของฉันเองแหละ',
+      messageInCloud: sessionStorage.getItem('TEXT_Q2'),
     },
     16: {
       messageInCloud: '',
@@ -140,7 +139,7 @@ const Scene10 = () => {
       },
     },
     17: {
-      messageInCloud: 'คนอื่นต้องคิดว่าฉันมันแย่แน่ ๆ เลย',
+      messageInCloud: sessionStorage.getItem('TEXT_Q3'),
       messageInCloudStyle: {
         opacity: 1,
       },
