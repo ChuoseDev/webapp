@@ -103,13 +103,11 @@ const Level = () => {
   }
 
   const onClickNext = () => {
-    setTimeout(() => {
-      navigate('/scene14')
-    }, VIEW_CHANGING_DELAY_TIME)
+    navigate('/scene14')
   }
 
   const onClickEmergency = () => {
-    navigate('/emergency')
+    navigate('/emergency-contact')
   }
 
   return (
