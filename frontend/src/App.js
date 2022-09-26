@@ -19,7 +19,8 @@ import SceneWrapper from 'views/sceneWrapper/sceneWrapper'
 import EmergencyCall from 'views/emergencyCall/emergencyCall'
 import EndPage from 'views/endPage/endPage'
 import EmergencyContact from 'views/emergencyContact/emergencyContact'
-import Hospital from 'views/้hospitalInfo/hospitalInfo'
+import Hospital from 'views/้hospitalInfo/hospitalDistrict'
+import HospitalInfo from 'views/้hospitalInfo/hostpitalInfo'
 
 const App = () => {
   return (
@@ -34,6 +35,11 @@ const App = () => {
           ></Route>
           <Route exact path="/ending" element={<EndPage />}></Route>
           <Route exact path="/hospital" element={<Hospital />}></Route>
+          <Route
+            exact
+            path="/HospitalInfo/:id"
+            element={<HospitalInfo />}
+          ></Route>
           <Route
             exact
             path="/scene01"
