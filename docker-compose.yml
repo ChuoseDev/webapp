@@ -6,7 +6,7 @@ networks:
 
 services:
   backend:
-    build: ./backend
+    build: ./backend-python
     container_name: chuose_backend
     ports:
       - '4000:4000'

@@ -37,10 +37,15 @@ const Scene09 = () => {
     fourthPhase: 'fourthPhase',
     fifthPhase: 'fifthPhase',
     sixthPhase: 'sixthPhase',
+    seventhPhase: 'seventhPhase',
   }
 
   const [phase, setPhase] = useState(phaseEnum.firstPhase)
-  const [feeling, setFeeling] = useState('')
+  const [firstText, setFirstText] = useState('')
+  const [secondText, setSecondText] = useState('')
+  const [thirdText, setThirdText] = useState('')
+  const [fourthText, setFourthText] = useState('')
+  const [fifthText, setFifthText] = useState('')
   const navigate = useNavigate()
 
   const mapper = {
@@ -332,6 +337,31 @@ const Scene09 = () => {
       },
     },
     [phaseEnum.thirdPhase]: {
+      1: {
+        middleCloud: {
+          src: 'images/MiddleCloud09_10.svg',
+          style: {
+            transform: 'rotate(0deg)',
+            width: 461.58 * scaleWidth,
+            height: 206 * scaleHeight,
+            top: 295 * scaleHeight,
+            left: 13 * scaleWidth,
+          },
+        },
+        message: 'แล้วเธอคิดยังไงกับเรื่องนี้ล่ะ?',
+        character: {
+          src: 'images/Chuose09_10.svg',
+          style: {
+            transform: 'rotate(0deg)',
+            width: 157.75 * scaleWidth,
+            height: 159.17 * scaleHeight,
+            top: 474 * scaleHeight,
+            left: 123 * scaleWidth,
+          },
+        },
+      },
+    },
+    [phaseEnum.fourthPhase]: {
       2: {
         middleCloud: {
           src: 'images/MiddleCloud09_10.svg',
@@ -401,7 +431,7 @@ const Scene09 = () => {
         },
       },
     },
-    [phaseEnum.fourthPhase]: {
+    [phaseEnum.fifthPhase]: {
       1: {
         middleCloud: {
           src: 'images/MiddleCloud09_13.svg',
@@ -426,7 +456,7 @@ const Scene09 = () => {
         },
       },
     },
-    [phaseEnum.fifthPhase]: {
+    [phaseEnum.sixthPhase]: {
       1: {
         middleCloud: {
           src: 'images/MiddleCloud09_14.svg',
@@ -438,8 +468,7 @@ const Scene09 = () => {
             left: 19 * scaleWidth,
           },
         },
-        message:
-          'ฉันรับรู้ว่าเธอกำลัง..\nความคิด : [ข้อความ Q2]\nความรู้สึก : [ข้อความ Q3]\nพฤติกรรม : [ข้อความ Q4]',
+        message: 'ฉันรับรู้ว่าเธอกำลัง..',
         character: {
           src: 'images/Chuose09_09_1.svg',
           style: {
@@ -462,8 +491,7 @@ const Scene09 = () => {
             left: 19 * scaleWidth,
           },
         },
-        message:
-          'ฉันรับรู้ว่าเธอกำลัง..\nความคิด : [ข้อความ Q2]\nความรู้สึก : [ข้อความ Q3]\nพฤติกรรม : [ข้อความ Q4]',
+        message: 'ฉันรับรู้ว่าเธอกำลัง..',
         character: {
           src: 'images/Chuose09_09_1.svg',
           style: {
@@ -486,8 +514,7 @@ const Scene09 = () => {
             left: 26 * scaleWidth,
           },
         },
-        message:
-          'ฉันรับรู้ว่าเธอกำลัง..\nความคิด : [ข้อความ Q2]\nความรู้สึก : [ข้อความ Q3]\nพฤติกรรม : [ข้อความ Q4]',
+        message: 'ฉันรับรู้ว่าเธอกำลัง..',
         character: {
           src: 'images/Chuose09_09_1.svg',
           style: {
@@ -499,7 +526,9 @@ const Scene09 = () => {
           },
         },
       },
-      4: {
+    },
+    [phaseEnum.seventhPhase]: {
+      1: {
         middleCloud: {
           src: 'images/MiddleCloud10_01.svg',
           style: {
@@ -522,7 +551,7 @@ const Scene09 = () => {
           },
         },
       },
-      5: {
+      2: {
         middleCloud: {
           src: 'images/MiddleCloud10_02.svg',
           style: {
@@ -545,7 +574,7 @@ const Scene09 = () => {
           },
         },
       },
-      6: {
+      3: {
         middleCloud: {
           src: 'images/MiddleCloud10_03.svg',
           style: {
@@ -568,7 +597,7 @@ const Scene09 = () => {
           },
         },
       },
-      7: {
+      4: {
         middleCloud: {
           src: 'images/MiddleCloud10_04.svg',
           style: {
@@ -591,7 +620,7 @@ const Scene09 = () => {
           },
         },
       },
-      8: {
+      5: {
         middleCloud: {
           style: {
             opacity: 0,
@@ -609,7 +638,7 @@ const Scene09 = () => {
           },
         },
       },
-      9: {
+      6: {
         message: 'เมฆก้อนดำก็กลืนกินฉันไป',
         character: {
           src: 'images/ChuoseCloud10_06.svg',
@@ -622,7 +651,7 @@ const Scene09 = () => {
           },
         },
       },
-      10: {
+      7: {
         message: 'เมฆก้อนดำก็กลืนกินฉันไป',
         character: {
           src: 'images/ChuoseCloud10_07.svg',
@@ -635,7 +664,7 @@ const Scene09 = () => {
           },
         },
       },
-      11: {
+      8: {
         message: 'เมฆก้อนดำก็กลืนกินฉันไป',
         character: {
           src: 'images/ChuoseCloud10_08.svg',
@@ -648,7 +677,7 @@ const Scene09 = () => {
           },
         },
       },
-      12: {
+      9: {
         message: 'เมฆก้อนดำก็กลืนกินฉันไป',
         character: {
           src: 'images/ChuoseCloud10_08.svg',
@@ -661,7 +690,7 @@ const Scene09 = () => {
           },
         },
       },
-      13: {
+      10: {
         message: '...',
         character: {
           src: 'images/ChuoseCloud10_10.svg',
@@ -674,7 +703,7 @@ const Scene09 = () => {
           },
         },
       },
-      14: {
+      11: {
         message: 'บางครั้ง...เธอเคยรู้สึกมั้ย?',
         character: {
           src: 'images/ChuoseCloud11_01.svg',
@@ -687,7 +716,7 @@ const Scene09 = () => {
           },
         },
       },
-      15: {
+      12: {
         message: '“ว่าความคิดในหัวกำลังบั่นทอนเธออยู่”',
         character: {
           src: 'images/ChuoseCloud11_02.svg',
@@ -700,7 +729,7 @@ const Scene09 = () => {
           },
         },
       },
-      16: {
+      13: {
         message: '“ว่าความคิดในหัวกำลังบั่นทอนเธออยู่”',
         character: {
           src: 'images/ChuoseCloud11_03.svg',
@@ -713,7 +742,7 @@ const Scene09 = () => {
           },
         },
       },
-      17: {
+      14: {
         message: '“ว่าความคิดในหัวกำลังบั่นทอนเธออยู่”',
         character: {
           src: 'images/ChuoseCloud11_04.svg',
@@ -726,7 +755,7 @@ const Scene09 = () => {
           },
         },
       },
-      18: {
+      15: {
         message: '“ว่าความคิดในหัวกำลังบั่นทอนเธออยู่”',
         character: {
           src: 'images/ChuoseCloud11_05.svg',
@@ -739,7 +768,7 @@ const Scene09 = () => {
           },
         },
       },
-      19: {
+      16: {
         message: ' ',
         character: {
           style: {
@@ -747,8 +776,8 @@ const Scene09 = () => {
           },
         },
       },
-      20: {},
-      21: {},
+      17: {},
+      18: {},
     },
   }
 
@@ -807,7 +836,6 @@ const Scene09 = () => {
   }, [scene])
 
   const shiftPhase = (phase) => {
-    console.log(feeling)
     setScene(1)
     setPhase(phase)
   }
@@ -870,7 +898,18 @@ const Scene09 = () => {
             : backgroundStyles(scene)
         }
       >
-        <p style={messageStyle(scene)}>{message}</p>
+        <p style={messageStyle(scene)}>
+          {message}
+          {phase === phaseEnum.sixthPhase && (
+            <div style={{ fontSize: '18px', width: '100%', color: 'black' }}>
+              {`ความคิด : ${thirdText}`}
+              <br />
+              {`ความรู้สึก : ${fourthText}`}
+              <br />
+              {`พฤติกรรม : ${fifthText}`}
+            </div>
+          )}
+        </p>
         {scene >= 1 && scene <= 18 && (
           <div>
             <BottomCloud ttl={15 * SCENE09_SHIFT_TIME} />
@@ -944,8 +983,8 @@ const Scene09 = () => {
             <textarea
               id="feeling-textarea"
               style={{ ...textboxStyle(scene) }}
-              value={feeling}
-              onChange={(e) => setFeeling(e.target.value)}
+              value={firstText}
+              onChange={(e) => setFirstText(e.target.value)}
             ></textarea>
             <button
               class="button-info"
@@ -966,8 +1005,8 @@ const Scene09 = () => {
             <textarea
               id="feeling-textarea"
               style={{ ...textboxStyle(scene) }}
-              value={feeling}
-              onChange={(e) => setFeeling(e.target.value)}
+              value={secondText}
+              onChange={(e) => setSecondText(e.target.value)}
             ></textarea>
             <button
               class="button-info"
@@ -987,8 +1026,8 @@ const Scene09 = () => {
             <textarea
               id="feeling-textarea"
               style={{ ...textboxStyle(scene) }}
-              value={feeling}
-              onChange={(e) => setFeeling(e.target.value)}
+              value={thirdText}
+              onChange={(e) => setThirdText(e.target.value)}
             ></textarea>
             <button
               class="button-info"
@@ -1003,13 +1042,13 @@ const Scene09 = () => {
             </button>
           </div>
         )}
-        {phase === phaseEnum.fourthPhase && (
+        {phase === phaseEnum.fourthPhase && scene >= 4 && (
           <div>
             <textarea
               id="feeling-textarea"
               style={{ ...textboxStyle(scene) }}
-              value={feeling}
-              onChange={(e) => setFeeling(e.target.value)}
+              value={fourthText}
+              onChange={(e) => setFourthText(e.target.value)}
             ></textarea>
             <button
               class="button-info"
@@ -1019,6 +1058,42 @@ const Scene09 = () => {
                 position: 'absolute',
               }}
               onClick={() => shiftPhase(phaseEnum.fifthPhase)}
+            >
+              ไปต่อ
+            </button>
+          </div>
+        )}
+        {phase === phaseEnum.fifthPhase && (
+          <div>
+            <textarea
+              id="feeling-textarea"
+              style={{ ...textboxStyle(scene) }}
+              value={fifthText}
+              onChange={(e) => setFifthText(e.target.value)}
+            ></textarea>
+            <button
+              class="button-info"
+              style={{
+                top: 713 * scaleHeight,
+                left: 73 * scaleWidth,
+                position: 'absolute',
+              }}
+              onClick={() => shiftPhase(phaseEnum.sixthPhase)}
+            >
+              ไปต่อ
+            </button>
+          </div>
+        )}
+        {phase === phaseEnum.sixthPhase && (
+          <div>
+            <button
+              class="button-info"
+              style={{
+                top: 713 * scaleHeight,
+                left: 73 * scaleWidth,
+                position: 'absolute',
+              }}
+              onClick={() => shiftPhase(phaseEnum.seventhPhase)}
             >
               ไปต่อ
             </button>
