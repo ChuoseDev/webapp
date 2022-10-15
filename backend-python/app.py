@@ -94,55 +94,6 @@ def prepare_transformer(vectorCount, tf_transformer):
     return vectorCount, tf_transformer
 
 
-def findMaxArray(fma):
-    maxlen = 0
-    for mi in range(len(fma)):
-        nA = len(fma[mi])
-        if nA > maxlen:
-            maxlen = nA
-    return maxlen
-
-
-def fill0in(f0i):
-    fMax = findMaxArray(f0i)
-    for fi, ax in enumerate(f0i):
-        if len(ax) < fMax:
-            f0i[fi] = np.hstack((ax, np.zeros(fMax-len(ax))))
-        f0i1 = np.array(f0i)
-    return f0i1
-
-
-def convWord(cw):
-    cWord = cw
-    for ti in range(len(cWord)):
-        if cWord[ti] == ' ':
-            cWord[ti] = ''
-        elif cWord[ti] not in thVocab:
-            cWord[ti] = ''
-    return cWord
-
-
-def tokenWord(wordTarget):
-    wordToken = word_tokenize(wordTarget, engine='attacut')
-    return wordToken
-
-
-def token2index(t2idx):
-    w2index = []
-    for wi in range(len(t2idx)):
-        if t2idx[wi] in thVocab:
-            w2index.append(thVocab.index(t2idx[wi]))
-    return np.array(w2index)
-
-
-def prepare2train(ipt):
-    pre2t = []
-    for pidx in range(len(ipt)):
-        wp1 = ipt[pidx]
-        pre2t.append(token2index(convWord(tokenWord(wp1))))
-    return pre2t
-
-
 def get_label(tweet):
     input = pd.Series([tweet])
     testVecCount = vectorCount.transform(input)
@@ -164,8 +115,62 @@ def contain_fields(js):
     return True
 
 
+########## (BEGIN) THESE FUNCTIONS WERE USED IN LSTM MODEL (BEGIN) ##########
+
+def findMaxArrayLen(vectorArray):
+    maxlen = 0
+    for index in range(len(vectorArray)):
+        arrayLen = len(vectorArray[index])
+        if arrayLen > maxlen:
+            maxlen = arrayLen
+    return maxlen
+
+
+def fill0in(vectorArray):
+    maxArrayLen = findMaxArrayLen(vectorArray)
+    for index, arrayValue in enumerate(vectorArray):
+        if len(arrayValue) < maxArrayLen:
+            vectorArray[index] = np.hstack(
+                (arrayValue, np.zeros(maxArrayLen-len(arrayValue))))
+        vectorResult = np.array(vectorArray)
+    return vectorResult
+
+
+def convWord(cw):
+    cWord = cw
+    for ti in range(len(cWord)):
+        if cWord[ti] == ' ':
+            cWord[ti] = ''
+        elif cWord[ti] not in thVocab:
+            cWord[ti] = ''
+    return cWord
+
+
+def tokenizeWord(wordTarget):
+    wordToken = word_tokenize(wordTarget, engine='attacut')
+    return wordToken
+
+
+def token2index(tokenVector):
+    wordVector = []
+    for wordIndex in range(len(tokenVector)):
+        if tokenVector[wordIndex] in thVocab:
+            wordVector.append(thVocab.index(tokenVector[wordIndex]))
+    return np.array(wordVector)
+
+
+def prepare2train(inputTextList):
+    pretrainList = []
+    for index in range(len(inputTextList)):
+        text = inputTextList[index]
+        pretrainList.append(token2index(convWord(tokenizeWord(text))))
+    return pretrainList
+
+
 def getLabelLSTM(text_list):
     return str(np.argmax(lstmModel.predict(fill0in(prepare2train(text_list)))))
+
+########## (END) THESE FUNCTIONS WERE USED IN LSTM MODEL (END) ##########
 
 
 @app.route('/')
