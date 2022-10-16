@@ -1,9 +1,8 @@
 import { useNavigate } from 'react-router'
+import { scaleWidth, scaleHeight } from 'utils/constant'
 
 const EmergencyButton = () => {
-  const scaleWidth = window.screen.width / 390
-  const scaleHeight = window.screen.height / 844
-  const scaleMean = (scaleWidth + scaleHeight) / 2
+  const scaleMean = (scaleWidth() + scaleHeight()) / 2
   const navigate = useNavigate()
   return (
     <img
@@ -11,13 +10,13 @@ const EmergencyButton = () => {
       alt="emergency_button"
       style={{
         position: 'absolute',
-        left: scaleWidth * 336,
-        top: scaleHeight * 785,
+        left: scaleWidth() * 336,
+        top: scaleHeight() * 785,
         width: 43 * scaleMean,
         height: 43 * scaleMean,
       }}
       onClick={() => {
-        navigate('/emergency')
+        navigate('/emergency-contact')
       }}
     />
   )

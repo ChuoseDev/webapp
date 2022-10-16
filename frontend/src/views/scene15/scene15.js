@@ -10,7 +10,7 @@ const Scene15 = () => {
   const [message, setMessage] = useState('')
   const [openDoorStyle, setOpenDoorStyle] = useState({})
   const navigate = useNavigate()
-  const userSpeechToThemselves = 'asdada'
+  const userSpeechToThemselves = sessionStorage.getItem('TEXT_Q2')
 
   const mapper = {
     5: {

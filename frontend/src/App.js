@@ -17,17 +17,24 @@ import Scene14 from 'views/scene14/scene14'
 import Scene15 from 'views/scene15/scene15'
 import Level from 'views/level/level'
 import SceneWrapper from 'views/sceneWrapper/sceneWrapper'
-import EmergencyCall from 'views/emergencyCall/emergencyCall'
 import EndPage from 'views/endPage/endPage'
 import EmergencyContact from 'views/emergencyContact/emergencyContact'
+import Analyse from 'views/analyse/analyse'
+import Startup from 'views/startup/startup'
+import Consent from 'views/consent/consent'
 
 const App = () => {
   return (
     <div className="App">
       <BrowserRouter>
         <Switch>
-          <Route exact path="/emergency" element={<EmergencyCall />}></Route>
-          <Route exact path="/emergency-contact" element={<EmergencyContact />}></Route>
+          <Route exact path="/" element={<Startup />}></Route>
+          <Route exact path="/consent" element={<Consent />}></Route>
+          <Route
+            exact
+            path="/emergency-contact"
+            element={<EmergencyContact />}
+          ></Route>
           <Route exact path="/ending" element={<EndPage />}></Route>
           <Route
             exact
@@ -161,6 +168,15 @@ const App = () => {
             element={
               <SceneWrapper>
                 <Scene15 />
+              </SceneWrapper>
+            }
+          ></Route>
+          <Route
+            exact
+            path="/analyse"
+            element={
+              <SceneWrapper>
+                <Analyse />
               </SceneWrapper>
             }
           ></Route>

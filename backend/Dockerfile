@@ -1,16 +1,11 @@
 FROM python:3.9
 
-WORKDIR /code
+WORKDIR /app
 
-ENV FLASK_APP=app.py
-ENV FLASK_RUN_HOST=0.0.0.0
+COPY requirements.txt /app/requirements.txt
 
-COPY requirements.txt requirements.txt
+RUN pip3 install -r requirements.txt
 
-RUN pip install --upgrade pip; \
-    pip install -r requirements.txt
+COPY . /app
 
-EXPOSE 5000
-
-COPY . .
-CMD ["flask", "run"]
+CMD [ "python3", "app.py"]

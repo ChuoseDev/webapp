@@ -3,49 +3,48 @@ import { useEffect, useState } from 'react'
 import TopCloud from 'components/topCloud/topCloud'
 import BottomCloud from 'components/bottomCloud/bottomCloud'
 import { SCENE12_SHIFT_TIME } from 'utils/constant'
+import { scaleWidth, scaleHeight } from 'utils/constant'
 
 const Scene12 = () => {
-  const scaleHeight = window.screen.height / 844
-  const scaleWidth = window.screen.width / 390
   const [scene, setScene] = useState(1)
   const [message, setMessage] = useState('')
   const [characterStyle, setCharacterStyle] = useState({
     position: 'absolute',
-    width: 161.05 * scaleWidth,
-    height: 162.5 * scaleHeight,
-    top: 470 * scaleHeight,
-    left: 114 * scaleWidth,
+    width: 161.05 * scaleWidth(),
+    height: 162.5 * scaleHeight(),
+    top: 470 * scaleHeight(),
+    left: 114 * scaleWidth(),
   })
   const [characterSrc, setCharacterSrc] = useState('images/ChuoseShadow_01.svg')
   const [projection, setProjection] = useState('images/ProjectionShadow_01.svg')
   const [thunderStyle, setThunderStyle] = useState({
     position: 'absolute',
-    top: 282 * scaleHeight,
-    left: 239.61 * scaleWidth,
-    width: 24.5 * scaleWidth,
-    height: 60.5747 * scaleHeight,
+    top: 282 * scaleHeight(),
+    left: 239.61 * scaleWidth(),
+    width: 24.5 * scaleWidth(),
+    height: 60.5747 * scaleHeight(),
     zIndex: 2,
   })
   const [projectionStyle, setProjectionStyle] = useState({
     position: 'absolute',
-    top: 337.5 * scaleHeight,
-    left: 75.18 * scaleWidth,
-    width: 242.34 * scaleWidth,
-    height: 327 * scaleHeight,
+    top: 337.5 * scaleHeight(),
+    left: 75.18 * scaleWidth(),
+    width: 242.34 * scaleWidth(),
+    height: 327 * scaleHeight(),
   })
   const [shadowStyle, setShadowStyle] = useState({
     position: 'absolute',
-    top: 615 * scaleHeight,
-    left: 76 * scaleWidth,
-    width: 241 * scaleWidth,
-    height: 50 * scaleHeight,
+    top: 615 * scaleHeight(),
+    left: 76 * scaleWidth(),
+    width: 241 * scaleWidth(),
+    height: 50 * scaleHeight(),
   })
   const [blackCloudStyle, setBlackCloudStyle] = useState({
     position: 'absolute',
-    top: 297 * scaleHeight,
-    left: 64 * scaleWidth,
-    width: 262.23 * scaleWidth,
-    height: 136.55 * scaleHeight,
+    top: 297 * scaleHeight(),
+    left: 64 * scaleWidth(),
+    width: 262.23 * scaleWidth(),
+    height: 136.55 * scaleHeight(),
     zIndex: 1,
   })
 
@@ -65,10 +64,10 @@ const Scene12 = () => {
         character: {
           style: {
             transform: 'rotate(0deg)',
-            width: 161.05 * scaleWidth,
-            height: 162.5 * scaleHeight,
-            top: 470 * scaleHeight,
-            left: 114 * scaleWidth,
+            width: 161.05 * scaleWidth(),
+            height: 162.5 * scaleHeight(),
+            top: 470 * scaleHeight(),
+            left: 114 * scaleWidth(),
           },
         },
       },
@@ -77,8 +76,8 @@ const Scene12 = () => {
           src: 'images/ChuoseShadow_02.svg',
         },
         thunderStyle: {
-          top: 369 * scaleHeight,
-          left: 104.61 * scaleWidth,
+          top: 369 * scaleHeight(),
+          left: 104.61 * scaleWidth(),
         },
       },
       6: {
@@ -86,8 +85,8 @@ const Scene12 = () => {
           src: 'images/ChuoseShadow_01.svg',
         },
         thunderStyle: {
-          top: 297 * scaleHeight,
-          left: 252.61 * scaleWidth,
+          top: 297 * scaleHeight(),
+          left: 252.61 * scaleWidth(),
         },
       },
       7: {
@@ -100,7 +99,7 @@ const Scene12 = () => {
         projection: {
           src: 'images/ProjectionShadow_02.svg',
           style: {
-            height: 229 * scaleHeight,
+            height: 229 * scaleHeight(),
           },
         },
       },
@@ -108,14 +107,14 @@ const Scene12 = () => {
         character: {
           src: 'images/ChuoseShadow_03.svg',
           style: {
-            height: 169.37 * scaleHeight,
-            top: 461 * scaleHeight,
+            height: 169.37 * scaleHeight(),
+            top: 461 * scaleHeight(),
           },
         },
         projection: {
           src: 'images/ProjectionShadow_03.svg',
           style: {
-            height: 169 * scaleHeight,
+            height: 169 * scaleHeight(),
           },
         },
       },
@@ -124,8 +123,8 @@ const Scene12 = () => {
         character: {
           src: 'images/ChuoseShadow_04.svg',
           style: {
-            height: 171.77 * scaleHeight,
-            left: 115 * scaleWidth,
+            height: 171.77 * scaleHeight(),
+            left: 115 * scaleWidth(),
           },
         },
         projection: {
@@ -138,36 +137,36 @@ const Scene12 = () => {
         character: {
           src: 'images/ChuoseShadow_05.svg',
           style: {
-            height: 181 * scaleHeight,
-            top: 479 * scaleHeight,
-            left: 114 * scaleWidth,
+            height: 181 * scaleHeight(),
+            top: 479 * scaleHeight(),
+            left: 114 * scaleWidth(),
           },
         },
         shadowStyle: {
-          top: 596 * scaleHeight,
-          left: 96 * scaleWidth,
-          width: 198 * scaleWidth,
-          height: 39 * scaleHeight,
+          top: 596 * scaleHeight(),
+          left: 96 * scaleWidth(),
+          width: 198 * scaleWidth(),
+          height: 39 * scaleHeight(),
         },
         blackCloudStyle: {
-          left: 90 * scaleWidth,
-          width: 210 * scaleWidth,
-          height: 109.36 * scaleHeight,
+          left: 90 * scaleWidth(),
+          width: 210 * scaleWidth(),
+          height: 109.36 * scaleHeight(),
         },
       },
       12: {
         character: {
           style: {
-            top: 499 * scaleHeight,
-            left: 109 * scaleWidth,
-            width: 172.62 * scaleWidth,
-            height: 194 * scaleHeight,
+            top: 499 * scaleHeight(),
+            left: 109 * scaleWidth(),
+            width: 172.62 * scaleWidth(),
+            height: 194 * scaleHeight(),
           },
         },
         blackCloudStyle: {
-          left: 103 * scaleWidth,
-          width: 185 * scaleWidth,
-          height: 96.34 * scaleHeight,
+          left: 103 * scaleWidth(),
+          width: 185 * scaleWidth(),
+          height: 96.34 * scaleHeight(),
         },
         shadowStyle: {
           opacity: 0,
@@ -274,8 +273,8 @@ const Scene12 = () => {
 
   const backgroundStyles = (scene) => {
     return {
-      width: 390 * scaleWidth,
-      height: 844 * scaleHeight,
+      width: 390 * scaleWidth(),
+      height: 844 * scaleHeight(),
       position: 'relative',
       transition: 'opacity ease-in-out 1s',
       background:
@@ -285,7 +284,7 @@ const Scene12 = () => {
   const messageStyle = (scene) => {
     return {
       position: 'absolute',
-      top: 232 * scaleWidth,
+      top: 232 * scaleWidth(),
       fontSize: '18px',
       width: '100%',
       color: 'black',
@@ -295,14 +294,15 @@ const Scene12 = () => {
     return {
       position: 'absolute',
       display: 'flex',
-      width: 317 * scaleWidth,
-      height: 110 * scaleHeight,
+      width: 317 * scaleWidth(),
+      height: 110 * scaleHeight(),
       left: '50%',
       transform: 'translate(-50%, 0)',
-      top: 300 * scaleWidth,
+      top: 300 * scaleWidth(),
       background: 'rgba(255, 255, 255, 0.9)',
       boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
       borderStyle: 'none',
+      zIndex: 3,
     }
   }
   return (
@@ -347,8 +347,8 @@ const Scene12 = () => {
             <button
               class="button-info"
               style={{
-                top: 497 * scaleHeight,
-                left: 71 * scaleWidth,
+                top: 497 * scaleHeight(),
+                left: 71 * scaleWidth(),
                 position: 'absolute',
               }}
               onClick={() => shiftPhase(phaseEnum.secondPhase)}

@@ -1,10 +1,9 @@
 backend/node_modules/
 backend/.env
-
-backend-python/.env
-backend-python/config-files
+backend/__pycache__
 
 frontend/node_modules/
+frontend/.env
 yarn.lock
 
 SVMSMCT_Kfold1.joblib

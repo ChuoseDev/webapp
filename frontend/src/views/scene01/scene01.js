@@ -4,11 +4,10 @@ import Star from 'components/star/star'
 import TopCloud from 'components/topCloud/topCloud'
 import BottomCloud from 'components/bottomCloud/bottomCloud'
 import { SCENE01_SHIFT_TIME, VIEW_CHANGING_DELAY_TIME } from 'utils/constant'
+import { scaleWidth, scaleHeight } from 'utils/constant'
 
 const Scene01 = () => {
   const [scene, setScene] = useState(1)
-  const scaleWidth = window.screen.width / 390
-  const scaleHeight = window.screen.height / 844
   const navigate = useNavigate()
   const totalScene = 24
 
@@ -45,8 +44,8 @@ const Scene01 = () => {
     const sizeScale = Math.pow(1.1, scene - 1)
     return {
       position: 'absolute',
-      left: `${(190 - 97 * sizeScale) * scaleWidth}px`,
-      top: `${260 * scaleHeight}px`,
+      left: `${(190 - 97 * sizeScale) * scaleWidth()}px`,
+      top: `${260 * scaleHeight()}px`,
       width: `${sizeScale * 203}px`,
       height: `${sizeScale * 243}px`,
       transition: '0s',
@@ -55,10 +54,10 @@ const Scene01 = () => {
 
   const characterWithHandStyle = (scene) => {
     const sizeScale = scene <= 10 ? Math.pow(1.1, scene - 6) : Math.pow(1.1, 5)
-    const top = 260 * scaleHeight + (scene > 9 ? 30 : 0)
+    const top = 260 * scaleHeight() + (scene > 9 ? 30 : 0)
     return {
       position: 'absolute',
-      left: `${(190 - 175 * sizeScale) * scaleWidth}px`,
+      left: `${(190 - 175 * sizeScale) * scaleWidth()}px`,
       top: `${top}px`,
       width: `${sizeScale * 361}px`,
       height: `${sizeScale * 406}px`,
@@ -71,10 +70,10 @@ const Scene01 = () => {
     const colorNumber = (255 * scene) / 8
     return {
       position: 'absolute',
-      top: `${(scene >= 12 ? 190 : 0) + 180 * scaleHeight}px`,
+      top: `${(scene >= 12 ? 190 : 0) + 180 * scaleHeight()}px`,
       opacity: `${scene >= 15 ? 0 : 1}`,
       color: `rgba(${colorNumber}, ${colorNumber}, ${colorNumber}, 1)`,
-      fontSize: `${18 * scaleWidth}px`,
+      fontSize: `${18 * scaleWidth()}px`,
       width: `${window.screen.width}px`,
       textAlign: 'center',
       transition: '1s',

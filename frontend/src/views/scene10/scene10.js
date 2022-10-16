@@ -4,11 +4,10 @@ import './scene10.css'
 import { SCENE10_SHIFT_TIME } from 'utils/constant'
 import CardSlider from 'components/cardSlider/cardSlider'
 import { WhiteButton } from 'components/commons/commons'
+import { scaleWidth, scaleHeight } from 'utils/constant'
 
 const Scene10 = () => {
-  const scaleHeight = window.screen.height / 844
-  const scaleWidth = window.screen.width / 390
-  const scaleMean = (scaleHeight + scaleWidth) / 2
+  const scaleMean = (scaleHeight() + scaleWidth()) / 2
   const [scene, setScene] = useState(1)
   const [message, setMessage] = useState('')
   const [message2, setMessage2] = useState('')
@@ -131,8 +130,7 @@ const Scene10 = () => {
       },
     },
     15: {
-      message2: ' ',
-      messageInCloud: 'นั่นเป็นความผิดของฉันเองแหละ',
+      messageInCloud: sessionStorage.getItem('TEXT_Q2'),
     },
     16: {
       messageInCloud: '',
@@ -141,7 +139,7 @@ const Scene10 = () => {
       },
     },
     17: {
-      messageInCloud: 'คนอื่นต้องคิดว่าฉันมันแย่แน่ ๆ เลย',
+      messageInCloud: sessionStorage.getItem('TEXT_Q3'),
       messageInCloudStyle: {
         opacity: 1,
       },
@@ -319,8 +317,8 @@ const Scene10 = () => {
             top: '85%',
             left: '50%',
             transform: 'translate(-50%, -50%)',
-            width: 243 * scaleWidth,
-            height: 46 * scaleHeight,
+            width: 243 * scaleWidth(),
+            height: 46 * scaleHeight(),
             // opacity: scene === 4 ? 1 : 0,
             transition: 'ease-in-out 0.5s',
           }}
@@ -328,7 +326,7 @@ const Scene10 = () => {
             <p
               style={{
                 margin: 0,
-                fontSize: 24 * scaleHeight,
+                fontSize: 24 * scaleHeight(),
                 fontWeight: 'bold',
               }}
             >
