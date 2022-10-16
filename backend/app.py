@@ -41,4 +41,4 @@ def insert():
 
 if __name__ == '__main__':
     # vectorCount, tf_transformer = prepare_transformer(vectorCount=vectorCount, tf_transformer=tf_transformer)
-    app.run(debug=True, port=4000)
+    app.run(debug=True, port=5000)
