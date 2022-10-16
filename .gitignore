@@ -5,3 +5,6 @@ backend/__pycache__
 frontend/node_modules/
 frontend/.env
 yarn.lock
+
+SVMSMCT_Kfold1.joblib
+LSTM_128n64n32e1000_K1.h5

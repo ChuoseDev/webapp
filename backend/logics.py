@@ -37,15 +37,6 @@ def get_cleaned_text(text):
     text = correct(text)
     return text
 
-### Model Prediction ###
-#def setup_model():
-    # model = sdksadlsaa
-    # return model
-
-# def get_prediction(input):
-    # return model.predict(input)
-
-
 ### Dynamo DB ###
 import requests
 import datetime
@@ -76,3 +67,81 @@ def save_to_dynamo(age, gender, txt_input, lvl):
     except requests.exceptions.RequestException as e:
         logging.error(f'apl_id:f{apl_id} request is error' + e)
     return
+
+### Model Prediction ###
+import pandas as pd
+import numpy as np
+from pythainlp import word_tokenize
+from pythainlp import word_vector
+import tensorflow
+
+model_lstm_path = os.getenv('MODEL_LSTM_PATH')
+if model_lstm_path != None and os.path.exists(model_lstm_path):
+    lstmModel = tensorflow.keras.models.load_model(model_lstm_path)
+else:
+    logging.exception(
+        f'are not exist or there are no file corresponding to path: MODEL_LSTM_PATH={model_lstm_path} of environment variable')
+    exit()
+
+wModel = word_vector.core.get_model()
+thai2dict = {}
+for word in wModel.index_to_key:
+    thai2dict[word] = wModel[word]
+thai2vec = pd.DataFrame.from_dict(thai2dict, orient='index')
+thVocab = thai2vec.index.to_list()
+
+
+def findMaxArrayLen(vectorArray):
+    maxlen = 0
+    for index in range(len(vectorArray)):
+        arrayLen = len(vectorArray[index])
+        if arrayLen > maxlen:
+            maxlen = arrayLen
+    return maxlen
+
+
+def fill0in(vectorArray):
+    maxArrayLen = findMaxArrayLen(vectorArray)
+    for index, arrayValue in enumerate(vectorArray):
+        if len(arrayValue) < maxArrayLen:
+            vectorArray[index] = np.hstack(
+                (arrayValue, np.zeros(maxArrayLen-len(arrayValue))))
+        vectorResult = np.array(vectorArray)
+    return vectorResult
+
+
+def convWord(cw):
+    cWord = cw
+    for ti in range(len(cWord)):
+        if cWord[ti] == ' ':
+            cWord[ti] = ''
+        elif cWord[ti] not in thVocab:
+            cWord[ti] = ''
+    return cWord
+
+
+def tokenizeWord(wordTarget):
+    wordToken = word_tokenize(wordTarget, engine='attacut')
+    return wordToken
+
+
+def token2index(tokenVector):
+    wordVector = []
+    for wordIndex in range(len(tokenVector)):
+        if tokenVector[wordIndex] in thVocab:
+            wordVector.append(thVocab.index(tokenVector[wordIndex]))
+    return np.array(wordVector)
+
+
+def prepare2train(inputTextList):
+    pretrainList = []
+    for index in range(len(inputTextList)):
+        text = inputTextList[index]
+        pretrainList.append(token2index(convWord(tokenizeWord(text))))
+    return pretrainList
+
+
+def get_label(text_list):
+    return str(np.argmax(lstmModel.predict(fill0in(prepare2train(text_list)))))
+
+########## (END) THESE FUNCTIONS WERE USED IN LSTM MODEL (END) ##########
