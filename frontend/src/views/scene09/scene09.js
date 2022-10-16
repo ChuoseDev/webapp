@@ -431,7 +431,7 @@ const Scene09 = () => {
         },
       },
     },
-    [phaseEnum.sixthPhase]: {
+    [phaseEnum.fifthPhase]: {
       1: {
         middleCloud: {
           src: 'images/MiddleCloud09_13.svg',
@@ -677,7 +677,7 @@ const Scene09 = () => {
           },
         },
       },
-      6: {
+      9: {
         message: 'เมฆก้อนดำก็กลืนกินฉันไป',
         character: {
           src: 'images/ChuoseCloud10_08.svg',
@@ -755,7 +755,7 @@ const Scene09 = () => {
           },
         },
       },
-      12: {
+      15: {
         message: '“ว่าความคิดในหัวกำลังบั่นทอนเธออยู่”',
         character: {
           src: 'images/ChuoseCloud11_05.svg',
