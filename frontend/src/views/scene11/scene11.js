@@ -243,7 +243,7 @@ const Scene11 = () => {
   }
   const onClickStart = () => {
     setTimeout(() => {
-      window.location.href = '/scene12'
+      navigate('/scene12')
     }, 1500)
   }
 

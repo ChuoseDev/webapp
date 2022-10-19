@@ -178,7 +178,7 @@ const App = () => {
             path="/scene16"
             element={
               <SceneWrapper>
-                <Scene15 />
+                <Scene16 />
               </SceneWrapper>
             }
           ></Route>
