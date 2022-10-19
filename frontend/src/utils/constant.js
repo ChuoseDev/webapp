@@ -16,7 +16,7 @@ export const SCENE11_SHIFT_TIME = 1000
 export const SCENE12_SHIFT_TIME = 1500
 export const SCENE13_SHIFT_TIME = 1000
 export const SCENE14_SHIFT_TIME = 750
-export const SCENE15_SHIFT_TIME = 1500
+export const SCENE15_SHIFT_TIME = 100
 export const ANALYSE_SHIFT_TIME = 1000
 
 // components scene shifter interval time
@@ -31,4 +31,12 @@ export const scaleWidth = () => {
 
 export const scaleHeight = () => {
   return window.screen.height / 844
+}
+
+export const scaleMean = () => {
+  return (scaleWidth() + scaleHeight()) / 2
+}
+
+export const meanSizeHeight = () => {
+  return scaleMean() * 844
 }

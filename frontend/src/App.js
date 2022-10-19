@@ -22,6 +22,7 @@ import EmergencyContact from 'views/emergencyContact/emergencyContact'
 import Analyse from 'views/analyse/analyse'
 import Startup from 'views/startup/startup'
 import Consent from 'views/consent/consent'
+import Random from 'views/random/random'
 
 const App = () => {
   return (
@@ -186,6 +187,15 @@ const App = () => {
             element={
               <SceneWrapper>
                 <Level />
+              </SceneWrapper>
+            }
+          ></Route>
+          <Route
+            exact
+            path="/random"
+            element={
+              <SceneWrapper>
+                <Random />
               </SceneWrapper>
             }
           ></Route>
