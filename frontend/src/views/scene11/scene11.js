@@ -1,287 +1,180 @@
 import { useNavigate } from 'react-router'
 import { useEffect, useState } from 'react'
-import Star from 'components/star/star'
+import './scene11.css'
 import { SCENE11_SHIFT_TIME } from 'utils/constant'
+import CardSlider from 'components/cardSlider/cardSlider'
+import { WhiteButton } from 'components/commons/commons'
+import { scaleWidth, scaleHeight } from 'utils/constant'
 
 const Scene11 = () => {
+  const scaleMean = (scaleHeight() + scaleWidth()) / 2
   const [scene, setScene] = useState(1)
   const [message, setMessage] = useState('')
-  const [story, setStory] = useState('')
-  const [innerBtmCloudStyle, setInnerBtmCloudStyle] = useState({})
-  const [outerBtmCloudStyle, setOuterBtmCloudStyle] = useState({})
-  const [innerTopCloudStyle, setInnerTopCloudStyle] = useState({})
-  const [outerTopCloudStyle, setOuterTopCloudStyle] = useState({})
-  const [image, setImage] = useState('images/char_11_01.svg')
-  const [characterStyle, setCharacterStyle] = useState({
-    top: '50%',
+  const [message2, setMessage2] = useState('')
+  const [message3, setMessage3] = useState('')
+  const [message4, setMessage4] = useState('')
+  const [messageStyle, setMessageStyle] = useState({
+    position: 'fixed',
+    fontSize: 18 * scaleMean,
+    color: '#020202',
+    top: '20vh',
     left: '50%',
-    position: 'absolute',
     transform: 'translate(-50%, -50%)',
+    textAlign: 'center',
+    width: '70vw',
   })
-
+  const [messageInCloud, setMessageInCloud] = useState('')
+  const [messageInCloudStyle, setMessageInCloudStyle] = useState({
+    position: 'fixed',
+    fontSize: 18 * scaleMean,
+    color: '#020202',
+    top: '38vh',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    textAlign: 'center',
+    width: '70vw',
+  })
+  const [characterStyle, setCharacterStyle] = useState({})
   const phaseEnum = {
     firstPhase: 'firstPhase',
+    secondPhase: 'secondPhase',
+    thirdPhase: 'thirdPhase',
   }
+  const [imageInCloud, setimageInCloud] = useState('')
+  const [imageInCloudStyle, setimageInCloudStyle] = useState({})
+  const [selectedCards, setSelectedCard] = useState([])
 
-  const [phase, setPhase] = useState(phaseEnum.firstPhase)
   const navigate = useNavigate()
 
-  const generalAttributeBtmCloudStyle = {
-    position: 'absolute',
-    width: 1447.98,
-    height: 720.1,
-    opacity: 0.4,
-  }
-  const generalAttributeTopCloudStyle = {
-    position: 'absolute',
-    width: 1447.95,
-    height: 832.56,
-    opacity: 0.4,
-    transform: 'rotate(180deg)',
-  }
-
   const mapper = {
-    [phaseEnum.firstPhase]: {
-      1: {
-        message: 'หายใจ.',
-        image: 'images/char_11_01.svg',
-        innerTopCloudStyle: {
-          ...generalAttributeTopCloudStyle,
-          top: '-46.5%',
-          left: '-123.2%',
-        },
-        outerTopCloudStyle: {
-          ...generalAttributeTopCloudStyle,
-          top: '-70.2%',
-          left: '-221.9%',
-        },
-        innerBtmCloudStyle: {
-          top: '51.4%',
-          left: '-145.4%',
-          ...generalAttributeBtmCloudStyle,
-        },
-        outerBtmCloudStyle: {
-          top: '78.1%',
-          left: '-50%',
-          ...generalAttributeBtmCloudStyle,
-        },
+    1: {
+      message: 'Negative Automatic Thoughts',
+      message2: '“ความคิดลบอัตโนมัติ”',
+      imageInCloudStyle: {
+        opacity: 0,
       },
-      2: {
-        message: 'หายใจเข้า..',
-        image: 'images/char_11_02.svg',
-        innerTopCloudStyle: {
-          ...generalAttributeTopCloudStyle,
-          top: '-36.7%',
-          left: '-123.2%',
-        },
-        outerTopCloudStyle: {
-          ...generalAttributeTopCloudStyle,
-          top: '-63.6%',
-          left: '-221.9%',
-        },
-        innerBtmCloudStyle: {
-          top: '48.5%',
-          left: '-145.4%',
-          ...generalAttributeBtmCloudStyle,
-        },
-        outerBtmCloudStyle: {
-          top: '75.1%',
-          left: '-50%',
-          ...generalAttributeBtmCloudStyle,
-        },
+    },
+    3: {
+      message: '“ความคิดลบแบบไม่พัก” คือ',
+      message2: ' ',
+      message3: ' ',
+      message4: ' ',
+    },
+    5: {
+      message: 'ประสบการณ์แย่ ๆ ในอดีต',
+      messageStyle: {
+        top: '10vh',
       },
-      3: {
-        message: 'หายใจเข้า...',
-        image: 'images/char_11_03.svg',
-        innerTopCloudStyle: {
-          ...generalAttributeTopCloudStyle,
-          top: '-29.8%',
-          left: '-123.2%',
-        },
-        outerTopCloudStyle: {
-          ...generalAttributeTopCloudStyle,
-          top: '-56.7%',
-          left: '-221.9%',
-        },
-        innerBtmCloudStyle: {
-          top: '45.5%',
-          left: '-145.4%',
-          ...generalAttributeBtmCloudStyle,
-        },
-        outerBtmCloudStyle: {
-          top: '72.2%',
-          left: '-50%',
-          ...generalAttributeBtmCloudStyle,
-        },
+    },
+    6: {
+      characterStyle: {
+        bottom: '-20vh',
       },
-      4: {
-        message: 'หายใจเข้า...',
-        image: 'images/char_11_04.svg',
-        innerTopCloudStyle: {
-          ...generalAttributeTopCloudStyle,
-          top: '-26.1%',
-          left: '-123.2%',
-        },
-        outerTopCloudStyle: {
-          ...generalAttributeTopCloudStyle,
-          top: '-53%',
-          left: '-221.9%',
-        },
-        innerBtmCloudStyle: {
-          top: '43.5%',
-          left: '-145.4%',
-          ...generalAttributeBtmCloudStyle,
-        },
-        outerBtmCloudStyle: {
-          top: '70.1%',
-          left: '-50%',
-          ...generalAttributeBtmCloudStyle,
-        },
+    },
+    7: {
+      characterStyle: {
+        bottom: '-25vh',
       },
-      5: {
-        message: 'หายใจ...',
-        image: 'images/char_11_02.svg',
-        innerTopCloudStyle: {
-          ...generalAttributeTopCloudStyle,
-          top: '-26.1%',
-          left: '-123.2%',
-        },
-        outerTopCloudStyle: {
-          ...generalAttributeTopCloudStyle,
-          top: '-53%',
-          left: '-221.9%',
-        },
-        innerBtmCloudStyle: {
-          top: '43.5%',
-          left: '-145.4%',
-          ...generalAttributeBtmCloudStyle,
-        },
-        outerBtmCloudStyle: {
-          top: '70.1%',
-          left: '-50%',
-          ...generalAttributeBtmCloudStyle,
-        },
+      imageInCloud: 'images/crowd01.svg',
+      imageInCloudStyle: {
+        opacity: 1,
       },
-      6: {
-        message: 'หายใจออก..',
-        image: 'images/char_11_05.svg',
-        innerTopCloudStyle: {
-          ...generalAttributeTopCloudStyle,
-          top: '-29.8%',
-          left: '-123.2%',
-        },
-        outerTopCloudStyle: {
-          ...generalAttributeTopCloudStyle,
-          top: '-56.7%',
-          left: '-221.9%',
-        },
-        innerBtmCloudStyle: {
-          top: '45.5%',
-          left: '-145.4%',
-          ...generalAttributeBtmCloudStyle,
-        },
-        outerBtmCloudStyle: {
-          top: '72.2%',
-          left: '-50%',
-          ...generalAttributeBtmCloudStyle,
-        },
+    },
+    8: {
+      imageInCloud: 'images/crowd02.svg',
+      imageInCloudStyle: {
+        top: '42.5%',
+        left: '48%',
       },
-      7: {
-        message: 'หายใจออก.',
-        image: 'images/char_11_06.svg',
-        innerTopCloudStyle: {
-          ...generalAttributeTopCloudStyle,
-          top: '-31.8%',
-          left: '-123.2%',
-        },
-        outerTopCloudStyle: {
-          ...generalAttributeTopCloudStyle,
-          top: '-58.7%',
-          left: '-221.9%',
-        },
-        innerBtmCloudStyle: {
-          top: '48.1%',
-          left: '-145.4%',
-          ...generalAttributeBtmCloudStyle,
-        },
-        outerBtmCloudStyle: {
-          top: '74.8%',
-          left: '-50%',
-          ...generalAttributeBtmCloudStyle,
-        },
+    },
+    9: {
+      imageInCloud: 'images/crowd03.svg',
+      imageInCloudStyle: {
+        top: '40%',
+        left: '50%',
       },
-      8: {
-        message: 'หายใจออก',
-        image: 'images/char_11_07.svg',
-        innerTopCloudStyle: {
-          ...generalAttributeTopCloudStyle,
-          top: '-43.4%',
-          left: '-123.2%',
-        },
-        outerTopCloudStyle: {
-          ...generalAttributeTopCloudStyle,
-          top: '-70.2%',
-          left: '-221.9%',
-        },
-        innerBtmCloudStyle: {
-          top: '51.4%',
-          left: '-145.4%',
-          ...generalAttributeBtmCloudStyle,
-        },
-        outerBtmCloudStyle: {
-          top: '78.1%',
-          left: '-50%',
-          ...generalAttributeBtmCloudStyle,
-        },
+    },
+    10: {
+      imageInCloud: 'images/YellowChuose_07.svg',
+      imageInCloudStyle: {
+        width: '17.5%', //70% of normal (0.7*25)
       },
-      9: {
-        message: '',
-        image: 'images/char_11_01.svg',
-        innerTopCloudStyle: {
-          ...generalAttributeTopCloudStyle,
-          top: '-43.4%',
-          left: '-123.2%',
-        },
-        outerTopCloudStyle: {
-          ...generalAttributeTopCloudStyle,
-          top: '-70.2%',
-          left: '-221.9%',
-        },
-        innerBtmCloudStyle: {
-          top: '51.4%',
-          left: '-145.4%',
-          ...generalAttributeBtmCloudStyle,
-        },
-        outerBtmCloudStyle: {
-          top: '78.1%',
-          left: '-50%',
-          ...generalAttributeBtmCloudStyle,
-        },
+    },
+    11: {
+      imageInCloudStyle: {
+        width: '25%',
       },
-      10: {},
-      11: {
-        message:
-          'ถ้าตัดรูปแบบความคิดลบอัตโนมัติออกไป\n เรื่องราวนี้จะเป็นยังไงได้บ้างนะ',
-        innerTopCloudStyle: {
-          ...generalAttributeTopCloudStyle,
-          top: '-43.4%',
-          left: '-123.2%',
-        },
-        outerTopCloudStyle: {
-          ...generalAttributeTopCloudStyle,
-          top: '-70.2%',
-          left: '-221.9%',
-        },
-        innerBtmCloudStyle: {
-          top: '51.4%',
-          left: '-145.4%',
-          ...generalAttributeBtmCloudStyle,
-        },
-        outerBtmCloudStyle: {
-          top: '78.1%',
-          left: '-50%',
-          ...generalAttributeBtmCloudStyle,
-        },
+    },
+    12: {
+      message: 'ประสบการณ์แย่ ๆ ในอดีต',
+      message2: 'ที่ส่งผลให้เรามีความคิดในแง่ลบวนเวียนอยู่',
+      message3: 'ในหัวตลอดเวลา',
+      imageInCloud: 'images/minus01.svg',
+      imageInCloudStyle: {
+        width: '50%',
+      },
+    },
+    13: {
+      message2: ' ',
+      message3: ' ',
+      imageInCloud: 'images/minus02.svg',
+      imageInCloudStyle: {
+        left: '48%',
+      },
+    },
+    14: {
+      message: 'เป็นเสียงแรกที่โผล่ขึ้นมาในหัวของเรา',
+      message2: 'เมื่อเจอเหตุการณ์หนึ่ง',
+      imageInCloudStyle: {
+        opacity: 0,
+      },
+    },
+    15: {
+      messageInCloud: sessionStorage.getItem('TEXT_Q2'),
+    },
+    16: {
+      messageInCloud: '',
+      messageInCloudStyle: {
+        opacity: 0,
+      },
+    },
+    17: {
+      messageInCloud: sessionStorage.getItem('TEXT_Q3'),
+      messageInCloudStyle: {
+        opacity: 1,
+      },
+    },
+    18: {
+      messageStyle: {
+        opacity: 0,
+      },
+      messageInCloudStyle: {
+        opacity: 0,
+      },
+      characterStyle: {
+        opacity: 0,
+      },
+    },
+    19: {
+      message: 'ความคิดลบแบบไม่พักมันมีรูปแบบอยู่นะ',
+      messageStyle: {
+        top: '30%',
+        opacity: 1,
+        fontSize: 17 * scaleMean,
+      },
+      characterStyle: {
+        opacity: 1,
+        bottom: '-20vh',
+      },
+    },
+    20: {
+      message: 'เธอคิดว่าความคิดลบแบบไม่พักของเธอเป็นรูปแบบไหน?',
+      messageStyle: {
+        top: '10%',
+        fontSize: 17 * scaleMean,
+      },
+      characterStyle: {
+        opacity: 0,
       },
     },
   }
@@ -297,37 +190,46 @@ const Scene11 = () => {
   }, [])
 
   useEffect(() => {
-    if (mapper[phase][scene] && mapper[phase][scene].message) {
-      setMessage(mapper[phase][scene].message)
+    if (mapper[scene] && mapper[scene].message) {
+      setMessage(mapper[scene].message)
     }
-    if (mapper[phase][scene] && mapper[phase][scene].image) {
-      setImage(mapper[phase][scene].image)
+    if (mapper[scene] && mapper[scene].message2) {
+      setMessage2(mapper[scene].message2)
     }
-    if (mapper[phase][scene] && mapper[phase][scene].innerBtmCloudStyle) {
-      setInnerBtmCloudStyle(mapper[phase][scene].innerBtmCloudStyle)
+    if (mapper[scene] && mapper[scene].message3) {
+      setMessage3(mapper[scene].message3)
     }
-    if (mapper[phase][scene] && mapper[phase][scene].outerBtmCloudStyle) {
-      setOuterBtmCloudStyle(mapper[phase][scene].outerBtmCloudStyle)
-    }
-
-    if (mapper[phase][scene] && mapper[phase][scene].innerTopCloudStyle) {
-      setInnerTopCloudStyle(mapper[phase][scene].innerTopCloudStyle)
-    }
-    if (mapper[phase][scene] && mapper[phase][scene].outerTopCloudStyle) {
-      setOuterTopCloudStyle(mapper[phase][scene].outerTopCloudStyle)
+    if (mapper[scene] && mapper[scene].message4) {
+      setMessage4(mapper[scene].message4)
     }
 
-    if (mapper[phase][scene] && mapper[phase][scene].characterStyle) {
+    if (mapper[scene] && mapper[scene].characterStyle) {
       setCharacterStyle((characterStyle) => {
-        return { ...characterStyle, ...mapper[phase][scene].characterStyle }
+        return { ...characterStyle, ...mapper[scene].characterStyle }
+      })
+    }
+    if (mapper[scene] && mapper[scene].messageStyle) {
+      setMessageStyle((messageStyle) => {
+        return { ...messageStyle, ...mapper[scene].messageStyle }
+      })
+    }
+    if (mapper[scene] && mapper[scene].imageInCloud) {
+      setimageInCloud(mapper[scene].imageInCloud)
+    }
+    if (mapper[scene] && mapper[scene].imageInCloudStyle) {
+      setimageInCloudStyle((imageInCloudStyle) => {
+        return { ...imageInCloudStyle, ...mapper[scene].imageInCloudStyle }
+      })
+    }
+    if (mapper[scene] && mapper[scene].messageInCloud) {
+      setMessageInCloud(mapper[scene].messageInCloud)
+    }
+    if (mapper[scene] && mapper[scene].messageInCloudStyle) {
+      setMessageInCloudStyle((messageInCloudStyle) => {
+        return { ...messageInCloudStyle, ...mapper[scene].messageInCloudStyle }
       })
     }
   }, [scene])
-
-  const shiftPhase = (phase) => {
-    setScene(0)
-    setPhase(phase)
-  }
 
   const containerStyle = (scene) => {
     return {
@@ -339,103 +241,101 @@ const Scene11 = () => {
       margin: 0,
     }
   }
+  const onClickStart = () => {
+    setTimeout(() => {
+      window.location.href = '/scene12'
+    }, 1500)
+  }
 
-  const backgroundStyles = (scene) => {
-    return {
-      position: 'relative',
-      left: 0,
-      top: -30,
+  const onClickCard = (id, add = true) => {
+    if (add) {
+      setSelectedCard([...selectedCards, id])
+    } else {
+      const idIndex = selectedCards.indexOf(id)
+      if (idIndex !== -1) {
+        selectedCards.splice(idIndex, 1)
+      }
     }
   }
 
   return (
     <div style={containerStyle(scene)}>
-      {scene !== 10 && (
-        <img
-          src={'images/BG_11.svg'}
-          alt="background"
-          style={backgroundStyles(scene)}
-        />
-      )}
-      {scene !== 10 && (
-        <img
-          src={'images/cloud_11.svg'}
-          alt="character"
-          style={outerTopCloudStyle}
-        />
-      )}
-      {scene !== 10 && (
-        <img
-          src={'images/cloud_11.svg'}
-          alt="character"
-          style={innerTopCloudStyle}
-        />
-      )}
-      <Star />
-      {scene !== 9 && scene !== 10 && (
-        <div
-          style={{
-            position: 'absolute',
-            color: '#020202',
-            top: '28%',
-            left: '50%',
-            transform: 'translate(-50%, -50%)',
-            'font-size': '18px',
-            width: '80%',
-          }}
-        >
+      <div>
+        <p style={messageStyle}>
           {message}
-        </div>
-      )}
-      {scene <= 9 && <img src={image} alt="character" style={characterStyle} />}
-      {scene !== 10 && (
-        <img
-          src={'images/cloud_11.svg'}
-          alt="character"
-          style={innerBtmCloudStyle}
-        />
-      )}
-      {scene !== 10 && (
-        <img
-          src={'images/cloud_11.svg'}
-          alt="character"
-          style={outerBtmCloudStyle}
-        />
-      )}
-      {scene >= 11 && (
-        <input
-          class="input"
+          <br></br>
+          {message2}
+          <br></br>
+          {message3}
+          <br></br>
+          {message4}
+          <br></br>
+        </p>
+      </div>
+      <img
+        class="yellowChuose"
+        src={'images/YellowChuose_06.svg'}
+        alt="character"
+        style={characterStyle}
+      />
+      <img
+        class="smallCloud"
+        src={'images/whiteSmallCloud.svg'}
+        alt="smallCloud"
+        style={{ opacity: scene > 5 && scene < 18 ? 1 : 0 }}
+      />
+      <img
+        class="bigCloud"
+        src={'images/whiteBigCloud.svg'}
+        alt="bigCloud"
+        style={{ opacity: scene > 6 && scene < 18 ? 1 : 0 }}
+      />
+      <img
+        class="imageInCloud"
+        src={imageInCloud}
+        alt="imageInCloud"
+        style={imageInCloudStyle}
+      />
+      <div>
+        <p style={messageInCloudStyle}>{messageInCloud}</p>
+      </div>
+      <CardSlider
+        style={{
+          position: 'fixed',
+          width: '50vh',
+          top: '25%',
+          zindex: '999',
+          opacity: scene >= 20 ? 1 : 0,
+        }}
+        onClickCard={onClickCard}
+      />
+      {scene >= 20 && selectedCards.length > 0 && (
+        <WhiteButton
+          onClick={onClickStart}
           style={{
-            top: '35%',
-            left: '50%',
-            transform: 'translate(-50%, 0%)',
-            width: 317,
-            height: 160,
-          }}
-          value={story}
-          onChange={(e) => {
-            setStory(e.target.value)
-          }}
-        />
-      )}
-
-      {scene >= 11 && (
-        <button
-          class="white-button"
-          style={{
-            position: 'absolute',
-            top: '63.7%',
+            position: 'fixed',
+            top: '85%',
             left: '50%',
             transform: 'translate(-50%, -50%)',
-            width: 243.8,
+            width: 243 * scaleWidth(),
+            height: 46 * scaleHeight(),
+            // opacity: scene === 4 ? 1 : 0,
+            transition: 'ease-in-out 0.5s',
           }}
-          onClick={() => navigate('/scene12')}
-        >
-          ไปต่อ
-        </button>
+          children={
+            <p
+              style={{
+                margin: 0,
+                fontSize: 24 * scaleHeight(),
+                fontWeight: 'bold',
+              }}
+            >
+              ไปต่อ
+            </p>
+          }
+        />
       )}
     </div>
   )
 }
-
 export default Scene11
