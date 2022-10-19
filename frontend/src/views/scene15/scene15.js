@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import '../scene15/scene15.css'
 import MiddleCloud from 'components/middleCloud/middleCloud'
 import GlitterStar from 'components/glitterStar/glitterStar'
-import { SCENE15_SHIFT_TIME } from 'utils/constant'
+import { scaleMean, SCENE15_SHIFT_TIME } from 'utils/constant'
 import { useNavigate } from 'react-router'
 
 const Scene15 = () => {
@@ -92,6 +92,8 @@ const Scene15 = () => {
         margin: 0,
         height: '100vh',
         backgroundColor: 'black',
+        display: 'flex',
+        justifyContent: 'center',
       }
     } else {
       return {
@@ -101,7 +103,21 @@ const Scene15 = () => {
         textAlign: 'center',
         margin: 0,
         height: '100vh',
+        display: 'flex',
+        justifyContent: 'center',
       }
+    }
+  }
+
+  const textStyle = () => {
+    return {
+      position: 'fixed',
+      color: 'black',
+      top: '50%',
+      width: '100vh',
+      // transform: 'translate(-50%, -50%)',
+      fontSize: 20 * scaleMean(),
+      // textAlign: 'center',
     }
   }
 
@@ -147,7 +163,7 @@ const Scene15 = () => {
       {scene >= 5 && scene <= 9 && (
         <img src={'images/OpenDoor.svg'} alt="opendoor" style={openDoorStyle} />
       )}
-      <div className={'text_center'}>{message}</div>
+      <div style={textStyle()}>{message}</div>
     </div>
   )
 }

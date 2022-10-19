@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { BOTTOM_CLOUD_SHIFT_TIME } from 'utils/constant'
+import { BOTTOM_CLOUD_SHIFT_TIME, scaleHeight } from 'utils/constant'
 
 const BottomCloud = ({ bottom = 0, ttl, fadeIn = false }) => {
   const [scene, setScene] = useState(1)
@@ -56,17 +56,18 @@ const BottomCloud = ({ bottom = 0, ttl, fadeIn = false }) => {
     return {
       position: 'absolute',
       left: `-${400 + scene * 10}px`,
-      top: `${500 + bottom}px`,
+      top: `${(500 + bottom) * scaleHeight()}px`,
       opacity,
       transition: 'opacity ease-in-out 1s',
+      height: 450 * scaleHeight(),
     }
   }
 
   return cloudProps.map((cp, i) => (
     <img
       src="images/cloud.svg"
-      alt="topCloud"
-      key={`topCloud${i}`}
+      alt="bottomCloud"
+      key={`bottomCloud${i}`}
       style={bottomCloudStyle(scene - cp.subtractor, cp.opacity)}
     />
   ))

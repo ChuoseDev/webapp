@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { STAR_SHIFT_TIME } from 'utils/constant'
+import { meanSizeHeight, STAR_SHIFT_TIME } from 'utils/constant'
 
 const GlitterStar = () => {
   const [scene, setScene] = useState(0)
@@ -18,6 +18,7 @@ const GlitterStar = () => {
     position: 'absolute',
     left: 0,
     top: 0,
+    height: meanSizeHeight(),
   }
 
   return scene % 4 === 0 ? (
