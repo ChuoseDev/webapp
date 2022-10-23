@@ -13,6 +13,22 @@ const Consent = () => {
     setPhase(1)
   }, [])
 
+  const containerStyle = () => {
+    return {
+      position: 'relative',
+      overflow: 'hidden',
+      left: 0,
+      top: 0,
+      textAlign: 'center',
+      margin: 0,
+      height: window.screen.height,
+      transition: 'opacity 0.3s ease-out',
+      backgroundImage:
+        'linear-gradient(#CAD8F3 13.35%, #FFF6ED 29.76%, #FFF2F2 50.51%, #CAD8F3 100%, rgba(255, 209, 90, 0.15) 100%)',
+      opacity: phase === 0 ? 0 : 1,
+    }
+  }
+
   const buttonStyle = () => {
     return {
       width: scaleWidth() * 243,
@@ -40,41 +56,27 @@ const Consent = () => {
     return message[phase]
   }
 
+  const textStyle = () => {
+    return {
+      justifyContent: 'center',
+      marginTop: `${300 * scaleHeight()}px`,
+      color: '#8A7EBE',
+      fontSize,
+    }
+  }
+
+  const fontSize = `${18 * scaleHeight()}px`
+
   return (
-    <div
-      style={{
-        position: 'relative',
-        overflow: 'hidden',
-        left: 0,
-        top: 0,
-        textAlign: 'center',
-        margin: 0,
-        height: window.screen.height,
-        transition: 'opacity 0.3s ease-out',
-        backgroundImage:
-          'linear-gradient(#CAD8F3 13.35%, #FFF6ED 29.76%, #FFF2F2 50.51%, #CAD8F3 100%, rgba(255, 209, 90, 0.15) 100%)',
-        opacity: phase === 0 ? 0 : 1,
-      }}
-    >
+    <div style={containerStyle()}>
       <TopCloud />
       <TopCloud top={50} />
       <BottomCloud />
       <BottomCloud bottom={50} />
       {phase === 1 && (
-        <div
-          style={{
-            justifyContent: 'center',
-            marginTop: `${300 * scaleHeight()}px`,
-            color: '#8A7EBE',
-            fontSize: `${18 * scaleWidth()}px`,
-          }}
-        >
+        <div style={textStyle()}>
           ชิ้นงานนี้เป็นส่วนหนึ่งของ{' '}
-          <span
-            style={{ color: '#EC9F40', fontSize: `${18 * scaleWidth()}px` }}
-          >
-            วิทยานิพนธ์
-          </span>
+          <span style={{ color: '#EC9F40', fontSize }}>วิทยานิพนธ์</span>
           <br />
           สาขาวิชาวิทยาศาสตร์คอมพิวเตอร์
           <br />
@@ -96,19 +98,8 @@ const Consent = () => {
         </div>
       )}
       {phase === 2 && (
-        <div
-          style={{
-            justifyContent: 'center',
-            marginTop: `${300 * scaleHeight()}px`,
-            color: '#8A7EBE',
-            fontSize: `${18 * scaleWidth()}px`,
-          }}
-        >
-          <span
-            style={{ color: '#EC9F40', fontSize: `${18 * scaleWidth()}px` }}
-          >
-            CHUOSE{' '}
-          </span>
+        <div style={textStyle()}>
+          <span style={{ color: '#EC9F40', fontSize }}>CHUOSE </span>
           เว็บแอปพลิเคชันที่พัฒนาขึ้น
           <br />
           เพื่อเป็นเครื่องมือตรวจหาระดับความคิดฆ่าตัวตาย
@@ -130,7 +121,7 @@ const Consent = () => {
           ความคิด ความรู้สึก ของตนเอง
           <br />
           <br />
-          <div style={{ color: '#EC9F40', fontSize: `${18 * scaleWidth()}px` }}>
+          <div style={{ color: '#EC9F40', fontSize }}>
             โปรดใช้เวลาอย่างช้า ๆ
             <br />
             เพราะความรู้สึกของคุณนั้นสำคัญ
