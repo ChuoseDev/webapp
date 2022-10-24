@@ -103,7 +103,7 @@ const Level = () => {
   }
 
   const onClickNext = () => {
-    navigate('/scene14')
+    navigate('/scene10')
   }
 
   const onClickEmergency = () => {
