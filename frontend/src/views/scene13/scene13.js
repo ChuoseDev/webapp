@@ -322,7 +322,7 @@ const Scene13 = () => {
               src={
                 scene == 12
                   ? 'images/blackCloud_02.svg'
-                  : 'images/BlackCloud_01.svg'
+                  : 'images/blackCloud_01.svg'
               }
               alt="blackCloud"
             />
