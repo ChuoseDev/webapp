@@ -24,6 +24,9 @@ import Analyse from 'views/analyse/analyse'
 import Startup from 'views/startup/startup'
 import Consent from 'views/consent/consent'
 import Random from 'views/random/random'
+import Hospital from 'views/้hospitalInfo/hospitalDistrict'
+import HospitalInfo from 'views/้hospitalInfo/hostpitalInfo'
+import EmergencyCall from 'views/emergencyCall/emergencyCall'
 
 const App = () => {
   return (
@@ -32,12 +35,19 @@ const App = () => {
         <Switch>
           <Route exact path="/" element={<Startup />}></Route>
           <Route exact path="/consent" element={<Consent />}></Route>
+          <Route exact path="/emergency" element={<EmergencyCall />}></Route>
           <Route
             exact
             path="/emergency-contact"
             element={<EmergencyContact />}
           ></Route>
           <Route exact path="/ending" element={<EndPage />}></Route>
+          <Route exact path="/hospital" element={<Hospital />}></Route>
+          <Route
+            exact
+            path="/HospitalInfo/:id"
+            element={<HospitalInfo />}
+          ></Route>
           <Route
             exact
             path="/scene01"
