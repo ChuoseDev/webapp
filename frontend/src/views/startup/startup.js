@@ -54,7 +54,7 @@ const Startup = () => {
   }
 
   const backgroundProps = {
-    image: 'images/cloudBackground.svg',
+    image: 'images/CloudBackground.svg',
     height: 891 * scaleHeight(),
     width: 1404 * scaleHeight(),
     x: -62 * scaleHeight(),

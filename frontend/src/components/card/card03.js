@@ -142,7 +142,7 @@ const Card03 = ({ onClickFunction }) => {
       </div>
       <div id="circleOuter" style={circleOuterStyle}></div>
       <div id="circleInner" style={circleInnerStyle}></div>
-      <img src="images/Charcard03.svg" style={charStyle} />
+      <img src="images/CharCard03.svg" style={charStyle} />
     </button>
   )
 }

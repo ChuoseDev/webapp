@@ -6,13 +6,103 @@ import logging
 from pythainlp.util import normalize
 from pythainlp import correct
 
-emoji_pattern = re.compile("["
-        u"\U0001F600-\U0001F64F"  # emoticons
-        u"\U0001F300-\U0001F5FF"  # symbols & pictographs
-        u"\U0001F680-\U0001F6FF"  # transport & map symbols
-        u"\U0001F1E0-\U0001F1FF"  # flags (iOS)
-                           "]+", flags=re.UNICODE)
+## Edit
+def correct_text(text): 
+    text = text.replace('กุ',"กู")
+    text = text.replace("กรุ","กู")
+    text = text.replace("ไอ่","ไอ")
+    text = text.replace("ไอ","ไอ้")
+    text = text.replace("อั้ย","ไอ้")
+    text = text.replace("ทรมาณ","ทรมาณ") 
+    text = text.replace("พุ่ง","พรุ่ง")
+    text = text.replace("สัตว์","สัส")
+    text = text.replace("สัด","สัส")
+    text = text.replace("ชิบ","ฉิบ")
+    text = text.replace("ซัก","สัก")
+    text = text.replace("ชั่ย","ใช่")
+    text = text.replace("มรึง","มึง")
+    text = text.replace("อยุ่","อยู่")
+    text = text.replace("รึ","หรือ")
+    text = text.replace("ป่าว","เปล่า")
+    text = text.replace("ไช่","ใช่")
+    text = text.replace("เทอ","เธอ")
+    text = text.replace("คะ","ค่ะ")
+    text = text.replace("ค๊ะ","คะ")
+    text = text.replace("นะค่ะ","นะคะ")
+    text = text.replace("กรู","กู")
+    text = text.replace("เส้า","เศร้า")
+    text = text.replace("ส่ะ","ซะ")
+    text = text.replace("สะ","ซะ")
+    text = text.replace("น่ะ","นะ")
+    text = text.replace("น้ะ","นะ")
+    text = text.replace("หละ","ละ")
+    text = text.replace("หล่ะ","ละ")
+    text = text.replace("ว้ะ","วะ")
+    text = text.replace("ว่ะ","วะ")
+    text = text.replace("หวะ","วะ")
+    text = text.replace("สัมพัน","สัมพันธ์")
+    text = text.replace("พลาสเตอ","พลาสเตอร์")
+    text = text.replace("คัตเตอ","คัตเตอร์")
+    text = text.replace("โทด","โทษ")
+    text = text.replace("โคด","โคตร")
+    text = text.replace("โครต","โคตร")
+    text = text.replace("โกด","โกรธ")
+    text = text.replace("ชั้น","ฉัน")
+    text = text.replace("ไบโพล่า","ไบโพลาร์")
+    text = text.replace("อิ","อี")
+    text = text.replace("แม้ง","แม่ง")
+    text = text.replace("แมร่ง","แม่ง")
+    text = text.replace("ไม่นู้","ไม่รู้")
+    text = text.replace("เท่าไร","เท่าไหร่")
+    text = text.replace("พยาม","พยายาม")
+    text = text.replace("ปันหา","ปัญหา")
+    text = text.replace("อ้ะ","อะ")
+    text = text.replace("อ่ะ","อะ")
+    text = text.replace("ชีวิจ","ชีวิต")
+    text = text.replace("มั่ย","ไม่")
+    text = text.replace("เคร้า","เศร้า")
+    text = text.replace("ประสบการ","ประสบการณ์")
+    text = text.replace("เวน","เวร")
+    text = text.replace("บริเวน","บริเวณ")
+    text = text.replace("เคียด","เครียด")
+    text = text.replace("กรี้ด","กรี๊ด")
+    text = text.replace("กรี้ส","กรี๊ด")
+    text = text.replace("เกียด","เกลียด")
+    text = text.replace("เดะ","เดี๋ยว")
+    text = text.replace("เด่ะ","เดี๋ยว")
+    text = text.replace("เนี้ย","เนี่ย")
+    text = text.replace("อารม","อารมณ์")
+    text = text.replace("ดิ้ง","ดิ่ง")
+    text = text.replace("สำหนับ","สำหรับ")
+    text = text.replace("ร้องให้","ร้องไห้")
+    text = text.replace("ซ้ะ","ซะ")
+    text = text.replace("หนุ","หนู")
+    text = text.replace("มุ้ย","ไหม")
+    return text
 
+def remove_emoji(text):
+    emoji_pattern = re.compile("["
+                               u"\U0001F600-\U0001F64F"  # emoticons
+                               u"\U0001F300-\U0001F5FF"  # symbols & pictographs
+                               u"\U0001F680-\U0001F6FF"  # transport & map symbols
+                               u"\U0001F1E0-\U0001F1FF"  # flags (iOS)
+                               u"\U00002500-\U00002BEF"
+                               u"\U00002702-\U000027B0"
+                               u"\U000024C2-\U0001F251"
+                               u"\U0001f926-\U0001f937"
+                               u"\U00010000-\U0010ffff"
+                               u"\u2640-\u2642"
+                               u"\u2600-\u2B55"
+                               u"\u200d"
+                               u"\u23cf"
+                               u"\u23e9"
+                               u"\u231a"
+                               u"\ufe0f"
+                               u"\u3030"
+                               "]+", flags=re.UNICODE)
+    return emoji_pattern.sub(r'',text)
+
+# Remove Punctuation
 def removePattern(inputText, pattern):
     r = re.findall(pattern, inputText)
     for i in r:
@@ -21,6 +111,7 @@ def removePattern(inputText, pattern):
 
 def remove_punct(text):
     text  = "".join([char for char in text if char not in string.punctuation])
+    
     text = removePattern(text, 'https?://[A-Za-z0-9./]*')
     text = removePattern(text, '@[\w]*')
     text = re.sub('[^ก-๙]', '', text)
@@ -28,9 +119,19 @@ def remove_punct(text):
     text = text.replace("!","")
     text = text.replace("​","")
     text = text.replace("-","")
-    text = emoji_pattern.sub(r'', text)
+    text = text.replace(";)","")
+    text = text.replace(":)","")
+    text = text.replace(":))","")
+    text = text.replace("?","")
+    text = text.replace(".","")
+    text = text.replace(",","")
+    text = text.replace("/","")
+    text = text.replace("$","")
+    text = text.replace("฿","")
+    text = remove_emoji(text)
+    text = correct_text(text)
     return text
-
+    
 def get_cleaned_text(text):
     text = remove_punct(text)
     text = normalize(text)

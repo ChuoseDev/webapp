@@ -27,7 +27,6 @@ const EndPage = () => {
       overflow: 'hidden',
       left: 0,
       top: 0,
-      height: window.screen.height,
       width: window.screen.width,
     }
   }
