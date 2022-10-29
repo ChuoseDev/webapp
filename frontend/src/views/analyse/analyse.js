@@ -18,19 +18,19 @@ const Analyse = () => {
     position: 'absolute',
     transform: 'translate(-50%, -50%)',
   })
-
-  const generalAttributeBtmCloudStyle = {
-    position: 'absolute',
-    width: 1447.98,
-    height: 720.1,
-    opacity: 0.4,
-  }
   const generalAttributeTopCloudStyle = {
     position: 'absolute',
     width: 1447.95,
     height: 832.56,
     opacity: 0.4,
     transform: 'rotate(180deg)',
+  }
+
+  const generalAttributeBtmCloudStyle = {
+    position: 'absolute',
+    width: 1447.98,
+    height: 720.1,
+    opacity: 0.4,
   }
 
   const mapper = {
@@ -48,14 +48,14 @@ const Analyse = () => {
         left: '-221.9%',
       },
       innerBtmCloudStyle: {
+        ...generalAttributeBtmCloudStyle,
         top: '51.4%',
         left: '-145.4%',
-        ...generalAttributeBtmCloudStyle,
       },
       outerBtmCloudStyle: {
+        ...generalAttributeBtmCloudStyle,
         top: '78.1%',
         left: '-50%',
-        ...generalAttributeBtmCloudStyle,
       },
     },
     2: {
@@ -72,14 +72,14 @@ const Analyse = () => {
         left: '-221.9%',
       },
       innerBtmCloudStyle: {
+        ...generalAttributeBtmCloudStyle,
         top: '48.5%',
         left: '-145.4%',
-        ...generalAttributeBtmCloudStyle,
       },
       outerBtmCloudStyle: {
+        ...generalAttributeBtmCloudStyle,
         top: '75.1%',
         left: '-50%',
-        ...generalAttributeBtmCloudStyle,
       },
     },
     3: {
@@ -300,19 +300,23 @@ const Analyse = () => {
 
   const containerStyle = (scene) => {
     return {
-      position: 'relative',
-      left: 0,
-      top: 0,
-      textAlign: 'center',
+      position: 'absolute',
+      // left: 0,
+      // top: 0,
+      textAlign: 'left',
       margin: 0,
+      width: '100%',
+      height: '100%',
+      overflow: 'hidden'
     }
   }
 
   const backgroundStyles = (scene) => {
     return {
-      position: 'relative',
-      left: 0,
-      top: -30,
+      position: 'absolute',
+      width: '100%',
+      height: '100%',
+      objectFit: 'cover'
     }
   }
 
@@ -326,13 +330,13 @@ const Analyse = () => {
 
       <img
         src={'images/cloud_11.svg'}
-        alt="character"
+        alt="cloud-top-1"
         style={outerTopCloudStyle}
       />
 
       <img
         src={'images/cloud_11.svg'}
-        alt="character"
+        alt="cloud-top-2"
         style={innerTopCloudStyle}
       />
 
@@ -348,6 +352,7 @@ const Analyse = () => {
           'font-size': '18px',
           width: '80%',
           whiteSpace: 'pre-wrap',
+          textAlign: 'center'
         }}
       >
         {message}
@@ -357,13 +362,13 @@ const Analyse = () => {
 
       <img
         src={'images/cloud_11.svg'}
-        alt="character"
+        alt="cloud-btm-1"
         style={innerBtmCloudStyle}
       />
 
       <img
         src={'images/cloud_11.svg'}
-        alt="character"
+        alt="cloud-btn-2"
         style={outerBtmCloudStyle}
       />
     </div>
