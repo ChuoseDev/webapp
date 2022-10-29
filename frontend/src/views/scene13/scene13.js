@@ -284,7 +284,7 @@ const Scene13 = () => {
   const messageStyle = (scene) => {
     return {
       position: 'absolute',
-      top: 232 * scaleWidth(),
+      top: 232 * scaleHeight(),
       fontSize: '18px',
       width: '100%',
       color: 'black',
@@ -298,11 +298,11 @@ const Scene13 = () => {
       height: 110 * scaleHeight(),
       left: '50%',
       transform: 'translate(-50%, 0)',
-      top: 300 * scaleWidth(),
+      top: 300 * scaleHeight(),
       background: 'rgba(255, 255, 255, 0.9)',
       boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
       borderStyle: 'none',
-      zIndex: 3,
+      zIndex: 5,
     }
   }
   return (
@@ -340,16 +340,17 @@ const Scene13 = () => {
           <div>
             <textarea
               id="feeling-textarea"
-              style={{ ...textboxStyle(scene) }}
+              style={textboxStyle(scene)}
               value={feeling}
               onChange={(e) => setFeeling(e.target.value)}
             ></textarea>
             <button
               class="button-info"
               style={{
-                top: 497 * scaleHeight(),
-                left: 71 * scaleWidth(),
                 position: 'absolute',
+                bottom: 200 * scaleHeight(),
+                left: '50%',
+                transform: 'translateX(-50%)',
               }}
               onClick={() => shiftPhase(phaseEnum.secondPhase)}
             >

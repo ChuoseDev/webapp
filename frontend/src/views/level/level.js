@@ -5,7 +5,6 @@ import LevelCard3 from 'components/levelCard/levelCard3'
 import LevelCard4_5 from 'components/levelCard/levelCard4_5'
 import { WhiteButton } from 'components/commons/commons'
 import { useNavigate } from 'react-router'
-import { VIEW_CHANGING_DELAY_TIME } from 'utils/constant'
 import { scaleWidth, scaleHeight } from 'utils/constant'
 
 const Level = () => {
@@ -38,7 +37,7 @@ const Level = () => {
   const messageStyle = () => {
     return {
       position: 'absolute',
-      top: 108 * scaleWidth(),
+      top: 108 * scaleHeight(),
       fontSize: '24px',
       width: '100%',
       color: 'black',
@@ -93,7 +92,7 @@ const Level = () => {
 
   const buttonStyle = () => {
     return {
-      position: 'fixed',
+      position: 'absolute',
       top: 672 * scaleHeight(),
       left: 77 * scaleWidth(),
       width: 243.8 * scaleWidth(),
@@ -138,9 +137,10 @@ const Level = () => {
       </div>
       <div
         style={{
-          position: 'fixed',
-          top: 220.8 * scaleHeight(),
-          left: 44 * scaleWidth(),
+          position: 'absolute',
+          left: '50%',
+          top: '50%',
+          transform: 'translate(-50%, -50%)',
         }}
       >
         {level < 2 ? (
