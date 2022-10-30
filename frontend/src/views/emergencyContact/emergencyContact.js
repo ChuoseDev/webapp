@@ -84,16 +84,30 @@ const EmergencyContact = () => {
         >
           สถาบันสุขภาพจิตเด็กและวัยรุ่นราชนครินทร์
         </a>
-        <div style={buttonStyle(scaleHeight() * 386)}>
+        <a
+          href="https://suicide.dmh.go.th/"
+          style={buttonStyle(scaleHeight() * 386)}
+        >
           ศูนย์ป้องกันการฆ่าตัวตายระดับชาติ
-        </div>
-        <div style={buttonStyle(scaleHeight() * 468)}>
+        </a>
+        <a
+          href="https://www.samaritansthai.com/"
+          style={buttonStyle(scaleHeight() * 468)}
+        >
           สมาคมสะมาริตันส์ ป้องกันการฆ่าตัวตาย
-        </div>
-        <div style={buttonStyle(scaleHeight() * 547)}>Depress wecare</div>
-        <div style={buttonStyle(scaleHeight() * 626)}>
+        </a>
+        <a
+          href="https://web.facebook.com/Depresswecare/"
+          style={buttonStyle(scaleHeight() * 547)}
+        >
+          Depress wecare
+        </a>
+        <a
+          href="tel:+66-022076000"
+          style={buttonStyle(scaleHeight() * 626)}
+        >
           โรงพยาบาลตำรวจ สายด่วน
-        </div>
+        </a>
       </div>
     </div>
   )
