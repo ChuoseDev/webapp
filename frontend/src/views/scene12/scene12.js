@@ -1,289 +1,186 @@
 import { useNavigate } from 'react-router'
 import { useEffect, useState } from 'react'
-import Star from 'components/star/star'
+import './scene12.css'
+import TopCloud from 'components/topCloud/topCloud'
+import BottomCloud from 'components/bottomCloud/bottomCloud'
 import { SCENE12_SHIFT_TIME } from 'utils/constant'
 
 const Scene12 = () => {
+  const scaleHeight = window.screen.height / 844
+  const scaleWidth = window.screen.width / 390
   const [scene, setScene] = useState(1)
   const [message, setMessage] = useState('')
-  const [story, setStory] = useState('')
-  const [innerBtmCloudStyle, setInnerBtmCloudStyle] = useState({})
-  const [outerBtmCloudStyle, setOuterBtmCloudStyle] = useState({})
-  const [innerTopCloudStyle, setInnerTopCloudStyle] = useState({})
-  const [outerTopCloudStyle, setOuterTopCloudStyle] = useState({})
-  const [image, setImage] = useState('images/char_11_01.svg')
   const [characterStyle, setCharacterStyle] = useState({
-    top: '50%',
-    left: '50%',
-    position: 'absolute',
-    transform: 'translate(-50%, -50%)',
+    width: 161.05 * scaleWidth,
+    height: 162.5 * scaleHeight,
+    top: 470 * scaleHeight,
+    left: 114 * scaleWidth,
+  })
+  const [characterSrc, setCharacterSrc] = useState('images/ChuoseShadow_01.svg')
+  const [projection, setProjection] = useState('images/ProjectionShadow_01.svg')
+  const [thunderStyle, setThunderStyle] = useState({
+    top: 282 * scaleHeight,
+    left: 239.61 * scaleWidth,
+    width: 24.5 * scaleWidth,
+    height: 60.5747 * scaleHeight,
+    zIndex: 2,
+  })
+  const [projectionStyle, setProjectionStyle] = useState({
+    top: 337.5 * scaleHeight,
+    left: 75.18 * scaleWidth,
+    width: 242.34 * scaleWidth,
+    height: 327 * scaleHeight,
+  })
+  const [shadowStyle, setShadowStyle] = useState({
+    top: 615 * scaleHeight,
+    left: 76 * scaleWidth,
+    width: 241 * scaleWidth,
+    height: 50 * scaleHeight,
+  })
+  const [blackCloudStyle, setBlackCloudStyle] = useState({
+    top: 297 * scaleHeight,
+    left: 64 * scaleWidth,
+    width: 262.23 * scaleWidth,
+    height: 136.55 * scaleHeight,
+    zIndex: 1,
   })
 
   const phaseEnum = {
     firstPhase: 'firstPhase',
+    secondPhase: 'secondPhase',
   }
 
   const [phase, setPhase] = useState(phaseEnum.firstPhase)
+  const [feeling, setFeeling] = useState('')
   const navigate = useNavigate()
-
-  const generalAttributeBtmCloudStyle = {
-    position: 'absolute',
-    width: 1447.98,
-    height: 720.1,
-    opacity: 0.4,
-  }
-  const generalAttributeTopCloudStyle = {
-    position: 'absolute',
-    width: 1447.95,
-    height: 832.56,
-    opacity: 0.4,
-    transform: 'rotate(180deg)',
-  }
 
   const mapper = {
     [phaseEnum.firstPhase]: {
-      1: {
-        message: 'หายใจ.',
-        image: 'images/char_11_01.svg',
-        innerTopCloudStyle: {
-          ...generalAttributeTopCloudStyle,
-          top: '-46.5%',
-          left: '-123.2%',
-        },
-        outerTopCloudStyle: {
-          ...generalAttributeTopCloudStyle,
-          top: '-70.2%',
-          left: '-221.9%',
-        },
-        innerBtmCloudStyle: {
-          top: '51.4%',
-          left: '-145.4%',
-          ...generalAttributeBtmCloudStyle,
-        },
-        outerBtmCloudStyle: {
-          top: '78.1%',
-          left: '-50%',
-          ...generalAttributeBtmCloudStyle,
-        },
-      },
-      2: {
-        message: 'หายใจเข้า..',
-        image: 'images/char_11_02.svg',
-        innerTopCloudStyle: {
-          ...generalAttributeTopCloudStyle,
-          top: '-36.7%',
-          left: '-123.2%',
-        },
-        outerTopCloudStyle: {
-          ...generalAttributeTopCloudStyle,
-          top: '-63.6%',
-          left: '-221.9%',
-        },
-        innerBtmCloudStyle: {
-          top: '48.5%',
-          left: '-145.4%',
-          ...generalAttributeBtmCloudStyle,
-        },
-        outerBtmCloudStyle: {
-          top: '75.1%',
-          left: '-50%',
-          ...generalAttributeBtmCloudStyle,
-        },
-      },
-      3: {
-        message: 'หายใจเข้า...',
-        image: 'images/char_11_03.svg',
-        innerTopCloudStyle: {
-          ...generalAttributeTopCloudStyle,
-          top: '-29.8%',
-          left: '-123.2%',
-        },
-        outerTopCloudStyle: {
-          ...generalAttributeTopCloudStyle,
-          top: '-56.7%',
-          left: '-221.9%',
-        },
-        innerBtmCloudStyle: {
-          top: '45.5%',
-          left: '-145.4%',
-          ...generalAttributeBtmCloudStyle,
-        },
-        outerBtmCloudStyle: {
-          top: '72.2%',
-          left: '-50%',
-          ...generalAttributeBtmCloudStyle,
-        },
-      },
       4: {
-        message: 'หายใจเข้า...',
-        image: 'images/char_11_04.svg',
-        innerTopCloudStyle: {
-          ...generalAttributeTopCloudStyle,
-          top: '-26.1%',
-          left: '-123.2%',
-        },
-        outerTopCloudStyle: {
-          ...generalAttributeTopCloudStyle,
-          top: '-53%',
-          left: '-221.9%',
-        },
-        innerBtmCloudStyle: {
-          top: '43.5%',
-          left: '-145.4%',
-          ...generalAttributeBtmCloudStyle,
-        },
-        outerBtmCloudStyle: {
-          top: '70.1%',
-          left: '-50%',
-          ...generalAttributeBtmCloudStyle,
+        message: '“อืม...”',
+        character: {
+          style: {
+            transform: 'rotate(0deg)',
+            width: 161.05 * scaleWidth,
+            height: 162.5 * scaleHeight,
+            top: 470 * scaleHeight,
+            left: 114 * scaleWidth,
+          },
         },
       },
       5: {
-        message: 'หายใจ...',
-        image: 'images/char_11_02.svg',
-        innerTopCloudStyle: {
-          ...generalAttributeTopCloudStyle,
-          top: '-26.1%',
-          left: '-123.2%',
+        character: {
+          src: 'images/ChuoseShadow_02.svg',
         },
-        outerTopCloudStyle: {
-          ...generalAttributeTopCloudStyle,
-          top: '-53%',
-          left: '-221.9%',
-        },
-        innerBtmCloudStyle: {
-          top: '43.5%',
-          left: '-145.4%',
-          ...generalAttributeBtmCloudStyle,
-        },
-        outerBtmCloudStyle: {
-          top: '70.1%',
-          left: '-50%',
-          ...generalAttributeBtmCloudStyle,
+        thunderStyle: {
+          top: 369 * scaleHeight,
+          left: 104.61 * scaleWidth,
         },
       },
       6: {
-        message: 'หายใจออก..',
-        image: 'images/char_11_05.svg',
-        innerTopCloudStyle: {
-          ...generalAttributeTopCloudStyle,
-          top: '-29.8%',
-          left: '-123.2%',
+        character: {
+          src: 'images/ChuoseShadow_01.svg',
         },
-        outerTopCloudStyle: {
-          ...generalAttributeTopCloudStyle,
-          top: '-56.7%',
-          left: '-221.9%',
-        },
-        innerBtmCloudStyle: {
-          top: '45.5%',
-          left: '-145.4%',
-          ...generalAttributeBtmCloudStyle,
-        },
-        outerBtmCloudStyle: {
-          top: '72.2%',
-          left: '-50%',
-          ...generalAttributeBtmCloudStyle,
+        thunderStyle: {
+          top: 297 * scaleHeight,
+          left: 252.61 * scaleWidth,
         },
       },
       7: {
-        message: 'หายใจออก.',
-        image: 'images/char_11_06.svg',
-        innerTopCloudStyle: {
-          ...generalAttributeTopCloudStyle,
-          top: '-31.8%',
-          left: '-123.2%',
-        },
-        outerTopCloudStyle: {
-          ...generalAttributeTopCloudStyle,
-          top: '-58.7%',
-          left: '-221.9%',
-        },
-        innerBtmCloudStyle: {
-          top: '48.1%',
-          left: '-145.4%',
-          ...generalAttributeBtmCloudStyle,
-        },
-        outerBtmCloudStyle: {
-          top: '74.8%',
-          left: '-50%',
-          ...generalAttributeBtmCloudStyle,
+        message: '“เมฆก้อนดำกลืนกินเราจริงๆหรอ?”',
+        thunderStyle: {
+          opacity: 0,
         },
       },
       8: {
-        message: 'หายใจออก',
-        image: 'images/char_11_07.svg',
-        innerTopCloudStyle: {
-          ...generalAttributeTopCloudStyle,
-          top: '-43.4%',
-          left: '-123.2%',
-        },
-        outerTopCloudStyle: {
-          ...generalAttributeTopCloudStyle,
-          top: '-70.2%',
-          left: '-221.9%',
-        },
-        innerBtmCloudStyle: {
-          top: '51.4%',
-          left: '-145.4%',
-          ...generalAttributeBtmCloudStyle,
-        },
-        outerBtmCloudStyle: {
-          top: '78.1%',
-          left: '-50%',
-          ...generalAttributeBtmCloudStyle,
+        projection: {
+          src: 'images/ProjectionShadow_02.svg',
+          style: {
+            height: 229 * scaleHeight,
+          },
         },
       },
       9: {
-        message: '',
-        image: 'images/char_11_01.svg',
-        innerTopCloudStyle: {
-          ...generalAttributeTopCloudStyle,
-          top: '-43.4%',
-          left: '-123.2%',
+        character: {
+          src: 'images/ChuoseShadow_03.svg',
+          style: {
+            height: 169.37 * scaleHeight,
+            top: 461 * scaleHeight,
+          },
         },
-        outerTopCloudStyle: {
-          ...generalAttributeTopCloudStyle,
-          top: '-70.2%',
-          left: '-221.9%',
-        },
-        innerBtmCloudStyle: {
-          top: '51.4%',
-          left: '-145.4%',
-          ...generalAttributeBtmCloudStyle,
-        },
-        outerBtmCloudStyle: {
-          top: '78.1%',
-          left: '-50%',
-          ...generalAttributeBtmCloudStyle,
+        projection: {
+          src: 'images/ProjectionShadow_03.svg',
+          style: {
+            height: 169 * scaleHeight,
+          },
         },
       },
-      10: {},
+      10: {
+        message: '“หรือเราเป็นคนเดินเข้าไปหามันกันนะ?”',
+        character: {
+          src: 'images/ChuoseShadow_04.svg',
+          style: {
+            height: 171.77 * scaleHeight,
+            left: 115 * scaleWidth,
+          },
+        },
+        projection: {
+          style: {
+            opacity: 0,
+          },
+        },
+      },
       11: {
-        message:
-          'ถ้าตัดรูปแบบความคิดลบอัตโนมัติออกไป\n เรื่องราวนี้จะเป็นยังไงได้บ้างนะ',
-        innerTopCloudStyle: {
-          ...generalAttributeTopCloudStyle,
-          top: '-43.4%',
-          left: '-123.2%',
+        character: {
+          src: 'images/ChuoseShadow_05.svg',
+          style: {
+            height: 181 * scaleHeight,
+            top: 479 * scaleHeight,
+            left: 114 * scaleWidth,
+          },
         },
-        outerTopCloudStyle: {
-          ...generalAttributeTopCloudStyle,
-          top: '-70.2%',
-          left: '-221.9%',
+        shadowStyle: {
+          top: 596 * scaleHeight,
+          left: 96 * scaleWidth,
+          width: 198 * scaleWidth,
+          height: 39 * scaleHeight,
         },
-        innerBtmCloudStyle: {
-          top: '51.4%',
-          left: '-145.4%',
-          ...generalAttributeBtmCloudStyle,
+        blackCloudStyle: {
+          left: 90 * scaleWidth,
+          width: 210 * scaleWidth,
+          height: 109.36 * scaleHeight,
         },
-        outerBtmCloudStyle: {
-          top: '78.1%',
-          left: '-50%',
-          ...generalAttributeBtmCloudStyle,
+      },
+      12: {
+        character: {
+          style: {
+            top: 499 * scaleHeight,
+            left: 109 * scaleWidth,
+            width: 172.62 * scaleWidth,
+            height: 194 * scaleHeight,
+          },
         },
+        blackCloudStyle: {
+          left: 103 * scaleWidth,
+          width: 185 * scaleWidth,
+          height: 96.34 * scaleHeight,
+        },
+        shadowStyle: {
+          opacity: 0,
+        },
+      },
+      13: {
+        message: '“เธอคิดว่ายังไง?”',
+        character: {
+          style: {
+            opacity: 0,
+          },
+        },
+        blackCloudStyle: { opacity: 0 },
       },
     },
+
+    [phaseEnum.secondPhase]: { 1: { message: ' ' } },
   }
 
   useEffect(() => {
@@ -300,142 +197,144 @@ const Scene12 = () => {
     if (mapper[phase][scene] && mapper[phase][scene].message) {
       setMessage(mapper[phase][scene].message)
     }
-    if (mapper[phase][scene] && mapper[phase][scene].image) {
-      setImage(mapper[phase][scene].image)
-    }
-    if (mapper[phase][scene] && mapper[phase][scene].innerBtmCloudStyle) {
-      setInnerBtmCloudStyle(mapper[phase][scene].innerBtmCloudStyle)
-    }
-    if (mapper[phase][scene] && mapper[phase][scene].outerBtmCloudStyle) {
-      setOuterBtmCloudStyle(mapper[phase][scene].outerBtmCloudStyle)
-    }
-
-    if (mapper[phase][scene] && mapper[phase][scene].innerTopCloudStyle) {
-      setInnerTopCloudStyle(mapper[phase][scene].innerTopCloudStyle)
-    }
-    if (mapper[phase][scene] && mapper[phase][scene].outerTopCloudStyle) {
-      setOuterTopCloudStyle(mapper[phase][scene].outerTopCloudStyle)
-    }
-
-    if (mapper[phase][scene] && mapper[phase][scene].characterStyle) {
+    if (
+      mapper[phase][scene] &&
+      mapper[phase][scene].character &&
+      mapper[phase][scene].character.style
+    ) {
       setCharacterStyle((characterStyle) => {
-        return { ...characterStyle, ...mapper[phase][scene].characterStyle }
+        return { ...characterStyle, ...mapper[phase][scene].character.style }
       })
+    }
+    if (
+      mapper[phase][scene] &&
+      mapper[phase][scene].character &&
+      mapper[phase][scene].character.src
+    ) {
+      setCharacterSrc(mapper[phase][scene].character.src)
+    }
+    if (
+      mapper[phase][scene] &&
+      mapper[phase][scene].projection &&
+      mapper[phase][scene].projection.src
+    ) {
+      setProjection(mapper[phase][scene].projection.src)
+    }
+    if (mapper[phase][scene] && mapper[phase][scene].thunderStyle) {
+      setThunderStyle((thunderStyle) => {
+        return { ...thunderStyle, ...mapper[phase][scene].thunderStyle }
+      })
+    }
+    if (mapper[phase][scene] && mapper[phase][scene].shadowStyle) {
+      setShadowStyle((shadowStyle) => {
+        return { ...shadowStyle, ...mapper[phase][scene].shadowStyle }
+      })
+    }
+    if (mapper[phase][scene] && mapper[phase][scene].blackCloudStyle) {
+      setBlackCloudStyle((shadowStyle) => {
+        return { ...shadowStyle, ...mapper[phase][scene].blackCloudStyle }
+      })
+    }
+    if (
+      mapper[phase][scene] &&
+      mapper[phase][scene].projection &&
+      mapper[phase][scene].projection.style
+    ) {
+      setProjectionStyle((projectionStyle) => {
+        return { ...projectionStyle, ...mapper[phase][scene].projection.style }
+      })
+    }
+    if (phase === phaseEnum.secondPhase && scene === 4) {
+      navigate('/scene13')
     }
   }, [scene])
 
   const shiftPhase = (phase) => {
-    setScene(0)
+    console.log(feeling)
+    setScene(1)
     setPhase(phase)
   }
 
   const containerStyle = (scene) => {
     return {
       position: 'relative',
-      overflow: 'hidden',
       left: 0,
       top: 0,
       textAlign: 'center',
       margin: 0,
-    }
-  }
-
-  const backgroundStyles = (scene) => {
-    return {
-      position: 'relative',
-      left: 0,
-      top: -30,
+      height: '100vh',
+      backgroundColor: scene === 2 ? 'black' : '',
+      transitionDuration: scene >= 1 && scene <= 4 ? '1s' : '',
     }
   }
 
   return (
     <div style={containerStyle(scene)}>
-      {scene !== 10 && (
-        <img
-          src={'images/BG_11.svg'}
-          alt="background"
-          style={backgroundStyles(scene)}
-        />
-      )}
-      {scene !== 10 && (
-        <img
-          src={'images/cloud_11.svg'}
-          alt="character"
-          style={outerTopCloudStyle}
-        />
-      )}
-      {scene !== 10 && (
-        <img
-          src={'images/cloud_11.svg'}
-          alt="character"
-          style={innerTopCloudStyle}
-        />
-      )}
-      <Star />
-      {scene !== 9 && scene !== 10 && (
-        <div
-          style={{
-            position: 'absolute',
-            color: '#020202',
-            top: '28%',
-            left: '50%',
-            transform: 'translate(-50%, -50%)',
-            'font-size': '18px',
-            width: '80%',
-          }}
-        >
-          {message}
-        </div>
-      )}
-      {scene <= 9 && <img src={image} alt="character" style={characterStyle} />}
-      {scene !== 10 && (
-        <img
-          src={'images/cloud_11.svg'}
-          alt="character"
-          style={innerBtmCloudStyle}
-        />
-      )}
-      {scene !== 10 && (
-        <img
-          src={'images/cloud_11.svg'}
-          alt="character"
-          style={outerBtmCloudStyle}
-        />
-      )}
-      {scene >= 11 && (
-        <input
-          class="input"
-          style={{
-            top: '35%',
-            left: '50%',
-            transform: 'translate(-50%, 0%)',
-            width: 317,
-            height: 160,
-          }}
-          value={story}
-          onChange={(e) => {
-            setStory(e.target.value)
-          }}
-        />
-      )}
+      <div class={scene >= 4 ? 'background-gradient-12' : ''}>
+        <div className="text_top">{message}</div>
+        {phase === phaseEnum.firstPhase && scene >= 4 && (
+          <div>
+            <img
+              class="shadow"
+              style={thunderStyle}
+              src={'images/Thunderbolt.svg'}
+              alt="shadow"
+            />
+            <img
+              class="shadow"
+              src={'images/Shadow.svg'}
+              alt="shadow"
+              style={shadowStyle}
+            />
+            <img
+              class="cloud"
+              style={blackCloudStyle}
+              src={
+                scene == 12
+                  ? 'images/blackCloud_02.svg'
+                  : 'images/BlackCloud_01.svg'
+              }
+              alt="blackCloud"
+            />
+            <img
+              class="charactor"
+              src={characterSrc}
+              alt="character"
+              style={characterStyle}
+            />
+            <img
+              class="projection"
+              src={projection}
+              alt="projection"
+              style={projectionStyle}
+            />
+          </div>
+        )}
 
-      {scene >= 11 && (
-        <button
-          class="white-button"
-          style={{
-            position: 'absolute',
-            top: '63.7%',
-            left: '50%',
-            transform: 'translate(-50%, -50%)',
-            width: 243.8,
-          }}
-          onClick={() => navigate('/scene13')}
-        >
-          ไปต่อ
-        </button>
-      )}
+        {phase === phaseEnum.firstPhase && scene >= 13 && (
+          <div>
+            <textarea
+              id="feeling-textarea"
+              class="textbox"
+              value={feeling}
+              onChange={(e) => setFeeling(e.target.value)}
+            ></textarea>
+            <button
+              class="button"
+              onClick={() => shiftPhase(phaseEnum.secondPhase)}
+            >
+              ไปต่อ
+            </button>
+          </div>
+        )}
+        {scene >= 4 && (
+          <div>
+            <TopCloud ttl={15 * SCENE12_SHIFT_TIME} />
+            <BottomCloud ttl={15 * SCENE12_SHIFT_TIME} />
+          </div>
+        )}
+      </div>
     </div>
   )
 }
-
 export default Scene12

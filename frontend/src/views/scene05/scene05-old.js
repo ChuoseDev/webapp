@@ -4,6 +4,8 @@ import '../scene03/purple.css'
 
 const Scene05 = () => {
   const [scene, setScene] = useState(1)
+  const scaleWidth = window.screen.width / 390
+  const scaleHeight = window.screen.height / 844
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const navigate = useNavigate()
 

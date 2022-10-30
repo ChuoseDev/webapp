@@ -3,18 +3,16 @@ import { useEffect, useState } from 'react'
 import '../scene03/purple.css'
 import MiddleCloud from 'components/middleCloud/middleCloud'
 import Star from 'components/star/star'
-import { scaleHeight, scaleWidth, SCENE05_SHIFT_TIME } from 'utils/constant'
+import { SCENE05_SHIFT_TIME } from 'utils/constant'
 
 const Scene05 = () => {
   const [scene, setScene] = useState(1)
-  const scaleMean = (scaleHeight() + scaleWidth()) / 2
   const [message, setMessage] = useState('')
   const [characterStyle, setCharacterStyle] = useState({
-    position: 'absolute',
     top: '19%',
     left: '12%',
     transform: 'rotate(-14deg)',
-    width: `${scaleWidth() * 295}px`,
+    width: '295px',
   })
   const phaseEnum = {
     firstPhase: 'firstPhase',
@@ -32,23 +30,20 @@ const Scene05 = () => {
       1: {
         message: '“ได้สิ”',
         characterStyle: {
-          position: 'absolute',
           top: '19%',
           left: '12%',
           transform: 'rotate(-14deg)',
-          width: `${scaleWidth() * 295}px`,
+          width: '295px',
         },
       },
       2: {
         message: '“เธอลองให้เรา พาเธอออกไปจากที่นี่ได้มั้ย?”',
         characterStyle: {
-          position: 'absolute',
           transform: 'rotate(-18deg)',
         },
       },
       3: {
         characterStyle: {
-          position: 'absolute',
           top: '16%',
           left: '16%',
         },
@@ -59,56 +54,49 @@ const Scene05 = () => {
       1: {
         message: '“ว่าแต่เธอชื่ออะไร”',
         characterStyle: {
-          position: 'absolute',
           top: '18%',
           left: '15%',
         },
       },
       2: {
         characterStyle: {
-          position: 'absolute',
           top: '17%',
           left: '15.5%',
         },
       },
       3: {
         characterStyle: {
-          position: 'absolute',
           top: '19%',
           left: '0%',
           transform: 'rotate(-22deg)',
-          width: `${scaleWidth() * 380}px`,
+          width: '380px',
         },
       },
       4: {
         message: '“ฉันขอทำความรู้จักเธอนิดนึงนะ”',
         characterStyle: {
-          position: 'absolute',
           top: '25%',
           left: '15%',
-          width: `${scaleWidth() * 300}px`,
+          width: '300px',
         },
       },
       5: {
         characterStyle: {
-          position: 'absolute',
           top: '30%',
           left: '20%',
           transform: 'rotate(-12deg)',
-          width: `${scaleWidth() * 250}px`,
+          width: '250px',
         },
       },
       6: { characterStyle: { top: '35%', transform: 'rotate(-10deg)' } },
       7: {
         characterStyle: {
-          position: 'absolute',
           top: '45%',
           transform: 'rotate(5deg)',
         },
       },
       8: {
         characterStyle: {
-          position: 'absolute',
           top: '55%',
           transform: 'rotate(-5.04deg)',
         },
@@ -118,19 +106,17 @@ const Scene05 = () => {
       1: {
         message: `เราออกจากที่นี่กันมั้ย ${username}`,
         characterStyle: {
-          position: 'absolute',
           top: '45%',
           left: '13%',
-          width: `${scaleWidth() * 300}px`,
+          width: '300px',
           transform: 'rotate(0deg)',
         },
       },
       2: {
         characterStyle: {
-          position: 'absolute',
           top: '30%',
           left: '7%',
-          width: `${scaleWidth() * 350}px`,
+          width: '350px',
           transform: 'rotate(-7.5deg)',
         },
       },
@@ -163,14 +149,6 @@ const Scene05 = () => {
   }, [scene])
 
   const shiftPhase = (phase) => {
-    if (phase === phaseEnum.thirdPhase) {
-      sessionStorage.setItem('CUST_USR_NM', username)
-      sessionStorage.setItem('CUST_AGE', age)
-      sessionStorage.setItem(
-        'CUST_GENDER',
-        document.getElementById('gender').value
-      )
-    }
     setScene(0)
     setPhase(phase)
   }
@@ -178,13 +156,10 @@ const Scene05 = () => {
   const containerStyle = (scene) => {
     return {
       position: 'relative',
-      overflow: 'hidden',
       left: 0,
       top: 0,
       textAlign: 'center',
       margin: 0,
-      width: window.screen.width,
-      height: window.screen.height,
     }
   }
 
@@ -195,61 +170,36 @@ const Scene05 = () => {
       top: 0,
     }
   }
-  const textStyles = (scene, phase) => {
-    if (
-      phase === phaseEnum.firstPhase ||
-      (phase === phaseEnum.secondPhase && scene <= 2)
-    ) {
-      return {
-        position: 'absolute',
-        color: 'white',
-        top: '75%',
-        left: '50%',
-        transform: 'translate(-50%, -50%)',
-        fontSize: scaleMean * 20,
-      }
-    } else {
-      return {
-        position: 'absolute',
-        color: 'white',
-        top: '17%',
-        width: '100%',
-        display: 'flex',
-        justifyContent: 'center',
-        transform: 'translate(0%)',
-        fontSize: scaleMean * 20,
-      }
-    }
-  }
-
-  const buttonStyles = () => {
-    return {
-      position: 'absolute',
-      top: '85%',
-      left: '50%',
-      transform: 'translate(-50%, -50%)',
-    }
-  }
 
   return (
     <div style={containerStyle(scene)}>
       <img
+        class="bg_purple"
         src={'images/BG_Purple.svg'}
         alt="background"
         style={backgroundStyles(scene)}
       />
-      <div style={textStyles(scene, phase)}>{message}</div>
+      <div
+        className={
+          phase === phaseEnum.firstPhase ||
+          (phase === phaseEnum.secondPhase && scene <= 2)
+            ? 'text_buttom'
+            : 'text_top'
+        }
+      >
+        {message}
+      </div>
       <Star />
       <MiddleCloud />
       <img
+        class="charactor"
         src={'images/Charactor.svg'}
         alt="character"
         style={characterStyle}
       />
       {phase === phaseEnum.firstPhase && scene >= 3 && (
         <button
-          className="button"
-          style={buttonStyles()}
+          class="button"
           onClick={() => shiftPhase(phaseEnum.secondPhase)}
         >
           ลองดู
@@ -280,11 +230,7 @@ const Scene05 = () => {
             />
           )}
           {scene >= 7 && (
-            <select
-              class="input"
-              id="gender"
-              style={{ top: '39%', left: '12%', width: '296.5px' }}
-            >
+            <select class="input" style={{ top: '39%', left: '12%' }}>
               <option value="">เพศ</option>
               <option value="male">ชาย</option>
               <option value="female">หญิง</option>

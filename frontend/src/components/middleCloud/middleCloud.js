@@ -3,7 +3,7 @@ import { omit } from 'utils/function'
 
 const MiddleCloud = ({ fadeIn = true }) => {
   const [scene, setScene] = useState(1)
-  const [opacity, setOpacity] = useState(fadeIn ? 0 : 0.3)
+  const [opacity, setOpacity] = useState(fadeIn ? 0 : 1)
 
   useEffect(() => {
     const sceneShifter = setInterval(() => {
@@ -11,7 +11,7 @@ const MiddleCloud = ({ fadeIn = true }) => {
     }, 1000)
 
     if (fadeIn) {
-      setOpacity(0.3)
+      setOpacity(1)
     }
 
     return () => {

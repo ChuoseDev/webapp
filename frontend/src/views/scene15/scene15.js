@@ -1,124 +1,94 @@
-import BottomCloud from 'components/bottomCloud/bottomCloud'
-import GlitterStar from 'components/glitterStar/glitterStar'
-import MiddleCloud from 'components/middleCloud/middleCloud'
-import TopCloud from 'components/topCloud/topCloud'
 import { useEffect, useState } from 'react'
-import { useNavigate } from 'react-router'
+import '../scene15/scene15.css'
+import MiddleCloud from 'components/middleCloud/middleCloud'
+import Star from 'components/star/star'
 import { SCENE15_SHIFT_TIME } from 'utils/constant'
-import { scaleWidth, scaleHeight } from 'utils/constant'
 
 const Scene15 = () => {
-  const [scene, setScene] = useState(0)
-
-  const [backgroundImage, setBackgroundImage] = useState({
-    opacity: 1,
-    backgroundImage:
-      'linear-gradient(0deg, #CB956F -3.62%, rgba(223, 136, 136, 0.65) 14.77%, #8276D3 70.47%, #50318A 97.27%)',
-  })
-  const [message, setMessage] = useState('“เธอสุดยอดจริงๆ...”')
-
-  const navigate = useNavigate()
-  const characterStyle = (scene) => {
-    const speed = 2
-    return {
-      top: `${22 + speed * (4 * (scene >= 8) * (scene - 8))}%`,
-      left: `${
-        12 +
-        // speed *
-        (-2 * scene +
-          (scene >= 7) * (scene - 7) * 4 -
-          (scene >= 11) * (scene - 11) * 1)
-      }%`,
-      transform: `rotate(${
-        -21.04 +
-        // speed *
-        (2 * scene -
-          (scene >= 7) * (scene - 7) * 8 +
-          (scene >= 11) * (scene - 11) * 12 -
-          (scene >= 14) * (scene - 14) * 7)
-      }deg)`,
-      width: `${295 * scaleWidth()}px`,
-    }
-  }
+  const [scene, setScene] = useState(1)
+  const [message, setMessage] = useState('')
+  const [openDoorStyle, setOpenDoorStyle] = useState({})
 
   const mapper = {
-    2: {
-      backgroundImage:
-        'linear-gradient(0.19deg, #ADD9E9 -7.75%, #9FDCFA -7.74%, #A18EC6 -5.32%, #D3878F 71.06%, rgba(225, 169, 102, 0.71) 90.99%)',
+    5: {
+      openDoorStyle: {
+        position: 'absolute',
+        top: '57%',
+        left: '52%',
+        transform: 'translate(-50%, -50%)',
+        width: '320px',
+      },
     },
-    4: {
-      message: '“ที่เธอผ่านมาจนมาเล่าให้ฉันฟังได้”',
-      characterStyle: {
-        transform: 'rotate(-10.04deg)',
+    6: {
+      openDoorStyle: {
+        position: 'absolute',
+        top: '57%',
+        left: '54%',
+        transform: 'translate(-50%, -50%)',
+        width: '420px',
+      },
+    },
+    7: {
+      openDoorStyle: {
+        position: 'absolute',
+        top: '57%',
+        left: '56%',
+        transform: 'translate(-50%, -50%)',
+        width: '550px',
       },
     },
     8: {
-      backgroundImage:
-        'linear-gradient(0.19deg, #E69DCA -7.75%, #9BD1F9 -1.13%, rgba(198, 189, 255, 0.842328) 41.71%, #EFA54C 97.11%)',
-      message: '“เอาล่ะ...ถึงเวลาที่เธอต้องไปต่อเเล้วนะ”',
+      openDoorStyle: {
+        position: 'absolute',
+        top: '57%',
+        left: '60%',
+        transform: 'translate(-50%, -50%)',
+        width: '680px',
+      },
     },
-    27: {
-      backgroundImage:
-        'linear-gradient(0.19deg, rgba(198, 230, 253, 0.96) 12.46%, rgba(198, 189, 255, 0.842328) 53.42%)',
-      message: '“ก่อนเธอจะไป”',
+    9: {
+      openDoorStyle: {
+        position: 'absolute',
+        top: '69%',
+        left: '64%',
+        transform: 'translate(-50%, -50%)',
+        width: '860px',
+      },
     },
-    30: {
-      backgroundImage:
-        'linear-gradient(0.19deg, #E69DCA -7.75%, #9BD1F9 -1.13%, rgba(198, 189, 255, 0.842328) 41.71%, #EFA54C 97.11%)',
-      message: '"ฉันมีของขวัญจะให้เธอด้วยนะ"',
+
+    11: {
+      message: '“ฉันรู้ว่าเธอพยายามอยู่เสมอ”',
     },
-    34: {
-      message: '',
+
+    12: {
+      message: '“อย่าเจ็บปวดเกินไปเลยนะ”',
     },
-    36: {
-      message: '“รองเท้าคู่นี้...”',
+    13: {
+      message: '“ฉันจะอยู่ข้างๆเธอเอง”',
     },
-    38: {
-      message: '“ใส่มัน...”',
-    },
-    40: {
-      message: '“เเล้วเดินออกไปใช้ชีวิตของเธอสิ”',
-    },
+    14: { message: ' ' },
   }
 
   const containerStyle = (scene) => {
-    return {
-      position: 'relative',
-      overflow: 'hidden',
-      left: 0,
-      top: 0,
-      textAlign: 'center',
-      margin: 0,
-      height: window.screen.height,
-      transition: 'opacity 0.3s ease-out',
-      ...backgroundImage,
-    }
-  }
-
-  const messageStyle = (scene) => {
-    return {
-      position: 'absolute',
-      color: 'white',
-      top: '17%',
-      width: '100%',
-      display: 'flex',
-      justifyContent: 'center',
-      transform: 'translate(0%)',
-      fontSize: `${18 * scaleWidth()}px`,
-    }
-  }
-
-  const shoesStyle = (scene) => {
-    const width = scene < 34 ? 24 : scene < 36 ? 64 : 94
-    const height = scene < 34 ? 28 : scene < 36 ? 76 : 111
-    const top = scene < 34 ? 370 : scene < 36 ? 384 : 366
-    const left = scene < 34 ? 183 : scene < 36 ? 168 : 149
-    return {
-      position: 'absolute',
-      width: width * scaleWidth(),
-      height: height * scaleHeight(),
-      top: top * scaleHeight(),
-      left: left * scaleWidth(),
+    if (scene >= 2 && scene <= 9) {
+      return {
+        position: 'relative',
+        left: 0,
+        top: 0,
+        textAlign: 'center',
+        margin: 0,
+        height: '100vh',
+        backgroundColor: 'black',
+      }
+    } else {
+      return {
+        position: 'relative',
+        left: 0,
+        top: 0,
+        textAlign: 'center',
+        margin: 0,
+        height: '100vh',
+      }
     }
   }
 
@@ -133,57 +103,35 @@ const Scene15 = () => {
   }, [])
 
   useEffect(() => {
-    if (mapper[scene] && 'message' in mapper[scene]) {
+    if (mapper[scene] && mapper[scene].message) {
       setMessage(mapper[scene].message)
     }
-    if (mapper[scene] && mapper[scene].backgroundImage) {
-      setBackgroundImage({
-        ...backgroundImage,
-        opacity: 0.75,
+    if (mapper[scene] && mapper[scene].openDoorStyle) {
+      setOpenDoorStyle((openDoorStyle) => {
+        return { ...openDoorStyle, ...mapper[scene].openDoorStyle }
       })
-      setMessage('')
-      setTimeout(() => {
-        setBackgroundImage({
-          opacity: 1,
-          backgroundImage: mapper[scene].backgroundImage,
-        })
-        if (mapper[scene].message) {
-          setMessage(mapper[scene].message)
-        }
-      }, 300)
-    }
-    if (scene === 42) {
-      navigate('/scene16')
     }
   }, [scene])
 
   return (
     <div style={containerStyle(scene)}>
-      <div style={{}}>
-        <GlitterStar />
-      </div>
-      {scene <= 27 && <BottomCloud fadeIn={true} />}
-      {scene <= 27 && <MiddleCloud fadeIn={true} />}
-      {scene >= 30 && (
+      {scene >= 3 && scene <= 9 && (
         <>
-          <TopCloud fadeIn={true} />
-          <TopCloud fadeIn={true} top={100} />
-          <BottomCloud fadeIn={true} />
-          <BottomCloud fadeIn={true} bottom={100} />
-          <BottomCloud fadeIn={true} bottom={200} />
-          <img src="images/shoes.svg" alt="shoes" style={shoesStyle(scene)} />
+          <Star />
+          <MiddleCloud />
         </>
       )}
-      {scene >= 28 && <BottomCloud fadeIn={true} />}
-      {scene <= 26 && (
+      {scene == 4 && (
         <img
-          className="charactor"
-          src={'images/Charactor.svg'}
-          alt="character"
-          style={characterStyle(scene)}
+          className={'closeDoor'}
+          src={'images/CloseDoor.svg'}
+          alt="closedoor"
         />
       )}
-      <div style={messageStyle(scene)}>{message}</div>
+      {scene >= 5 && scene <= 9 && (
+        <img src={'images/OpenDoor.svg'} alt="opendoor" style={openDoorStyle} />
+      )}
+      <div className={'text_center'}>{message}</div>
     </div>
   )
 }

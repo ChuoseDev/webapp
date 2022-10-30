@@ -4,7 +4,8 @@ import '../scene03/purple.css'
 
 const Scene07 = () => {
   const [scene, setScene] = useState(1)
-
+  const scaleWidth = window.screen.width / 390
+  const scaleHeight = window.screen.height / 844
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const navigate = useNavigate()
 
@@ -31,7 +32,6 @@ const Scene07 = () => {
   const containerStyle = (scene) => {
     return {
       position: 'relative',
-      overflow: 'hidden',
       left: 0,
       top: 0,
       textAlign: 'center',
@@ -63,7 +63,7 @@ const Scene07 = () => {
         return (
           <div>
             <div class="text_top">
-              "ได้สิ ฉันเชื่อว่าเธอทำได้<br></br> เรามาหาทางออกด้วยกันนะ"
+              "ได้สิ<br></br> เราลองมาหาทางออกด้วยกันมั๊ย"
             </div>
             <img
               class="cloud02"
