@@ -135,6 +135,7 @@ const Consent = () => {
           if (phase === 1) {
             setPhase(2)
           } else {
+            document.getElementById('backgroundtrack').play()
             navigate('/scene01')
           }
         }}

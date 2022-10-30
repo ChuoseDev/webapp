@@ -5,7 +5,6 @@ import { useNavigate } from 'react-router'
 import { SCENE14_SHIFT_TIME } from 'utils/constant'
 import '../scene03/purple.css'
 import { scaleWidth, scaleHeight } from 'utils/constant'
-import { getPrediction } from 'api/api'
 
 const Scene14 = () => {
   const [scene, setScene] = useState(1)
@@ -166,12 +165,7 @@ const Scene14 = () => {
   }
 
   const goNext = () => {
-    getPrediction()
-      .then((res) => {
-        const { data } = res
-        sessionStorage.setItem('LEVEL', data.label)
-      })
-      .catch((_) => {})
+    sessionStorage.setItem('USER_SPEECH_TO_THEMSELVES', anything)
     navigate('/scene15')
   }
 
