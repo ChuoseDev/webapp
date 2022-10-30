@@ -2,6 +2,8 @@ from logics import get_cleaned_text, save_to_dynamo, get_label
 import flask
 from dotenv import load_dotenv
 from flask_cors import CORS
+from waitress import serve
+import time
 
 load_dotenv()
 
@@ -36,7 +38,12 @@ def insert():
         # text1 = js['TEXT_Q1']
         text2 = js['TEXT_Q2']
         cleaned_text = get_cleaned_text(text2)
+        current_time = time.time()
+        print('clean',current_time)
         label = get_label([cleaned_text])
+        current_time = time.time()
+        print('label',current_time)
+        print('label is:', label)
         save_to_dynamo(age, gender, text2, label)
         return flask.jsonify({'message': 'successful', 'label': label})
     return flask.jsonify({'message': 'grae mai mee sit'}), 400
@@ -44,4 +51,4 @@ def insert():
 
 if __name__ == '__main__':
     # vectorCount, tf_transformer = prepare_transformer(vectorCount=vectorCount, tf_transformer=tf_transformer)
-    app.run(debug=True, port=5000)
+    serve(app, host="0.0.0.0", port=5000)

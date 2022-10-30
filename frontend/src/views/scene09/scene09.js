@@ -4,6 +4,7 @@ import TopCloud from 'components/topCloud/topCloud'
 import BottomCloud from 'components/bottomCloud/bottomCloud'
 import { SCENE09_SHIFT_TIME } from 'utils/constant'
 import { scaleWidth, scaleHeight } from 'utils/constant'
+import { getPrediction } from 'api/api'
 
 const Scene09 = () => {
   const [scene, setScene] = useState(1)
@@ -390,6 +391,12 @@ const Scene09 = () => {
   }
 
   const onClickNext = () => {
+    getPrediction()
+      .then((res) => {
+        const { data } = res
+        sessionStorage.setItem('LEVEL', data.label)
+      })
+      .catch((_) => {})
     setTimeout(() => {
       navigate('/analyse')
     }, 1500)
