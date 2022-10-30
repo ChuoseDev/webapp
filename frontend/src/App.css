@@ -233,3 +233,8 @@ input[type='number'] {
   top: 0px;
   z-index: -1;
 }
+
+br {
+  display: block;
+  margin-top: 10px;
+}

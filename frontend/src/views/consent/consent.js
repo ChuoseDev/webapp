@@ -101,7 +101,7 @@ const Consent = () => {
         </div>
       )}
       {phase === 2 && (
-        <div style={textStyle()}>
+        <div style={{ ...textStyle(), top: 150 * scaleHeight() }}>
           <span style={{ color: '#EC9F40', fontSize }}>CHUOSE </span>
           เว็บแอปพลิเคชันที่พัฒนาขึ้น
           <br />
