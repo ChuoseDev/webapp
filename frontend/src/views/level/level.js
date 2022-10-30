@@ -8,7 +8,9 @@ import { useNavigate } from 'react-router'
 import { scaleWidth, scaleHeight } from 'utils/constant'
 
 const Level = () => {
-  const level = sessionStorage.getItem('LEVEL')
+  const level = parseFloat(sessionStorage.getItem('LEVEL'))
+    ? parseFloat(sessionStorage.getItem('LEVEL'))
+    : 0
   const navigate = useNavigate()
 
   const containerStyle = () => {
@@ -143,18 +145,18 @@ const Level = () => {
           transform: 'translate(-50%, -50%)',
         }}
       >
-        {level < 2 ? (
-          <LevelCard1_2 />
-        ) : level < 3 ? (
-          <LevelCard3 />
-        ) : level < 5 ? (
-          <LevelCard4_5 />
-        ) : (
+        {level < 1 ? (
           <LevelCard1_1 />
+        ) : level <= 2 ? (
+          <LevelCard1_2 />
+        ) : level < 4 ? (
+          <LevelCard3 />
+        ) : (
+          <LevelCard4_5 />
         )}
       </div>
       <WhiteButton
-        onClick={level === 3 || level === 4 ? onClickEmergency : onClickNext}
+        onClick={level >= 4 ? onClickEmergency : onClickNext}
         style={buttonStyle()}
         children={
           <p
