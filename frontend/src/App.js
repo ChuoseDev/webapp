@@ -31,6 +31,12 @@ import EmergencyCall from 'views/emergencyCall/emergencyCall'
 const App = () => {
   return (
     <div className="App">
+      <audio loop id="backgroundtrack">
+        <source
+          src="https://chuose-bucket.s3.ap-southeast-1.amazonaws.com/static/media/backgroundtrack.mp3"
+          type="audio/mpeg"
+        ></source>
+      </audio>
       <BrowserRouter>
         <Switch>
           <Route exact path="/" element={<Startup />}></Route>
