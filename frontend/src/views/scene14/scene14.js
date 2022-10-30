@@ -182,8 +182,8 @@ const Scene14 = () => {
 
   const backgroundStyle = (scene) => {
     return {
-      width: window.screen.width,
-      height: window.screen.height,
+      width: 390 * scaleWidth(),
+      height: 866.8 * scaleHeight(),
       position: 'relative',
       // transition: 'opacity ease-in-out 1s',
       background: '#5D53A3',
