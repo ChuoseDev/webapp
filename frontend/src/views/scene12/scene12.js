@@ -1,7 +1,9 @@
 import { useNavigate } from 'react-router'
 import { useEffect, useState } from 'react'
 import Star from 'components/star/star'
-import { SCENE12_SHIFT_TIME } from 'utils/constant'
+import { scaleHeight, scaleWidth, SCENE12_SHIFT_TIME } from 'utils/constant'
+import BottomCloud from 'components/bottomCloud/bottomCloud'
+import TopCloud from 'components/topCloud/topCloud'
 
 const Scene12 = () => {
   const [scene, setScene] = useState(1)
@@ -328,23 +330,25 @@ const Scene12 = () => {
     setScene(0)
     setPhase(phase)
   }
-
   const containerStyle = (scene) => {
     return {
-      position: 'relative',
-      overflow: 'hidden',
-      left: 0,
-      top: 0,
-      textAlign: 'center',
+      position: 'absolute',
+      // left: 0,
+      // top: 0,
+      textAlign: 'left',
       margin: 0,
+      width: '100%',
+      height: '100%',
+      overflow: 'hidden',
     }
   }
 
   const backgroundStyles = (scene) => {
     return {
-      position: 'relative',
-      left: 0,
-      top: -30,
+      position: 'absolute',
+      width: '100%',
+      height: '100%',
+      objectFit: 'cover',
     }
   }
 
@@ -372,6 +376,8 @@ const Scene12 = () => {
         />
       )}
       <Star />
+      <BottomCloud />
+      <TopCloud />
       {scene !== 9 && scene !== 10 && (
         <div
           style={{
@@ -381,7 +387,7 @@ const Scene12 = () => {
             left: '50%',
             transform: 'translate(-50%, -50%)',
             'font-size': '18px',
-            width: '80%',
+            textAlign: 'center',
           }}
         >
           {message}
@@ -409,8 +415,8 @@ const Scene12 = () => {
             top: '35%',
             left: '50%',
             transform: 'translate(-50%, 0%)',
-            width: 317,
-            height: 160,
+            width: 317 * scaleWidth(),
+            height: 150 * scaleHeight(),
           }}
           value={story}
           onChange={(e) => {

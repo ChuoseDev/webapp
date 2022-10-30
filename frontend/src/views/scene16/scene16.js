@@ -2,7 +2,12 @@ import { useEffect, useState } from 'react'
 import './scene16.css'
 import MiddleCloud from 'components/middleCloud/middleCloud'
 import GlitterStar from 'components/glitterStar/glitterStar'
-import { scaleMean, SCENE16_SHIFT_TIME } from 'utils/constant'
+import {
+  scaleHeight,
+  scaleMean,
+  scaleWidth,
+  SCENE16_SHIFT_TIME,
+} from 'utils/constant'
 import { useNavigate } from 'react-router'
 
 const Scene16 = () => {
@@ -16,46 +21,46 @@ const Scene16 = () => {
     5: {
       openDoorStyle: {
         position: 'absolute',
-        top: '57%',
-        left: '52%',
+        top: 500 * scaleHeight(),
+        left: 200 * scaleWidth(),
         transform: 'translate(-50%, -50%)',
-        width: '320px',
+        width: 350 * scaleWidth(),
       },
     },
     6: {
       openDoorStyle: {
         position: 'absolute',
-        top: '57%',
-        left: '54%',
+        top: 510 * scaleHeight(),
+        left: 205 * scaleWidth(),
         transform: 'translate(-50%, -50%)',
-        width: '420px',
+        width: 450 * scaleWidth(),
       },
     },
     7: {
       openDoorStyle: {
         position: 'absolute',
-        top: '57%',
-        left: '56%',
+        top: 520 * scaleHeight(),
+        left: 210 * scaleWidth(),
         transform: 'translate(-50%, -50%)',
-        width: '550px',
+        width: 550 * scaleWidth(),
       },
     },
     8: {
       openDoorStyle: {
         position: 'absolute',
-        top: '57%',
-        left: '60%',
+        top: 530 * scaleHeight(),
+        left: 215 * scaleWidth(),
         transform: 'translate(-50%, -50%)',
-        width: '680px',
+        width: 650 * scaleWidth(),
       },
     },
     9: {
       openDoorStyle: {
         position: 'absolute',
-        top: '69%',
-        left: '64%',
+        top: 540 * scaleHeight(),
+        left: 220 * scaleWidth(),
         transform: 'translate(-50%, -50%)',
-        width: '860px',
+        width: 750 * scaleWidth(),
       },
     },
 
@@ -77,7 +82,7 @@ const Scene16 = () => {
       message: '“เพราะฉัน..”',
     },
     23: {
-      message: '“จะอยู่ข้างๆเธอเอง”',
+      message: '“จะอยู่ข้าง ๆ เธอเอง”',
     },
   }
 
@@ -90,7 +95,7 @@ const Scene16 = () => {
         top: 0,
         textAlign: 'center',
         margin: 0,
-        height: '100vh',
+        height: window.screen.height,
         backgroundColor: 'black',
         display: 'flex',
         justifyContent: 'center',
@@ -102,7 +107,7 @@ const Scene16 = () => {
         top: 0,
         textAlign: 'center',
         margin: 0,
-        height: '100vh',
+        height: window.screen.height,
         display: 'flex',
         justifyContent: 'center',
       }
@@ -114,7 +119,7 @@ const Scene16 = () => {
       position: 'fixed',
       color: 'black',
       top: '50%',
-      width: '100vh',
+      width: window.screen.height,
       // transform: 'translate(-50%, -50%)',
       fontSize: 20 * scaleMean(),
       // textAlign: 'center',
@@ -158,6 +163,11 @@ const Scene16 = () => {
           className={'closeDoor'}
           src={'images/CloseDoor.svg'}
           alt="closedoor"
+          position="absolute"
+          top="500 * scaleHeight()"
+          left="200 * scaleWidth()"
+          transform="translate(-50%, -50%)"
+          width="200 * scaleWidth()"
         />
       )}
       {scene >= 5 && scene <= 9 && (

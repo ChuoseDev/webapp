@@ -2,6 +2,8 @@ import { useNavigate } from 'react-router'
 import { useEffect, useState } from 'react'
 import Star from 'components/star/star'
 import { ANALYSE_SHIFT_TIME, VIEW_CHANGING_DELAY_TIME } from 'utils/constant'
+import BottomCloud from 'components/bottomCloud/bottomCloud'
+import TopCloud from 'components/topCloud/topCloud'
 
 const Analyse = () => {
   const [scene, setScene] = useState(1)
@@ -307,7 +309,7 @@ const Analyse = () => {
       margin: 0,
       width: '100%',
       height: '100%',
-      overflow: 'hidden'
+      overflow: 'hidden',
     }
   }
 
@@ -316,7 +318,7 @@ const Analyse = () => {
       position: 'absolute',
       width: '100%',
       height: '100%',
-      objectFit: 'cover'
+      objectFit: 'cover',
     }
   }
 
@@ -341,7 +343,8 @@ const Analyse = () => {
       />
 
       <Star />
-
+      <BottomCloud />
+      <TopCloud />
       <div
         style={{
           position: 'absolute',
@@ -352,7 +355,7 @@ const Analyse = () => {
           'font-size': '18px',
           width: '80%',
           whiteSpace: 'pre-wrap',
-          textAlign: 'center'
+          textAlign: 'center',
         }}
       >
         {message}
