@@ -12,6 +12,7 @@ const Scene14 = () => {
   const [message, setMessage] = useState('')
   const [anything, setAnything] = useState('')
   const [characterStyle, setCharacterStyle] = useState({
+    position: 'absolute',
     top: 200 * scaleHeight(),
     left: 500 * scaleWidth(),
     transform: 'rotate(-10deg)',
@@ -28,94 +29,105 @@ const Scene14 = () => {
       1: {
         message: 'นั่นสินะ',
         characterStyle: {
+          position: 'absolute',
           top: 300 * scaleHeight(),
           left: 115 * scaleWidth(),
           transform: 'rotate(-16deg)',
-          width: 150 * scaleWidth(),
+          width: 180 * scaleWidth(),
         },
       },
       3: {
         characterStyle: {
+          position: 'absolute',
           top: 300 * scaleHeight(),
           left: 115 * scaleWidth(),
           transform: 'rotate(-30deg)',
-          width: 150 * scaleWidth(),
+          width: 180 * scaleWidth(),
         },
       },
       5: {
         message:
           'เป็นเพราะความคิดของเราที่ทำให้ยึดติดกับเรื่องราวในอดีตและสิ่งที่ยังไม่เกิดขึ้น',
         characterStyle: {
+          position: 'absolute',
           top: 300 * scaleHeight(),
           left: 115 * scaleWidth(),
           transform: 'rotate(-13deg)',
-          width: 150 * scaleWidth(),
+          width: 180 * scaleWidth(),
         },
       },
       7: {
         characterStyle: {
+          position: 'absolute',
           top: 300 * scaleHeight(),
           left: 115 * scaleWidth(),
           transform: 'rotate(-5deg)',
-          width: 150 * scaleWidth(),
+          width: 180 * scaleWidth(),
         },
       },
       9: {
         characterStyle: {
+          position: 'absolute',
           top: 300 * scaleHeight(),
           left: 115 * scaleWidth(),
           transform: 'rotate(-14deg)',
-          width: 150 * scaleWidth(),
+          width: 180 * scaleWidth(),
         },
       },
       11: {
         message: '“ถ้าเธอรู้ตัวว่ากำลังมีความคิดลบอัตโนมัติอยู่”',
         characterStyle: {
+          position: 'absolute',
           top: 300 * scaleHeight(),
           left: 115 * scaleWidth(),
           transform: 'rotate(-23deg)',
-          width: 150 * scaleWidth(),
+          width: 180 * scaleWidth(),
         },
       },
       13: {
         characterStyle: {
+          position: 'absolute',
           top: 300 * scaleHeight(),
           left: 115 * scaleWidth(),
           transform: 'rotate(-34deg)',
-          width: 150 * scaleWidth(),
+          width: 180 * scaleWidth(),
         },
       },
       15: {
         characterStyle: {
+          position: 'absolute',
           top: 300 * scaleHeight(),
           left: 115 * scaleWidth(),
           transform: 'rotate(-24deg )',
-          width: 150 * scaleWidth(),
+          width: 180 * scaleWidth(),
         },
       },
       17: {
         message: '“ก็นับเป็นก้าวใหญ่มากเลยนะที่จะพาเธออกไปจากตรงนี้"',
         characterStyle: {
+          position: 'absolute',
           top: 300 * scaleHeight(),
           left: 115 * scaleWidth(),
           transform: 'rotate(-15deg)',
-          width: 150 * scaleWidth(),
+          width: 180 * scaleWidth(),
         },
       },
       19: {
         characterStyle: {
+          position: 'absolute',
           top: 300 * scaleHeight(),
           left: 115 * scaleWidth(),
           transform: 'rotate(-10deg)',
-          width: 150 * scaleWidth(),
+          width: 180 * scaleWidth(),
         },
       },
       21: {
         characterStyle: {
+          position: 'absolute',
           top: 300 * scaleHeight(),
           left: 115 * scaleWidth(),
           transform: 'rotate(-17deg)',
-          width: 150 * scaleWidth(),
+          width: 180 * scaleWidth(),
         },
       },
       23: {
@@ -170,8 +182,8 @@ const Scene14 = () => {
 
   const backgroundStyle = (scene) => {
     return {
-      width: 390 * scaleWidth(),
-      height: 844 * scaleHeight(),
+      width: window.screen.width,
+      height: window.screen.height,
       position: 'relative',
       // transition: 'opacity ease-in-out 1s',
       background: '#5D53A3',
