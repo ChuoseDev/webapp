@@ -3,14 +3,13 @@ import { useNavigate } from 'react-router'
 import Star from 'components/star/star'
 import MiddleCloud from 'components/middleCloud/middleCloud'
 import { SCENE02_SHIFT_TIME } from 'utils/constant'
-import { scaleWidth, scaleHeight } from 'utils/constant'
+import { scaleMean, scaleHeight } from 'utils/constant'
 
 const Scene02 = () => {
   const [scene, setScene] = useState(-1)
   const [message, setMessage] = useState()
   const [avocadoSrc, setAvocadoSrc] = useState()
   const navigate = useNavigate()
-  const scaleMean = (scaleHeight() + scaleWidth()) / 2
   const isMobile = window.screen.width < window.innerHeight
 
   const mapper = {
