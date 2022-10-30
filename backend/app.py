@@ -40,10 +40,10 @@ def insert():
         if cleaned_text == '':
             return flask.jsonify({'message': 'cleaned text is empty string', 'label': 5})
         current_time = time.time()
-        logging.info('clean' + current_time)
+        logging.info('clean' + str(current_time))
         label = get_label([cleaned_text])
         current_time = time.time()
-        logging.info('label' + current_time)
+        logging.info('label' + str(current_time))
         logging.info('label is' + label)
         save_to_dynamo(username, age, gender, text2, label)
         return flask.jsonify({'message': 'successful', 'label': label})

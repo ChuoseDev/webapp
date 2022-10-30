@@ -135,13 +135,13 @@ def remove_punct(text):
     
 def get_cleaned_text(text):
     current_time = time.time()
-    logging.info("start get cleaned text" + current_time)
+    logging.info("start get cleaned text" + str(current_time))
     text = remove_punct(text)
     current_time = time.time()
-    logging.info("remove_punct" + current_time)
+    logging.info("remove_punct" + str(current_time))
     text = normalize(text)
     current_time = time.time()
-    logging.info("normalize" + current_time)
+    logging.info("normalize" + str(current_time))
     return text
 
 ### Dynamo DB ###

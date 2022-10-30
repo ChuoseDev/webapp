@@ -1,3 +1,5 @@
+# some script note used in setup ec2 ubuntu
+
 sudo apt-get update
 sudo apt-get remove docker docker-engine docker.io containerd runc
 sudo apt-get install -y \
@@ -27,3 +29,5 @@ echo "export PATH=\"`python3 -m site --user-base`/bin:\$PATH\"" >> ~/.bashrc
 source ~/.bashrc
 
 gdown 1VbzN6zMBeuAHPuwzfh0A1WqY8s41qtIg
+
+nohup python3 app.py &
