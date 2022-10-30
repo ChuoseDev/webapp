@@ -189,10 +189,20 @@ const Scene05 = () => {
   }
 
   const backgroundStyles = (scene) => {
-    return {
-      position: 'relative',
-      left: 0,
-      top: 0,
+    if (scaleHeight > scaleWidth) {
+      return {
+        position: 'relative',
+        left: 0,
+        top: 0,
+        height: window.screen.height,
+      }
+    } else {
+      return {
+        position: 'relative',
+        left: 0,
+        top: 0,
+        width: window.screen.width,
+      }
     }
   }
   const textStyles = (scene, phase) => {
