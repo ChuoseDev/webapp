@@ -165,6 +165,7 @@ const Scene14 = () => {
   }
 
   const goNext = () => {
+    sessionStorage.setItem('USER_SPEECH_TO_THEMSELVES', anything)
     navigate('/scene15')
   }
 
