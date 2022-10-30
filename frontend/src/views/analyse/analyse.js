@@ -309,12 +309,10 @@ const Analyse = () => {
   const containerStyle = (scene) => {
     return {
       position: 'absolute',
-      // left: 0,
-      // top: 0,
       textAlign: 'left',
       margin: 0,
-      width: '100%',
-      height: '100%',
+      width: window.screen.width,
+      height: window.innerHeight,
       overflow: 'hidden',
     }
   }
