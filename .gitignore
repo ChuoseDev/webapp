@@ -4,5 +4,6 @@ backend/__pycache__
 backend/LSTM_128n64n32e1000_K1.h5
 
 frontend/node_modules/
+frontend/build
 frontend/.env
 yarn.lock
