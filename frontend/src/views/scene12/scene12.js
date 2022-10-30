@@ -263,7 +263,7 @@ const Scene12 = () => {
       10: {},
       11: {
         message:
-          'ถ้าตัดรูปแบบความคิดลบอัตโนมัติออกไป\n เรื่องราวนี้จะเป็นยังไงได้บ้างนะ',
+          'ถ้าตัดรูปแบบความคิดลบอัตโนมัติออกไป เรื่องราวนี้จะเป็นยังไงได้บ้างนะ',
         innerTopCloudStyle: {
           ...generalAttributeTopCloudStyle,
           top: '-43.4%',
@@ -416,7 +416,7 @@ const Scene12 = () => {
             left: '50%',
             transform: 'translate(-50%, 0%)',
             width: 317 * scaleWidth(),
-            height: 150 * scaleHeight(),
+            height: 100 * scaleHeight(),
           }}
           value={story}
           onChange={(e) => {
