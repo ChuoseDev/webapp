@@ -10,13 +10,12 @@ const Scene13 = () => {
   const [message, setMessage] = useState('')
   const [characterStyle, setCharacterStyle] = useState({
     position: 'absolute',
-    width: 161.05 * scaleWidth(),
-    height: 162.5 * scaleHeight(),
-    top: 470 * scaleHeight(),
-    left: 114 * scaleWidth(),
+    width: 242.34 * scaleWidth(),
+    height: 327 * scaleHeight(),
+    top: 337.5 * scaleHeight(),
+    left: 75.18 * scaleWidth(),
   })
   const [characterSrc, setCharacterSrc] = useState('images/ChuoseShadow_01.svg')
-  const [projection, setProjection] = useState('images/ProjectionShadow_01.svg')
   const [thunderStyle, setThunderStyle] = useState({
     position: 'absolute',
     top: 282 * scaleHeight(),
@@ -24,20 +23,6 @@ const Scene13 = () => {
     width: 24.5 * scaleWidth(),
     height: 60.5747 * scaleHeight(),
     zIndex: 2,
-  })
-  const [projectionStyle, setProjectionStyle] = useState({
-    position: 'absolute',
-    top: 337.5 * scaleHeight(),
-    left: 75.18 * scaleWidth(),
-    width: 242.34 * scaleWidth(),
-    height: 327 * scaleHeight(),
-  })
-  const [shadowStyle, setShadowStyle] = useState({
-    position: 'absolute',
-    top: 615 * scaleHeight(),
-    left: 76 * scaleWidth(),
-    width: 241 * scaleWidth(),
-    height: 50 * scaleHeight(),
   })
   const [blackCloudStyle, setBlackCloudStyle] = useState({
     position: 'absolute',
@@ -61,15 +46,6 @@ const Scene13 = () => {
     [phaseEnum.firstPhase]: {
       4: {
         message: '“อืม...”',
-        character: {
-          style: {
-            transform: 'rotate(0deg)',
-            width: 161.05 * scaleWidth(),
-            height: 162.5 * scaleHeight(),
-            top: 470 * scaleHeight(),
-            left: 114 * scaleWidth(),
-          },
-        },
       },
       5: {
         character: {
@@ -96,57 +72,41 @@ const Scene13 = () => {
         },
       },
       8: {
-        projection: {
-          src: 'images/ProjectionShadow_02.svg',
+        character: {
+          src: 'images/ChuoseShadow_03.svg',
           style: {
-            height: 229 * scaleHeight(),
+            width: 243 * scaleWidth(),
+            top: 338 * scaleHeight(),
+            left: 75 * scaleWidth(),
           },
         },
       },
       9: {
         character: {
-          src: 'images/ChuoseShadow_03.svg',
-          style: {
-            height: 169.37 * scaleHeight(),
-            top: 461 * scaleHeight(),
-          },
-        },
-        projection: {
-          src: 'images/ProjectionShadow_03.svg',
-          style: {
-            height: 169 * scaleHeight(),
-          },
+          src: 'images/ChuoseShadow_04.svg',
         },
       },
       10: {
         message: '“หรือเราเป็นคนเดินเข้าไปหามันกันนะ?”',
         character: {
-          src: 'images/ChuoseShadow_04.svg',
+          src: 'images/ChuoseShadow_05.svg',
           style: {
-            height: 171.77 * scaleHeight(),
-            left: 115 * scaleWidth(),
-          },
-        },
-        projection: {
-          style: {
-            opacity: 0,
+            width: 241 * scaleWidth(),
+            top: 461 * scaleHeight(),
+            height: 204 * scaleHeight(),
+            left: 76 * scaleWidth(),
           },
         },
       },
       11: {
         character: {
-          src: 'images/ChuoseShadow_05.svg',
+          src: 'images/ChuoseShadow_06.svg',
           style: {
+            width: 198 * scaleWidth(),
             height: 181 * scaleHeight(),
+            left: 96 * scaleWidth(),
             top: 479 * scaleHeight(),
-            left: 114 * scaleWidth(),
           },
-        },
-        shadowStyle: {
-          top: 596 * scaleHeight(),
-          left: 96 * scaleWidth(),
-          width: 198 * scaleWidth(),
-          height: 39 * scaleHeight(),
         },
         blackCloudStyle: {
           left: 90 * scaleWidth(),
@@ -156,6 +116,7 @@ const Scene13 = () => {
       },
       12: {
         character: {
+          src: 'images/ChuoseShadow_07.svg',
           style: {
             top: 499 * scaleHeight(),
             left: 109 * scaleWidth(),
@@ -167,9 +128,6 @@ const Scene13 = () => {
           left: 103 * scaleWidth(),
           width: 185 * scaleWidth(),
           height: 96.34 * scaleHeight(),
-        },
-        shadowStyle: {
-          opacity: 0,
         },
       },
       13: {
@@ -216,35 +174,14 @@ const Scene13 = () => {
     ) {
       setCharacterSrc(mapper[phase][scene].character.src)
     }
-    if (
-      mapper[phase][scene] &&
-      mapper[phase][scene].projection &&
-      mapper[phase][scene].projection.src
-    ) {
-      setProjection(mapper[phase][scene].projection.src)
-    }
     if (mapper[phase][scene] && mapper[phase][scene].thunderStyle) {
       setThunderStyle((thunderStyle) => {
         return { ...thunderStyle, ...mapper[phase][scene].thunderStyle }
       })
     }
-    if (mapper[phase][scene] && mapper[phase][scene].shadowStyle) {
-      setShadowStyle((shadowStyle) => {
-        return { ...shadowStyle, ...mapper[phase][scene].shadowStyle }
-      })
-    }
     if (mapper[phase][scene] && mapper[phase][scene].blackCloudStyle) {
-      setBlackCloudStyle((shadowStyle) => {
-        return { ...shadowStyle, ...mapper[phase][scene].blackCloudStyle }
-      })
-    }
-    if (
-      mapper[phase][scene] &&
-      mapper[phase][scene].projection &&
-      mapper[phase][scene].projection.style
-    ) {
-      setProjectionStyle((projectionStyle) => {
-        return { ...projectionStyle, ...mapper[phase][scene].projection.style }
+      setBlackCloudStyle((blackCloudStyle) => {
+        return { ...blackCloudStyle, ...mapper[phase][scene].blackCloudStyle }
       })
     }
     if (phase === phaseEnum.secondPhase && scene === 4) {
@@ -316,7 +253,6 @@ const Scene13 = () => {
               src={'images/Thunderbolt.svg'}
               alt="shadow"
             />
-            <img src={'images/Shadow.svg'} alt="shadow" style={shadowStyle} />
             <img
               style={blackCloudStyle}
               src={
@@ -327,7 +263,6 @@ const Scene13 = () => {
               alt="blackCloud"
             />
             <img src={characterSrc} alt="character" style={characterStyle} />
-            <img src={projection} alt="projection" style={projectionStyle} />
           </div>
         )}
         {scene >= 4 && (

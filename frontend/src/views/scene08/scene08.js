@@ -21,7 +21,6 @@ const Scene08 = () => {
   const [friendStyle, setFriendStyle] = useState({
     opacity: 0,
     position: 'absolute',
-    transform: 'rotate(0deg)',
   })
   const [friendSrc, setfriendSrc] = useState()
   const phaseEnum = {
@@ -45,30 +44,31 @@ const Scene08 = () => {
         },
       },
       2: {
-        friend: {
-          src: 'images/CloudText01.svg',
+        character: {
+          src: 'images/YellowChuose_11.svg',
           style: {
-            opacity: 1,
-            width: 101.01 * scaleWidth(),
-            height: 64 * scaleHeight(),
-            top: 277 * scaleHeight(),
-            left: 219 * scaleWidth(),
+            width: 219.72 * scaleWidth(),
+            height: 232.92 * scaleHeight(),
+            top: 377.11 * scaleHeight(),
+            left: 139.13 * scaleWidth(),
           },
         },
       },
       3: {
         character: {
+          src: 'images/YellowChuose_11.svg',
           style: {
-            width: 159 * scaleWidth(),
-            height: 161.92 * scaleHeight(),
-            top: 448.11 * scaleHeight(),
+            width: 219.72 * scaleWidth(),
+            height: 232.92 * scaleHeight(),
+            top: 377.11 * scaleHeight(),
             left: 139.13 * scaleWidth(),
           },
         },
         friend: {
           src: 'images/CloudText07_08.svg',
           style: {
-            width: 323.05 * scaleWidth(),
+            opacity: 1,
+            width: 199.94 * scaleWidth(),
             height: 219.04 * scaleHeight(),
             top: 252 * scaleHeight(),
             left: 34 * scaleWidth(),
@@ -77,6 +77,7 @@ const Scene08 = () => {
       },
       4: {
         character: {
+          src: 'images/YellowChuose_01.svg',
           style: {
             width: 150 * scaleWidth(),
             height: 152.76 * scaleHeight(),
@@ -396,7 +397,7 @@ const Scene08 = () => {
       textAlign: 'center',
       margin: 0,
       height: window.screen.height,
-      transitionDuration: '1s',
+      transitionDuration: '0s',
     }
   }
 
@@ -413,13 +414,6 @@ const Scene08 = () => {
           : phase === phaseEnum.secondPhase && scene >= 2
           ? 'linear-gradient(359.76deg, #DBDBDB 15.35%, #FFFFFF 52.05%, #FFFFFF 52.18%, #FFFFFF 55.64%, #E8E8E8 74.79%)'
           : 'linear-gradient(359.76deg, #DBDBDB 2.45%, #FFFFFF 33.49%, #FFFFFF 43.59%, #FFFFFF 61.92%, #E8E8E8 101.6%)',
-
-      // (phase === phaseEnum.firstPhase && scene < 12) ||
-      // (phase === phaseEnum.secondPhase && scene === 1)
-      //   ? 'linear-gradient(359.76deg, #DBDBDB 2.45%, #FFFFFF 22.04%, #FFFFFF 43.59%, #FFFFFF 82.88%, #E8E8E8 101.6%)'
-      //   : phase === phaseEnum.secondPhase && scene >= 2
-      //   ? 'linear-gradient(359.76deg, #DBDBDB 2.45%, #FFFFFF 33.49%, #FFFFFF 43.59%, #FFFFFF 61.92%, #E8E8E8 101.6%)'
-      //   : 'linear-gradient(359.76deg, #DBDBDB 15.35%, #FFFFFF 52.05%, #FFFFFF 52.18%, #FFFFFF 55.64%, #E8E8E8 74.79%)',
     }
   }
 
