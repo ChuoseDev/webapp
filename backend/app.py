@@ -1,4 +1,5 @@
 import logging
+logging.basicConfig(filename='./log.txt', level='INFO')
 from logics import get_cleaned_text, save_to_dynamo, get_label
 import flask
 from dotenv import load_dotenv

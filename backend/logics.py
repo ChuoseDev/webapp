@@ -3,6 +3,7 @@ import string
 import re
 import os
 import logging
+logging.basicConfig(filename='./log.txt', level='INFO')
 from pythainlp.util import normalize
 import time
 import logging
