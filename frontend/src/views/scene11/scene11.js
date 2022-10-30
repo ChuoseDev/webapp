@@ -53,6 +53,9 @@ const Scene11 = () => {
       imageInCloudStyle: {
         opacity: 0,
       },
+      messageStyle: {
+        fontSize: 17 * scaleWidth,
+      },
     },
     3: {
       message: '“ความคิดลบแบบไม่พัก” คือ',
@@ -115,8 +118,6 @@ const Scene11 = () => {
       },
     },
     13: {
-      message2: ' ',
-      message3: ' ',
       imageInCloud: 'images/minus02.svg',
       imageInCloudStyle: {
         left: '48%',
@@ -125,6 +126,7 @@ const Scene11 = () => {
     14: {
       message: 'เป็นเสียงแรกที่โผล่ขึ้นมาในหัวของเรา',
       message2: 'เมื่อเจอเหตุการณ์หนึ่ง',
+      message3: ' ',
       imageInCloudStyle: {
         opacity: 0,
       },
@@ -157,21 +159,22 @@ const Scene11 = () => {
     },
     19: {
       message: 'ความคิดลบแบบไม่พักมันมีรูปแบบอยู่นะ',
+      message2: ' ',
       messageStyle: {
         top: '30%',
         opacity: 1,
-        fontSize: 17 * scaleMean,
+        fontSize: 17 * scaleWidth,
       },
       characterStyle: {
         opacity: 1,
         bottom: '-20vh',
       },
     },
-    20: {
+    22: {
       message: 'เธอคิดว่าความคิดลบแบบไม่พักของเธอเป็นรูปแบบไหน?',
       messageStyle: {
         top: '10%',
-        fontSize: 17 * scaleMean,
+        fontSize: 17 * scaleWidth,
       },
       characterStyle: {
         opacity: 0,
@@ -302,14 +305,17 @@ const Scene11 = () => {
       <CardSlider
         style={{
           position: 'fixed',
-          width: '50vh',
+          width: '125vw',
+          // width: `${2602 * scaleWidth}px`,
+          left: '50%',
+          transform: 'translate(-50%,0%)',
           top: '25%',
           zindex: '999',
-          opacity: scene >= 20 ? 1 : 0,
+          opacity: scene >= 22 ? 1 : 0,
         }}
         onClickCard={onClickCard}
       />
-      {scene >= 20 && selectedCards.length > 0 && (
+      {scene >= 22 && selectedCards.length > 0 && (
         <WhiteButton
           onClick={onClickStart}
           style={{
