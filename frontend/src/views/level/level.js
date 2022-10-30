@@ -144,17 +144,17 @@ const Level = () => {
         }}
       >
         {level < 2 ? (
-          <LevelCard1_1 />
-        ) : level < 3 ? (
           <LevelCard1_2 />
-        ) : level < 4 ? (
+        ) : level < 3 ? (
           <LevelCard3 />
-        ) : (
+        ) : level < 5 ? (
           <LevelCard4_5 />
+        ) : (
+          <LevelCard1_1 />
         )}
       </div>
       <WhiteButton
-        onClick={level >= 4 ? onClickEmergency : onClickNext}
+        onClick={level === 3 || level === 4 ? onClickEmergency : onClickNext}
         style={buttonStyle()}
         children={
           <p

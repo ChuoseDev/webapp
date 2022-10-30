@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { scaleWidth } from 'utils/constant'
 import { omit } from 'utils/function'
 
 const MiddleCloud = ({ fadeIn = true }) => {
@@ -144,6 +145,7 @@ const MiddleCloud = ({ fadeIn = true }) => {
         alt="background"
         style={{
           ...omit(mapper[scene].cloud1, 'src'),
+          width: 300 * scaleWidth(),
           position: 'absolute',
           opacity,
           transition: 'opacity ease-in-out 1s',
@@ -154,6 +156,7 @@ const MiddleCloud = ({ fadeIn = true }) => {
         alt="background"
         style={{
           ...omit(mapper[scene].cloud2, 'src'),
+          width: 300 * scaleWidth(),
           position: 'absolute',
           opacity,
           transition: 'opacity ease-in-out 1s',
@@ -164,6 +167,7 @@ const MiddleCloud = ({ fadeIn = true }) => {
         alt="background"
         style={{
           ...omit(mapper[scene].cloud3, 'src'),
+          width: 300 * scaleWidth(),
           position: 'absolute',
           opacity,
           transition: 'opacity ease-in-out 1s',
@@ -175,6 +179,7 @@ const MiddleCloud = ({ fadeIn = true }) => {
         alt="background"
         style={{
           ...omit(mapper[scene].cloud4, 'src'),
+          width: 300 * scaleWidth(),
           position: 'absolute',
           opacity,
           transition: 'opacity ease-in-out 1s',

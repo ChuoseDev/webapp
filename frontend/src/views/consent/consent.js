@@ -51,7 +51,7 @@ const Consent = () => {
   const buttonMessage = (phase) => {
     const message = {
       1: 'ไปต่อ',
-      2: 'รับทราบ',
+      2: 'เริ่มเล่น',
     }
     return message[phase]
   }
@@ -59,7 +59,7 @@ const Consent = () => {
   const textStyle = () => {
     return {
       justifyContent: 'center',
-      marginTop: `${300 * scaleHeight()}px`,
+      marginTop: `${200 * scaleHeight()}px`,
       color: '#8A7EBE',
       fontSize,
     }
@@ -135,6 +135,7 @@ const Consent = () => {
           if (phase === 1) {
             setPhase(2)
           } else {
+            document.getElementById('backgroundtrack').play()
             navigate('/scene01')
           }
         }}
