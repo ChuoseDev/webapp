@@ -1,0 +1,23 @@
+version: '3.7'
+
+networks:
+  chuose_network:
+    driver: bridge
+
+services:
+  backend:
+    build: ./backend
+    container_name: chuose_backend
+    ports:
+      - '8000:5000'
+    networks:
+      - chuose_network
+  frontend:
+    build: ./frontend
+    container_name: chuose_frontend
+    ports:
+      - '3000:3000'
+    depends_on:
+      - backend
+    networks:
+      - chuose_network

@@ -5,16 +5,18 @@ import MiddleCloud from 'components/middleCloud/middleCloud'
 import Star from 'components/star/star'
 import TopCloud from 'components/topCloud/topCloud'
 import BottomCloud from 'components/bottomCloud/bottomCloud'
-import { SCENE03_SHIFT_TIME } from 'utils/constant'
+import { scaleHeight, scaleWidth, SCENE03_SHIFT_TIME } from 'utils/constant'
 
 const Scene03 = () => {
   const [scene, setScene] = useState(1)
+  const scaleMean = (scaleHeight() + scaleWidth()) / 2
   const [message, setMessage] = useState('')
   const [characterStyle, setCharacterStyle] = useState({
+    position: 'absolute',
     top: '-18.5%',
     left: '-3.85%',
     transform: 'rotate(-22deg)',
-    width: '185px',
+    width: `${scaleWidth() * 185}px`,
   })
 
   const navigate = useNavigate()
@@ -37,61 +39,67 @@ const Scene03 = () => {
         top: '-20%',
         left: '2.93%',
         transform: 'rotate(-22deg)',
-        width: '284.44px',
+        width: `${scaleWidth() * 284.44}px`,
       },
     },
     6: {
       message: ' ',
       characterStyle: {
+        position: 'absolute',
         top: '-15%',
         left: '7%',
         transform: 'rotate(-22deg)',
-        width: '284.44px',
+        width: `${scaleWidth() * 284.44}px`,
       },
     },
     7: {
       message: ' ',
       characterStyle: {
+        position: 'absolute',
         top: '-9%',
         left: '12%',
         transform: 'rotate(-20deg)',
-        width: '295px',
+        width: `${scaleWidth() * 295}px`,
       },
     },
     8: {
       message: '“สวัสดี เราชูโอสนะ”',
       characterStyle: {
+        position: 'absolute',
         top: '0%',
         left: '12%',
         transform: 'rotate(-17deg)',
-        width: '295px',
+        width: `${scaleWidth() * 295}px`,
       },
     },
     9: {
       message: '“สวัสดี เราชูโอสนะ”',
       characterStyle: {
+        position: 'absolute',
         top: '6%',
         left: '12%',
         transform: 'rotate(-5deg)',
-        width: '295px',
+        width: `${scaleWidth() * 295}px`,
       },
     },
     10: {
       message: '“เราอยากช่วยเธอ”',
       characterStyle: {
+        position: 'absolute',
         top: '15%',
         left: '12%',
         transform: 'rotate(-5deg)',
-        width: '295px',
+        width: `${scaleWidth() * 295}px`,
       },
     },
     11: {
       message: '“เราอยากช่วยเธอ”',
       characterStyle: {
+        position: 'absolute',
         top: '19%',
         left: '12%',
         transform: 'rotate(-14deg)',
-        width: '295px',
+        width: `${scaleWidth() * 295}px`,
       },
     },
   }
@@ -99,10 +107,13 @@ const Scene03 = () => {
   const containerStyle = (scene) => {
     return {
       position: 'relative',
+      overflow: 'hidden',
       left: 0,
       top: 0,
       textAlign: 'center',
       margin: 0,
+      width: window.screen.width,
+      height: window.screen.height,
     }
   }
   const backgroundStyles = (scene) => {
@@ -138,22 +149,40 @@ const Scene03 = () => {
     }
   }, [scene])
 
+  const textStyles = (scene) => {
+    if (scene >= 8) {
+      return {
+        position: 'absolute',
+        color: 'white',
+        top: '75%',
+        left: '50%',
+        transform: 'translate(-50%, -50%)',
+        fontSize: scaleMean * 20,
+      }
+    } else {
+      return {
+        position: 'absolute',
+        color: 'white',
+        top: '50%',
+        left: '50%',
+        transform: 'translate(-50%, -50%)',
+        fontSize: scaleMean * 20,
+      }
+    }
+  }
+
   return (
     <div style={containerStyle(scene)}>
       <img
-        class="bg_purple"
         src={'images/BG_Purple.svg'}
         alt="background"
         style={backgroundStyles(scene)}
       />
-      <div className={scene >= 8 ? 'text_buttom' : 'text_center'}>
-        {message}
-      </div>
+      <div style={textStyles(scene)}>{message}</div>
       <Star />
       <MiddleCloud />
       {scene >= 4 && (
         <img
-          class="charactor"
           src={'images/Charactor.svg'}
           alt="character"
           style={characterStyle}
