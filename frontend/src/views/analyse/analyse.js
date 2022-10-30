@@ -1,7 +1,12 @@
 import { useNavigate } from 'react-router'
 import { useEffect, useState } from 'react'
 import Star from 'components/star/star'
-import { ANALYSE_SHIFT_TIME, VIEW_CHANGING_DELAY_TIME } from 'utils/constant'
+import {
+  ANALYSE_SHIFT_TIME,
+  scaleHeight,
+  scaleWidth,
+  VIEW_CHANGING_DELAY_TIME,
+} from 'utils/constant'
 import BottomCloud from 'components/bottomCloud/bottomCloud'
 import TopCloud from 'components/topCloud/topCloud'
 
@@ -316,8 +321,8 @@ const Analyse = () => {
   const backgroundStyles = (scene) => {
     return {
       position: 'absolute',
-      width: '100%',
-      height: '100%',
+      width: 390 * scaleWidth(),
+      height: 866.8 * scaleHeight(),
       objectFit: 'cover',
     }
   }
