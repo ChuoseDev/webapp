@@ -3,6 +3,7 @@ import TopCloud from 'components/topCloud/topCloud'
 import { Icon } from '@iconify/react'
 import { useNavigate } from 'react-router'
 import './hospital.css'
+import { scaleHeight, scaleWidth } from 'utils/constant'
 
 const Hospital = () => {
   const districts = [
@@ -37,17 +38,15 @@ const Hospital = () => {
     'เขตบางกะปิ',
     'เขตวังทองหลาง',
   ]
-  const scaleWidth = window.screen.width / 390
-  const scaleHeight = window.screen.height / 844
   const navigate = useNavigate()
   const buttonStyle = () => {
     return {
-      width: scaleWidth * 243,
-      height: scaleHeight * 46,
+      width: scaleWidth() * 243,
+      height: scaleHeight() * 46,
       boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
       backgroundColor: '#ffffff',
       borderRadius: 35,
-      fontSize: 20 * scaleHeight,
+      fontSize: 20 * scaleHeight(),
       display: 'flex',
       justifyContent: 'center',
       alignItems: 'center',
@@ -115,8 +114,8 @@ const Hospital = () => {
           width="40"
           style={{
             position: 'absolute',
-            left: 12 * scaleWidth,
-            top: 20 * scaleHeight,
+            left: 12 * scaleWidth(),
+            top: 20 * scaleHeight(),
           }}
           onClick={() => {
             navigate(-1)

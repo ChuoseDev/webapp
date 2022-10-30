@@ -2,25 +2,24 @@ import BottomCloud from 'components/bottomCloud/bottomCloud'
 import TopCloud from 'components/topCloud/topCloud'
 import { Icon } from '@iconify/react'
 import { useNavigate } from 'react-router'
+import { scaleHeight, scaleWidth } from 'utils/constant'
 
 const EmergencyCall = () => {
-  const scaleWidth = window.screen.width / 390
-  const scaleHeight = window.screen.height / 844
   const navigate = useNavigate()
   const buttonStyle = (top) => {
     return {
-      width: scaleWidth * 243,
-      height: scaleHeight * 46,
+      width: scaleWidth() * 243,
+      height: scaleHeight() * 46,
       boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
       backgroundColor: '#ffffff',
       borderRadius: 35,
-      fontSize: 20 * scaleHeight,
+      fontSize: 20 * scaleHeight(),
       display: 'flex',
       justifyContent: 'center',
       alignItems: 'center',
       color: '#8A7EBE',
       position: 'absolute',
-      left: scaleWidth * 73,
+      left: scaleWidth() * 73,
       zIndex: 1,
       top,
     }
@@ -46,7 +45,7 @@ const EmergencyCall = () => {
       <BottomCloud />
       <BottomCloud bottom={50} />
       <div
-        style={buttonStyle(337 * scaleHeight)}
+        style={buttonStyle(337 * scaleHeight())}
         onClick={() => {
           navigate('/emergency-contact')
         }}
@@ -54,7 +53,7 @@ const EmergencyCall = () => {
         ติดต่อสายด่วน
       </div>
       <div
-        style={buttonStyle(399 * scaleHeight)}
+        style={buttonStyle(399 * scaleHeight())}
         onClick={() => {
           navigate('/hospital')
         }}
@@ -70,8 +69,8 @@ const EmergencyCall = () => {
           width="40"
           style={{
             position: 'absolute',
-            left: 12 * scaleWidth,
-            top: 20 * scaleHeight,
+            left: 12 * scaleWidth(),
+            top: 20 * scaleHeight(),
           }}
           onClick={() => {
             navigate(-1)
