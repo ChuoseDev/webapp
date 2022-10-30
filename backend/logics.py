@@ -3,9 +3,10 @@ import string
 import re
 import os
 import logging
+logging.basicConfig(filename='./log.txt', level='INFO')
 from pythainlp.util import normalize
-from pythainlp import correct
 import time
+import logging
 
 ## Edit
 def correct_text(text): 
@@ -134,14 +135,14 @@ def remove_punct(text):
     return text
     
 def get_cleaned_text(text):
-    start = time.time()
-    print("start get cleaned text", start)
+    current_time = time.time()
+    logging.info("start get cleaned text" + str(current_time))
     text = remove_punct(text)
-    start = time.time()
-    print("remove_punct", start)
+    current_time = time.time()
+    logging.info("remove_punct" + str(current_time))
     text = normalize(text)
-    start = time.time()
-    print("normalize", start)
+    current_time = time.time()
+    logging.info("normalize" + str(current_time))
     return text
 
 ### Dynamo DB ###
@@ -159,9 +160,9 @@ if dynamo_db_endpoint is None or dynamo_db_access_key is None or dynamo_db_secre
     logging.error('environment variable of dynamo db is not filled')
     exit()
 
-def save_to_dynamo(age, gender, txt_input, lvl):
+def save_to_dynamo(username, age, gender, txt_input, lvl):
     timeStamp = str(datetime.datetime.now())[:16]
-    apl_id = f'{socket.gethostbyname(socket.gethostname())}@{timeStamp}'
+    apl_id = f'{username}@{timeStamp}'
     try:
         json_body = {'apl_id':apl_id, 'age':age, 'gender':gender, 'txt_input':txt_input, 'lvl':lvl, 'timeStamp':timeStamp}
         logging.info('request post with body', json_body)
