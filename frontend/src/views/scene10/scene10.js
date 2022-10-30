@@ -57,7 +57,7 @@ const Scene10 = () => {
             left: 13 * scaleWidth(),
           },
         },
-        message: 'แล้วเธอคิดยังไงกับเรื่องนี้ล่ะ?',
+        message: 'เธอคิดยังไงกับเรื่องเล่าของเธอล่ะ?',
         character: {
           src: 'images/Chuose09_10.svg',
           style: {
