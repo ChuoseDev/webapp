@@ -26,6 +26,8 @@ const Consent = () => {
       backgroundImage:
         'linear-gradient(#CAD8F3 13.35%, #FFF6ED 29.76%, #FFF2F2 50.51%, #CAD8F3 100%, rgba(255, 209, 90, 0.15) 100%)',
       opacity: phase === 0 ? 0 : 1,
+      display: 'flex',
+      justifyContent: 'center',
     }
   }
 
@@ -43,8 +45,9 @@ const Consent = () => {
       color: '#8A7EBE',
       position: 'absolute',
       left: scaleWidth() * 73,
-      top: scaleHeight() * 702,
+      top: scaleHeight() * 650,
       textDecoration: 'none',
+      position: 'absolute',
     }
   }
 
@@ -58,10 +61,10 @@ const Consent = () => {
 
   const textStyle = () => {
     return {
-      justifyContent: 'center',
-      marginTop: `${200 * scaleHeight()}px`,
+      top: `${200 * scaleHeight()}px`,
       color: '#8A7EBE',
       fontSize,
+      position: 'absolute',
     }
   }
 
