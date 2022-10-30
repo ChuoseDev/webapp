@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { STAR_SHIFT_TIME } from 'utils/constant'
+import { scaleWidth, STAR_SHIFT_TIME } from 'utils/constant'
 
 const Star = () => {
   const [scene, setScene] = useState(0)
@@ -18,6 +18,7 @@ const Star = () => {
     position: 'absolute',
     left: `0px`,
     top: `${(scene % 2 === 0) * 10}px`,
+    width: window.screen.width,
   }
 
   return <img src="images/star.svg" alt="star" style={style} />

@@ -51,7 +51,7 @@ const Consent = () => {
   const buttonMessage = (phase) => {
     const message = {
       1: 'ไปต่อ',
-      2: 'รับทราบ',
+      2: 'เริ่มเล่น',
     }
     return message[phase]
   }

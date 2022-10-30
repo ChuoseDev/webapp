@@ -19,6 +19,7 @@ const GlitterStar = () => {
     left: 0,
     top: 0,
     height: meanSizeHeight(),
+    width: window.screen.width,
   }
 
   return scene % 4 === 0 ? (
