@@ -3,7 +3,11 @@ import { useNavigate } from 'react-router'
 import Star from 'components/star/star'
 import TopCloud from 'components/topCloud/topCloud'
 import BottomCloud from 'components/bottomCloud/bottomCloud'
-import { SCENE01_SHIFT_TIME, VIEW_CHANGING_DELAY_TIME } from 'utils/constant'
+import {
+  scaleMean,
+  SCENE01_SHIFT_TIME,
+  VIEW_CHANGING_DELAY_TIME,
+} from 'utils/constant'
 import { scaleHeight } from 'utils/constant'
 
 const Scene01 = () => {
@@ -73,7 +77,7 @@ const Scene01 = () => {
       top: `${(scene >= 12 ? 190 : 0) + 180 * scaleHeight()}px`,
       opacity: `${scene >= 15 ? 0 : 1}`,
       color: `rgba(${colorNumber}, ${colorNumber}, ${colorNumber}, 1)`,
-      fontSize: `18px`,
+      fontSize: 18 * scaleMean(),
       width: `${window.screen.width}px`,
       textAlign: 'center',
       transition: '1s',

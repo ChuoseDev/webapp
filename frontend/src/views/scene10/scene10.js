@@ -2,7 +2,7 @@ import { useNavigate } from 'react-router'
 import { useEffect, useState } from 'react'
 import TopCloud from 'components/topCloud/topCloud'
 import BottomCloud from 'components/bottomCloud/bottomCloud'
-import { SCENE10_SHIFT_TIME } from 'utils/constant'
+import { scaleMean, SCENE10_SHIFT_TIME } from 'utils/constant'
 import { scaleWidth, scaleHeight } from 'utils/constant'
 
 const Scene10 = () => {
@@ -578,7 +578,7 @@ const Scene10 = () => {
     return {
       position: 'absolute',
       top: 232 * scaleHeight(),
-      fontSize: '18px',
+      fontSize: 18 * scaleMean(),
       width: '100%',
       color: 'black',
     }
@@ -610,7 +610,13 @@ const Scene10 = () => {
         <p style={messageStyle(scene)}>
           {message}
           {phase === phaseEnum.fourthPhase && (
-            <div style={{ fontSize: '18px', width: '100%', color: 'black' }}>
+            <div
+              style={{
+                fontSize: 18 * scaleMean(),
+                width: '100%',
+                color: 'black',
+              }}
+            >
               {`ความคิด : ${question3}`}
               <br />
               {`ความรู้สึก : ${question4}`}

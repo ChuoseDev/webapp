@@ -4,20 +4,19 @@ import { Icon } from '@iconify/react'
 import { useNavigate, useParams } from 'react-router'
 import './hospital.css'
 import hospitals from './hospital.json'
+import { scaleHeight, scaleMean, scaleWidth } from 'utils/constant'
 
 const HospitalInfo = () => {
-  const scaleWidth = window.screen.width / 390
-  const scaleHeight = window.innerHeight / 844
   const navigate = useNavigate()
   const { id } = useParams()
   const buttonStyle = () => {
     return {
-      width: scaleWidth * 243,
-      height: scaleHeight * 46,
+      width: scaleWidth() * 243,
+      height: scaleHeight() * 46,
       boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
       backgroundColor: '#ffffff',
       borderRadius: 35,
-      fontSize: 20 * scaleHeight,
+      fontSize: 20 * scaleMean(),
       display: 'flex',
       justifyContent: 'center',
       alignItems: 'center',
@@ -81,8 +80,8 @@ const HospitalInfo = () => {
           width="40"
           style={{
             position: 'absolute',
-            left: 12 * scaleWidth,
-            top: 20 * scaleHeight,
+            left: 12 * scaleWidth(),
+            top: 20 * scaleHeight(),
           }}
           onClick={() => {
             navigate(-1)

@@ -3,7 +3,7 @@ import TopCloud from 'components/topCloud/topCloud'
 import { Icon } from '@iconify/react'
 import { useNavigate } from 'react-router'
 import './hospital.css'
-import { scaleHeight, scaleWidth } from 'utils/constant'
+import { scaleHeight, scaleMean, scaleWidth } from 'utils/constant'
 
 const Hospital = () => {
   const districts = [
@@ -46,7 +46,7 @@ const Hospital = () => {
       boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
       backgroundColor: '#ffffff',
       borderRadius: 35,
-      fontSize: 20 * scaleHeight(),
+      fontSize: 20 * scaleMean(),
       display: 'flex',
       justifyContent: 'center',
       alignItems: 'center',

@@ -2,7 +2,7 @@ import BottomCloud from 'components/bottomCloud/bottomCloud'
 import TopCloud from 'components/topCloud/topCloud'
 import { Icon } from '@iconify/react'
 import { useNavigate } from 'react-router'
-import { scaleHeight, scaleWidth } from 'utils/constant'
+import { scaleHeight, scaleMean, scaleWidth } from 'utils/constant'
 
 const EmergencyCall = () => {
   const navigate = useNavigate()
@@ -13,7 +13,7 @@ const EmergencyCall = () => {
       boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
       backgroundColor: '#ffffff',
       borderRadius: 35,
-      fontSize: 20 * scaleHeight(),
+      fontSize: 20 * scaleMean(),
       display: 'flex',
       justifyContent: 'center',
       alignItems: 'center',

@@ -9,6 +9,7 @@ import {
   scaleWidth,
   scaleHeight,
   onePercentageOfRealHeight,
+  scaleMean,
 } from 'utils/constant'
 
 const Level = () => {
@@ -46,7 +47,7 @@ const Level = () => {
     return {
       position: 'absolute',
       top: 108 * scaleHeight(),
-      fontSize: '24px',
+      fontSize: 24 * scaleMean(),
       width: '100%',
       color: 'black',
     }
@@ -169,9 +170,7 @@ const Level = () => {
             style={{
               fontFamily: 'Comfortaa',
               margin: 0,
-              fontSize: isEmergencyLevel
-                ? 20 * scaleHeight()
-                : 24 * scaleHeight(),
+              fontSize: isEmergencyLevel ? 20 * scaleMean() : 24 * scaleMean(),
               fontWeight: 700,
               color: isEmergencyLevel ? '#F0524A' : '#425F83',
               opacity: 0.9,

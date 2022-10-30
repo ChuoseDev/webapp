@@ -3,7 +3,11 @@ import BottomCloud from 'components/bottomCloud/bottomCloud'
 import Star from 'components/star/star'
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router'
-import { onePercentageOfRealHeight, SCENE14_SHIFT_TIME } from 'utils/constant'
+import {
+  onePercentageOfRealHeight,
+  scaleMean,
+  SCENE14_SHIFT_TIME,
+} from 'utils/constant'
 import '../scene03/purple.css'
 import { scaleWidth, scaleHeight } from 'utils/constant'
 
@@ -174,7 +178,7 @@ const Scene14 = () => {
     return {
       position: 'absolute',
       top: 150 * scaleHeight(),
-      fontSize: '18px',
+      fontSize: 18 * scaleMean(),
       width: '100%',
       color: 'white',
     }

@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router'
 import Star from 'components/star/star'
 import MiddleCloud from 'components/middleCloud/middleCloud'
-import { SCENE04_SHIFT_TIME } from 'utils/constant'
+import { scaleMean, SCENE04_SHIFT_TIME } from 'utils/constant'
 import { scaleWidth, scaleHeight } from 'utils/constant'
 
 const Scene04 = () => {
@@ -71,7 +71,7 @@ const Scene04 = () => {
       opacity: scene === 2 ? 1 : 0,
       position: 'absolute',
       color: '#ffffff',
-      fontSize: `${18 * scaleWidth}px`,
+      fontSize: 18 * scaleMean(),
       width: `${window.screen.width}px`,
     }
   }

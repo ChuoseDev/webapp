@@ -2,7 +2,7 @@ import { useNavigate } from 'react-router'
 import { useEffect, useState } from 'react'
 import TopCloud from 'components/topCloud/topCloud'
 import BottomCloud from 'components/bottomCloud/bottomCloud'
-import { SCENE13_SHIFT_TIME } from 'utils/constant'
+import { scaleMean, SCENE13_SHIFT_TIME } from 'utils/constant'
 import { scaleWidth, scaleHeight } from 'utils/constant'
 
 const Scene13 = () => {
@@ -222,7 +222,7 @@ const Scene13 = () => {
     return {
       position: 'absolute',
       top: 232 * scaleHeight(),
-      fontSize: '18px',
+      fontSize: 18 * scaleMean(),
       width: '100%',
       color: 'black',
     }

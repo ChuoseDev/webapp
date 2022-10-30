@@ -84,7 +84,7 @@ const Scene02 = () => {
       opacity: scene % 2 === 1 ? 1 : 0,
       position: 'absolute',
       color: '#ffffff',
-      fontSize: `${18 * scaleWidth}px`,
+      fontSize: 18 * scaleMean(),
       width: `${window.screen.width}px`,
     }
   }

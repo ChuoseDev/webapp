@@ -3,7 +3,7 @@ import BottomCloud from 'components/bottomCloud/bottomCloud'
 import TopCloud from 'components/topCloud/topCloud'
 import { useNavigate } from 'react-router'
 
-import { scaleWidth, scaleHeight } from 'utils/constant'
+import { scaleWidth, scaleHeight, scaleMean } from 'utils/constant'
 
 const Consent = () => {
   const navigate = useNavigate()
@@ -38,7 +38,7 @@ const Consent = () => {
       boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
       backgroundColor: '#ffffff',
       borderRadius: 35,
-      fontSize: 20 * scaleHeight(),
+      fontSize: 20 * scaleMean(),
       display: 'flex',
       justifyContent: 'center',
       alignItems: 'center',

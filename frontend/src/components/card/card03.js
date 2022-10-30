@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { scaleMean } from 'utils/constant'
 
 const Card03 = ({ onClickFunction }) => {
   const [bgCard, setBgCard] = useState('#FFFFFF')
@@ -44,7 +45,7 @@ const Card03 = ({ onClickFunction }) => {
 
   const headerStyle = {
     fontFamily: 'Comfortaa',
-    fontSize: '26px',
+    fontSize: 26 * scaleMean(),
     fontWeight: 500,
     lineHeight: '29px',
     textAlign: 'left',
@@ -64,7 +65,7 @@ const Card03 = ({ onClickFunction }) => {
     top: '151px',
     color: '#D0675E',
     fontFamily: 'Comfortaa',
-    fontSize: '12px',
+    fontSize: 12 * scaleMean(),
     fontWeight: 300,
     lineHeight: '13px',
     textAlign: 'left',
@@ -79,7 +80,7 @@ const Card03 = ({ onClickFunction }) => {
     top: '19px',
     color: '#D0675E',
     fontFamily: 'Comfortaa',
-    fontSize: '36px',
+    fontSize: 36 * scaleMean(),
     fontWeight: 700,
     lineHeight: '40px',
     textAlign: 'center',

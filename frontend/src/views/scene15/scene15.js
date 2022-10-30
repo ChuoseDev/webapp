@@ -4,7 +4,11 @@ import MiddleCloud from 'components/middleCloud/middleCloud'
 import TopCloud from 'components/topCloud/topCloud'
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router'
-import { onePercentageOfRealHeight, SCENE15_SHIFT_TIME } from 'utils/constant'
+import {
+  onePercentageOfRealHeight,
+  scaleMean,
+  SCENE15_SHIFT_TIME,
+} from 'utils/constant'
 import { scaleWidth, scaleHeight } from 'utils/constant'
 
 const Scene15 = () => {
@@ -106,7 +110,7 @@ const Scene15 = () => {
       display: 'flex',
       justifyContent: 'center',
       transform: 'translate(0%)',
-      fontSize: `${18 * scaleWidth()}px`,
+      fontSize: 18 * scaleMean(),
     }
   }
 

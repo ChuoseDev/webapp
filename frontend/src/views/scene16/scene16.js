@@ -125,9 +125,7 @@ const Scene16 = () => {
       color: 'black',
       top: 50 * onePercentageOfRealHeight(),
       width: window.innerHeight,
-      // transform: 'translate(-50%, -50%)',
       fontSize: 20 * scaleMean(),
-      // textAlign: 'center',
     }
   }
 

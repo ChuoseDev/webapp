@@ -1,23 +1,27 @@
 import { useNavigate } from 'react-router'
 import { useEffect, useState } from 'react'
 import './scene11.css'
-import { onePercentageOfRealHeight, SCENE11_SHIFT_TIME } from 'utils/constant'
+import {
+  onePercentageOfRealHeight,
+  scaleMean,
+  SCENE11_SHIFT_TIME,
+} from 'utils/constant'
 import CardSlider from 'components/cardSlider/cardSlider'
 import { WhiteButton } from 'components/commons/commons'
 import { scaleWidth, scaleHeight } from 'utils/constant'
 
 const Scene11 = () => {
-  const scaleMean = (scaleHeight() + scaleWidth()) / 2
   const [scene, setScene] = useState(1)
   const [message, setMessage] = useState('')
   const [message2, setMessage2] = useState('')
   const [message3, setMessage3] = useState('')
   const [message4, setMessage4] = useState('')
   const [messageStyle, setMessageStyle] = useState({
-    position: 'fixed',
-    fontSize: 18 * scaleMean,
+    position: 'absolute',
+    fontSize: 18 * scaleMean(),
     color: '#020202',
-    top: '20vh',
+    // top: '20vh',
+    // bottom: 100,
     left: '50%',
     transform: 'translate(-50%, -50%)',
     textAlign: 'center',
@@ -26,7 +30,7 @@ const Scene11 = () => {
   const [messageInCloud, setMessageInCloud] = useState('')
   const [messageInCloudStyle, setMessageInCloudStyle] = useState({
     position: 'fixed',
-    fontSize: 18 * scaleMean,
+    fontSize: 18 * scaleMean(),
     color: '#020202',
     top: '38vh',
     left: '50%',
@@ -35,11 +39,6 @@ const Scene11 = () => {
     width: '70vw',
   })
   const [characterStyle, setCharacterStyle] = useState({})
-  const phaseEnum = {
-    firstPhase: 'firstPhase',
-    secondPhase: 'secondPhase',
-    thirdPhase: 'thirdPhase',
-  }
   const [imageInCloud, setimageInCloud] = useState('')
   const [imageInCloudStyle, setimageInCloudStyle] = useState({})
   const [selectedCards, setSelectedCard] = useState([])
@@ -55,7 +54,7 @@ const Scene11 = () => {
         opacity: 0,
       },
       messageStyle: {
-        fontSize: 17 * scaleWidth(),
+        fontSize: 17 * scaleMean(),
       },
     },
     3: {
@@ -101,7 +100,7 @@ const Scene11 = () => {
     10: {
       imageInCloud: 'images/YellowChuose_07.svg',
       imageInCloudStyle: {
-        width: '17.5%', //70% of normal (0.7*25)
+        width: '17.5%',
       },
     },
     11: {
@@ -164,7 +163,7 @@ const Scene11 = () => {
       messageStyle: {
         top: 30 * onePercentageOfRealHeight(),
         opacity: 1,
-        fontSize: 17 * scaleWidth(),
+        fontSize: 17 * scaleMean(),
       },
       characterStyle: {
         opacity: 1,
@@ -175,7 +174,7 @@ const Scene11 = () => {
       message: 'เธอคิดว่าความคิดลบแบบไม่พักของเธอเป็นรูปแบบไหน?',
       messageStyle: {
         top: 10 * onePercentageOfRealHeight(),
-        fontSize: 17 * scaleWidth(),
+        fontSize: 17 * scaleMean(),
       },
       characterStyle: {
         opacity: 0,
@@ -329,14 +328,13 @@ const Scene11 = () => {
             transform: 'translate(-50%, -50%)',
             width: 243 * scaleWidth(),
             height: 46 * scaleHeight(),
-            // opacity: scene === 4 ? 1 : 0,
             transition: 'ease-in-out 0.5s',
           }}
           children={
             <p
               style={{
                 margin: 0,
-                fontSize: 24 * scaleHeight(),
+                fontSize: 24 * scaleMean(),
                 fontWeight: 'bold',
               }}
             >
