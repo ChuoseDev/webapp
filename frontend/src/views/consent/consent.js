@@ -59,7 +59,7 @@ const Consent = () => {
   const textStyle = () => {
     return {
       justifyContent: 'center',
-      marginTop: `${300 * scaleHeight()}px`,
+      marginTop: `${200 * scaleHeight()}px`,
       color: '#8A7EBE',
       fontSize,
     }
