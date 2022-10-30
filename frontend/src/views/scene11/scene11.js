@@ -1,6 +1,5 @@
 import { useNavigate } from 'react-router'
 import { useEffect, useState } from 'react'
-import './scene11.css'
 import {
   onePercentageOfRealHeight,
   scaleMean,
@@ -17,11 +16,10 @@ const Scene11 = () => {
   const [message3, setMessage3] = useState('')
   const [message4, setMessage4] = useState('')
   const [messageStyle, setMessageStyle] = useState({
-    position: 'absolute',
+    position: 'fixed',
     fontSize: 18 * scaleMean(),
     color: '#020202',
-    // top: '20vh',
-    // bottom: 100,
+    top: '20vh',
     left: '50%',
     transform: 'translate(-50%, -50%)',
     textAlign: 'center',
@@ -38,9 +36,23 @@ const Scene11 = () => {
     textAlign: 'center',
     width: '70vw',
   })
-  const [characterStyle, setCharacterStyle] = useState({})
+  const [characterStyle, setCharacterStyle] = useState({
+    position: 'fixed',
+    left: '50%',
+    height: scaleHeight() * 272,
+    bottom: '-15vh',
+    transform: 'translate(-50%, -50%)',
+    margin: '0 auto',
+    filter: 'drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))',
+  })
   const [imageInCloud, setimageInCloud] = useState('')
-  const [imageInCloudStyle, setimageInCloudStyle] = useState({})
+  const [imageInCloudStyle, setimageInCloudStyle] = useState({
+    position: 'fixed',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    margin: '0 auto',
+    height: `${scaleHeight() * 20}%`,
+  })
   const [selectedCards, setSelectedCard] = useState([])
 
   const navigate = useNavigate()
@@ -236,12 +248,14 @@ const Scene11 = () => {
 
   const containerStyle = (scene) => {
     return {
+      width: window.screen.width,
+      height: window.innerHeight,
       position: 'relative',
       overflow: 'hidden',
-      left: 0,
-      top: 0,
       textAlign: 'center',
-      margin: 0,
+      opacity: 1,
+      transition: 'opacity ease-in-out 1s',
+      justifyContent: 'center',
     }
   }
   const onClickStart = () => {
@@ -276,7 +290,6 @@ const Scene11 = () => {
         </p>
       </div>
       <img
-        class="yellowChuose"
         src={'images/YellowChuose_06.svg'}
         alt="character"
         style={characterStyle}
@@ -285,23 +298,32 @@ const Scene11 = () => {
         class="smallCloud"
         src={'images/whiteSmallCloud.svg'}
         alt="smallCloud"
-        style={{ opacity: scene > 5 && scene < 18 ? 1 : 0 }}
+        style={{
+          position: 'fixed',
+          left: '25%',
+          bottom: '30vh',
+          margin: '0 auto',
+          filter: 'drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))',
+          opacity: scene > 5 && scene < 18 ? 1 : 0,
+          height: 45 * scaleHeight(),
+        }}
       />
       <img
         class="bigCloud"
         src={'images/whiteBigCloud.svg'}
         alt="bigCloud"
         style={{
+          position: 'fixed',
+          left: '50%',
+          transform: 'translate(-50%, -50%)',
+          margin: '0 auto',
+          filter: 'drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))',
           opacity: scene > 6 && scene < 18 ? 1 : 0,
-          top: 50 * onePercentageOfRealHeight(),
+          top: 40 * onePercentageOfRealHeight(),
+          height: 286 * scaleHeight(),
         }}
       />
-      <img
-        class="imageInCloud"
-        src={imageInCloud}
-        alt="imageInCloud"
-        style={imageInCloudStyle}
-      />
+      <img src={imageInCloud} alt="imageInCloud" style={imageInCloudStyle} />
       <div>
         <p style={messageInCloudStyle}>{messageInCloud}</p>
       </div>
@@ -309,7 +331,6 @@ const Scene11 = () => {
         style={{
           position: 'fixed',
           width: '125vw',
-          // width: `${2602 * scaleWidth}px`,
           left: '50%',
           transform: 'translate(-50%,0%)',
           top: 25 * onePercentageOfRealHeight(),
