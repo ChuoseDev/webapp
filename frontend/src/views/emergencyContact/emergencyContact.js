@@ -6,7 +6,7 @@ import { scaleWidth, scaleHeight } from 'utils/constant'
 
 const EmergencyContact = () => {
   const navigate = useNavigate()
-  const isMobile = window.screen.width<window.screen.height
+  const isMobile = window.screen.width < window.innerHeight
 
   const buttonStyle = (top) => {
     return {
@@ -36,16 +36,16 @@ const EmergencyContact = () => {
         top: 0,
         textAlign: 'center',
         margin: 0,
-        height: window.screen.height,
+        height: window.innerHeight,
         transition: 'opacity 0.3s ease-out',
         backgroundImage:
           'linear-gradient(#CAD8F3 13.35%, #FFF6ED 29.76%, #FFF2F2 50.51%, #CAD8F3 100%, rgba(255, 209, 90, 0.15) 100%)',
       }}
     >
-      { isMobile && <TopCloud /> }
-      { isMobile && <TopCloud top={50} /> }
-      { isMobile && <BottomCloud /> }
-      { isMobile && <BottomCloud bottom={50} />}
+      {isMobile && <TopCloud />}
+      {isMobile && <TopCloud top={50} />}
+      {isMobile && <BottomCloud />}
+      {isMobile && <BottomCloud bottom={50} />}
       <div>
         <Icon
           icon="material-symbols:arrow-back-ios-new-rounded"
@@ -104,10 +104,7 @@ const EmergencyContact = () => {
         >
           Depress wecare
         </a>
-        <a
-          href="tel:+66-022076000"
-          style={buttonStyle(scaleHeight() * 626)}
-        >
+        <a href="tel:+66-022076000" style={buttonStyle(scaleHeight() * 626)}>
           โรงพยาบาลตำรวจ สายด่วน
         </a>
       </div>

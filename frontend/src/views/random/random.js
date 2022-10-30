@@ -36,7 +36,7 @@ const Random = () => {
       top: 0,
       textAlign: 'center',
       margin: 0,
-      height: window.screen.height,
+      height: window.innerHeight,
       transition: 'opacity 0.3s ease-out',
       backgroundImage:
         'linear-gradient(#CAD8F3 13.35%, #FFF6ED 29.76%, #FFF2F2 50.51%, #CAD8F3 97.27%, rgba(255, 209, 90, 0.15) 102%)',

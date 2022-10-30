@@ -184,7 +184,7 @@ const Scene05 = () => {
       textAlign: 'center',
       margin: 0,
       width: window.screen.width,
-      height: window.screen.height,
+      height: window.innerHeight,
     }
   }
 
@@ -194,7 +194,7 @@ const Scene05 = () => {
         position: 'relative',
         left: 0,
         top: 0,
-        height: window.screen.height,
+        height: window.innerHeight,
       }
     } else {
       return {

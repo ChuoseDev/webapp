@@ -31,7 +31,7 @@ export const scaleWidth = () => {
 }
 
 export const scaleHeight = () => {
-  return window.screen.height / 844
+  return window.innerHeight / 844
 }
 
 export const scaleMean = () => {

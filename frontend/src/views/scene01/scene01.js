@@ -10,7 +10,7 @@ const Scene01 = () => {
   const [scene, setScene] = useState(1)
   const navigate = useNavigate()
   const totalScene = 24
-  const isMobile = window.screen.width < window.screen.height;
+  const isMobile = window.screen.width < window.innerHeight
 
   useEffect(() => {
     const sceneShifter = setInterval(() => {
@@ -29,13 +29,13 @@ const Scene01 = () => {
   const containerStyle = (scene) => {
     return {
       width: window.screen.width,
-      height: window.screen.height,
+      height: window.innerHeight,
       position: 'relative',
       overflow: 'hidden',
       backgroundColor: `rgba(0, 0, 0, ${0.1 * scene})`,
       opacity: 1,
       transition: 'opacity ease-in-out 1s',
-      justifyContent: 'center'
+      justifyContent: 'center',
     }
   }
 
@@ -55,7 +55,10 @@ const Scene01 = () => {
     return {
       position: 'relative',
       top: `${260 * scaleHeight() + (scene > 9 ? 30 : 0)}px`,
-      left: sizeScale * 361 < window.screen.width ? `0%` : `${-1 * Math.abs(5*(scene - 6))}%`,
+      left:
+        sizeScale * 361 < window.screen.width
+          ? `0%`
+          : `${-1 * Math.abs(5 * (scene - 6))}%`,
       width: `${sizeScale * 361}px`,
       height: `${sizeScale * 406}px`,
       opacity: scene <= 11 ? 1 : 0,
@@ -84,7 +87,7 @@ const Scene01 = () => {
         <br />
         ...
       </div>
-        { isMobile && <Star />}
+      {isMobile && <Star />}
       {scene <= 5 && (
         <img
           src="images/greyChar_00.svg"
@@ -99,8 +102,8 @@ const Scene01 = () => {
           style={characterWithHandStyle(scene)}
         />
       )}
-      {isMobile && <TopCloud ttl={ totalScene * SCENE01_SHIFT_TIME} />}
-      {isMobile && <BottomCloud ttl={ totalScene * SCENE01_SHIFT_TIME} />}
+      {isMobile && <TopCloud ttl={totalScene * SCENE01_SHIFT_TIME} />}
+      {isMobile && <BottomCloud ttl={totalScene * SCENE01_SHIFT_TIME} />}
     </div>
   )
 }

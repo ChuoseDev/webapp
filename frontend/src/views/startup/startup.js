@@ -35,7 +35,7 @@ const Startup = () => {
 
   const stageProps = {
     width: window.screen.width,
-    height: window.screen.height,
+    height: window.innerHeight,
   }
 
   const chuoseLogoProps = {

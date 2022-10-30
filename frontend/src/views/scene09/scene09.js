@@ -410,7 +410,7 @@ const Scene09 = () => {
       top: 0,
       textAlign: 'center',
       margin: 0,
-      height: window.screen.height,
+      height: window.innerHeight,
       backgroundColor:
         scene == 20 && phase == phaseEnum.fifthPhase ? 'black' : '',
       transitionDuration: scene >= 19 ? '1s' : '',

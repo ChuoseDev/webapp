@@ -89,7 +89,7 @@ const Scene15 = () => {
       top: 0,
       textAlign: 'center',
       margin: 0,
-      height: window.screen.height,
+      height: window.innerHeight,
       transition: 'opacity 0.3s ease-out',
       ...backgroundImage,
     }

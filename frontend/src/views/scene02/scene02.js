@@ -11,7 +11,7 @@ const Scene02 = () => {
   const [avocadoSrc, setAvocadoSrc] = useState()
   const navigate = useNavigate()
   const scaleMean = (scaleHeight() + scaleWidth()) / 2
-  const isMobile = window.screen.width < window.screen.height
+  const isMobile = window.screen.width < window.innerHeight
 
   const mapper = {
     1: {
@@ -66,7 +66,7 @@ const Scene02 = () => {
   const containerStyle = (scene) => {
     return {
       width: window.screen.width,
-      height: window.screen.height,
+      height: window.innerHeight,
       position: 'relative',
       overflow: 'hidden',
       opacity: 1,

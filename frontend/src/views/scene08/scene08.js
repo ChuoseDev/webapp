@@ -396,7 +396,7 @@ const Scene08 = () => {
       top: 0,
       textAlign: 'center',
       margin: 0,
-      height: window.screen.height,
+      height: window.innerHeight,
       transitionDuration: '0s',
     }
   }

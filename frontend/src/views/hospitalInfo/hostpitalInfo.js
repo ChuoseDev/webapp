@@ -7,7 +7,7 @@ import hospitals from './hospital.json'
 
 const HospitalInfo = () => {
   const scaleWidth = window.screen.width / 390
-  const scaleHeight = window.screen.height / 844
+  const scaleHeight = window.innerHeight / 844
   const navigate = useNavigate()
   const { id } = useParams()
   const buttonStyle = () => {
@@ -36,7 +36,7 @@ const HospitalInfo = () => {
         top: 0,
         textAlign: 'center',
         margin: 0,
-        height: window.screen.height,
+        height: window.innerHeight,
         transition: 'opacity 0.3s ease-out',
         backgroundImage:
           'linear-gradient(#CAD8F3 13.35%, #FFF6ED 29.76%, #FFF2F2 50.51%, #CAD8F3 100%, rgba(255, 209, 90, 0.15) 100%)',

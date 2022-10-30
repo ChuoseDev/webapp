@@ -202,7 +202,7 @@ const Scene13 = () => {
       top: 0,
       textAlign: 'center',
       margin: 0,
-      height: window.screen.height,
+      height: window.innerHeight,
       backgroundColor: scene === 2 ? 'black' : '',
       transitionDuration: scene >= 1 && scene <= 4 ? '1s' : '',
     }

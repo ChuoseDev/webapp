@@ -113,7 +113,7 @@ const Scene03 = () => {
       textAlign: 'center',
       margin: 0,
       width: window.screen.width,
-      height: window.screen.height,
+      height: window.innerHeight,
     }
   }
   const backgroundStyles = (scene) => {
@@ -122,7 +122,7 @@ const Scene03 = () => {
         position: 'relative',
         left: 0,
         top: 0,
-        height: window.screen.height,
+        height: window.innerHeight,
       }
     } else {
       return {
