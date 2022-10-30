@@ -6,6 +6,8 @@ import { scaleWidth, scaleHeight } from 'utils/constant'
 
 const EmergencyContact = () => {
   const navigate = useNavigate()
+  const isMobile = window.screen.width<window.screen.height
+
   const buttonStyle = (top) => {
     return {
       width: scaleWidth() * 243,
@@ -40,10 +42,10 @@ const EmergencyContact = () => {
           'linear-gradient(#CAD8F3 13.35%, #FFF6ED 29.76%, #FFF2F2 50.51%, #CAD8F3 100%, rgba(255, 209, 90, 0.15) 100%)',
       }}
     >
-      <TopCloud />
-      <TopCloud top={50} />
-      <BottomCloud />
-      <BottomCloud bottom={50} />
+      { isMobile && <TopCloud /> }
+      { isMobile && <TopCloud top={50} /> }
+      { isMobile && <BottomCloud /> }
+      { isMobile && <BottomCloud bottom={50} />}
       <div>
         <Icon
           icon="material-symbols:arrow-back-ios-new-rounded"
