@@ -594,7 +594,7 @@ const Scene10 = () => {
       top: 290 * scaleHeight(),
       background: 'rgba(255, 255, 255, 0.9)',
       boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
-      border: '1px',
+      border: '1px solid',
       zIndex: 5,
     }
   }
@@ -651,8 +651,8 @@ const Scene10 = () => {
         {phase === phaseEnum.firstPhase && scene >= 2 && (
           <div>
             <textarea
-              id="feeling-textarea"
-              style={{ ...textboxStyle(scene) }}
+              placeholder="พิมพ์ข้อความ.."
+              style={textboxStyle(scene)}
               value={question3}
               onChange={(e) => setQuestion3(e.target.value.slice(0, 280))}
             ></textarea>
@@ -676,8 +676,8 @@ const Scene10 = () => {
         {phase === phaseEnum.secondPhase && scene >= 4 && (
           <div>
             <textarea
-              id="feeling-textarea"
-              style={{ ...textboxStyle(scene) }}
+              placeholder="พิมพ์ข้อความ.."
+              style={textboxStyle(scene)}
               value={question4}
               onChange={(e) => setQuestion4(e.target.value.slice(0, 280))}
             ></textarea>
@@ -698,8 +698,8 @@ const Scene10 = () => {
         {phase === phaseEnum.thirdPhase && (
           <div>
             <textarea
-              id="feeling-textarea"
-              style={{ ...textboxStyle(scene) }}
+              placeholder="พิมพ์ข้อความ.."
+              style={textboxStyle(scene)}
               value={question5}
               onChange={(e) => setQuestion5(e.target.value.slice(0, 280))}
             ></textarea>
