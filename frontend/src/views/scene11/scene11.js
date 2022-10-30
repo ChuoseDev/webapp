@@ -184,6 +184,7 @@ const Scene11 = () => {
     },
     22: {
       message: 'เธอคิดว่าความคิดลบแบบไม่พักของเธอเป็นรูปแบบไหน?',
+      message2: '(เลื่อนดูตัวเลือกเพื่อเลือกคำตอบ สามารถเลือกได้มากกว่า 1 ข้อ)',
       messageStyle: {
         top: 10 * onePercentageOfRealHeight(),
         fontSize: 17 * scaleMean(),
