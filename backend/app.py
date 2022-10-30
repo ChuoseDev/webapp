@@ -38,6 +38,8 @@ def insert():
         # text1 = js['TEXT_Q1']
         text2 = js['TEXT_Q2']
         cleaned_text = get_cleaned_text(text2)
+        if cleaned_text == '':
+            return flask.jsonify({'message': 'cleaned text is empty string', 'label': 5})
         current_time = time.time()
         print('clean',current_time)
         label = get_label([cleaned_text])
