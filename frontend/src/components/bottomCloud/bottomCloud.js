@@ -55,7 +55,7 @@ const BottomCloud = ({ bottom = 0, ttl, fadeIn = false }) => {
   const bottomCloudStyle = (scene, opacity) => {
     return {
       position: 'absolute',
-      left: `-${400 + scene * 10}px`,
+      left: `-${200 + scene * 10}px`,
       top: `${(500 + bottom) * scaleHeight()}px`,
       opacity,
       transition: 'opacity ease-in-out 1s',

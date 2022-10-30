@@ -1,108 +1,100 @@
 import { useState, useEffect } from 'react'
-import { Stage, Layer, AnimateImage, Group } from 'konvas'
-import { Html } from 'react-konva-utils'
 import { useNavigate } from 'react-router'
+import Star from 'components/star/star'
+import MiddleCloud from 'components/middleCloud/middleCloud'
+import { scaleMean, SCENE04_SHIFT_TIME } from 'utils/constant'
 import { scaleWidth, scaleHeight } from 'utils/constant'
 
-// this is scene 04-01 to 04-04
-const BlackPart02 = () => {
-  const scaleMean = (scaleHeight() + scaleWidth()) / 2
-  const [message, setMessage] = useState('')
-  const [scene, setScene] = useState(-2)
-  const [opacity, setOpacity] = useState(1.0)
-  const [avocado, setAvocado] = useState('')
+const Scene04 = () => {
+  const [scene, setScene] = useState(-1)
+  const [message, setMessage] = useState()
+  const [avocadoSrc, setAvocadoSrc] = useState()
   const navigate = useNavigate()
+  const isMobile = window.screen.width < window.innerHeight
+
+  const mapper = {
+    1: {
+      avocado: 'images/avocado/avocado02.svg',
+      message: 'มีใครช่วยฉันได้หรอ',
+    },
+    2: { avocado: 'images/avocado/avocado03.svg' },
+    3: {
+      avocado: 'images/avocado/avocado02.svg',
+    },
+    4: {
+      avocado: 'images/avocado/avocado03.svg',
+    },
+  }
+
   useEffect(() => {
-    setOpacity(1)
-    setTimeout(() => {
-      setScene(-1)
-    }, 100)
-    setTimeout(() => {
-      setScene(0)
-    }, 200)
-    setTimeout(() => {
-      setScene(1)
-      setMessage('มีใครช่วยฉันได้หรอ')
-    }, 200)
-    setTimeout(() => {
-      setScene(2)
-    }, 1200)
-    setTimeout(() => {
-      setScene(3)
-    }, 2200)
-    setTimeout(() => {
-      setScene(4)
-    }, 3200)
-    setTimeout(() => {
-      navigate('/scene05')
-    }, 4200)
+    setTimeout(() => setScene(1))
+    const sceneShifter = setInterval(() => {
+      setScene((scene) => scene + 1)
+    }, SCENE04_SHIFT_TIME)
+    return () => {
+      clearInterval(sceneShifter)
+    }
   }, [])
 
-  const stageProps = {
-    width: window.screen.width,
-    height: window.screen.height,
+  useEffect(() => {
+    if (mapper[scene] && mapper[scene].message) {
+      setMessage(mapper[scene].message)
+    }
+    if (mapper[scene] && mapper[scene].avocado) {
+      setAvocadoSrc(mapper[scene].avocado)
+    }
+    if (scene === 5) {
+      setTimeout(() => {
+        navigate('/scene05')
+      }, 1000)
+    }
+  }, [scene])
+
+  const containerStyle = (scene) => {
+    return {
+      width: window.screen.width,
+      height: window.innerHeight,
+      position: 'relative',
+      overflow: 'hidden',
+      opacity: 1,
+      transition: 'opacity ease-in-out 1s',
+      backgroundColor: '#000000',
+    }
   }
 
-  const backgroundProps = {
-    image: 'images/StarBackground.svg',
-    width: 1448 * scaleWidth(),
-    height: 966 * scaleHeight(),
-    opacity: 1,
-    animation: {},
+  const messageStyle = (scene) => {
+    return {
+      transition: 'ease-in-out 1s',
+      top: 212 * scaleHeight(),
+      left: '50%',
+      transform: 'translate(-50%,0%)',
+      opacity: scene === 2 ? 1 : 0,
+      position: 'absolute',
+      color: '#ffffff',
+      fontSize: 18 * scaleMean(),
+      width: `${window.screen.width}px`,
+    }
   }
 
-  const avocadoMapper = {
-    1: 'images/avocado/avocado02.svg',
-    2: 'images/avocado/avocado03.svg',
-    3: 'images/avocado/avocado02.svg',
-    4: 'images/avocado/avocado03.svg',
+  const avocadoStyle = (scene) => {
+    return {
+      width: `${window.screen.width}px`,
+      position: 'absolute',
+      bottom: 0,
+      left: '50%',
+      transform: 'translate(-50%,0%)',
+      transition: '0s',
+    }
   }
 
   return (
-    <div style={{ opacity, transition: 'opacity ease-in-out 1.5s' }}>
-      <Stage {...stageProps}>
-        <Layer>
-          <AnimateImage {...backgroundProps} />
-          <Group>
-            <Html>
-              <div
-                style={{
-                  opacity: 1,
-                  transition: 'ease-in-out 1s',
-                  display: 'flex',
-                  top: '-25%',
-                  marginLeft: 195 * scaleWidth(),
-                  marginTop: 212 * scaleHeight(),
-                }}
-              >
-                <p
-                  style={{
-                    fontSize: 18 * scaleMean,
-                    color: '#ffffff',
-                    margin: 0,
-                    left: '50%',
-                    transform: 'translate(-50%,0%)',
-                  }}
-                >
-                  {message}
-                </p>
-              </div>
-              <div
-                style={{
-                  position: 'absolute',
-                  bottom: '0px',
-                  position: 'bottom',
-                  marginTop: 221 * scaleHeight(),
-                }}
-              >
-                <img src={avocadoMapper[scene]}></img>
-              </div>
-            </Html>
-          </Group>
-        </Layer>
-      </Stage>
+    <div style={containerStyle(scene)}>
+      {isMobile && <MiddleCloud />}
+      {isMobile && <Star />}
+      <div style={messageStyle(scene)}>{message}</div>
+      <img src={avocadoSrc} style={avocadoStyle(scene)} />
     </div>
   )
 }
 
-export default BlackPart02
+export default Scene04

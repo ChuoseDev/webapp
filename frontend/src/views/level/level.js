@@ -5,12 +5,19 @@ import LevelCard3 from 'components/levelCard/levelCard3'
 import LevelCard4_5 from 'components/levelCard/levelCard4_5'
 import { WhiteButton } from 'components/commons/commons'
 import { useNavigate } from 'react-router'
-import { scaleWidth, scaleHeight } from 'utils/constant'
+import {
+  scaleWidth,
+  scaleHeight,
+  onePercentageOfRealHeight,
+  scaleMean,
+} from 'utils/constant'
 
 const Level = () => {
-  const level = parseFloat(sessionStorage.getItem('LEVEL'))
-    ? parseFloat(sessionStorage.getItem('LEVEL'))
-    : 0
+  const level = sessionStorage.getItem('LEVEL')
+    ? parseInt(sessionStorage.getItem('LEVEL'))
+    : 5
+
+  const isEmergencyLevel = level === 3 || level === 4
   const navigate = useNavigate()
 
   const containerStyle = () => {
@@ -21,7 +28,7 @@ const Level = () => {
       top: 0,
       textAlign: 'center',
       margin: 0,
-      height: window.screen.height,
+      height: window.innerHeight,
     }
   }
 
@@ -40,7 +47,7 @@ const Level = () => {
     return {
       position: 'absolute',
       top: 108 * scaleHeight(),
-      fontSize: '24px',
+      fontSize: 24 * scaleMean(),
       width: '100%',
       color: 'black',
     }
@@ -141,35 +148,35 @@ const Level = () => {
         style={{
           position: 'absolute',
           left: '50%',
-          top: '50%',
+          top: 50 * onePercentageOfRealHeight(),
           transform: 'translate(-50%, -50%)',
         }}
       >
-        {level < 1 ? (
-          <LevelCard1_1 />
-        ) : level <= 2 ? (
+        {level < 2 ? (
           <LevelCard1_2 />
-        ) : level < 4 ? (
+        ) : level <= 2 ? (
           <LevelCard3 />
-        ) : (
+        ) : level < 5 ? (
           <LevelCard4_5 />
+        ) : (
+          <LevelCard1_1 />
         )}
       </div>
       <WhiteButton
-        onClick={level >= 4 ? onClickEmergency : onClickNext}
+        onClick={isEmergencyLevel ? onClickEmergency : onClickNext}
         style={buttonStyle()}
         children={
           <p
             style={{
               fontFamily: 'Comfortaa',
               margin: 0,
-              fontSize: level >= 4 ? 20 * scaleHeight() : 24 * scaleHeight(),
+              fontSize: isEmergencyLevel ? 20 * scaleMean() : 24 * scaleMean(),
               fontWeight: 700,
-              color: level >= 4 ? '#F0524A' : '#425F83',
+              color: isEmergencyLevel ? '#F0524A' : '#425F83',
               opacity: 0.9,
             }}
           >
-            {level >= 4 ? 'Emergency contact' : 'ไปต่อ'}
+            {isEmergencyLevel ? 'Emergency contact' : 'ไปต่อ'}
           </p>
         }
       />

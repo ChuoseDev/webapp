@@ -3,7 +3,12 @@ import { WhiteButton } from 'components/commons/commons'
 import GlitterStar from 'components/glitterStar/glitterStar'
 import MiddleCloud from 'components/middleCloud/middleCloud'
 import { useEffect, useState } from 'react'
-import { SCENE14_SHIFT_TIME, scaleWidth, scaleHeight } from 'utils/constant'
+import {
+  SCENE14_SHIFT_TIME,
+  scaleWidth,
+  scaleHeight,
+  scaleMean,
+} from 'utils/constant'
 
 const Random = () => {
   const [scene, setScene] = useState(0)
@@ -36,7 +41,7 @@ const Random = () => {
       top: 0,
       textAlign: 'center',
       margin: 0,
-      height: window.screen.height,
+      height: window.innerHeight,
       transition: 'opacity 0.3s ease-out',
       backgroundImage:
         'linear-gradient(#CAD8F3 13.35%, #FFF6ED 29.76%, #FFF2F2 50.51%, #CAD8F3 97.27%, rgba(255, 209, 90, 0.15) 102%)',
@@ -106,7 +111,7 @@ const Random = () => {
                 style={{
                   fontFamily: 'Comfortaa',
                   margin: 0,
-                  fontSize: 24 * scaleHeight(),
+                  fontSize: 24 * scaleMean(),
                   fontWeight: 700,
                   color: '#425F83',
                 }}
@@ -142,7 +147,7 @@ const Random = () => {
                 style={{
                   fontFamily: 'Comfortaa',
                   margin: 0,
-                  fontSize: 24 * scaleHeight(),
+                  fontSize: 24 * scaleMean(),
                   fontWeight: 700,
                   color: '#425F83',
                 }}

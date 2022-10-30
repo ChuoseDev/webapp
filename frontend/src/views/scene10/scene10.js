@@ -2,7 +2,7 @@ import { useNavigate } from 'react-router'
 import { useEffect, useState } from 'react'
 import TopCloud from 'components/topCloud/topCloud'
 import BottomCloud from 'components/bottomCloud/bottomCloud'
-import { SCENE10_SHIFT_TIME } from 'utils/constant'
+import { scaleMean, SCENE10_SHIFT_TIME } from 'utils/constant'
 import { scaleWidth, scaleHeight } from 'utils/constant'
 
 const Scene10 = () => {
@@ -57,7 +57,7 @@ const Scene10 = () => {
             left: 13 * scaleWidth(),
           },
         },
-        message: 'แล้วเธอคิดยังไงกับเรื่องนี้ล่ะ?',
+        message: 'เธอคิดยังไงกับเรื่องเล่าของเธอล่ะ?',
         character: {
           src: 'images/Chuose09_10.svg',
           style: {
@@ -557,7 +557,7 @@ const Scene10 = () => {
       top: 0,
       textAlign: 'center',
       margin: 0,
-      height: window.screen.height,
+      height: window.innerHeight,
       backgroundColor:
         scene == 20 && phase == phaseEnum.thirdPhase ? 'black' : '',
       transitionDuration: scene >= 19 ? '1s' : '',
@@ -577,8 +577,8 @@ const Scene10 = () => {
   const messageStyle = (scene) => {
     return {
       position: 'absolute',
-      top: 232 * scaleWidth(),
-      fontSize: '18px',
+      top: 232 * scaleHeight(),
+      fontSize: 18 * scaleMean(),
       width: '100%',
       color: 'black',
     }
@@ -591,10 +591,10 @@ const Scene10 = () => {
       height: 110 * scaleHeight(),
       left: '50%',
       transform: 'translate(-50%, 0)',
-      top: 290 * scaleWidth(),
+      top: 290 * scaleHeight(),
       background: 'rgba(255, 255, 255, 0.9)',
       boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
-      border: '1px',
+      border: '1px solid',
       zIndex: 5,
     }
   }
@@ -610,7 +610,13 @@ const Scene10 = () => {
         <p style={messageStyle(scene)}>
           {message}
           {phase === phaseEnum.fourthPhase && (
-            <div style={{ fontSize: '18px', width: '100%', color: 'black' }}>
+            <div
+              style={{
+                fontSize: 18 * scaleMean(),
+                width: '100%',
+                color: 'black',
+              }}
+            >
               {`ความคิด : ${question3}`}
               <br />
               {`ความรู้สึก : ${question4}`}
@@ -645,8 +651,8 @@ const Scene10 = () => {
         {phase === phaseEnum.firstPhase && scene >= 2 && (
           <div>
             <textarea
-              id="feeling-textarea"
-              style={{ ...textboxStyle(scene) }}
+              placeholder="พิมพ์ข้อความ.."
+              style={textboxStyle(scene)}
               value={question3}
               onChange={(e) => setQuestion3(e.target.value.slice(0, 280))}
             ></textarea>
@@ -670,8 +676,8 @@ const Scene10 = () => {
         {phase === phaseEnum.secondPhase && scene >= 4 && (
           <div>
             <textarea
-              id="feeling-textarea"
-              style={{ ...textboxStyle(scene) }}
+              placeholder="พิมพ์ข้อความ.."
+              style={textboxStyle(scene)}
               value={question4}
               onChange={(e) => setQuestion4(e.target.value.slice(0, 280))}
             ></textarea>
@@ -692,8 +698,8 @@ const Scene10 = () => {
         {phase === phaseEnum.thirdPhase && (
           <div>
             <textarea
-              id="feeling-textarea"
-              style={{ ...textboxStyle(scene) }}
+              placeholder="พิมพ์ข้อความ.."
+              style={textboxStyle(scene)}
               value={question5}
               onChange={(e) => setQuestion5(e.target.value.slice(0, 280))}
             ></textarea>

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { SCENE08_SHIFT_TIME } from 'utils/constant'
+import { scaleMean, SCENE08_SHIFT_TIME } from 'utils/constant'
 import TopCloud from 'components/topCloud/topCloud'
 import { useNavigate } from 'react-router'
 import { scaleWidth, scaleHeight } from 'utils/constant'
@@ -396,7 +396,7 @@ const Scene08 = () => {
       top: 0,
       textAlign: 'center',
       margin: 0,
-      height: window.screen.height,
+      height: window.innerHeight,
       transitionDuration: '0s',
     }
   }
@@ -435,7 +435,7 @@ const Scene08 = () => {
         phase === phaseEnum.firstPhase && scene >= 15
           ? 171 * scaleHeight()
           : 206 * scaleHeight(),
-      fontSize: '18px',
+      fontSize: 18 * scaleMean(),
       width: '100%',
       color: 'black',
     }

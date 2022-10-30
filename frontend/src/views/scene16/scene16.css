@@ -8,19 +8,8 @@
     margin: 0;
   }
   
-  .text_center {
-    position: fixed;
-    color: black;
-    top: 50%;
-    width: 100vh;
-    transform: translate(-50%, -50%);
-    font-size: 20px;
-    text-align: center;
-  }
-
   .openDoor {
     position: absolute;
-    top: 58%;
     left: 50%;
     transform: translate(-50%, -50%);
   }

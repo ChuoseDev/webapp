@@ -2,7 +2,7 @@ import { useNavigate } from 'react-router'
 import { useEffect, useState } from 'react'
 import TopCloud from 'components/topCloud/topCloud'
 import BottomCloud from 'components/bottomCloud/bottomCloud'
-import { SCENE09_SHIFT_TIME } from 'utils/constant'
+import { scaleMean, SCENE09_SHIFT_TIME } from 'utils/constant'
 import { scaleWidth, scaleHeight } from 'utils/constant'
 import { getPrediction } from 'api/api'
 
@@ -410,7 +410,7 @@ const Scene09 = () => {
       top: 0,
       textAlign: 'center',
       margin: 0,
-      height: window.screen.height,
+      height: window.innerHeight,
       backgroundColor:
         scene == 20 && phase == phaseEnum.fifthPhase ? 'black' : '',
       transitionDuration: scene >= 19 ? '1s' : '',
@@ -430,8 +430,8 @@ const Scene09 = () => {
   const messageStyle = (scene) => {
     return {
       position: 'absolute',
-      top: 232 * scaleWidth(),
-      fontSize: '18px',
+      top: 232 * scaleHeight(),
+      fontSize: 18 * scaleMean(),
       width: '100%',
       color: 'black',
     }
@@ -444,10 +444,10 @@ const Scene09 = () => {
       height: 110 * scaleHeight(),
       left: '50%',
       transform: 'translate(-50%, 0)',
-      top: 290 * scaleWidth(),
+      top: 290 * scaleHeight(),
       background: 'rgba(255, 255, 255, 0.9)',
       boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
-      border: '1px',
+      border: '1px solid',
       zIndex: 5,
     }
   }
@@ -463,7 +463,13 @@ const Scene09 = () => {
         <p style={messageStyle(scene)}>
           {message}
           {phase === phaseEnum.sixthPhase && (
-            <div style={{ fontSize: '18px', width: '100%', color: 'black' }}>
+            <div
+              style={{
+                fontSize: 18 * scaleMean(),
+                width: '100%',
+                color: 'black',
+              }}
+            >
               {`ความคิด : ${question3}`}
               <br />
               {`ความรู้สึก : ${question4}`}
@@ -510,8 +516,8 @@ const Scene09 = () => {
         {phase === phaseEnum.firstPhase && scene >= 12 && (
           <div>
             <textarea
-              id="feeling-textarea"
-              style={{ ...textboxStyle(scene) }}
+              placeholder="พิมพ์ข้อความ.."
+              style={textboxStyle(scene)}
               value={question1}
               onChange={(e) => setQuestion1(e.target.value.slice(0, 280))}
             ></textarea>
@@ -535,8 +541,8 @@ const Scene09 = () => {
         {phase === phaseEnum.secondPhase && (
           <div>
             <textarea
-              id="feeling-textarea"
-              style={{ ...textboxStyle(scene) }}
+              placeholder="พิมพ์ข้อความ.."
+              style={textboxStyle(scene)}
               value={question2}
               onChange={(e) => setQuestion2(e.target.value.slice(0, 280))}
             ></textarea>

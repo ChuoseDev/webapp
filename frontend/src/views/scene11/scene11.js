@@ -1,13 +1,15 @@
 import { useNavigate } from 'react-router'
 import { useEffect, useState } from 'react'
-import './scene11.css'
-import { SCENE11_SHIFT_TIME } from 'utils/constant'
+import {
+  onePercentageOfRealHeight,
+  scaleMean,
+  SCENE11_SHIFT_TIME,
+} from 'utils/constant'
 import CardSlider from 'components/cardSlider/cardSlider'
 import { WhiteButton } from 'components/commons/commons'
 import { scaleWidth, scaleHeight } from 'utils/constant'
 
 const Scene11 = () => {
-  const scaleMean = (scaleHeight() + scaleWidth()) / 2
   const [scene, setScene] = useState(1)
   const [message, setMessage] = useState('')
   const [message2, setMessage2] = useState('')
@@ -15,7 +17,7 @@ const Scene11 = () => {
   const [message4, setMessage4] = useState('')
   const [messageStyle, setMessageStyle] = useState({
     position: 'fixed',
-    fontSize: 18 * scaleMean,
+    fontSize: 18 * scaleMean(),
     color: '#020202',
     top: '20vh',
     left: '50%',
@@ -26,7 +28,7 @@ const Scene11 = () => {
   const [messageInCloud, setMessageInCloud] = useState('')
   const [messageInCloudStyle, setMessageInCloudStyle] = useState({
     position: 'fixed',
-    fontSize: 18 * scaleMean,
+    fontSize: 18 * scaleMean(),
     color: '#020202',
     top: '38vh',
     left: '50%',
@@ -34,14 +36,23 @@ const Scene11 = () => {
     textAlign: 'center',
     width: '70vw',
   })
-  const [characterStyle, setCharacterStyle] = useState({})
-  const phaseEnum = {
-    firstPhase: 'firstPhase',
-    secondPhase: 'secondPhase',
-    thirdPhase: 'thirdPhase',
-  }
+  const [characterStyle, setCharacterStyle] = useState({
+    position: 'fixed',
+    left: '50%',
+    height: scaleHeight() * 272,
+    bottom: '-15vh',
+    transform: 'translate(-50%, -50%)',
+    margin: '0 auto',
+    filter: 'drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))',
+  })
   const [imageInCloud, setimageInCloud] = useState('')
-  const [imageInCloudStyle, setimageInCloudStyle] = useState({})
+  const [imageInCloudStyle, setimageInCloudStyle] = useState({
+    position: 'fixed',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    margin: '0 auto',
+    height: `${scaleHeight() * 20}%`,
+  })
   const [selectedCards, setSelectedCard] = useState([])
 
   const navigate = useNavigate()
@@ -51,10 +62,11 @@ const Scene11 = () => {
       message: 'Negative Automatic Thoughts',
       message2: '“ความคิดลบอัตโนมัติ”',
       imageInCloudStyle: {
+        top: 40 * onePercentageOfRealHeight(),
         opacity: 0,
       },
       messageStyle: {
-        fontSize: 17 * scaleWidth,
+        fontSize: 17 * scaleMean(),
       },
     },
     3: {
@@ -86,21 +98,21 @@ const Scene11 = () => {
     8: {
       imageInCloud: 'images/crowd02.svg',
       imageInCloudStyle: {
-        top: '42.5%',
+        top: 42.5 * onePercentageOfRealHeight(),
         left: '48%',
       },
     },
     9: {
       imageInCloud: 'images/crowd03.svg',
       imageInCloudStyle: {
-        top: '40%',
+        top: 40 * onePercentageOfRealHeight(),
         left: '50%',
       },
     },
     10: {
       imageInCloud: 'images/YellowChuose_07.svg',
       imageInCloudStyle: {
-        width: '17.5%', //70% of normal (0.7*25)
+        width: '17.5%',
       },
     },
     11: {
@@ -161,9 +173,9 @@ const Scene11 = () => {
       message: 'ความคิดลบแบบไม่พักมันมีรูปแบบอยู่นะ',
       message2: ' ',
       messageStyle: {
-        top: '30%',
+        top: 30 * onePercentageOfRealHeight(),
         opacity: 1,
-        fontSize: 17 * scaleWidth,
+        fontSize: 17 * scaleMean(),
       },
       characterStyle: {
         opacity: 1,
@@ -172,9 +184,10 @@ const Scene11 = () => {
     },
     22: {
       message: 'เธอคิดว่าความคิดลบแบบไม่พักของเธอเป็นรูปแบบไหน?',
+      message2: '(เลื่อนดูตัวเลือกเพื่อเลือกคำตอบ สามารถเลือกได้มากกว่า 1 ข้อ)',
       messageStyle: {
-        top: '10%',
-        fontSize: 17 * scaleWidth,
+        top: 10 * onePercentageOfRealHeight(),
+        fontSize: 17 * scaleMean(),
       },
       characterStyle: {
         opacity: 0,
@@ -236,12 +249,14 @@ const Scene11 = () => {
 
   const containerStyle = (scene) => {
     return {
+      width: window.screen.width,
+      height: window.innerHeight,
       position: 'relative',
       overflow: 'hidden',
-      left: 0,
-      top: 0,
       textAlign: 'center',
-      margin: 0,
+      opacity: 1,
+      transition: 'opacity ease-in-out 1s',
+      justifyContent: 'center',
     }
   }
   const onClickStart = () => {
@@ -276,7 +291,6 @@ const Scene11 = () => {
         </p>
       </div>
       <img
-        class="yellowChuose"
         src={'images/YellowChuose_06.svg'}
         alt="character"
         style={characterStyle}
@@ -285,20 +299,32 @@ const Scene11 = () => {
         class="smallCloud"
         src={'images/whiteSmallCloud.svg'}
         alt="smallCloud"
-        style={{ opacity: scene > 5 && scene < 18 ? 1 : 0 }}
+        style={{
+          position: 'fixed',
+          left: '25%',
+          bottom: '30vh',
+          margin: '0 auto',
+          filter: 'drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))',
+          opacity: scene > 5 && scene < 18 ? 1 : 0,
+          height: 45 * scaleHeight(),
+        }}
       />
       <img
         class="bigCloud"
         src={'images/whiteBigCloud.svg'}
         alt="bigCloud"
-        style={{ opacity: scene > 6 && scene < 18 ? 1 : 0 }}
+        style={{
+          position: 'fixed',
+          left: '50%',
+          transform: 'translate(-50%, -50%)',
+          margin: '0 auto',
+          filter: 'drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))',
+          opacity: scene > 6 && scene < 18 ? 1 : 0,
+          top: 40 * onePercentageOfRealHeight(),
+          height: 286 * scaleHeight(),
+        }}
       />
-      <img
-        class="imageInCloud"
-        src={imageInCloud}
-        alt="imageInCloud"
-        style={imageInCloudStyle}
-      />
+      <img src={imageInCloud} alt="imageInCloud" style={imageInCloudStyle} />
       <div>
         <p style={messageInCloudStyle}>{messageInCloud}</p>
       </div>
@@ -306,10 +332,9 @@ const Scene11 = () => {
         style={{
           position: 'fixed',
           width: '125vw',
-          // width: `${2602 * scaleWidth}px`,
           left: '50%',
           transform: 'translate(-50%,0%)',
-          top: '25%',
+          top: 25 * onePercentageOfRealHeight(),
           zindex: '999',
           opacity: scene >= 22 ? 1 : 0,
         }}
@@ -320,19 +345,18 @@ const Scene11 = () => {
           onClick={onClickStart}
           style={{
             position: 'fixed',
-            top: '85%',
+            top: 85 * onePercentageOfRealHeight(),
             left: '50%',
             transform: 'translate(-50%, -50%)',
             width: 243 * scaleWidth(),
             height: 46 * scaleHeight(),
-            // opacity: scene === 4 ? 1 : 0,
             transition: 'ease-in-out 0.5s',
           }}
           children={
             <p
               style={{
                 margin: 0,
-                fontSize: 24 * scaleHeight(),
+                fontSize: 24 * scaleMean(),
                 fontWeight: 'bold',
               }}
             >

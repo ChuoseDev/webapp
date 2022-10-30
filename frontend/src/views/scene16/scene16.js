@@ -3,6 +3,7 @@ import './scene16.css'
 import MiddleCloud from 'components/middleCloud/middleCloud'
 import GlitterStar from 'components/glitterStar/glitterStar'
 import {
+  onePercentageOfRealHeight,
   scaleHeight,
   scaleMean,
   scaleWidth,
@@ -13,7 +14,9 @@ import { useNavigate } from 'react-router'
 const Scene16 = () => {
   const [scene, setScene] = useState(1)
   const [message, setMessage] = useState('')
-  const [openDoorStyle, setOpenDoorStyle] = useState({})
+  const [openDoorStyle, setOpenDoorStyle] = useState({
+    top: 58 * onePercentageOfRealHeight(),
+  })
   const navigate = useNavigate()
   const userSpeechToThemselves = sessionStorage.getItem(
     'USER_SPEECH_TO_THEMSELVES'
@@ -97,7 +100,7 @@ const Scene16 = () => {
         top: 0,
         textAlign: 'center',
         margin: 0,
-        height: window.screen.height,
+        height: window.innerHeight,
         backgroundColor: 'black',
         display: 'flex',
         justifyContent: 'center',
@@ -109,7 +112,7 @@ const Scene16 = () => {
         top: 0,
         textAlign: 'center',
         margin: 0,
-        height: window.screen.height,
+        height: window.innerHeight,
         display: 'flex',
         justifyContent: 'center',
       }
@@ -120,11 +123,9 @@ const Scene16 = () => {
     return {
       position: 'fixed',
       color: 'black',
-      top: '50%',
-      width: window.screen.height,
-      // transform: 'translate(-50%, -50%)',
+      top: 50 * onePercentageOfRealHeight(),
+      width: window.innerHeight,
       fontSize: 20 * scaleMean(),
-      // textAlign: 'center',
     }
   }
 

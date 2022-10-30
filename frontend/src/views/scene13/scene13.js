@@ -2,7 +2,7 @@ import { useNavigate } from 'react-router'
 import { useEffect, useState } from 'react'
 import TopCloud from 'components/topCloud/topCloud'
 import BottomCloud from 'components/bottomCloud/bottomCloud'
-import { SCENE13_SHIFT_TIME } from 'utils/constant'
+import { scaleMean, SCENE13_SHIFT_TIME } from 'utils/constant'
 import { scaleWidth, scaleHeight } from 'utils/constant'
 
 const Scene13 = () => {
@@ -202,7 +202,7 @@ const Scene13 = () => {
       top: 0,
       textAlign: 'center',
       margin: 0,
-      height: window.screen.height,
+      height: window.innerHeight,
       backgroundColor: scene === 2 ? 'black' : '',
       transitionDuration: scene >= 1 && scene <= 4 ? '1s' : '',
     }
@@ -222,7 +222,7 @@ const Scene13 = () => {
     return {
       position: 'absolute',
       top: 232 * scaleHeight(),
-      fontSize: '18px',
+      fontSize: 18 * scaleMean(),
       width: '100%',
       color: 'black',
     }
@@ -238,7 +238,7 @@ const Scene13 = () => {
       top: 300 * scaleHeight(),
       background: 'rgba(255, 255, 255, 0.9)',
       boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
-      border: '1px',
+      border: '1px solid',
       zIndex: 5,
     }
   }
@@ -274,7 +274,7 @@ const Scene13 = () => {
         {phase === phaseEnum.firstPhase && scene >= 13 && (
           <div>
             <textarea
-              id="feeling-textarea"
+              placeholder="พิมพ์ข้อความ.."
               style={textboxStyle(scene)}
               value={feeling}
               onChange={(e) => setFeeling(e.target.value)}

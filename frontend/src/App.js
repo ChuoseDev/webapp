@@ -24,8 +24,8 @@ import Analyse from 'views/analyse/analyse'
 import Startup from 'views/startup/startup'
 import Consent from 'views/consent/consent'
 import Random from 'views/random/random'
-import Hospital from 'views/้hospitalInfo/hospitalDistrict'
-import HospitalInfo from 'views/้hospitalInfo/hostpitalInfo'
+import Hospital from 'views/hospitalInfo/hospitalDistrict'
+import HospitalInfo from 'views/hospitalInfo/hostpitalInfo'
 import EmergencyCall from 'views/emergencyCall/emergencyCall'
 
 const App = () => {

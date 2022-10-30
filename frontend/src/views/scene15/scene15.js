@@ -4,7 +4,11 @@ import MiddleCloud from 'components/middleCloud/middleCloud'
 import TopCloud from 'components/topCloud/topCloud'
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router'
-import { SCENE15_SHIFT_TIME } from 'utils/constant'
+import {
+  onePercentageOfRealHeight,
+  scaleMean,
+  SCENE15_SHIFT_TIME,
+} from 'utils/constant'
 import { scaleWidth, scaleHeight } from 'utils/constant'
 
 const Scene15 = () => {
@@ -21,7 +25,9 @@ const Scene15 = () => {
   const characterStyle = (scene) => {
     const speed = 2
     return {
-      top: `${22 + speed * (4 * (scene >= 8) * (scene - 8))}%`,
+      top:
+        (22 + speed * (4 * (scene >= 8) * (scene - 8))) *
+        onePercentageOfRealHeight(),
       left: `${
         12 +
         // speed *
@@ -89,7 +95,7 @@ const Scene15 = () => {
       top: 0,
       textAlign: 'center',
       margin: 0,
-      height: window.screen.height,
+      height: window.innerHeight,
       transition: 'opacity 0.3s ease-out',
       ...backgroundImage,
     }
@@ -99,12 +105,12 @@ const Scene15 = () => {
     return {
       position: 'absolute',
       color: 'white',
-      top: '17%',
+      top: 17 * onePercentageOfRealHeight(),
       width: '100%',
       display: 'flex',
       justifyContent: 'center',
       transform: 'translate(0%)',
-      fontSize: `${18 * scaleWidth()}px`,
+      fontSize: 18 * scaleMean(),
     }
   }
 

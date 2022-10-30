@@ -1,5 +1,6 @@
-const LevelCard1_1 = () => {
+import { scaleMean } from 'utils/constant'
 
+const LevelCard1_1 = () => {
   const cardStyle = {
     position: 'relative',
     width: '305px',
@@ -48,11 +49,11 @@ const LevelCard1_1 = () => {
     fontFamily: 'Comfortaa',
     fontStyle: 'normal',
     fontWeight: 400,
-    fontSize: '20px',
+    fontSize: 20 * scaleMean(),
     lineHeight: '22px',
     textAlign: 'center',
 
-    color: '#553CFD'
+    color: '#553CFD',
   }
   const infoStyle = {
     position: 'absolute',
@@ -64,17 +65,15 @@ const LevelCard1_1 = () => {
     fontFamily: 'Comfortaa',
     fontStyle: 'normal',
     fontWeight: 300,
-    fontSize: '12px',
+    fontSize: 12 * scaleMean(),
     lineHeight: '13px',
     textAlign: 'center',
 
-    color: '#7A68F3'
+    color: '#7A68F3',
   }
 
   return (
-    <div
-      style={cardStyle}
-    >
+    <div style={cardStyle}>
       <div style={headerStyle}>
         คุณไม่มีความเสี่ยง{<br />}
         ในการฆ่าตัวตาย

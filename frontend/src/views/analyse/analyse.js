@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import Star from 'components/star/star'
 import {
   ANALYSE_SHIFT_TIME,
+  onePercentageOfRealHeight,
   scaleHeight,
   scaleWidth,
   VIEW_CHANGING_DELAY_TIME,
@@ -20,7 +21,7 @@ const Analyse = () => {
   const [outerTopCloudStyle, setOuterTopCloudStyle] = useState({})
   const [image, setImage] = useState('images/char_11_01.svg')
   const [characterStyle, setCharacterStyle] = useState({
-    top: '50%',
+    top: 50 * onePercentageOfRealHeight(),
     left: '50%',
     position: 'absolute',
     transform: 'translate(-50%, -50%)',
@@ -46,22 +47,22 @@ const Analyse = () => {
       image: 'images/char_11_01.svg',
       innerTopCloudStyle: {
         ...generalAttributeTopCloudStyle,
-        top: '-46.5%',
+        top: -46.5 * onePercentageOfRealHeight(),
         left: '-123.2%',
       },
       outerTopCloudStyle: {
         ...generalAttributeTopCloudStyle,
-        top: '-70.2%',
+        top: -70.2 * onePercentageOfRealHeight(),
         left: '-221.9%',
       },
       innerBtmCloudStyle: {
         ...generalAttributeBtmCloudStyle,
-        top: '51.4%',
+        top: 51.4 * onePercentageOfRealHeight(),
         left: '-145.4%',
       },
       outerBtmCloudStyle: {
         ...generalAttributeBtmCloudStyle,
-        top: '78.1%',
+        top: 78.1 * onePercentageOfRealHeight(),
         left: '-50%',
       },
     },
@@ -70,22 +71,22 @@ const Analyse = () => {
       image: 'images/char_11_02.svg',
       innerTopCloudStyle: {
         ...generalAttributeTopCloudStyle,
-        top: '-36.7%',
+        top: -36.7 * onePercentageOfRealHeight(),
         left: '-123.2%',
       },
       outerTopCloudStyle: {
         ...generalAttributeTopCloudStyle,
-        top: '-63.6%',
+        top: -63.6 * onePercentageOfRealHeight(),
         left: '-221.9%',
       },
       innerBtmCloudStyle: {
         ...generalAttributeBtmCloudStyle,
-        top: '48.5%',
+        top: 48.5 * onePercentageOfRealHeight(),
         left: '-145.4%',
       },
       outerBtmCloudStyle: {
         ...generalAttributeBtmCloudStyle,
-        top: '75.1%',
+        top: 75.1 * onePercentageOfRealHeight(),
         left: '-50%',
       },
     },
@@ -94,21 +95,21 @@ const Analyse = () => {
       image: 'images/char_11_03.svg',
       innerTopCloudStyle: {
         ...generalAttributeTopCloudStyle,
-        top: '-29.8%',
+        top: -29.8 * onePercentageOfRealHeight(),
         left: '-123.2%',
       },
       outerTopCloudStyle: {
         ...generalAttributeTopCloudStyle,
-        top: '-56.7%',
+        top: -56.7 * onePercentageOfRealHeight(),
         left: '-221.9%',
       },
       innerBtmCloudStyle: {
-        top: '45.5%',
+        top: 45.5 * onePercentageOfRealHeight(),
         left: '-145.4%',
         ...generalAttributeBtmCloudStyle,
       },
       outerBtmCloudStyle: {
-        top: '72.2%',
+        top: 72.2 * onePercentageOfRealHeight(),
         left: '-50%',
         ...generalAttributeBtmCloudStyle,
       },
@@ -118,21 +119,21 @@ const Analyse = () => {
       image: 'images/char_11_04.svg',
       innerTopCloudStyle: {
         ...generalAttributeTopCloudStyle,
-        top: '-26.1%',
+        top: -26.1 * onePercentageOfRealHeight(),
         left: '-123.2%',
       },
       outerTopCloudStyle: {
         ...generalAttributeTopCloudStyle,
-        top: '-53%',
+        top: -53 * onePercentageOfRealHeight(),
         left: '-221.9%',
       },
       innerBtmCloudStyle: {
-        top: '43.5%',
+        top: 43.5 * onePercentageOfRealHeight(),
         left: '-145.4%',
         ...generalAttributeBtmCloudStyle,
       },
       outerBtmCloudStyle: {
-        top: '70.1%',
+        top: 70.1 * onePercentageOfRealHeight(),
         left: '-50%',
         ...generalAttributeBtmCloudStyle,
       },
@@ -142,21 +143,21 @@ const Analyse = () => {
       image: 'images/char_11_02.svg',
       innerTopCloudStyle: {
         ...generalAttributeTopCloudStyle,
-        top: '-26.1%',
+        top: -26.1 * onePercentageOfRealHeight(),
         left: '-123.2%',
       },
       outerTopCloudStyle: {
         ...generalAttributeTopCloudStyle,
-        top: '-53%',
+        top: -53 * onePercentageOfRealHeight(),
         left: '-221.9%',
       },
       innerBtmCloudStyle: {
-        top: '43.5%',
+        top: 43.5 * onePercentageOfRealHeight(),
         left: '-145.4%',
         ...generalAttributeBtmCloudStyle,
       },
       outerBtmCloudStyle: {
-        top: '70.1%',
+        top: 70.1 * onePercentageOfRealHeight(),
         left: '-50%',
         ...generalAttributeBtmCloudStyle,
       },
@@ -166,21 +167,21 @@ const Analyse = () => {
       image: 'images/char_11_05.svg',
       innerTopCloudStyle: {
         ...generalAttributeTopCloudStyle,
-        top: '-29.8%',
+        top: -29.8 * onePercentageOfRealHeight(),
         left: '-123.2%',
       },
       outerTopCloudStyle: {
         ...generalAttributeTopCloudStyle,
-        top: '-56.7%',
+        top: -56.7 * onePercentageOfRealHeight(),
         left: '-221.9%',
       },
       innerBtmCloudStyle: {
-        top: '45.5%',
+        top: 45.5 * onePercentageOfRealHeight(),
         left: '-145.4%',
         ...generalAttributeBtmCloudStyle,
       },
       outerBtmCloudStyle: {
-        top: '72.2%',
+        top: 72.2 * onePercentageOfRealHeight(),
         left: '-50%',
         ...generalAttributeBtmCloudStyle,
       },
@@ -190,21 +191,21 @@ const Analyse = () => {
       image: 'images/char_11_06.svg',
       innerTopCloudStyle: {
         ...generalAttributeTopCloudStyle,
-        top: '-31.8%',
+        top: -31.8 * onePercentageOfRealHeight(),
         left: '-123.2%',
       },
       outerTopCloudStyle: {
         ...generalAttributeTopCloudStyle,
-        top: '-58.7%',
+        top: -58.7 * onePercentageOfRealHeight(),
         left: '-221.9%',
       },
       innerBtmCloudStyle: {
-        top: '48.1%',
+        top: 48.1 * onePercentageOfRealHeight(),
         left: '-145.4%',
         ...generalAttributeBtmCloudStyle,
       },
       outerBtmCloudStyle: {
-        top: '74.8%',
+        top: 74.8 * onePercentageOfRealHeight(),
         left: '-50%',
         ...generalAttributeBtmCloudStyle,
       },
@@ -214,21 +215,21 @@ const Analyse = () => {
       image: 'images/char_11_07.svg',
       innerTopCloudStyle: {
         ...generalAttributeTopCloudStyle,
-        top: '-43.4%',
+        top: -43.4 * onePercentageOfRealHeight(),
         left: '-123.2%',
       },
       outerTopCloudStyle: {
         ...generalAttributeTopCloudStyle,
-        top: '-70.2%',
+        top: -70.2 * onePercentageOfRealHeight(),
         left: '-221.9%',
       },
       innerBtmCloudStyle: {
-        top: '51.4%',
+        top: 51.4 * onePercentageOfRealHeight(),
         left: '-145.4%',
         ...generalAttributeBtmCloudStyle,
       },
       outerBtmCloudStyle: {
-        top: '78.1%',
+        top: 78.1 * onePercentageOfRealHeight(),
         left: '-50%',
         ...generalAttributeBtmCloudStyle,
       },
@@ -238,21 +239,21 @@ const Analyse = () => {
       image: 'images/char_11_01.svg',
       innerTopCloudStyle: {
         ...generalAttributeTopCloudStyle,
-        top: '-43.4%',
+        top: -43.4 * onePercentageOfRealHeight(),
         left: '-123.2%',
       },
       outerTopCloudStyle: {
         ...generalAttributeTopCloudStyle,
-        top: '-70.2%',
+        top: -70.2 * onePercentageOfRealHeight(),
         left: '-221.9%',
       },
       innerBtmCloudStyle: {
-        top: '51.4%',
+        top: 51.4 * onePercentageOfRealHeight(),
         left: '-145.4%',
         ...generalAttributeBtmCloudStyle,
       },
       outerBtmCloudStyle: {
-        top: '78.1%',
+        top: 78.1 * onePercentageOfRealHeight(),
         left: '-50%',
         ...generalAttributeBtmCloudStyle,
       },
@@ -308,12 +309,10 @@ const Analyse = () => {
   const containerStyle = (scene) => {
     return {
       position: 'absolute',
-      // left: 0,
-      // top: 0,
       textAlign: 'left',
       margin: 0,
-      width: '100%',
-      height: '100%',
+      width: window.screen.width,
+      height: window.innerHeight,
       overflow: 'hidden',
     }
   }
@@ -354,7 +353,7 @@ const Analyse = () => {
         style={{
           position: 'absolute',
           color: '#020202',
-          top: '28%',
+          top: 28 * onePercentageOfRealHeight(),
           left: '50%',
           transform: 'translate(-50%, -50%)',
           'font-size': '18px',

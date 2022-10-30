@@ -3,7 +3,7 @@ import BottomCloud from 'components/bottomCloud/bottomCloud'
 import TopCloud from 'components/topCloud/topCloud'
 import { useNavigate } from 'react-router'
 
-import { scaleWidth, scaleHeight } from 'utils/constant'
+import { scaleWidth, scaleHeight, scaleMean } from 'utils/constant'
 
 const Consent = () => {
   const navigate = useNavigate()
@@ -21,11 +21,13 @@ const Consent = () => {
       top: 0,
       textAlign: 'center',
       margin: 0,
-      height: window.screen.height,
+      height: window.innerHeight,
       transition: 'opacity 0.3s ease-out',
       backgroundImage:
         'linear-gradient(#CAD8F3 13.35%, #FFF6ED 29.76%, #FFF2F2 50.51%, #CAD8F3 100%, rgba(255, 209, 90, 0.15) 100%)',
       opacity: phase === 0 ? 0 : 1,
+      display: 'flex',
+      justifyContent: 'center',
     }
   }
 
@@ -36,15 +38,16 @@ const Consent = () => {
       boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
       backgroundColor: '#ffffff',
       borderRadius: 35,
-      fontSize: 20 * scaleHeight(),
+      fontSize: 20 * scaleMean(),
       display: 'flex',
       justifyContent: 'center',
       alignItems: 'center',
       color: '#8A7EBE',
       position: 'absolute',
       left: scaleWidth() * 73,
-      top: scaleHeight() * 702,
+      top: scaleHeight() * 650,
       textDecoration: 'none',
+      position: 'absolute',
     }
   }
 
@@ -58,10 +61,10 @@ const Consent = () => {
 
   const textStyle = () => {
     return {
-      justifyContent: 'center',
-      marginTop: `${200 * scaleHeight()}px`,
+      top: `${200 * scaleHeight()}px`,
       color: '#8A7EBE',
       fontSize,
+      position: 'absolute',
     }
   }
 
@@ -98,7 +101,7 @@ const Consent = () => {
         </div>
       )}
       {phase === 2 && (
-        <div style={textStyle()}>
+        <div style={{ ...textStyle(), top: 150 * scaleHeight() }}>
           <span style={{ color: '#EC9F40', fontSize }}>CHUOSE </span>
           เว็บแอปพลิเคชันที่พัฒนาขึ้น
           <br />

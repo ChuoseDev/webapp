@@ -5,7 +5,12 @@ import MiddleCloud from 'components/middleCloud/middleCloud'
 import Star from 'components/star/star'
 import TopCloud from 'components/topCloud/topCloud'
 import BottomCloud from 'components/bottomCloud/bottomCloud'
-import { scaleHeight, scaleWidth, SCENE03_SHIFT_TIME } from 'utils/constant'
+import {
+  onePercentageOfRealHeight,
+  scaleHeight,
+  scaleWidth,
+  SCENE03_SHIFT_TIME,
+} from 'utils/constant'
 
 const Scene03 = () => {
   const [scene, setScene] = useState(1)
@@ -13,7 +18,7 @@ const Scene03 = () => {
   const [message, setMessage] = useState('')
   const [characterStyle, setCharacterStyle] = useState({
     position: 'absolute',
-    top: '-18.5%',
+    top: -18.5 * onePercentageOfRealHeight(),
     left: '-3.85%',
     transform: 'rotate(-22deg)',
     width: `${scaleWidth() * 185}px`,
@@ -36,7 +41,7 @@ const Scene03 = () => {
     5: {
       message: 'เสียงอะไรน่ะ',
       characterStyle: {
-        top: '-20%',
+        top: -20 * onePercentageOfRealHeight(),
         left: '2.93%',
         transform: 'rotate(-22deg)',
         width: `${scaleWidth() * 284.44}px`,
@@ -46,7 +51,7 @@ const Scene03 = () => {
       message: ' ',
       characterStyle: {
         position: 'absolute',
-        top: '-15%',
+        top: -15 * onePercentageOfRealHeight(),
         left: '7%',
         transform: 'rotate(-22deg)',
         width: `${scaleWidth() * 284.44}px`,
@@ -56,7 +61,7 @@ const Scene03 = () => {
       message: ' ',
       characterStyle: {
         position: 'absolute',
-        top: '-9%',
+        top: -9 * onePercentageOfRealHeight(),
         left: '12%',
         transform: 'rotate(-20deg)',
         width: `${scaleWidth() * 295}px`,
@@ -66,7 +71,7 @@ const Scene03 = () => {
       message: '“สวัสดี เราชูโอสนะ”',
       characterStyle: {
         position: 'absolute',
-        top: '0%',
+        top: 0 * onePercentageOfRealHeight(),
         left: '12%',
         transform: 'rotate(-17deg)',
         width: `${scaleWidth() * 295}px`,
@@ -76,7 +81,7 @@ const Scene03 = () => {
       message: '“สวัสดี เราชูโอสนะ”',
       characterStyle: {
         position: 'absolute',
-        top: '6%',
+        top: 6 * onePercentageOfRealHeight(),
         left: '12%',
         transform: 'rotate(-5deg)',
         width: `${scaleWidth() * 295}px`,
@@ -86,7 +91,7 @@ const Scene03 = () => {
       message: '“เราอยากช่วยเธอ”',
       characterStyle: {
         position: 'absolute',
-        top: '15%',
+        top: 15 * onePercentageOfRealHeight(),
         left: '12%',
         transform: 'rotate(-5deg)',
         width: `${scaleWidth() * 295}px`,
@@ -96,7 +101,7 @@ const Scene03 = () => {
       message: '“เราอยากช่วยเธอ”',
       characterStyle: {
         position: 'absolute',
-        top: '19%',
+        top: 19 * onePercentageOfRealHeight(),
         left: '12%',
         transform: 'rotate(-14deg)',
         width: `${scaleWidth() * 295}px`,
@@ -113,7 +118,7 @@ const Scene03 = () => {
       textAlign: 'center',
       margin: 0,
       width: window.screen.width,
-      height: window.screen.height,
+      height: window.innerHeight,
     }
   }
   const backgroundStyles = (scene) => {
@@ -122,7 +127,7 @@ const Scene03 = () => {
         position: 'relative',
         left: 0,
         top: 0,
-        height: window.screen.height,
+        height: window.innerHeight,
       }
     } else {
       return {
@@ -164,7 +169,7 @@ const Scene03 = () => {
       return {
         position: 'absolute',
         color: 'white',
-        top: '75%',
+        top: 75 * onePercentageOfRealHeight(),
         left: '50%',
         transform: 'translate(-50%, -50%)',
         fontSize: scaleMean * 20,
@@ -173,7 +178,7 @@ const Scene03 = () => {
       return {
         position: 'absolute',
         color: 'white',
-        top: '50%',
+        top: 50 * onePercentageOfRealHeight(),
         left: '50%',
         transform: 'translate(-50%, -50%)',
         fontSize: scaleMean * 20,
