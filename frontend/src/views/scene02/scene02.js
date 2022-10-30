@@ -91,7 +91,7 @@ const Scene02 = () => {
 
   const avocadoStyle = (scene) => {
     return {
-      width: `${window.screen.width * scaleWidth}px`,
+      width: `${window.screen.width}px`,
       position: 'absolute',
       bottom: 0,
       left: '50%',
