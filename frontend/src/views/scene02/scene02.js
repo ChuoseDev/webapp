@@ -11,6 +11,7 @@ const Scene02 = () => {
   const [avocadoSrc, setAvocadoSrc] = useState()
   const navigate = useNavigate()
   const scaleMean = (scaleHeight() + scaleWidth()) / 2
+  const isMobile = window.screen.width < window.screen.height
 
   const mapper = {
     1: {
@@ -83,25 +84,28 @@ const Scene02 = () => {
       opacity: scene % 2 === 1 ? 1 : 0,
       position: 'absolute',
       color: '#ffffff',
-      fontSize: 18 * scaleMean,
+      fontSize: `${18 * scaleWidth}px`,
+      width: `${window.screen.width}px`,
     }
   }
 
   const avocadoStyle = (scene) => {
     return {
-      width: 390 * scaleWidth(),
+      width: `${window.screen.width}px`,
       position: 'absolute',
       bottom: 0,
-      left: 0,
+      left: '50%',
+      transform: 'translate(-50%,0%)',
       opacity: scene < 4 ? 0 : 1,
-      transition: 'ease-in-out 2s',
+      // transition: 'ease-in-out 2s',
+      transition: '0s',
     }
   }
 
   return (
     <div style={containerStyle(scene)}>
-      <MiddleCloud />
-      <Star />
+      {isMobile && <MiddleCloud />}
+      {isMobile && <Star />}
       <div style={messageStyle(scene)}>{message}</div>
       <img src={avocadoSrc} style={avocadoStyle(scene)} />
     </div>

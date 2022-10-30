@@ -5,6 +5,7 @@ import os
 import logging
 from pythainlp.util import normalize
 from pythainlp import correct
+import time
 
 ## Edit
 def correct_text(text): 
@@ -133,9 +134,14 @@ def remove_punct(text):
     return text
     
 def get_cleaned_text(text):
+    start = time.time()
+    print("start get cleaned text", start)
     text = remove_punct(text)
+    start = time.time()
+    print("remove_punct", start)
     text = normalize(text)
-    text = correct(text)
+    start = time.time()
+    print("normalize", start)
     return text
 
 ### Dynamo DB ###
@@ -243,6 +249,7 @@ def prepare2train(inputTextList):
 
 
 def get_label(text_list):
-    return str(np.argmax(lstmModel.predict(fill0in(prepare2train(text_list)))))
+    val = lstmModel.predict(fill0in(prepare2train(text_list)))
+    return str(np.argmax(val))
 
 ########## (END) THESE FUNCTIONS WERE USED IN LSTM MODEL (END) ##########
