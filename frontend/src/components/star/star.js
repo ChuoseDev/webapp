@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { STAR_SHIFT_TIME } from 'utils/constant'
+import { onePercentageOfRealHeight, STAR_SHIFT_TIME } from 'utils/constant'
 
 const Star = () => {
   const [scene, setScene] = useState(0)
@@ -17,7 +17,7 @@ const Star = () => {
   const style = {
     position: 'absolute',
     left: `0px`,
-    top: `${(scene % 2 === 0) * 10}px`,
+    top: (scene % 2 === 0) * 10 * onePercentageOfRealHeight(),
     height: window.innerHeight,
   }
 

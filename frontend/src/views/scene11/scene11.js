@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router'
 import { useEffect, useState } from 'react'
 import './scene11.css'
-import { SCENE11_SHIFT_TIME } from 'utils/constant'
+import { onePercentageOfRealHeight, SCENE11_SHIFT_TIME } from 'utils/constant'
 import CardSlider from 'components/cardSlider/cardSlider'
 import { WhiteButton } from 'components/commons/commons'
 import { scaleWidth, scaleHeight } from 'utils/constant'
@@ -51,10 +51,11 @@ const Scene11 = () => {
       message: 'Negative Automatic Thoughts',
       message2: '“ความคิดลบอัตโนมัติ”',
       imageInCloudStyle: {
+        top: 40 * onePercentageOfRealHeight(),
         opacity: 0,
       },
       messageStyle: {
-        fontSize: 17 * scaleWidth,
+        fontSize: 17 * scaleWidth(),
       },
     },
     3: {
@@ -86,14 +87,14 @@ const Scene11 = () => {
     8: {
       imageInCloud: 'images/crowd02.svg',
       imageInCloudStyle: {
-        top: '42.5%',
+        top: 42.5 * onePercentageOfRealHeight(),
         left: '48%',
       },
     },
     9: {
       imageInCloud: 'images/crowd03.svg',
       imageInCloudStyle: {
-        top: '40%',
+        top: 40 * onePercentageOfRealHeight(),
         left: '50%',
       },
     },
@@ -161,9 +162,9 @@ const Scene11 = () => {
       message: 'ความคิดลบแบบไม่พักมันมีรูปแบบอยู่นะ',
       message2: ' ',
       messageStyle: {
-        top: '30%',
+        top: 30 * onePercentageOfRealHeight(),
         opacity: 1,
-        fontSize: 17 * scaleWidth,
+        fontSize: 17 * scaleWidth(),
       },
       characterStyle: {
         opacity: 1,
@@ -173,8 +174,8 @@ const Scene11 = () => {
     22: {
       message: 'เธอคิดว่าความคิดลบแบบไม่พักของเธอเป็นรูปแบบไหน?',
       messageStyle: {
-        top: '10%',
-        fontSize: 17 * scaleWidth,
+        top: 10 * onePercentageOfRealHeight(),
+        fontSize: 17 * scaleWidth(),
       },
       characterStyle: {
         opacity: 0,
@@ -291,7 +292,10 @@ const Scene11 = () => {
         class="bigCloud"
         src={'images/whiteBigCloud.svg'}
         alt="bigCloud"
-        style={{ opacity: scene > 6 && scene < 18 ? 1 : 0 }}
+        style={{
+          opacity: scene > 6 && scene < 18 ? 1 : 0,
+          top: 50 * onePercentageOfRealHeight(),
+        }}
       />
       <img
         class="imageInCloud"
@@ -309,7 +313,7 @@ const Scene11 = () => {
           // width: `${2602 * scaleWidth}px`,
           left: '50%',
           transform: 'translate(-50%,0%)',
-          top: '25%',
+          top: 25 * onePercentageOfRealHeight(),
           zindex: '999',
           opacity: scene >= 22 ? 1 : 0,
         }}
@@ -320,7 +324,7 @@ const Scene11 = () => {
           onClick={onClickStart}
           style={{
             position: 'fixed',
-            top: '85%',
+            top: 85 * onePercentageOfRealHeight(),
             left: '50%',
             transform: 'translate(-50%, -50%)',
             width: 243 * scaleWidth(),

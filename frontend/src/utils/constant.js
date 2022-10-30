@@ -5,9 +5,9 @@ export const VIEW_CHANGING_DELAY_TIME = 1000
 export const SCENE01_SHIFT_TIME = 250
 export const SCENE02_SHIFT_TIME = 2000
 export const SCENE03_SHIFT_TIME = 1000
-export const SCENE04_SHIFT_TIME = 200
+export const SCENE04_SHIFT_TIME = 1500
 export const SCENE05_SHIFT_TIME = 1000
-export const SCENE06_SHIFT_TIME = 200
+export const SCENE06_SHIFT_TIME = 2000
 export const SCENE07_SHIFT_TIME = 200
 export const SCENE08_SHIFT_TIME = 1700
 export const SCENE09_SHIFT_TIME = 1500
@@ -40,4 +40,8 @@ export const scaleMean = () => {
 
 export const meanSizeHeight = () => {
   return scaleMean() * 844
+}
+
+export const onePercentageOfRealHeight = () => {
+  return window.innerHeight / 100
 }

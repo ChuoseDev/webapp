@@ -3,7 +3,7 @@ import BottomCloud from 'components/bottomCloud/bottomCloud'
 import Star from 'components/star/star'
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router'
-import { SCENE14_SHIFT_TIME } from 'utils/constant'
+import { onePercentageOfRealHeight, SCENE14_SHIFT_TIME } from 'utils/constant'
 import '../scene03/purple.css'
 import { scaleWidth, scaleHeight } from 'utils/constant'
 
@@ -215,7 +215,7 @@ const Scene14 = () => {
             <textarea
               class="textbox"
               style={{
-                top: '30%',
+                top: 30 * onePercentageOfRealHeight(),
                 left: 12 * scaleWidth(),
                 position: 'absolute',
                 width: 317 * scaleWidth(),

@@ -5,7 +5,11 @@ import LevelCard3 from 'components/levelCard/levelCard3'
 import LevelCard4_5 from 'components/levelCard/levelCard4_5'
 import { WhiteButton } from 'components/commons/commons'
 import { useNavigate } from 'react-router'
-import { scaleWidth, scaleHeight } from 'utils/constant'
+import {
+  scaleWidth,
+  scaleHeight,
+  onePercentageOfRealHeight,
+} from 'utils/constant'
 
 const Level = () => {
   const level = sessionStorage.getItem('LEVEL')
@@ -143,7 +147,7 @@ const Level = () => {
         style={{
           position: 'absolute',
           left: '50%',
-          top: '50%',
+          top: 50 * onePercentageOfRealHeight(),
           transform: 'translate(-50%, -50%)',
         }}
       >

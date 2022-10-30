@@ -7,8 +7,5 @@ export const getPrediction = () => {
     CUST_GENDER: sessionStorage.getItem('CUST_GENDER'),
     TEXT_Q2: sessionStorage.getItem('TEXT_Q2'),
   }
-  return axios.post(
-    `http://ec2-13-250-62-37.ap-southeast-1.compute.amazonaws.com:5000/`,
-    body
-  )
+  return axios.post(`http://52.221.253.134:5000/`, body)
 }

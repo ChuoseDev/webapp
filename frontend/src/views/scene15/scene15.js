@@ -4,7 +4,7 @@ import MiddleCloud from 'components/middleCloud/middleCloud'
 import TopCloud from 'components/topCloud/topCloud'
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router'
-import { SCENE15_SHIFT_TIME } from 'utils/constant'
+import { onePercentageOfRealHeight, SCENE15_SHIFT_TIME } from 'utils/constant'
 import { scaleWidth, scaleHeight } from 'utils/constant'
 
 const Scene15 = () => {
@@ -21,7 +21,9 @@ const Scene15 = () => {
   const characterStyle = (scene) => {
     const speed = 2
     return {
-      top: `${22 + speed * (4 * (scene >= 8) * (scene - 8))}%`,
+      top:
+        (22 + speed * (4 * (scene >= 8) * (scene - 8))) *
+        onePercentageOfRealHeight(),
       left: `${
         12 +
         // speed *
@@ -99,7 +101,7 @@ const Scene15 = () => {
     return {
       position: 'absolute',
       color: 'white',
-      top: '17%',
+      top: 17 * onePercentageOfRealHeight(),
       width: '100%',
       display: 'flex',
       justifyContent: 'center',

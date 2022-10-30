@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router'
 import { useEffect, useState } from 'react'
 import '../scene03/purple.css'
+import { onePercentageOfRealHeight } from 'utils/constant'
 
 const Scene07 = () => {
   const [scene, setScene] = useState(1)
@@ -62,39 +63,55 @@ const Scene07 = () => {
       case 1: {
         return (
           <div>
-            <div class="text_top">
+            <div
+              class="text_top"
+              style={{ top: 17 * onePercentageOfRealHeight() }}
+            >
               "ได้สิ ฉันเชื่อว่าเธอทำได้<br></br> เรามาหาทางออกด้วยกันนะ"
             </div>
             <img
               class="cloud02"
               src={'images/WhiteCloud02.svg'}
               alt="background"
-              style={{ top: '8.06%', left: '58.72%' }}
+              style={{
+                top: 8.06 * onePercentageOfRealHeight(),
+                left: '58.72%',
+              }}
             />
             <img
               class="cloud01"
               src={'images/WhiteCloud01.svg'}
               alt="background"
-              style={{ top: '33.77%', left: '-16.67%', width: '43.76%' }}
+              style={{
+                top: 33.77 * onePercentageOfRealHeight(),
+                left: '-16.67%',
+                width: '43.76%',
+              }}
             />
             <img
               class="cloud01"
               src={'images/WhiteCloud01.svg'}
               alt="background"
-              style={{ top: '61.97%', left: '63.59%' }}
+              style={{
+                top: 61.97 * onePercentageOfRealHeight(),
+                left: '63.59%',
+              }}
             />
             <img
               class="cloud02"
               src={'images/WhiteCloud02.svg'}
               alt="background"
-              style={{ top: '82.35%', left: '-0.77%' }}
+              style={{
+                top: 82.35 * onePercentageOfRealHeight(),
+                left: '-0.77%',
+              }}
             />
             <img
               class="charactor"
               src={'images/Charactor.svg'}
               alt="charactor"
               style={{
-                top: '30%',
+                top: 30 * onePercentageOfRealHeight(),
                 left: '7%',
                 transform: 'rotate(-15deg)',
                 width: '350px',
@@ -107,37 +124,55 @@ const Scene07 = () => {
       case 2: {
         return (
           <div>
-            <div class="text_top">"ได้สิ เราลองมาหาทางออกด้วยกันมั้ย"</div>
+            <div
+              class="text_top"
+              style={{ top: 17 * onePercentageOfRealHeight() }}
+            >
+              "ได้สิ เราลองมาหาทางออกด้วยกันมั้ย"
+            </div>
             <img
               class="cloud02"
               src={'images/WhiteCloud02.svg'}
               alt="background"
-              style={{ top: '8.06%', left: '58.72%' }}
+              style={{
+                top: 8.06 * onePercentageOfRealHeight(),
+                left: '58.72%',
+              }}
             />
             <img
               class="cloud01"
               src={'images/WhiteCloud01.svg'}
               alt="background"
-              style={{ top: '33.77%', left: '-16.67%', width: '43.76%' }}
+              style={{
+                top: 33.77 * onePercentageOfRealHeight(),
+                left: '-16.67%',
+                width: '43.76%',
+              }}
             />
             <img
               class="cloud01"
               src={'images/WhiteCloud01.svg'}
               alt="background"
-              style={{ top: '61.97%', left: '63.59%' }}
+              style={{
+                top: 61.97 * onePercentageOfRealHeight(),
+                left: '63.59%',
+              }}
             />
             <img
               class="cloud02"
               src={'images/WhiteCloud02.svg'}
               alt="background"
-              style={{ top: '82.35%', left: '-0.77%' }}
+              style={{
+                top: 82.35 * onePercentageOfRealHeight(),
+                left: '-0.77%',
+              }}
             />
             <img
               class="charactor"
               src={'images/Charactor.svg'}
               alt="charactor"
               style={{
-                top: '35%',
+                top: 35 * onePercentageOfRealHeight(),
                 left: '7%',
                 transform: 'rotate(-10deg)',
                 width: '350px',
@@ -154,25 +189,38 @@ const Scene07 = () => {
               class="cloud02"
               src={'images/WhiteCloud02.svg'}
               alt="background"
-              style={{ top: '18.5%', left: '61.75%' }}
+              style={{
+                top: 18.5 * onePercentageOfRealHeight(),
+                left: '61.75%',
+              }}
             />
             <img
               class="cloud01"
               src={'images/WhiteCloud01.svg'}
               alt="background"
-              style={{ top: '44.22%', left: '-10.01%', width: '43.76%' }}
+              style={{
+                top: 44.22 * onePercentageOfRealHeight(),
+                left: '-10.01%',
+                width: '43.76%',
+              }}
             />
             <img
               class="cloud01"
               src={'images/WhiteCloud01.svg'}
               alt="background"
-              style={{ top: '72.44%', left: '66.39%' }}
+              style={{
+                top: 72.44 * onePercentageOfRealHeight(),
+                left: '66.39%',
+              }}
             />
             <img
               class="cloud02"
               src={'images/WhiteCloud02.svg'}
               alt="background"
-              style={{ top: '94.14%', left: '7.57%' }}
+              style={{
+                top: 94.14 * onePercentageOfRealHeight(),
+                left: '7.57%',
+              }}
             />
           </div>
         )

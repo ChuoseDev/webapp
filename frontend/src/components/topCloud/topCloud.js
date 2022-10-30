@@ -56,7 +56,7 @@ const TopCloud = ({ top = 0, ttl, fadeIn = true }) => {
     return {
       position: 'absolute',
       left: `-${60 + scene * 10}px`,
-      top: `${-110 + top}px`,
+      top: `${-160 + top}px`,
       transform: 'rotate(180deg)',
       opacity,
       transition: 'opacity ease-in-out 1s',

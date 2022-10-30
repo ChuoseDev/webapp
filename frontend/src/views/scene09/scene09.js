@@ -430,7 +430,7 @@ const Scene09 = () => {
   const messageStyle = (scene) => {
     return {
       position: 'absolute',
-      top: 232 * scaleWidth(),
+      top: 232 * scaleHeight(),
       fontSize: '18px',
       width: '100%',
       color: 'black',
@@ -444,7 +444,7 @@ const Scene09 = () => {
       height: 110 * scaleHeight(),
       left: '50%',
       transform: 'translate(-50%, 0)',
-      top: 290 * scaleWidth(),
+      top: 290 * scaleHeight(),
       background: 'rgba(255, 255, 255, 0.9)',
       boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
       border: '1px',

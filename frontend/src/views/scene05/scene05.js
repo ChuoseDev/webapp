@@ -3,7 +3,12 @@ import { useEffect, useState } from 'react'
 import '../scene03/purple.css'
 import MiddleCloud from 'components/middleCloud/middleCloud'
 import Star from 'components/star/star'
-import { scaleHeight, scaleWidth, SCENE05_SHIFT_TIME } from 'utils/constant'
+import {
+  onePercentageOfRealHeight,
+  scaleHeight,
+  scaleWidth,
+  SCENE05_SHIFT_TIME,
+} from 'utils/constant'
 
 const Scene05 = () => {
   const [scene, setScene] = useState(1)
@@ -11,7 +16,7 @@ const Scene05 = () => {
   const [message, setMessage] = useState('')
   const [characterStyle, setCharacterStyle] = useState({
     position: 'absolute',
-    top: '19%',
+    top: 19 * onePercentageOfRealHeight(),
     left: '12%',
     transform: 'rotate(-14deg)',
     width: `${scaleWidth() * 295}px`,
@@ -33,23 +38,23 @@ const Scene05 = () => {
         message: '“ได้สิ”',
         characterStyle: {
           position: 'absolute',
-          top: '19%',
+          top: 19 * onePercentageOfRealHeight(),
           left: '12%',
           transform: 'rotate(-14deg)',
           width: `${scaleWidth() * 295}px`,
         },
       },
-      2: {
+      3: {
         message: '“เธอลองให้เรา พาเธอออกไปจากที่นี่ได้มั้ย?”',
         characterStyle: {
           position: 'absolute',
           transform: 'rotate(-18deg)',
         },
       },
-      3: {
+      4: {
         characterStyle: {
           position: 'absolute',
-          top: '16%',
+          top: 16 * onePercentageOfRealHeight(),
           left: '16%',
         },
       },
@@ -60,21 +65,21 @@ const Scene05 = () => {
         message: '“ว่าแต่เธอชื่ออะไร”',
         characterStyle: {
           position: 'absolute',
-          top: '18%',
+          top: 18 * onePercentageOfRealHeight(),
           left: '15%',
         },
       },
       2: {
         characterStyle: {
           position: 'absolute',
-          top: '17%',
+          top: 17 * onePercentageOfRealHeight(),
           left: '15.5%',
         },
       },
       3: {
         characterStyle: {
           position: 'absolute',
-          top: '19%',
+          top: 19 * onePercentageOfRealHeight(),
           left: '0%',
           transform: 'rotate(-22deg)',
           width: `${scaleWidth() * 380}px`,
@@ -84,7 +89,7 @@ const Scene05 = () => {
         message: '“ฉันขอทำความรู้จักเธอนิดนึงนะ”',
         characterStyle: {
           position: 'absolute',
-          top: '25%',
+          top: 25 * onePercentageOfRealHeight(),
           left: '15%',
           width: `${scaleWidth() * 300}px`,
         },
@@ -92,24 +97,29 @@ const Scene05 = () => {
       5: {
         characterStyle: {
           position: 'absolute',
-          top: '30%',
+          top: 30 * onePercentageOfRealHeight(),
           left: '20%',
           transform: 'rotate(-12deg)',
           width: `${scaleWidth() * 250}px`,
         },
       },
-      6: { characterStyle: { top: '35%', transform: 'rotate(-10deg)' } },
+      6: {
+        characterStyle: {
+          top: 35 * onePercentageOfRealHeight(),
+          transform: 'rotate(-10deg)',
+        },
+      },
       7: {
         characterStyle: {
           position: 'absolute',
-          top: '45%',
+          top: 45 * onePercentageOfRealHeight(),
           transform: 'rotate(5deg)',
         },
       },
       8: {
         characterStyle: {
           position: 'absolute',
-          top: '55%',
+          top: 55 * onePercentageOfRealHeight(),
           transform: 'rotate(-5.04deg)',
         },
       },
@@ -119,7 +129,7 @@ const Scene05 = () => {
         message: `เราออกจากที่นี่กันมั้ย ${username}`,
         characterStyle: {
           position: 'absolute',
-          top: '45%',
+          top: 45 * onePercentageOfRealHeight(),
           left: '13%',
           width: `${scaleWidth() * 300}px`,
           transform: 'rotate(0deg)',
@@ -128,7 +138,7 @@ const Scene05 = () => {
       2: {
         characterStyle: {
           position: 'absolute',
-          top: '30%',
+          top: 30 * onePercentageOfRealHeight(),
           left: '7%',
           width: `${scaleWidth() * 350}px`,
           transform: 'rotate(-7.5deg)',
@@ -213,7 +223,7 @@ const Scene05 = () => {
       return {
         position: 'absolute',
         color: 'white',
-        top: '75%',
+        top: 75 * onePercentageOfRealHeight(),
         left: '50%',
         transform: 'translate(-50%, -50%)',
         fontSize: scaleMean * 20,
@@ -222,7 +232,7 @@ const Scene05 = () => {
       return {
         position: 'absolute',
         color: 'white',
-        top: '17%',
+        top: 17 * onePercentageOfRealHeight(),
         width: '100%',
         display: 'flex',
         justifyContent: 'center',
@@ -235,7 +245,7 @@ const Scene05 = () => {
   const buttonStyles = () => {
     return {
       position: 'absolute',
-      top: '85%',
+      top: 85 * onePercentageOfRealHeight(),
       left: '50%',
       transform: 'translate(-50%, -50%)',
     }
@@ -270,7 +280,7 @@ const Scene05 = () => {
           {scene >= 5 && (
             <input
               class="input"
-              style={{ top: '21%', left: '12%' }}
+              style={{ top: 21 * onePercentageOfRealHeight(), left: '12%' }}
               placeholder="ชื่อผู้ใช้"
               value={username}
               onChange={(e) => {
@@ -281,7 +291,7 @@ const Scene05 = () => {
           {scene >= 6 && (
             <input
               class="input"
-              style={{ top: '30%', left: '12%' }}
+              style={{ top: 30 * onePercentageOfRealHeight(), left: '12%' }}
               placeholder="อายุ"
               value={age}
               onChange={(e) => {
@@ -293,7 +303,11 @@ const Scene05 = () => {
             <select
               class="input"
               id="gender"
-              style={{ top: '39%', left: '12%', width: '296.5px' }}
+              style={{
+                top: 39 * onePercentageOfRealHeight(),
+                left: '12%',
+                width: '296.5px',
+              }}
             >
               <option value="">เพศ</option>
               <option value="male">ชาย</option>
@@ -305,7 +319,7 @@ const Scene05 = () => {
           {scene >= 8 && (
             <button
               class="input"
-              style={{ top: '50%', left: '12%' }}
+              style={{ top: 50 * onePercentageOfRealHeight(), left: '12%' }}
               onClick={() => shiftPhase(phaseEnum.thirdPhase)}
             >
               ไปต่อ
