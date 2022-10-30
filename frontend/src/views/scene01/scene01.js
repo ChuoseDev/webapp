@@ -4,7 +4,7 @@ import Star from 'components/star/star'
 import TopCloud from 'components/topCloud/topCloud'
 import BottomCloud from 'components/bottomCloud/bottomCloud'
 import { SCENE01_SHIFT_TIME, VIEW_CHANGING_DELAY_TIME } from 'utils/constant'
-import { scaleWidth, scaleHeight } from 'utils/constant'
+import { scaleHeight } from 'utils/constant'
 
 const Scene01 = () => {
   const [scene, setScene] = useState(1)
@@ -24,7 +24,7 @@ const Scene01 = () => {
     return () => {
       clearInterval(sceneShifter)
     }
-  }, [scene])
+  }, [navigate, scene])
 
   const containerStyle = (scene) => {
     return {

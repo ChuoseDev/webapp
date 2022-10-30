@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { scaleWidth, STAR_SHIFT_TIME } from 'utils/constant'
+import { STAR_SHIFT_TIME } from 'utils/constant'
 
 const Star = () => {
   const [scene, setScene] = useState(0)
