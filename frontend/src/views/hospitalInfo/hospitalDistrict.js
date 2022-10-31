@@ -46,7 +46,7 @@ const Hospital = () => {
       boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
       backgroundColor: '#ffffff',
       borderRadius: 35,
-      fontSize: 20 * scaleMean(),
+      fontSize: 18 * scaleMean(),
       display: 'flex',
       justifyContent: 'center',
       alignItems: 'center',
