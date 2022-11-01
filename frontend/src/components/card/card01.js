@@ -114,7 +114,6 @@ const Card01 = ({ onClickFunction }) => {
     <button
       style={cardStyle}
       onClick={() => {
-        console.log('click')
         if (bgCard === '#FFFFFF') {
           setBgCard('#DBDDFC')
           onClickFunction(1)

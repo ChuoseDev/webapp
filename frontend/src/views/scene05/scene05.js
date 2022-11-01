@@ -4,6 +4,7 @@ import '../scene03/purple.css'
 import MiddleCloud from 'components/middleCloud/middleCloud'
 import Star from 'components/star/star'
 import {
+  dbFieldNames,
   onePercentageOfRealHeight,
   scaleHeight,
   scaleWidth,
@@ -174,10 +175,10 @@ const Scene05 = () => {
 
   const shiftPhase = (phase) => {
     if (phase === phaseEnum.thirdPhase) {
-      sessionStorage.setItem('CUST_USR_NM', username)
-      sessionStorage.setItem('CUST_AGE', age)
+      sessionStorage.setItem(dbFieldNames.CUST_USR_NM, username)
+      sessionStorage.setItem(dbFieldNames.CUST_AGE, age)
       sessionStorage.setItem(
-        'CUST_GENDER',
+        dbFieldNames.CUST_GENDER,
         document.getElementById('gender').value
       )
     }

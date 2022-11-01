@@ -2,7 +2,7 @@ import { useNavigate } from 'react-router'
 import { useEffect, useState } from 'react'
 import TopCloud from 'components/topCloud/topCloud'
 import BottomCloud from 'components/bottomCloud/bottomCloud'
-import { scaleMean, SCENE10_SHIFT_TIME } from 'utils/constant'
+import { dbFieldNames, scaleMean, SCENE10_SHIFT_TIME } from 'utils/constant'
 import { scaleWidth, scaleHeight } from 'utils/constant'
 
 const Scene10 = () => {
@@ -540,6 +540,9 @@ const Scene10 = () => {
       setCharacterSrc(mapper[phase][scene].character.src)
     }
     if (phase === phaseEnum.fifthPhase && scene === 18) {
+      sessionStorage.setItem(dbFieldNames.TEXT_09_10, question3)
+      sessionStorage.setItem(dbFieldNames.TEXT_09_12, question4)
+      sessionStorage.setItem(dbFieldNames.TEXT_09_13, question5)
       navigate('/scene11')
     }
   }, [scene])

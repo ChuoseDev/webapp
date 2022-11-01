@@ -2,7 +2,7 @@ import { useNavigate } from 'react-router'
 import { useEffect, useState } from 'react'
 import TopCloud from 'components/topCloud/topCloud'
 import BottomCloud from 'components/bottomCloud/bottomCloud'
-import { scaleMean, SCENE09_SHIFT_TIME } from 'utils/constant'
+import { dbFieldNames, scaleMean, SCENE09_SHIFT_TIME } from 'utils/constant'
 import { scaleWidth, scaleHeight } from 'utils/constant'
 import { getPrediction } from 'api/api'
 
@@ -38,9 +38,6 @@ const Scene09 = () => {
   const [phase, setPhase] = useState(phaseEnum.firstPhase)
   const [question1, setQuestion1] = useState('')
   const [question2, setQuestion2] = useState('')
-  const [question3, setQuestion3] = useState('')
-  const [question4, setQuestion4] = useState('')
-  const [question5, setQuestion5] = useState('')
 
   const navigate = useNavigate()
 
@@ -411,8 +408,6 @@ const Scene09 = () => {
       textAlign: 'center',
       margin: 0,
       height: window.innerHeight,
-      backgroundColor:
-        scene == 20 && phase == phaseEnum.fifthPhase ? 'black' : '',
       transitionDuration: scene >= 19 ? '1s' : '',
     }
   }
@@ -453,31 +448,8 @@ const Scene09 = () => {
   }
   return (
     <div style={containerStyle(scene)}>
-      <div
-        style={
-          scene >= 19 && phase === phaseEnum.fifthPhase
-            ? {}
-            : backgroundStyles(scene)
-        }
-      >
-        <p style={messageStyle(scene)}>
-          {message}
-          {phase === phaseEnum.sixthPhase && (
-            <div
-              style={{
-                fontSize: 18 * scaleMean(),
-                width: '100%',
-                color: 'black',
-              }}
-            >
-              {`ความคิด : ${question3}`}
-              <br />
-              {`ความรู้สึก : ${question4}`}
-              <br />
-              {`พฤติกรรม : ${question5}`}
-            </div>
-          )}
-        </p>
+      <div style={backgroundStyles(scene)}>
+        <p style={messageStyle(scene)}>{message}</p>
         {scene >= 1 && scene <= 18 && (
           <div>
             <BottomCloud ttl={15 * SCENE09_SHIFT_TIME} />
@@ -529,7 +501,7 @@ const Scene09 = () => {
                 position: 'absolute',
               }}
               onClick={() => {
-                sessionStorage.setItem('TEXT_Q1', question1)
+                sessionStorage.setItem(dbFieldNames.TEXT_Q1, question1)
                 shiftPhase(phaseEnum.secondPhase)
               }}
             >
@@ -554,7 +526,7 @@ const Scene09 = () => {
                 position: 'absolute',
               }}
               onClick={() => {
-                sessionStorage.setItem('TEXT_Q2', question2)
+                sessionStorage.setItem(dbFieldNames.TEXT_Q2, question2)
                 onClickNext()
               }}
             >

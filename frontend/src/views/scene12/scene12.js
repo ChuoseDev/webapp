@@ -446,7 +446,10 @@ const Scene12 = () => {
             transform: 'translate(-50%, -50%)',
             width: 243.8,
           }}
-          onClick={() => navigate('/scene13')}
+          onClick={() => {
+            sessionStorage.setItem('TEXT_13_11', story)
+            navigate('/scene13')
+          }}
         >
           ไปต่อ
         </button>
