@@ -148,9 +148,28 @@ def get_cleaned_text(text):
 ### Dynamo DB ###
 import requests
 import datetime
-import socket
 from dotenv import load_dotenv
 load_dotenv()
+
+first_field_names = [
+"CUST_USR_NM",
+"CUST_AGE",
+"CUST_GENDER",
+"TEXT_Q1",
+"TEXT_Q2",
+]
+
+second_field_names = [
+"LABEL",
+"APL_ID",
+"TEXT_09_10",
+"TEXT_09_12",
+"TEXT_09_13",
+"SELECTED_CARDS",
+"TEXT_13_11",
+"TEXT_14_07",
+"TEXT_15_06",
+]
 
 dynamo_db_endpoint = os.getenv('DYNAMO_DB_ENDPOINT')
 dynamo_db_access_key = os.getenv('DYNAMO_DB_ACCESS_KEY')
@@ -160,21 +179,29 @@ if dynamo_db_endpoint is None or dynamo_db_access_key is None or dynamo_db_secre
     logging.error('environment variable of dynamo db is not filled')
     exit()
 
-def save_to_dynamo(username, age, gender, txt_input, lvl):
-    timeStamp = str(datetime.datetime.now())[:16]
-    apl_id = f'{username}@{timeStamp}'
+def save_to_dynamo(js, isFirstFields, label=0):
     try:
-        json_body = {'apl_id':apl_id, 'age':age, 'gender':gender, 'txt_input':txt_input, 'lvl':lvl, 'timeStamp':timeStamp}
-        logging.info('request post with body', json_body)
+        timeStamp = str(datetime.datetime.now())[:16]
+        apl_id = f'{js["CUST_USR_NM"]}@{timeStamp}'
+        json_body = {}
+        if isFirstFields:
+            for field in first_field_names:
+                json_body[field] = js[field]
+            json_body['LABEL'] = label
+        else:
+            apl_id = js['APL_ID']
+            for field in first_field_names + second_field_names:
+                json_body[field] = js[field]
+        json_body['apl_id'] = apl_id
         requests.post(
-            url=dynamo_db_endpoint,
-            json=json_body,
-            headers={'access_key':dynamo_db_access_key, 'secret_key':dynamo_db_secret_key}
-        )
+                url=dynamo_db_endpoint,
+                json=json_body,
+                headers={'access_key':dynamo_db_access_key, 'secret_key':dynamo_db_secret_key}
+            )
         logging.info(f'apl_id:f{apl_id} request is success')
+        return apl_id
     except requests.exceptions.RequestException as e:
         logging.error(f'apl_id:f{apl_id} request is error' + e)
-    return
 
 ### Model Prediction ###
 import pandas as pd

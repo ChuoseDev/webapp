@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import BottomCloud from 'components/bottomCloud/bottomCloud'
 import TopCloud from 'components/topCloud/topCloud'
 import { useNavigate } from 'react-router'
-
+import Pdf from '../../consent.pdf'
 import { scaleWidth, scaleHeight, scaleMean } from 'utils/constant'
 
 const Consent = () => {
@@ -53,7 +53,7 @@ const Consent = () => {
 
   const buttonMessage = (phase) => {
     const message = {
-      1: 'ไปต่อ',
+      1: 'ยินยอม',
       2: 'เริ่มเล่น',
     }
     return message[phase]
@@ -61,10 +61,8 @@ const Consent = () => {
 
   const textStyle = () => {
     return {
-      top: `${200 * scaleHeight()}px`,
       color: '#8A7EBE',
       fontSize,
-      position: 'absolute',
     }
   }
 
@@ -76,59 +74,70 @@ const Consent = () => {
       <TopCloud top={50} />
       <BottomCloud />
       <BottomCloud bottom={50} />
-      {phase === 1 && (
-        <div style={textStyle()}>
-          ชิ้นงานนี้เป็นส่วนหนึ่งของ{' '}
-          <span style={{ color: '#EC9F40', fontSize }}>วิทยานิพนธ์</span>
-          <br />
-          สาขาวิชาวิทยาศาสตร์คอมพิวเตอร์
-          <br />
-          ภาควิชาวิศวกรรมคอมพิวเตอร์
-          <br />
-          คณะวิศวกรรมศาสตร์ จุฬาลงกรณ์มหาวิทยาลัย
-          <br />
-          <br />
-          ผู้วิจัยจะไม่เก็บบันทึกข้อมูลส่วนบุคคลของผู้เล่น
-          <br />
-          รวมถึงคำตอบขณะเข้าใช้ CHUOSE ด้วย
-          <br />
-          มีเพียงขอเก็บสถิติโดยรวม
-          <br />
-          เช่น ยอดจำนวนผู้เข้าใช้ อายุเฉลี่ยของผู้
-          <br />
-          เพื่อประกอบในวิทยานิพนธ์เท่านั้น
-          <br />
+      {phase === 2 && (
+        <div style={{ top: `${200 * scaleHeight()}px`, position: 'absolute' }}>
+          <div>
+            <span style={textStyle()}>ชิ้นงานนี้เป็นส่วนหนึ่งของ</span>
+            <span style={{ color: '#EC9F40', fontSize }}>วิทยานิพนธ์</span>
+          </div>
+          <div style={textStyle()}>สาขาวิชาวิทยาศาสตร์คอมพิวเตอร์</div>
+          <div style={textStyle()}>ภาควิชาวิศวกรรมคอมพิวเตอร์</div>
+          <div style={{ ...textStyle(), marginBottom: 20 * scaleHeight() }}>
+            คณะวิศวกรรมศาสตร์ จุฬาลงกรณ์มหาวิทยาลัย
+          </div>
+          <div style={textStyle()}>
+            <div style={textStyle()}></div>
+            ผู้วิจัยจะไม่เก็บบันทึกข้อมูลส่วนบุคคลของผู้เล่น
+          </div>
+          <div style={textStyle()}>รวมถึงคำตอบขณะเข้าใช้ CHUOSE ด้วย</div>
+          <div style={textStyle()}>มีเพียงขอเก็บสถิติโดยรวม</div>
+          <div style={textStyle()}>
+            เช่น ยอดจำนวนผู้เข้าใช้ อายุเฉลี่ยของผู้
+          </div>
+          <div style={{ ...textStyle(), marginBottom: 20 * scaleHeight() }}>
+            เพื่อประกอบในวิทยานิพนธ์เท่านั้น
+          </div>
+          <a href={Pdf} target="_blank" style={{ textDecoration: 'none' }}>
+            <div style={{ color: '#EC9F40', fontSize }}>คลิกดูรายละเอียด</div>
+            <div style={{ color: '#EC9F40', fontSize }}>
+              นโยบายความเป็นส่วนตัวของผู้ใช้งาน
+            </div>
+          </a>
         </div>
       )}
-      {phase === 2 && (
-        <div style={{ ...textStyle(), top: 150 * scaleHeight() }}>
+      {phase === 1 && (
+        <div style={{ top: 150 * scaleHeight(), position: 'absolute' }}>
           <span style={{ color: '#EC9F40', fontSize }}>CHUOSE </span>
-          เว็บแอปพลิเคชันที่พัฒนาขึ้น
-          <br />
-          เพื่อเป็นเครื่องมือตรวจหาระดับความคิดฆ่าตัวตาย
-          <br />
-          ของผู้ตกอยู่ในภาวะซึมเศร้า หรือ มีความคิดแง่ลบ
-          <br />
-          ตั้งแต่ระดับเล็กน้อยถึงปานกลาง
-          <br />
-          <br />
-          ชิ้นงานนี้เกิดขึ้นเพื่อช่วยเหลือให้ทุกคน
-          <br />
-          เข้าใจและจัดการความคิดของตนได้
-          <br />
-          <br />
-          หรืออย่างน้อยที่สุด สามารถเป็นส่วนหนึ่งที่ให้ทุกคน
-          <br />
-          ได้ลองหันมาทำความรู้จักและพูดคุยกับ
-          <br />
-          ความคิด ความรู้สึก ของตนเอง
-          <br />
-          <br />
-          <div style={{ color: '#EC9F40', fontSize }}>
-            โปรดใช้เวลาอย่างช้า ๆ
-            <br />
-            เพราะความรู้สึกของคุณนั้นสำคัญ
-            <br />
+          <span style={textStyle()}>เว็บแอปพลิเคชันที่พัฒนาขึ้น</span>
+          <div style={textStyle()}>
+            เพื่อเป็นเครื่องมือตรวจหาระดับความคิดฆ่าตัวตาย
+          </div>
+          <div style={textStyle()}>
+            ของผู้ตกอยู่ในภาวะซึมเศร้า หรือ มีความคิดแง่ลบ
+          </div>
+          <div style={{ ...textStyle(), marginBottom: 20 * scaleHeight() }}>
+            ตั้งแต่ระดับเล็กน้อยถึงปานกลาง
+          </div>
+          <div style={textStyle()}>
+            ชิ้นงานนี้เกิดขึ้นเพื่อช่วยเหลือให้ทุกคน
+          </div>
+          <div style={{ ...textStyle(), marginBottom: 20 * scaleHeight() }}>
+            เข้าใจและจัดการความคิดของตนได้
+          </div>
+          <div style={textStyle()}>
+            หรืออย่างน้อยที่สุด สามารถเป็นส่วนหนึ่งที่ให้ทุกคน
+          </div>
+          <div style={textStyle()}>ได้ลองหันมาทำความรู้จักและพูดคุยกับ</div>
+          <div style={{ ...textStyle(), marginBottom: 20 * scaleHeight() }}>
+            ความคิด ความรู้สึก ของตนเอง
+          </div>
+          <div style={textStyle()}>
+            <div style={{ color: '#EC9F40', fontSize }}>
+              โปรดใช้เวลาอย่างช้า ๆ
+            </div>
+            <div style={{ color: '#EC9F40', fontSize }}>
+              เพราะความรู้สึกของคุณนั้นสำคัญ
+            </div>
           </div>
         </div>
       )}

@@ -45,3 +45,20 @@ export const meanSizeHeight = () => {
 export const onePercentageOfRealHeight = () => {
   return window.innerHeight / 100
 }
+
+export const dbFieldNames = {
+  CUST_USR_NM: 'CUST_USR_NM',
+  CUST_AGE: 'CUST_AGE',
+  CUST_GENDER: 'CUST_GENDER',
+  TEXT_Q1: 'TEXT_Q1',
+  TEXT_Q2: 'TEXT_Q2',
+  LABEL: 'LABEL',
+  APL_ID: 'APL_ID',
+  TEXT_09_10: 'TEXT_09_10',
+  TEXT_09_12: 'TEXT_09_12',
+  TEXT_09_13: 'TEXT_09_13',
+  SELECTED_CARDS: 'SELECTED_CARDS',
+  TEXT_13_11: 'TEXT_13_11',
+  TEXT_14_07: 'TEXT_14_07',
+  TEXT_15_06: 'TEXT_15_06',
+}

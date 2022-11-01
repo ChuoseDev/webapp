@@ -1,39 +1,40 @@
-import { scaleMean } from 'utils/constant'
+import { scaleHeight, scaleMean, scaleWidth } from 'utils/constant'
 
 const LevelCard1_1 = () => {
   const cardStyle = {
     position: 'relative',
-    width: '305px',
-    height: '434px',
+    width: `${scaleWidth() * 305}px`,
+    height: `${scaleHeight() * 434}px`,
     background: '#FFFFFF',
     border: '2px solid #9484F8',
     borderRadius: '29px',
   }
   const charStyle = {
     position: 'absolute',
-    left: '53px',
-    top: '197px',
+    left: `${scaleHeight() * 82}px`,
+    width: `${scaleHeight() * 131}px`,
+    top: `${scaleHeight() * 235}px`,
   }
 
   const circleInnerStyle = {
     position: 'absolute',
-    width: '148.29px',
-    height: '147.43px',
+    width: `${scaleWidth() * 148.29}px`,
+    height: `${scaleHeight() * 147.43}px`,
     borderRadius: '100px',
     opacity: 0.62,
-    left: '78.43px',
-    top: '234.29px',
+    left: `${scaleWidth() * 78.43}px`,
+    top: `${scaleHeight() * 234.29}px`,
     background: '#DBDDFC',
     filter: 'blur(10px)',
   }
 
   const circleOuterStyle = {
     position: 'absolute',
-    width: '192px',
-    height: '192px',
+    width: `${scaleWidth() * 192}px`,
+    height: `${scaleHeight() * 192}px`,
     borderRadius: '100px',
-    left: '57px',
-    top: '212px',
+    left: `${scaleWidth() * 57}px`,
+    top: `${scaleHeight() * 212}px`,
     opacity: 0.7,
     background: '#DBDDFC',
     filter: 'blur(10.5px)',
@@ -41,10 +42,10 @@ const LevelCard1_1 = () => {
 
   const headerStyle = {
     position: 'absolute',
-    width: '221px',
-    height: '76px',
-    left: '42px',
-    top: '64px',
+    width: `${scaleWidth() * 221}px`,
+    height: `${scaleHeight() * 76}px`,
+    left: `${scaleWidth() * 42}px`,
+    top: `${scaleHeight() * 64}px`,
 
     fontFamily: 'Comfortaa',
     fontStyle: 'normal',
@@ -57,10 +58,10 @@ const LevelCard1_1 = () => {
   }
   const infoStyle = {
     position: 'absolute',
-    width: '221px',
-    height: '76px',
-    left: '42px',
-    top: '106px',
+    width: `${scaleWidth() * 221}px`,
+    height: `${scaleHeight() * 76}px`,
+    left: `${scaleWidth() * 42}px`,
+    top: `${scaleHeight() * 106}px`,
 
     fontFamily: 'Comfortaa',
     fontStyle: 'normal',

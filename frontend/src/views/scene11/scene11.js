@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router'
 import { useEffect, useState } from 'react'
 import {
+  dbFieldNames,
   onePercentageOfRealHeight,
   scaleMean,
   SCENE11_SHIFT_TIME,
@@ -30,7 +31,7 @@ const Scene11 = () => {
     position: 'fixed',
     fontSize: 18 * scaleMean(),
     color: '#020202',
-    top: '38vh',
+    top: 38 * onePercentageOfRealHeight(),
     left: '50%',
     transform: 'translate(-50%, -50%)',
     textAlign: 'center',
@@ -260,6 +261,10 @@ const Scene11 = () => {
     }
   }
   const onClickStart = () => {
+    sessionStorage.setItem(
+      dbFieldNames.SELECTED_CARDS,
+      selectedCards.toLocaleString()
+    )
     setTimeout(() => {
       navigate('/scene12')
     }, 1500)

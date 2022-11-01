@@ -185,6 +185,7 @@ const Scene13 = () => {
       })
     }
     if (phase === phaseEnum.secondPhase && scene === 4) {
+      sessionStorage.setItem('TEXT_14_07', feeling)
       navigate('/scene14')
     }
   }, [scene])

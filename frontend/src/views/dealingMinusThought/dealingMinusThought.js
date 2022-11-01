@@ -4,9 +4,27 @@ import { Icon } from '@iconify/react'
 import { useNavigate } from 'react-router'
 import { scaleHeight, scaleMean, scaleWidth } from 'utils/constant'
 
-const EmergencyCall = () => {
+const DealingMinusThought = () => {
   const navigate = useNavigate()
-  const buttonStyle = (top) => {
+  const datas = [
+    {
+      src: 'https://www.youtube.com/watch?v=S77dh45768k',
+      message: 'ฝึกหายใจคลายเครียด',
+    },
+    {
+      src: 'https://www.youtube.com/watch?v=ZgPHetPG4MY',
+      message: 'ฝึกสมาธิ 10 นาที',
+    },
+    {
+      src: 'https://www.youtube.com/watch?v=U8ul-ID3BnU',
+      message: 'ทักษะการแก้ปัญหา',
+    },
+    {
+      src: 'https://thematter.co/social/cognitive-behavioral-therapy/147961',
+      message: 'จิตบำบัดแบบ CBT',
+    },
+  ]
+  const buttonStyle = () => {
     return {
       width: scaleWidth() * 243,
       height: scaleHeight() * 46,
@@ -18,10 +36,8 @@ const EmergencyCall = () => {
       justifyContent: 'center',
       alignItems: 'center',
       color: '#8A7EBE',
-      position: 'absolute',
-      left: scaleWidth() * 73,
-      zIndex: 1,
-      top,
+      margin: '8% auto',
+      textDecoration: 'none',
     }
   }
 
@@ -45,28 +61,31 @@ const EmergencyCall = () => {
       <BottomCloud />
       <BottomCloud bottom={50} />
       <div
-        style={buttonStyle(337 * scaleHeight())}
-        onClick={() => {
-          navigate('/emergency-contact')
+        style={{
+          width: '100%',
+          height: '100%',
+          position: 'absolute',
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
         }}
       >
-        ติดต่อสายด่วน
-      </div>
-      <div
-        style={buttonStyle(399 * scaleHeight())}
-        onClick={() => {
-          navigate('/hospital')
-        }}
-      >
-        ข้อมูลโรงพยาบาล
-      </div>
-      <div
-        style={buttonStyle(461 * scaleHeight())}
-        onClick={() => {
-          navigate('/dealing-minus-thought')
-        }}
-      >
-        วิธีจัดการความคิดลบอัตโนมัติ
+        <div
+          style={{
+            width: '80%',
+            height: '80%',
+            display: 'flex',
+            justifyContent: 'center',
+          }}
+        >
+          <div className="scroller" style={{ width: '100%' }}>
+            {datas.map((data, idx) => (
+              <a key={idx} href={`${data.src}`} style={buttonStyle()}>
+                {data.message}
+              </a>
+            ))}
+          </div>
+        </div>
       </div>
       <div>
         <Icon
@@ -88,4 +107,4 @@ const EmergencyCall = () => {
   )
 }
 
-export default EmergencyCall
+export default DealingMinusThought

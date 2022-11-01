@@ -5,6 +5,7 @@ import {
   ANALYSE_SHIFT_TIME,
   onePercentageOfRealHeight,
   scaleHeight,
+  scaleMean,
   scaleWidth,
   VIEW_CHANGING_DELAY_TIME,
 } from 'utils/constant'
@@ -356,7 +357,7 @@ const Analyse = () => {
           top: 28 * onePercentageOfRealHeight(),
           left: '50%',
           transform: 'translate(-50%, -50%)',
-          'font-size': '18px',
+          fontSize: 18 * scaleMean(),
           width: '80%',
           whiteSpace: 'pre-wrap',
           textAlign: 'center',

@@ -4,6 +4,7 @@ import Star from 'components/star/star'
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router'
 import {
+  dbFieldNames,
   onePercentageOfRealHeight,
   scaleMean,
   SCENE14_SHIFT_TIME,
@@ -195,7 +196,7 @@ const Scene14 = () => {
   }
 
   const goNext = () => {
-    sessionStorage.setItem('USER_SPEECH_TO_THEMSELVES', anything)
+    sessionStorage.setItem(dbFieldNames.TEXT_15_06, anything)
     navigate('/scene15')
   }
 

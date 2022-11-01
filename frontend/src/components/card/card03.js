@@ -1,13 +1,13 @@
 import { useState, useEffect } from 'react'
-import { scaleMean } from 'utils/constant'
+import { scaleHeight, scaleMean, scaleWidth } from 'utils/constant'
 
 const Card03 = ({ onClickFunction }) => {
   const [bgCard, setBgCard] = useState('#FFFFFF')
 
   const cardStyle = {
     position: 'relative',
-    width: '305px',
-    height: '434px',
+    width: `${scaleWidth() * 305}px`,
+    height: `${scaleHeight() * 434}px`,
     background: bgCard,
     border: '2px solid #D0675E',
     borderRadius: '29px',
@@ -15,30 +15,30 @@ const Card03 = ({ onClickFunction }) => {
 
   const charStyle = {
     position: 'absolute',
-    width: '144px',
-    height: '133px',
-    left: '81px',
-    top: '275px',
+    left: `${scaleHeight() * 80}px`,
+    width: `${scaleWidth() * 144}px`,
+    height: `${scaleHeight() * 133}px`,
+    top: `${scaleHeight() * 275}px`,
   }
 
   const circleInnerStyle = {
     position: 'absolute',
-    width: '148.29px',
-    height: '147.43px',
+    width: `148.${scaleWidth() * 29}px`,
+    height: `${scaleHeight() * 147.43}px`,
     borderRadius: '100px',
-    left: '78.43px',
-    top: '234.29px',
+    left: `${scaleWidth() * 78.43}px`,
+    top: `${scaleHeight() * 234.29}px`,
     background: '#FFB0A9',
     filter: 'blur(20px)',
   }
 
   const circleOuterStyle = {
     position: 'absolute',
-    width: '192px',
-    height: '192px',
+    width: `${scaleWidth() * 192}px`,
+    height: `${scaleHeight() * 192}px`,
     borderRadius: '100px',
-    left: '57px',
-    top: '212px',
+    left: `${scaleWidth() * 57}px`,
+    top: `${scaleHeight() * 212}px`,
     background: '#FFBBB5',
     filter: 'blur(21px)',
   }
@@ -51,18 +51,18 @@ const Card03 = ({ onClickFunction }) => {
     textAlign: 'left',
     color: '#D0675E',
     position: 'absolute',
-    width: '305px',
-    height: '60px',
-    left: '29px',
-    top: '57px',
+    width: `${scaleWidth() * 305}px`,
+    height: `${scaleHeight() * 60}px`,
+    left: `${scaleWidth() * 29}px`,
+    top: `${scaleHeight() * 57}px`,
   }
 
   const infoStyle = {
     position: 'absolute',
-    width: '251px',
-    height: '101px',
-    left: '29px',
-    top: '151px',
+    width: `${scaleWidth() * 251}px`,
+    height: `${scaleHeight() * 101}px`,
+    left: `${scaleWidth() * 29}px`,
+    top: `${scaleHeight() * 151}px`,
     color: '#D0675E',
     fontFamily: 'Comfortaa',
     fontSize: 12 * scaleMean(),
@@ -74,10 +74,10 @@ const Card03 = ({ onClickFunction }) => {
 
   const cardNumberStyle = {
     position: 'absolute',
-    width: '39px',
-    height: '30px',
-    left: '236px',
-    top: '19px',
+    width: `${scaleWidth() * 39}px`,
+    height: `${scaleHeight() * 30}px`,
+    left: `${scaleWidth() * 236}px`,
+    top: `${scaleHeight() * 19}px`,
     color: '#D0675E',
     fontFamily: 'Comfortaa',
     fontSize: 36 * scaleMean(),
@@ -89,10 +89,10 @@ const Card03 = ({ onClickFunction }) => {
 
   const svgStyle = {
     position: 'absolute',
-    left: '222px',
-    top: '30.18px',
-    height: '25.51px',
-    width: '65.21px',
+    left: `${scaleWidth() * 222}px`,
+    top: `${scaleHeight() * 30.18}px`,
+    height: `${scaleHeight() * 25.51}px`,
+    width: `65.${scaleWidth() * 21}px`,
     transform: 'rotate(-16.72deg)',
   }
 

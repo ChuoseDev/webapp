@@ -1,13 +1,13 @@
 import { useState } from 'react'
-import { scaleMean } from 'utils/constant'
+import { scaleHeight, scaleMean, scaleWidth } from 'utils/constant'
 
 const Card = ({ onClickFunction }) => {
   const [bgCard, setBgCard] = useState('#FFFFFF')
 
   const cardStyle = {
     position: 'relative',
-    width: '305px',
-    height: '434px',
+    width: `${scaleWidth() * 305}px`,
+    height: `${scaleHeight() * 434}px`,
     background: bgCard,
     border: '2px solid #9484F8',
     borderRadius: '29px',
@@ -20,11 +20,11 @@ const Card = ({ onClickFunction }) => {
 
   const circleInnerStyle = {
     position: 'absolute',
-    width: '148.29px',
-    height: '147.43px',
+    width: `148.${scaleWidth() * 29}px`,
+    height: `${scaleHeight() * 147.43}px`,
     borderRadius: '100px',
-    left: '78.43px',
-    top: '234.29px',
+    left: `${scaleWidth() * 78.43}px`,
+    top: `${scaleHeight() * 234.29}px`,
     background: '#9081F8',
     filter: 'blur(20px)',
   }

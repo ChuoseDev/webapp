@@ -10,11 +10,12 @@ import {
   scaleHeight,
   onePercentageOfRealHeight,
   scaleMean,
+  dbFieldNames,
 } from 'utils/constant'
 
 const Level = () => {
-  const level = sessionStorage.getItem('LEVEL')
-    ? parseInt(sessionStorage.getItem('LEVEL'))
+  const level = sessionStorage.getItem(dbFieldNames.LABEL)
+    ? parseInt(sessionStorage.getItem(dbFieldNames.LABEL))
     : 5
 
   const isEmergencyLevel = level === 3 || level === 4

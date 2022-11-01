@@ -3,6 +3,7 @@ import './scene16.css'
 import MiddleCloud from 'components/middleCloud/middleCloud'
 import GlitterStar from 'components/glitterStar/glitterStar'
 import {
+  dbFieldNames,
   onePercentageOfRealHeight,
   scaleHeight,
   scaleMean,
@@ -10,6 +11,7 @@ import {
   SCENE16_SHIFT_TIME,
 } from 'utils/constant'
 import { useNavigate } from 'react-router'
+import { updateData } from 'api/api'
 
 const Scene16 = () => {
   const [scene, setScene] = useState(1)
@@ -18,9 +20,7 @@ const Scene16 = () => {
     top: 58 * onePercentageOfRealHeight(),
   })
   const navigate = useNavigate()
-  const userSpeechToThemselves = sessionStorage.getItem(
-    'USER_SPEECH_TO_THEMSELVES'
-  )
+  const userSpeechToThemselves = sessionStorage.getItem(dbFieldNames.TEXT_15_06)
 
   const mapper = {
     5: {
@@ -149,6 +149,7 @@ const Scene16 = () => {
       })
     }
     if (scene === 26) {
+      updateData().then(() => {})
       navigate('/ending')
     }
   }, [scene])

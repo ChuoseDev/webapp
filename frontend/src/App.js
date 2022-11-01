@@ -27,6 +27,7 @@ import Random from 'views/random/random'
 import Hospital from 'views/hospitalInfo/hospitalDistrict'
 import HospitalInfo from 'views/hospitalInfo/hostpitalInfo'
 import EmergencyCall from 'views/emergencyCall/emergencyCall'
+import DealingMinusThought from 'views/dealingMinusThought/dealingMinusThought'
 
 const App = () => {
   return (
@@ -53,6 +54,11 @@ const App = () => {
             exact
             path="/HospitalInfo/:id"
             element={<HospitalInfo />}
+          ></Route>
+          <Route
+            exact
+            path="/dealing-minus-thought"
+            element={<DealingMinusThought />}
           ></Route>
           <Route
             exact
