@@ -4,6 +4,7 @@ import Star from 'components/star/star'
 import {
   onePercentageOfRealHeight,
   scaleHeight,
+  scaleMean,
   scaleWidth,
   SCENE12_SHIFT_TIME,
 } from 'utils/constant'
@@ -396,7 +397,7 @@ const Scene12 = () => {
             top: 28 * onePercentageOfRealHeight(),
             left: '50%',
             transform: 'translate(-50%, -50%)',
-            'font-size': '18px',
+            fontSize: 18 * scaleMean(),
             textAlign: 'center',
           }}
         >

@@ -30,7 +30,7 @@ const Scene11 = () => {
     position: 'fixed',
     fontSize: 18 * scaleMean(),
     color: '#020202',
-    top: '38vh',
+    top: 38 * onePercentageOfRealHeight(),
     left: '50%',
     transform: 'translate(-50%, -50%)',
     textAlign: 'center',
