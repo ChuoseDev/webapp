@@ -52,6 +52,7 @@ export const dbFieldNames = {
   CUST_GENDER: 'CUST_GENDER',
   TEXT_Q1: 'TEXT_Q1',
   TEXT_Q2: 'TEXT_Q2',
+  LABEL: 'LABEL',
   APL_ID: 'APL_ID',
   TEXT_09_10: 'TEXT_09_10',
   TEXT_09_12: 'TEXT_09_12',

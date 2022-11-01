@@ -19,6 +19,7 @@ export const updateData = () => {
     CUST_GENDER: sessionStorage.getItem(dbFieldNames.CUST_GENDER),
     TEXT_Q1: sessionStorage.getItem(dbFieldNames.TEXT_Q1),
     TEXT_Q2: sessionStorage.getItem(dbFieldNames.TEXT_Q2),
+    LABEL: sessionStorage.getItem(dbFieldNames.LABEL),
     APL_ID: sessionStorage.getItem(dbFieldNames.APL_ID),
     TEXT_09_10: sessionStorage.getItem(dbFieldNames.TEXT_09_10),
     TEXT_09_12: sessionStorage.getItem(dbFieldNames.TEXT_09_12),

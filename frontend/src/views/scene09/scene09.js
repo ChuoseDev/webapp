@@ -391,7 +391,8 @@ const Scene09 = () => {
     getPrediction()
       .then((res) => {
         const { data } = res
-        sessionStorage.setItem('LEVEL', data.label)
+        sessionStorage.setItem(dbFieldNames.LABEL, data.label)
+        sessionStorage.setItem(dbFieldNames.APL_ID, data.apl_id)
       })
       .catch((_) => {})
     setTimeout(() => {
