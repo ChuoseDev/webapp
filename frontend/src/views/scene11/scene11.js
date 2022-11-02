@@ -145,7 +145,7 @@ const Scene11 = () => {
       },
     },
     15: {
-      messageInCloud: sessionStorage.getItem('TEXT_Q2'),
+      messageInCloud: sessionStorage.getItem(dbFieldNames.TEXT_Q2),
     },
     16: {
       messageInCloud: '',
@@ -154,7 +154,7 @@ const Scene11 = () => {
       },
     },
     17: {
-      messageInCloud: sessionStorage.getItem('TEXT_Q3'),
+      messageInCloud: sessionStorage.getItem(dbFieldNames.TEXT_09_10),
       messageInCloudStyle: {
         opacity: 1,
       },
