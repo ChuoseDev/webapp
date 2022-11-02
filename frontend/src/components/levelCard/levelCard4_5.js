@@ -1,4 +1,4 @@
-import { scaleHeight, scaleMean, scaleWidth } from 'utils/constant'
+import { leftOffset, scaleHeight, scaleMean, scaleWidth } from 'utils/constant'
 
 const LevelCard4_5 = () => {
   const cardStyle = {
@@ -11,8 +11,8 @@ const LevelCard4_5 = () => {
   }
   const charStyle = {
     position: 'absolute',
-    left: `${scaleHeight() * 82}px`,
-    width: `${scaleHeight() * 131}px`,
+    left: `${scaleHeight() * 82 + leftOffset()}px`,
+    width: `${scaleWidth() * 131}px`,
     top: `${scaleHeight() * 235}px`,
   }
 

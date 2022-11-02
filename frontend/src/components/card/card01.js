@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { scaleHeight, scaleMean, scaleWidth } from 'utils/constant'
+import { scaleHeight, scaleMean, scaleWidth, leftOffset } from 'utils/constant'
 
 const Card01 = ({ onClickFunction }) => {
   const [bgCard, setBgCard] = useState('#FFFFFF')
@@ -15,8 +15,8 @@ const Card01 = ({ onClickFunction }) => {
   }
   const charStyle = {
     position: 'absolute',
-    left: `${scaleHeight() * 80}px`,
-    width: `${scaleHeight() * 131}px`,
+    left: `${scaleHeight() * 90 + leftOffset()}px`,
+    width: `${scaleHeight() * 100}px`,
     top: `${scaleHeight() * 289}px`,
   }
 

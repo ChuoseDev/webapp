@@ -66,7 +66,7 @@ const Random = () => {
       setScene((scene) => scene + 1)
     }, SCENE14_SHIFT_TIME)
 
-    setScene(2)
+    setRandomNumber(Math.floor(Math.random() * 8) + 1)
 
     return () => {
       clearInterval(sceneShifter)
@@ -75,7 +75,6 @@ const Random = () => {
 
   const onClickRandomCard = () => {
     setPhase(phaseEnum.secondPhase)
-    setRandomNumber(Math.floor(Math.random() * 8) + 1)
     setTimeout(() => {
       setPhase(phaseEnum.thirdPhase)
     }, 1000)
@@ -152,7 +151,12 @@ const Random = () => {
                   color: '#425F83',
                 }}
               >
-                ขอบคุณที่อยู่ด้วยกันนะ
+                <a
+                  href="https://forms.gle/g1QVUmtBSkELvfQY7"
+                  style={{ textDecoration: 'none' }}
+                >
+                  ขอบคุณที่อยู่ด้วยกันนะ
+                </a>
               </p>
             }
           />

@@ -12,13 +12,13 @@ const Scene07 = () => {
   useEffect(() => {
     setTimeout(() => {
       setScene(2)
-    }, 1000)
-    setTimeout(() => {
-      setScene(3)
     }, 2000)
     setTimeout(() => {
+      setScene(3)
+    }, 4000)
+    setTimeout(() => {
       setScene(4)
-    }, 3000)
+    }, 6000)
   }, [])
 
   useEffect(() => {

@@ -46,6 +46,10 @@ export const onePercentageOfRealHeight = () => {
   return window.innerHeight / 100
 }
 
+export const leftOffset = () => {
+  return (scaleWidth() - scaleHeight()) * 100
+}
+
 export const dbFieldNames = {
   CUST_USR_NM: 'CUST_USR_NM',
   CUST_AGE: 'CUST_AGE',

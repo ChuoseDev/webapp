@@ -74,7 +74,7 @@ const Consent = () => {
       <TopCloud top={50} />
       <BottomCloud />
       <BottomCloud bottom={50} />
-      {phase === 2 && (
+      {phase === 1 && (
         <div style={{ top: `${200 * scaleHeight()}px`, position: 'absolute' }}>
           <div>
             <span style={textStyle()}>ชิ้นงานนี้เป็นส่วนหนึ่งของ</span>
@@ -105,7 +105,7 @@ const Consent = () => {
           </a>
         </div>
       )}
-      {phase === 1 && (
+      {phase === 2 && (
         <div style={{ top: 150 * scaleHeight(), position: 'absolute' }}>
           <span style={{ color: '#EC9F40', fontSize }}>CHUOSE </span>
           <span style={textStyle()}>เว็บแอปพลิเคชันที่พัฒนาขึ้น</span>
