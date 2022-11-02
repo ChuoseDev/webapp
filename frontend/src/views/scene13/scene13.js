@@ -222,7 +222,7 @@ const Scene13 = () => {
   const messageStyle = (scene) => {
     return {
       position: 'absolute',
-      top: 232 * scaleHeight(),
+      top: 200 * scaleHeight(),
       fontSize: 18 * scaleMean(),
       width: '100%',
       color: 'black',
@@ -241,6 +241,7 @@ const Scene13 = () => {
       boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
       border: '1px solid',
       zIndex: 5,
+      fontSize: 18 * scaleMean(),
     }
   }
   return (
