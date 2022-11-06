@@ -61,7 +61,7 @@ const Card03 = ({ onClickFunction }) => {
     width: `${scaleWidth() * 251}px`,
     height: `${scaleHeight() * 101}px`,
     left: `${scaleWidth() * 29}px`,
-    top: `${scaleHeight() * 151}px`,
+    top: `${scaleHeight() * 170}px`,
     color: '#D0675E',
     fontFamily: 'Comfortaa',
     fontSize: 12 * scaleMean(),
