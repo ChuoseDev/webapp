@@ -108,7 +108,7 @@ const Scene14 = () => {
         },
       },
       17: {
-        message: '“ก็นับเป็นก้าวใหญ่มากเลยนะที่จะพาเธออกไปจากตรงนี้"',
+        message: '“ก็นับเป็นก้าวใหญ่มากเลยนะที่จะพาเธอออกไปจากตรงนี้"',
         characterStyle: {
           position: 'absolute',
           top: 300 * scaleHeight(),
