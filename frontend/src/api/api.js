@@ -9,7 +9,7 @@ export const getPrediction = () => {
     TEXT_Q1: sessionStorage.getItem(dbFieldNames.TEXT_Q1),
     TEXT_Q2: sessionStorage.getItem(dbFieldNames.TEXT_Q2),
   }
-  return axios.post(`http://52.221.253.134:5000/`, body)
+  return axios.post(`http://18.138.186.249:5000/`, body)
 }
 
 export const updateData = () => {
@@ -29,5 +29,5 @@ export const updateData = () => {
     TEXT_14_07: sessionStorage.getItem(dbFieldNames.TEXT_14_07),
     TEXT_15_06: sessionStorage.getItem(dbFieldNames.TEXT_15_06),
   }
-  return axios.post(`http://52.221.253.134:5000/`, body)
+  return axios.post(`http://18.138.186.249:5000/`, body)
 }

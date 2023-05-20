@@ -1,8 +1,22 @@
 import { useState, useEffect } from 'react'
 import { scaleHeight, scaleMean, scaleWidth, leftOffset } from 'utils/constant'
+import {
+  getCardColor,
+  getCardStaticContent,
+  getCustomStyle,
+} from './cardSetting'
 
-const Card06 = ({ onClickFunction }) => {
+const Card = ({ index, onClickFunction, color }) => {
+  const [colorPreset, setColorPreset] = useState({})
+  const [staticContent, setStaticContent] = useState({})
+  const [customStyle, setCustomStyle] = useState({})
   const [bgCard, setBgCard] = useState('#FFFFFF')
+
+  useEffect(() => {
+    setColorPreset(getCardColor(color))
+    setStaticContent(getCardStaticContent(index))
+    setCustomStyle(getCustomStyle(index))
+  }, [])
 
   const cardStyle = {
     position: 'relative',
@@ -10,77 +24,78 @@ const Card06 = ({ onClickFunction }) => {
     width: `${scaleWidth() * 305}px`,
     height: `${scaleHeight() * 434}px`,
     background: bgCard,
-    border: '2px solid #16875E',
+    border: colorPreset.cardBorder,
     borderRadius: '29px',
   }
   const charStyle = {
     position: 'absolute',
-    left: `${scaleHeight() * 100 + leftOffset()}px`,
-    width: `${scaleHeight() * 131}px`,
-    top: `${scaleHeight() * 230}px`,
+    left: `${scaleHeight() * 80 + leftOffset()}px`,
+    width: `${scaleHeight() * 130}px`,
+    top: `${scaleHeight() * 250}px`,
   }
 
   const circleInnerStyle = {
     position: 'absolute',
-    width: `148.${scaleWidth() * 29}px`,
     height: `${scaleHeight() * 147.43}px`,
+    width: `${scaleWidth() * 148.29}px`,
     borderRadius: '100px',
     left: `${scaleWidth() * 78.43}px`,
     top: `${scaleHeight() * 234.29}px`,
-    background: '#97EACC',
+    background: colorPreset.circleInner,
     filter: 'blur(20px)',
   }
 
   const circleOuterStyle = {
     position: 'absolute',
-    width: `${scaleWidth() * 192}px`,
     height: `${scaleHeight() * 192}px`,
+    width: `${scaleWidth() * 192}px`,
     borderRadius: '100px',
     left: `${scaleWidth() * 57}px`,
     top: `${scaleHeight() * 212}px`,
-    background: '#B5EFDA',
+    background: colorPreset.circleOuter,
     filter: 'blur(21px)',
   }
 
   const headerStyle = {
     //Font
     fontFamily: 'Comfortaa',
-    fontSize: 24 * scaleMean(),
-    fontWeight: 700,
+    fontSize: 26 * scaleMean(),
     lineHeight: '29px',
     textAlign: 'left',
 
     //Position
     position: 'absolute',
-    width: `${scaleWidth() * 305}px`,
     height: `${scaleHeight() * 60}px`,
-    left: `${scaleWidth() * 29}px`,
-    top: `${scaleHeight() * 45}px`,
-    color: '#16875E',
+    width: `${scaleWidth() * 305}px`,
+    left: `${scaleWidth() * 20}px`,
+    top: `${scaleHeight() * 78}px`,
+    color: colorPreset.themeColor,
+    whiteSpace: 'pre-wrap',
+    ...customStyle.headerStyle,
   }
   const infoStyle = {
     position: 'absolute',
-    width: `${scaleWidth() * 251}px`,
     height: `${scaleHeight() * 101}px`,
-    left: `${scaleWidth() * 29}px`,
+    width: `${scaleWidth() * 265}px`,
+    left: `${scaleWidth() * 20}px`,
     top: `${scaleHeight() * 146}px`,
-    color: '#16875E',
-
+    color: colorPreset.themeColor,
+    whiteSpace: 'pre-wrap',
     fontFamily: 'Comfortaa',
-    fontSize: 10 * scaleMean(),
+    fontSize: 12 * scaleMean(),
     fontWeight: 300,
     lineHeight: '13px',
     textAlign: 'left',
     fontStyle: 'normal',
+    ...customStyle.infoStyle,
   }
   const cardNumberStyle = {
     position: 'absolute',
-    width: `${scaleWidth() * 39}px`,
     height: `${scaleHeight() * 30}px`,
+    width: `${scaleWidth() * 39}px`,
     left: `${scaleWidth() * 236}px`,
     top: `${scaleHeight() * 19}px`,
-    color: '#16875E',
-
+    color: colorPreset.themeColor,
     fontFamily: 'Comfortaa',
     fontSize: 36 * scaleMean(),
     fontWeight: 700,
@@ -94,15 +109,15 @@ const Card06 = ({ onClickFunction }) => {
     left: `${scaleWidth() * 222}px`,
     top: `${scaleHeight() * 30.18}px`,
     height: `${scaleHeight() * 25.51}px`,
-    width: `${scaleWidth() * 65.21}px`,
     transform: 'rotate(-16.72deg)',
+    width: `${scaleWidth() * 65.21}px`,
   }
 
   const ellipseStyle = {
     position: 'absolute',
-    border: '1px solid #AEA3F8',
+    border: colorPreset.elipseBorder,
     borderRadius: '100px',
-    stroke: '#93D7BF',
+    stroke: colorPreset.elipseStroke,
     strokeWidth: '1px',
     fill: 'transparent',
     fillOpacity: 0,
@@ -113,11 +128,11 @@ const Card06 = ({ onClickFunction }) => {
       style={cardStyle}
       onClick={() => {
         if (bgCard === '#FFFFFF') {
-          setBgCard('#D6FFF0')
-          onClickFunction(6)
+          setBgCard(colorPreset.bgOnClick)
+          onClickFunction(index)
         } else {
           setBgCard('#FFFFFF')
-          onClickFunction(6, false)
+          onClickFunction(index, false)
         }
       }}
     >
@@ -131,26 +146,21 @@ const Card06 = ({ onClickFunction }) => {
         />
       </svg>
       <div id="cardnumber" style={cardNumberStyle}>
-        06
+        {index < 10 ? '0' : ''}
+        {index}
       </div>
 
-      <div style={headerStyle}>
-        Jumping to {<br />} conclusion
-        {<br />}
-        การอ่านใจผู้อื่น
-      </div>
-      <div style={infoStyle}>
-        การคิดไปเองว่าคนอื่นคิดหรือรู้สึกอะไร ทั้งที่จริงๆแล้วไม่รู้ เช่น
-        ตอนนั้นชูโอ้สพูดแทรกในที่ประชุม ทุกคนต้องคิดว่าชูโอ้ส ไม่มีมารยาทแน่ๆ
-        อาจเป็นการทํานายอนาคต - การเชื่อว่าตัวเองรู้ว่าจะเกิดเหตุการณ์ นั้นๆ
-        ขึ้นอีกในอนาคต แม้ว่าในความเป็นจริงไม่มีใครสามารถรู้ได้ เช่น
-        เรื่องมันจะต้องออกมาเป็น....แน่ๆ
-      </div>
+      <div style={headerStyle}>{staticContent.header}</div>
+      <div style={infoStyle}>{staticContent.text}</div>
       <div id="circleOuter" style={circleOuterStyle}></div>
       <div id="circleInner" style={circleInnerStyle}></div>
-      <img src="images/CharCard06.svg" style={charStyle} />
+      <img
+        src={`images/cards/card_${index}.svg`}
+        style={charStyle}
+        alt={`card_background_image_${index}`}
+      />
     </button>
   )
 }
 
-export default Card06
+export default Card
