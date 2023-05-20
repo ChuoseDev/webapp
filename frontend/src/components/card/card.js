@@ -59,7 +59,7 @@ const Card = ({ index, onClickFunction, color }) => {
   const headerStyle = {
     //Font
     fontFamily: 'Comfortaa',
-    fontSize: 26 * scaleMean(),
+    fontSize: 26 * scaleHeight(),
     lineHeight: '29px',
     textAlign: 'left',
 
@@ -72,6 +72,7 @@ const Card = ({ index, onClickFunction, color }) => {
     color: colorPreset.themeColor,
     whiteSpace: 'pre-wrap',
     ...customStyle.headerStyle,
+    lineHeight: `${26 * scaleHeight() + 1}px`,
   }
   const infoStyle = {
     position: 'absolute',
@@ -84,7 +85,7 @@ const Card = ({ index, onClickFunction, color }) => {
     fontFamily: 'Comfortaa',
     fontSize: 12 * scaleMean(),
     fontWeight: 300,
-    lineHeight: '13px',
+    lineHeight: `${12 * scaleMean() + 1}px`,
     textAlign: 'left',
     fontStyle: 'normal',
     ...customStyle.infoStyle,
